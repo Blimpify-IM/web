@@ -1,0 +1,353 @@
+.pricingContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #ffffff;
+}
+
+.pricingHero {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.15) 0%, rgba(255, 0, 212, 0.15) 100%);
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroContent h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-family);
+  font-weight: 700;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--secondary-light);
+  font-family: var(--font-family);
+}
+
+.pricingToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.toggleLabel {
+  font-size: 1.1rem;
+  color: var(--secondary-light);
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+.saveBadge {
+  position: absolute;
+  top: -20px;
+  right: -40px;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.pricingCard {
+  background: rgba(15, 3, 24, 0.7);
+  border-radius: 10px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pricingCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(132, 0, 255, 0.3);
+  border-color: rgba(255, 0, 212, 0.3);
+}
+
+.pricingCard.featured {
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2) 0%, rgba(255, 0, 212, 0.2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pricingCard.featured:hover {
+  box-shadow: 0 8px 30px rgba(255, 0, 212, 0.4);
+  transform: translateY(-5px);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.cardHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cardHeader h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family);
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.amount.yearly {
+  display: none;
+}
+
+.yearly .amount.monthly {
+  display: none;
+}
+
+.yearly .amount.yearly {
+  display: inline;
+}
+
+.currency {
+  font-size: 1.5rem;
+}
+
+.period {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: normal;
+}
+
+.customPrice {
+  font-size: 1.5rem;
+}
+
+.cardHeader p {
+  color: var(--secondary-light);
+  font-family: var(--font-family);
+}
+
+.cardFeatures {
+  margin-bottom: 2rem;
+}
+
+.cardFeatures ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cardFeatures li {
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-family);
+}
+
+.cardFeatures i {
+  color: #8400ff;
+  margin-right: 0.5rem;
+}
+
+.cardFooter {
+  margin-top: auto;
+}
+
+.ctaButton {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  color: white;
+  border: none;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(132, 0, 255, 0.3);
+}
+
+.pricingFaq {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3rem 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.pricingFaq h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-family);
+  font-weight: 700;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.faqItem {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faqItem h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-family);
+}
+
+.faqItem p {
+  color: var(--secondary-light);
+  font-family: var(--font-family);
+}
+
+@media (max-width: 768px) {
+  .pricingHero {
+    padding: 3rem 1rem;
+  }
+  
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  
+  .pricingGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pricingCard.featured {
+    transform: scale(1);
+  }
+  
+  .pricingCard.featured:hover {
+    transform: translateY(-10px);
+  }
+  
+  .pricingFaq {
+    padding: 2rem 1.5rem;
+  }
+  
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 1.8rem;
+  }
+  
+  .pricingToggle {
+    flex-direction: column;
+  }
+  
+  .pricingCard {
+    padding: 1.5rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+  }
+} 

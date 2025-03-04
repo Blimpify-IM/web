@@ -1,0 +1,246 @@
+.pageContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.pageHero {
+  background: var(--primary-gradient);
+  padding: 4rem 2rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  border-radius: var(--border-radius-md);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-primary);
+}
+
+.pageHero::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--border-radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.pageHero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  border-radius: var(--border-radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.pageGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.pageCard {
+  background-color: var(--background-white);
+  border-radius: var(--border-radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pageCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cardHeader {
+  margin-bottom: 1.5rem;
+}
+
+.cardHeader h2 {
+  font-size: 1.8rem;
+  color: white;
+  font-family: var(--font-family);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.cardHeader p {
+  color: var(--secondary-light);
+  line-height: 1.6;
+}
+
+.cardContent {
+  margin-bottom: 1.5rem;
+}
+
+.cardContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cardContent li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.cardContent li:last-child {
+  border-bottom: none;
+}
+
+.cardContent li svg {
+  margin-right: 0.8rem;
+  color: var(--primary-color);
+  flex-shrink: 0;
+}
+
+.cardFooter {
+  margin-top: auto;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  box-shadow: var(--shadow-sm);
+}
+
+.ctaButton:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.pageFaq {
+  background-color: var(--background-lighter);
+  padding: 3rem 2rem;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 3rem;
+}
+
+.pageFaq h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-family);
+  font-weight: 700;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.faqItem {
+  background-color: var(--background-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faqItem:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.faqItem h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-family: var(--font-family);
+  font-weight: 600;
+}
+
+.faqItem p {
+  color: var(--secondary-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .pageHero {
+    padding: 3rem 1.5rem;
+  }
+  
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+  
+  .pageGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pageFaq {
+    padding: 2rem 1.5rem;
+  }
+  
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  
+  .pageCard {
+    padding: 1.5rem;
+  }
+  
+  .cardHeader h2 {
+    font-size: 1.5rem;
+  }
+  
+  .ctaButton {
+    padding: 0.7rem 1.2rem;
+  }
+} 

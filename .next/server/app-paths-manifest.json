@@ -1,0 +1,8 @@
+{
+  "/creators/success-stories/page": "app/creators/success-stories/page.js",
+  "/features/page": "app/features/page.js",
+  "/pricing/page": "app/pricing/page.js",
+  "/cookies/page": "app/cookies/page.js",
+  "/creators/how-it-works/page": "app/creators/how-it-works/page.js",
+  "/page": "app/page.js"
+}

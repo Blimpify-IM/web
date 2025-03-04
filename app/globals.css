@@ -1,0 +1,178 @@
+:root {
+  /* Färgpalett baserad på lila/mörka färger */
+  --primary-color: #8400ff;
+  --primary-hover: #7000d6;
+  --primary-light: #a64dff;
+  --primary-dark: #6a00cc;
+  --primary-gradient: linear-gradient(135deg, #8400ff, #ff00d4);
+  
+  --secondary-color: #ff00d4;
+  --secondary-light: rgba(255, 255, 255, 0.8);
+  --secondary-dark: #cc00a9;
+  --secondary-lighter: rgba(255, 255, 255, 0.6);
+  
+  --background-dark: rgba(15, 3, 24, 0.95);
+  --background-darker: rgba(10, 2, 16, 0.98);
+  --background-white: rgba(255, 255, 255, 0.95);
+  --background-gradient: linear-gradient(135deg, #070110, #0f0320);
+  
+  --accent-color: #00e5ff;
+  --accent-light: #4dffff;
+  --accent-dark: #00b8cc;
+  --accent-gradient: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  
+  --success-color: #00e676;
+  --error-color: #ff1744;
+  --warning-color: #ffea00;
+  --info-color: #2979ff;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.4);
+  --shadow-primary: 0 6px 12px rgba(132, 0, 255, 0.3);
+  
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 50%;
+  
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 7, 1, 16;
+  --background-end-rgb: 15, 3, 32;
+  
+  --font-family: 'Funnel Display', sans-serif;
+  --font-heading: 'Funnel Display', sans-serif;
+  
+  --card-gradient: linear-gradient(145deg, rgba(30, 10, 40, 0.6) 0%, rgba(15, 3, 24, 0.8) 100%);
+  --card-border: 1px solid rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --button-shadow: 0 4px 10px rgba(132, 0, 255, 0.3);
+  --button-shadow-hover: 0 6px 15px rgba(132, 0, 255, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+}
+
+body {
+  color: white;
+  background: var(--background-gradient);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.dark-theme {
+  background: var(--background-gradient);
+  background-attachment: fixed;
+  color: white;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.main-content {
+  min-height: calc(100vh - 70px - 400px); /* Justerad för header och footer */
+  padding-bottom: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0.5rem;
+  color: white;
+  font-family: var(--font-family);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+button, .button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.primary-button {
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: var(--shadow-primary);
+}
+
+.primary-button:hover {
+  background: linear-gradient(135deg, #7000d6, #e3008c);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(132, 0, 255, 0.4);
+}
+
+.secondary-button {
+  background-color: transparent;
+  color: white;
+  border: 1px solid var(--secondary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.secondary-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+} 

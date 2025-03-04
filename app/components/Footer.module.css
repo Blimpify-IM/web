@@ -1,0 +1,262 @@
+.footer {
+  background: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(132, 0, 255, 0.1);
+  padding: 60px 0 30px;
+  margin-top: auto;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.footerLogo img {
+  height: 40px;
+  width: auto;
+}
+
+.footerDescription {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-family: var(--font-family);
+}
+
+.footerHeading {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-family: var(--font-family);
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerLink {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family);
+}
+
+.footerLink:hover {
+  color: #fff;
+  transform: translateX(5px);
+}
+
+.footerLink i {
+  color: #8400ff;
+  font-size: 1rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.socialLink {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(132, 0, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+}
+
+.socialLink:hover {
+  background: #8400ff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(132, 0, 255, 0.3);
+}
+
+.socialLink i {
+  font-size: 1.2rem;
+}
+
+.footerNewsletter {
+  margin-top: 20px;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletterInput {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 25px;
+  border: 1px solid rgba(132, 0, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: var(--font-family);
+}
+
+.newsletterInput:focus {
+  outline: none;
+  border-color: #8400ff;
+  background: rgba(132, 0, 255, 0.1);
+}
+
+.newsletterButton {
+  padding: 12px 25px;
+  border-radius: 25px;
+  background: #8400ff;
+  color: #fff;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-family);
+}
+
+.newsletterButton:hover {
+  background: #7000d6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(132, 0, 255, 0.3);
+}
+
+.footerBottom {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footerBottomContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-family: var(--font-family);
+}
+
+.footerBottomLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.footerBottomLink {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  font-family: var(--font-family);
+}
+
+.footerBottomLink:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 40px 0 20px;
+  }
+
+  .footerContent {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footerSection {
+    text-align: center;
+    align-items: center;
+  }
+
+  .footerLinks {
+    align-items: center;
+  }
+
+  .newsletterForm {
+    flex-direction: column;
+  }
+
+  .newsletterInput,
+  .newsletterButton {
+    width: 100%;
+  }
+
+  .footerBottomContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footerBottomLinks {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 0 15px;
+  }
+
+  .footerHeading {
+    font-size: 1.1rem;
+  }
+
+  .footerDescription,
+  .footerLink {
+    font-size: 0.9rem;
+  }
+
+  .socialLink {
+    width: 35px;
+    height: 35px;
+  }
+
+  .socialLink i {
+    font-size: 1.1rem;
+  }
+
+  .newsletterInput,
+  .newsletterButton {
+    padding: 10px 15px;
+  }
+} 
