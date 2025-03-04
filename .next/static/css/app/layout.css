@@ -287,21 +287,19 @@
 }
 
 .Navbar_logo__ycYQk {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: white;
   text-decoration: none;
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: var(--font-family);
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
 }
 
 .Navbar_logo__ycYQk:hover {
-  background: linear-gradient(135deg, #ff00d4 0%, #8400ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  transform: scale(1.05);
+}
+
+.Navbar_logoImage__BhoCm {
+  object-fit: contain;
+  height: auto;
 }
 
 .Navbar_spacer__LeUKT {

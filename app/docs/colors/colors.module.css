@@ -1,0 +1,98 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  color: var(--secondary-light);
+}
+
+.heroSection {
+  background: var(--primary-gradient);
+  border-radius: var(--border-radius-lg, 12px);
+  padding: 3rem 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  box-shadow: var(--card-shadow, 0 4px 20px rgba(0, 0, 0, 0.2));
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  margin: 0 0 1rem;
+  color: white;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.content {
+  padding: 2rem 0;
+}
+
+.introduction {
+  margin-bottom: 3rem;
+}
+
+.introduction h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-light);
+}
+
+.introduction p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--secondary-lighter);
+}
+
+.guidelines {
+  margin-top: 4rem;
+  padding: 2rem;
+  background: var(--card-gradient);
+  border-radius: var(--border-radius-lg, 12px);
+  box-shadow: var(--card-shadow, 0 4px 20px rgba(0, 0, 0, 0.2));
+}
+
+.guidelines h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--secondary-light);
+}
+
+.guidelineSection {
+  margin-bottom: 2rem;
+}
+
+.guidelineSection h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-light);
+}
+
+.guidelineSection p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--secondary-lighter);
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
+  
+  .heroContent p {
+    font-size: 1.1rem;
+  }
+  
+  .introduction h2,
+  .guidelines h2 {
+    font-size: 1.8rem;
+  }
+  
+  .guidelineSection h3 {
+    font-size: 1.3rem;
+  }
+} 

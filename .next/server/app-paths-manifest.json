@@ -1,8 +1,14 @@
 {
-  "/creators/success-stories/page": "app/creators/success-stories/page.js",
   "/features/page": "app/features/page.js",
-  "/pricing/page": "app/pricing/page.js",
-  "/cookies/page": "app/cookies/page.js",
+  "/page": "app/page.js",
   "/creators/how-it-works/page": "app/creators/how-it-works/page.js",
-  "/page": "app/page.js"
+  "/creators/success-stories/page": "app/creators/success-stories/page.js",
+  "/pricing/page": "app/pricing/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/creators/resources/page": "app/creators/resources/page.js",
+  "/services/page": "app/services/page.js",
+  "/about/page": "app/about/page.js",
+  "/creators/faq/page": "app/creators/faq/page.js",
+  "/terms/page": "app/terms/page.js",
+  "/faq/page": "app/faq/page.js"
 }

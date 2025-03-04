@@ -1,0 +1,125 @@
+# Blimpify Färgdokumentation
+
+Detta dokument beskriver färgpaletten som används i Blimpify-projektet, med förklaringar om var och hur de olika färgerna används.
+
+## Primära färger
+
+| Variabel | Värde | Användningsområden |
+|----------|-------|-------------------|
+| `--primary-color` | `#8400ff` | Huvudfärg för knappar, länkar, ikoner och betonade element. Används i navigationsflikar, formulärkontroller och CTA-knappar. |
+| `--primary-hover` | `#7000d6` | Hover-tillstånd för primära knappar och interaktiva element. |
+| `--primary-light` | `#a64dff` | Ljusare variant av primärfärgen, används för hover-effekter, ikoner och sekundära element. |
+| `--primary-dark` | `#6a00cc` | Mörkare variant av primärfärgen, används för aktiva tillstånd och skuggor. |
+| `--primary-gradient` | `linear-gradient(135deg, #8400ff, #ff00d4)` | Gradient som används för CTA-knappar, hjältesektioner och viktiga element som behöver sticka ut. |
+
+## Sekundära färger
+
+| Variabel | Värde | Användningsområden |
+|----------|-------|-------------------|
+| `--secondary-color` | `#ff00d4` | Komplementfärg till primärfärgen, används för att skapa kontrast och betona viktiga element. |
+| `--secondary-light` | `rgba(255, 255, 255, 0.8)` | Ljus text och ikoner mot mörk bakgrund. |
+| `--secondary-dark` | `#cc00a9` | Mörkare variant av sekundärfärgen, används för aktiva tillstånd. |
+| `--secondary-lighter` | `rgba(255, 255, 255, 0.6)` | Används för mindre viktig text, undertexter och inaktiva element. |
+
+## Bakgrundsfärger
+
+| Variabel | Värde | Användningsområden |
+|----------|-------|-------------------|
+| `--background-dark` | `rgba(15, 3, 24, 0.95)` | Huvudbakgrundsfärg för mörkt tema, används i header, footer och modaler. |
+| `--background-darker` | `rgba(10, 2, 16, 0.98)` | Mörkare bakgrund för kontrast, används i kort och paneler. |
+| `--background-white` | `rgba(255, 255, 255, 0.95)` | Bakgrund för ljust tema (om implementerat). |
+| `--background-gradient` | `linear-gradient(135deg, #070110, #0f0320)` | Gradient som används för sidans huvudbakgrund. |
+
+## Accentfärger
+
+| Variabel | Värde | Användningsområden |
+|----------|-------|-------------------|
+| `--accent-color` | `#00e5ff` | Används för att betona viktiga element, länkar och ikoner som behöver sticka ut från primär- och sekundärfärgerna. |
+| `--accent-light` | `#4dffff` | Ljusare variant av accentfärgen, används för hover-effekter. |
+| `--accent-dark` | `#00b8cc` | Mörkare variant av accentfärgen, används för aktiva tillstånd. |
+| `--accent-gradient` | `linear-gradient(135deg, #8400ff 0%, #ff00d4 100%)` | Alternativ gradient för betonade element. |
+
+## Statusfärger
+
+| Variabel | Värde | Användningsområden |
+|----------|-------|-------------------|
+| `--success-color` | `#00e676` | Används för att indikera framgång, bekräftelser och slutförda åtgärder. |
+| `--error-color` | `#ff1744` | Används för att indikera fel, varningar och misslyckade åtgärder. |
+| `--warning-color` | `#ffea00` | Används för att indikera varningar och information som kräver uppmärksamhet. |
+| `--info-color` | `#2979ff` | Används för informationsmeddelanden och tips. |
+
+## Skuggor
+
+| Variabel | Värde | Användningsområden |
+|----------|-------|-------------------|
+| `--shadow-sm` | `0 2px 4px rgba(0, 0, 0, 0.2)` | Lätt skugga för mindre element som kort och knappar. |
+| `--shadow-md` | `0 4px 6px rgba(0, 0, 0, 0.3)` | Medium skugga för större element som modaler och paneler. |
+| `--shadow-lg` | `0 10px 20px rgba(0, 0, 0, 0.4)` | Stor skugga för element som behöver sticka ut, som popups och dropdowns. |
+| `--shadow-primary` | `0 6px 12px rgba(132, 0, 255, 0.3)` | Specialskugga för primära knappar och element med primärfärgen. |
+
+## Kortstil
+
+| Variabel | Värde | Användningsområden |
+|----------|-------|-------------------|
+| `--card-gradient` | `linear-gradient(145deg, rgba(30, 10, 40, 0.6) 0%, rgba(15, 3, 24, 0.8) 100%)` | Bakgrundsgradient för kort och paneler. |
+| `--card-border` | `1px solid rgba(255, 255, 255, 0.1)` | Subtil kantlinje för kort och paneler. |
+| `--card-shadow` | `0 4px 20px rgba(0, 0, 0, 0.3)` | Skugga för kort och paneler. |
+
+## Knappstil
+
+| Variabel | Värde | Användningsområden |
+|----------|-------|-------------------|
+| `--button-shadow` | `0 4px 10px rgba(132, 0, 255, 0.3)` | Skugga för knappar i normalt tillstånd. |
+| `--button-shadow-hover` | `0 6px 15px rgba(132, 0, 255, 0.5)` | Skugga för knappar i hover-tillstånd. |
+
+## Användning på specifika sidor
+
+### Startsida
+- Hjältesektion: `--primary-gradient` för bakgrund, `--secondary-light` för text
+- Funktionskort: `--card-gradient` för bakgrund, `--primary-color` för ikoner
+- CTA-knappar: `--primary-gradient` för primära knappar, transparent med `--secondary-light` border för sekundära knappar
+
+### Användarvillkor & Integritetspolicy
+- Hjältesektion: Gradient med `rgba(132, 0, 255, 0.15)` och `rgba(255, 0, 212, 0.15)`
+- Rubriker: `--primary-gradient` med text-fill-color: transparent
+- Innehållsförteckning: `--secondary-light` för länkar, vit färg för hover-tillstånd
+
+### Cookies-sida
+- Liknande stil som Användarvillkor och Integritetspolicy
+- Cookie-kategorier: `--card-gradient` för bakgrund, `--primary-color` för ikoner
+
+### Kontaktsida
+- Formulärelement: `--primary-color` för fokustillstånd
+- Kontaktikoner: `--accent-color`
+- Skicka-knapp: `--primary-gradient`
+
+### Skaparsidor
+- Stegikoner: `--primary-color`
+- Funktionskort: `--card-gradient` för bakgrund, `--primary-light` för ikoner
+- Framgångshistorier: `--card-gradient` för bakgrund, `--accent-color` för citat
+
+### Navbar & Footer
+- Navbar: `--background-dark` för bakgrund
+- Aktiva länkar: `--primary-color`
+- Dropdown-menyer: `--background-darker` för bakgrund, `--primary-light` för hover-tillstånd
+- Footer: `--background-dark` för bakgrund, `--secondary-lighter` för text
+
+### Modaler
+- Bakgrund: `--background-dark`
+- Knappar: `--primary-gradient` för primära åtgärder, transparent med `--secondary-light` border för sekundära åtgärder
+- Stängknapp: `--secondary-light`, `--primary-light` för hover
+
+## Tillgänglighet
+
+För att säkerställa god tillgänglighet:
+- Text på mörk bakgrund använder minst `--secondary-light` (rgba(255, 255, 255, 0.8)) för att uppnå tillräcklig kontrast
+- Interaktiva element som knappar och länkar har tydliga hover- och fokustillstånd
+- Statusfärger används konsekvent för att förmedla information
+
+## Att tänka på vid utökning
+
+När nya komponenter eller sidor skapas:
+1. Använd befintliga färgvariabler istället för att definiera nya färgkoder
+2. Följ mönstret där primära element använder `--primary-color` eller `--primary-gradient`
+3. Använd `--accent-color` sparsamt för att betona särskilt viktiga element
+4. Håll dig till den etablerade hierarkin där `--primary-color` > `--accent-color` > `--secondary-light` 

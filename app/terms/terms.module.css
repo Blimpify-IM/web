@@ -1,72 +1,235 @@
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1rem;
+  color: white;
 }
 
-.title {
-  font-size: 2.5rem;
+.heroSection {
   text-align: center;
-  margin-bottom: 2rem;
-  font-family: var(--font-family);
-  font-weight: 700;
-  background: var(--accent-gradient);
+  padding: 4rem 1rem;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.15) 0%, rgba(255, 0, 212, 0.15) 100%);
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.heroContent h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-family: var(--font-family);
+  font-weight: 700;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  color: var(--secondary-light);
+  font-family: var(--font-family);
+}
+
+.lastUpdated {
+  font-size: 0.9rem !important;
+  color: var(--secondary-lighter) !important;
+  margin-top: 1rem !important;
+  font-style: italic;
 }
 
 .content {
-  background-color: var(--background-white);
-  border-radius: var(--border-radius-md);
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
   padding: 2rem;
-  box-shadow: var(--shadow-md);
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.section {
-  margin-bottom: 2rem;
+.tableOfContents {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.section h2 {
+.tableOfContents h2 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  color: white;
   font-family: var(--font-family);
   font-weight: 600;
-  background: var(--accent-gradient);
+  background: var(--primary-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  border-bottom: 2px solid var(--primary-color);
+}
+
+.tableOfContents ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tableOfContents li {
+  margin-bottom: 0.8rem;
+}
+
+.tableOfContents a {
+  color: var(--secondary-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.tableOfContents a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  transform: translateX(5px);
+}
+
+.sectionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  margin-bottom: 3rem;
+  scroll-margin-top: 2rem;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 0.5rem;
+  font-family: var(--font-family);
+  font-weight: 600;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .section p {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--secondary-light);
 }
 
 .section ul {
   margin-left: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .section li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--secondary-light);
   line-height: 1.6;
-  color: var(--text-color);
+}
+
+.section a {
+  color: var(--primary-light);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.section a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.contactSection {
+  text-align: center;
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(132, 0, 255, 0.1) 100%);
+  border-radius: 10px;
+  margin-bottom: 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contactSection h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-family);
+  font-weight: 700;
+}
+
+.contactSection p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: var(--secondary-light);
+}
+
+.contactButton {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: var(--primary-gradient);
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 15px rgba(132, 0, 255, 0.3);
+}
+
+.contactButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(132, 0, 255, 0.5);
 }
 
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
+  .content {
+    grid-template-columns: 1fr;
   }
   
-  .title {
+  .tableOfContents {
+    position: static;
+    margin-bottom: 2rem;
+  }
+  
+  .heroSection {
+    padding: 3rem 1rem;
+  }
+  
+  .heroContent h1 {
     font-size: 2rem;
   }
   
-  .content {
-    padding: 1.5rem;
+  .section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .contactSection {
+    padding: 2rem 1rem;
+  }
+  
+  .contactSection h2 {
+    font-size: 1.8rem;
   }
 } 

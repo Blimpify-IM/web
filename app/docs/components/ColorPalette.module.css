@@ -1,0 +1,210 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--secondary-light);
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  color: var(--secondary-lighter);
+}
+
+.colorGroup {
+  margin-bottom: 3rem;
+}
+
+.groupTitle {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.colorCard {
+  display: flex;
+  background: var(--card-gradient);
+  border-radius: var(--border-radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: var(--card-shadow, 0 4px 20px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.colorCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover, 0 8px 30px rgba(0, 0, 0, 0.3));
+}
+
+.colorSwatch {
+  width: 100px;
+  min-height: 100%;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.colorSwatch:hover {
+  opacity: 0.8;
+}
+
+.colorInfo {
+  padding: 1rem;
+  flex: 1;
+}
+
+.colorName {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--secondary-light);
+}
+
+.colorVariable {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.colorVariable:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.colorValue {
+  font-size: 0.9rem;
+  color: var(--secondary-lighter);
+  margin-bottom: 0.5rem;
+}
+
+.colorDescription {
+  font-size: 0.9rem;
+  margin: 0;
+  color: var(--secondary-lighter);
+}
+
+.gradientGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.gradientCard {
+  background: var(--card-gradient);
+  border-radius: var(--border-radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: var(--card-shadow, 0 4px 20px rgba(0, 0, 0, 0.2));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gradientCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-shadow-hover, 0 8px 30px rgba(0, 0, 0, 0.3));
+}
+
+.gradientSwatch {
+  height: 120px;
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.gradientSwatch:hover {
+  opacity: 0.8;
+}
+
+.gradientInfo {
+  padding: 1.5rem;
+}
+
+.gradientName {
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--secondary-light);
+}
+
+.gradientVariable {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.gradientVariable:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.gradientDescription {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0;
+  color: var(--secondary-lighter);
+}
+
+.usageExamples {
+  margin-top: 4rem;
+}
+
+.codeExample {
+  background: var(--card-gradient);
+  border-radius: var(--border-radius-lg, 12px);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.codeExample h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--secondary-light);
+}
+
+.codeExample pre {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.codeExample code {
+  color: var(--secondary-light);
+  font-family: 'Menlo', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .colorGrid, .gradientGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .colorCard {
+    flex-direction: column;
+  }
+  
+  .colorSwatch {
+    width: 100%;
+    height: 80px;
+  }
+} 

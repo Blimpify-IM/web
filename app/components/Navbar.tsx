@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import styles from './Navbar.module.css'
 
@@ -41,7 +42,15 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          Blimpify
+          <Image 
+            src="/images/simons.png" 
+            alt="Simons logo" 
+            width={120} 
+            height={40} 
+            priority
+            style={{ height: "auto" }}
+            className={styles.logoImage}
+          />
         </Link>
 
         <div className={styles.spacer}></div>
