@@ -5,74 +5,72 @@
   color: white;
 }
 
+/* Hero Section */
 .heroSection {
+  padding: 4rem 2rem;
+  margin-bottom: 4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.heroContent {
   text-align: center;
-  padding: 4rem 1rem;
-  background: linear-gradient(135deg, rgba(132, 0, 255, 0.15) 0%, rgba(255, 0, 212, 0.15) 100%);
-  border-radius: 10px;
-  margin-bottom: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .heroContent h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  background: var(--primary-gradient);
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #8400ff, #ff00d4);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: var(--font-family);
   font-weight: 700;
 }
 
 .heroContent p {
   font-size: 1.2rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 auto;
   max-width: 600px;
-  margin: 0 auto 1rem;
-  color: var(--secondary-light);
-  font-family: var(--font-family);
 }
 
 .lastUpdated {
   font-size: 0.9rem !important;
-  color: var(--secondary-lighter) !important;
-  margin-top: 1rem !important;
-  font-style: italic;
+  color: rgba(255, 255, 255, 0.5) !important;
+  margin-top: 1.5rem !important;
 }
 
+/* Content Section */
 .content {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 10px;
-  padding: 2rem;
-  margin-bottom: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  grid-template-columns: 250px 1fr;
+  gap: 3rem;
 }
 
 .tableOfContents {
   position: sticky;
-  top: 2rem;
-  align-self: start;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  top: 80px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: fit-content;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  z-index: 10;
 }
 
 .tableOfContents h2 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: white;
-  font-family: var(--font-family);
   font-weight: 600;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .tableOfContents ul {
@@ -82,172 +80,283 @@
 }
 
 .tableOfContents li {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
 }
 
 .tableOfContents a {
-  color: var(--secondary-light);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: block;
-  padding: 0.5rem;
-  border-radius: 4px;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
 }
 
 .tableOfContents a:hover {
-  background: rgba(255, 255, 255, 0.05);
   color: white;
-  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tableOfContents a.active {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  border-left: 2px solid #ff00d4;
+  position: relative;
+}
+
+.tableOfContents a.active::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #ff00d4;
+  border-radius: 50%;
 }
 
 .sectionsContainer {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .section {
-  margin-bottom: 1rem;
-  scroll-margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  scroll-margin-top: 100px;
 }
 
-.section:last-child {
-  margin-bottom: 0;
+.section:target {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(255, 0, 212, 0.1);
+}
+
+.section:hover {
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .section h2 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   color: white;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 0.5rem;
-  font-family: var(--font-family);
   font-weight: 600;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .section p {
-  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
-  color: var(--secondary-light);
+  margin-bottom: 1.5rem;
 }
 
 .section ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .section li {
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.8rem;
-  color: var(--secondary-light);
-  line-height: 1.6;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.section li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 4px;
+  height: 4px;
+  background: #ff00d4;
+  border-radius: 50%;
 }
 
 .section a {
-  color: var(--primary-light);
+  color: #ff00d4;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .section a:hover {
-  color: var(--accent-color);
   text-decoration: underline;
 }
 
+.inlineLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #ff00d4;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin: 0 0.2rem;
+}
+
+.inlineLink:hover {
+  text-decoration: underline;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.inlineLink svg {
+  transition: transform 0.2s ease;
+}
+
+.inlineLink:hover svg {
+  transform: translateX(2px);
+}
+
+/* Contact Section */
 .contactSection {
+  margin-top: 4rem;
   text-align: center;
-  padding: 3rem;
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.1) 0%, rgba(132, 0, 255, 0.1) 100%);
-  border-radius: 10px;
-  margin-bottom: 3rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 3rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
 }
 
 .contactSection h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  background: var(--primary-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: var(--font-family);
-  font-weight: 700;
+  color: white;
+  font-weight: 600;
 }
 
 .contactSection p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
   max-width: 600px;
   margin: 0 auto 2rem;
-  color: var(--secondary-light);
 }
 
 .contactButton {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background: var(--primary-gradient);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
   color: white;
-  border-radius: 30px;
+  border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
   border: none;
-  box-shadow: 0 4px 15px rgba(132, 0, 255, 0.3);
+  font-size: 1rem;
 }
 
 .contactButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(132, 0, 255, 0.5);
+  box-shadow: 0 8px 20px rgba(132, 0, 255, 0.3);
 }
 
-@media (max-width: 768px) {
+.contactButton svg {
+  transition: transform 0.3s ease;
+}
+
+.contactButton:hover svg {
+  transform: translateX(5px);
+}
+
+.contactInfo {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+}
+
+.contactInfo a {
+  color: #ff00d4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactInfo a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
   .content {
     grid-template-columns: 1fr;
   }
-  
+
   .tableOfContents {
-    position: static;
+    position: relative;
+    top: 0;
     margin-bottom: 2rem;
   }
-  
+}
+
+@media (max-width: 768px) {
   .heroSection {
-    padding: 3rem 1rem;
+    padding: 3rem 1.5rem;
   }
-  
+
   .heroContent h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
-  
+
+  .heroContent p {
+    font-size: 1.1rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
   .section h2 {
     font-size: 1.5rem;
   }
-  
-  .contactSection {
-    padding: 2rem 1rem;
-  }
-  
+
   .contactSection h2 {
     font-size: 1.8rem;
   }
 }
 
 @media (max-width: 480px) {
+  .heroSection {
+    padding: 2rem 1rem;
+  }
+
   .heroContent h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
-  
-  .section h2 {
-    font-size: 1.4rem;
+
+  .section {
+    padding: 1.2rem;
   }
-  
-  .tableOfContents a {
-    padding: 0.4rem;
-  }
-  
+
   .contactButton {
-    padding: 0.7rem 1.5rem;
+    width: 100%;
+    justify-content: center;
   }
-} 
+}
+
+/* Anpassar scrollbaren för bättre utseende */
+.tableOfContents::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tableOfContents::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 3px;
+}
+
+.tableOfContents::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.tableOfContents::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

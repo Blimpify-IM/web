@@ -1,0 +1,23 @@
+# Byggmappar
+.next/
+out/
+build/
+dist/
+
+# Pakethanterare
+node_modules/
+
+# Publika filer
+public/
+
+# Genererade filer
+*.generated.*
+coverage/
+
+# AWS-relaterade filer
+.elasticbeanstalk/
+.ebextensions/
+
+# Miljövariabler
+.env*
+!.env.example 

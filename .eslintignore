@@ -1,0 +1,35 @@
+# Byggmappar
+.next/
+out/
+build/
+dist/
+
+# Pakethanterare
+node_modules/
+.pnp/
+.pnp.js
+
+# Konfigurationsfiler
+next.config.js
+next-env.d.ts
+*.config.js
+.eslintrc.js
+
+# Publika filer
+public/
+
+# Cachefiler
+.cache/
+.vercel/
+
+# AWS-relaterade filer
+.elasticbeanstalk/
+.ebextensions/
+
+# Miljövariabler
+.env*
+!.env.example
+
+# Genererade filer
+*.generated.*
+coverage/ 

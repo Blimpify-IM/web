@@ -1,154 +1,291 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
-import styles from './cookies.module.css'
+import React, { useState, useEffect } from 'react';
+import {
+  Shield,
+  Settings,
+  BarChart2,
+  Bell,
+  ChevronDown,
+  ArrowRight,
+  X,
+  Check,
+} from 'react-feather';
 
-// Cookie-kategorier och beskrivningar
+import styles from './cookies.module.css';
+
 const cookieCategories = [
   {
     id: 'essential',
-    title: 'Nödvändiga cookies',
-    description: 'Dessa cookies är nödvändiga för att webbplatsen ska fungera och kan inte stängas av i våra system. De sätts vanligtvis endast som svar på åtgärder du gör som motsvarar en begäran om tjänster, såsom att ställa in dina integritetsinställningar, logga in eller fylla i formulär.',
+    title: 'Nödvändiga Cookies',
+    description:
+      'Dessa cookies är avgörande för webbplatsens grundläggande funktioner och kan inte inaktiveras. De används för att säkerställa säkerhet, prestanda och grundläggande funktionalitet.',
     required: true,
-    examples: ['session_id', 'csrf_token', 'auth_cookie']
+    features: [
+      'Säker inloggning och autentisering',
+      'Sessionshantering',
+      'Minnesfunktioner för dina val',
+      'Grundläggande webbplatsfunktioner',
+    ],
+    icon: <Shield className={styles.categoryIcon} size={24} />,
+    color: '#8400ff',
   },
   {
     id: 'functional',
-    title: 'Funktionella cookies',
-    description: 'Dessa cookies gör det möjligt för oss att förbättra funktionaliteten och anpassningen av vår webbplats. De kan ställas in av oss eller av tredjepartsleverantörer vars tjänster vi har lagt till på våra sidor.',
+    title: 'Funktionella Cookies',
+    description:
+      'Dessa cookies möjliggör förbättrad funktionalitet och personanpassning av din upplevelse på vår webbplats.',
     required: false,
-    examples: ['language_preference', 'theme_preference', 'recently_viewed']
+    features: [
+      'Språkpreferenser',
+      'Temaval och utseende',
+      'Personliga inställningar',
+      'Förbättrad användarvänlighet',
+    ],
+    icon: <Settings className={styles.categoryIcon} size={24} />,
+    color: '#ff00d4',
   },
   {
     id: 'analytics',
-    title: 'Analys-cookies',
-    description: 'Dessa cookies hjälper oss att förstå hur besökare interagerar med webbplatsen genom att samla in och rapportera information anonymt. De hjälper oss att förbättra vår webbplats och tjänster.',
+    title: 'Analys Cookies',
+    description:
+      'Dessa cookies hjälper oss förstå hur besökare använder vår webbplats genom anonym datainsamling och analys.',
     required: false,
-    examples: ['google_analytics', 'hotjar', 'page_views']
+    features: ['Användarstatistik', 'Prestandamätning', 'Förbättringsanalys', 'Användarflöden'],
+    icon: <BarChart2 className={styles.categoryIcon} size={24} />,
+    color: '#00e5ff',
   },
   {
     id: 'marketing',
-    title: 'Marknadsföringscookies',
-    description: 'Dessa cookies används för att spåra besökare på webbplatser. Avsikten är att visa annonser som är relevanta och engagerande för den enskilda användaren och därmed mer värdefulla för utgivare och tredjepartsannonsörer.',
+    title: 'Marknadsföring Cookies',
+    description:
+      'Dessa cookies används för att leverera mer relevant innehåll och annonser baserat på dina intressen.',
     required: false,
-    examples: ['facebook_pixel', 'google_ads', 'retargeting_cookie']
-  }
+    features: [
+      'Riktad marknadsföring',
+      'Personliga erbjudanden',
+      'Annonspreferenser',
+      'Kampanjspårning',
+    ],
+    icon: <Bell className={styles.categoryIcon} size={24} />,
+    color: '#00e676',
+  },
 ];
 
-export default function Cookies() {
+export default function CookiePolicy() {
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
-  
+  const [preferences, setPreferences] = useState<Record<string, boolean>>({
+    essential: true,
+    functional: false,
+    analytics: false,
+    marketing: false,
+  });
+  const [showPreferences, setShowPreferences] = useState(false);
+
   const toggleCategory = (categoryId: string) => {
-    if (expandedCategory === categoryId) {
-      setExpandedCategory(null);
-    } else {
-      setExpandedCategory(categoryId);
-    }
+    setExpandedCategory(expandedCategory === categoryId ? null : categoryId);
   };
-  
+
+  const togglePreference = (categoryId: string) => {
+    if (categoryId === 'essential') return; // Kan inte ändra nödvändiga cookies
+    setPreferences(prev => ({
+      ...prev,
+      [categoryId]: !prev[categoryId],
+    }));
+  };
+
+  const savePreferences = () => {
+    // Här implementerar du logiken för att spara cookie-preferenser
+    console.log('Sparar preferenser:', preferences);
+    setShowPreferences(false);
+  };
+
+  const acceptAll = () => {
+    setPreferences({
+      essential: true,
+      functional: true,
+      analytics: true,
+      marketing: true,
+    });
+    // Implementera logik för att spara alla preferenser
+  };
+
   return (
     <div className={styles.container}>
-      <section className={styles.heroSection}>
+      {/* Hero Section */}
+      <section className={styles.hero}>
         <div className={styles.heroContent}>
-          <h1>Cookie-policy</h1>
-          <p>Information om hur Blimpify använder cookies och liknande tekniker, och hur du kan hantera dem.</p>
-          <p className={styles.lastUpdated}>Senast uppdaterad: 4 mars 2024</p>
+          <h1>Cookie-inställningar</h1>
+          <p>
+            Vi värnar om din integritet och ger dig kontroll över hur vi använder cookies för att
+            förbättra din upplevelse på Blimpify.
+          </p>
+        </div>
+        <div className={styles.heroVisual}>
+          <div className={styles.visualElement}></div>
         </div>
       </section>
-      
+
+      {/* Main Content */}
       <div className={styles.content}>
-        <section className={styles.section}>
-          <h2>Vad är cookies?</h2>
+        <section className={styles.infoSection}>
+          <h2>Om Cookies på Blimpify</h2>
           <p>
-            Cookies är små textfiler som lagras på din dator, surfplatta eller mobiltelefon när du besöker 
-            vår webbplats. De hjälper oss att förbättra din upplevelse genom att komma ihåg dina preferenser 
-            och ge oss information om hur du använder vår webbplats.
+            Cookies hjälper oss att leverera en bättre och mer personlig upplevelse. De används för
+            att komma ihåg dina preferenser, analysera hur du använder vår tjänst och förbättra våra
+            funktioner.
           </p>
-          <p>
-            Utöver cookies använder vi även liknande tekniker som webblagring (local storage), som fungerar 
-            på liknande sätt men kan lagra mer data och finns kvar även efter att du stängt din webbläsare.
-          </p>
+          <div className={styles.actionButtons}>
+            <button className={styles.primaryButton} onClick={() => setShowPreferences(true)}>
+              Anpassa inställningar
+              <Settings size={18} />
+            </button>
+            <button className={styles.secondaryButton} onClick={acceptAll}>
+              Acceptera alla
+              <Check size={18} />
+            </button>
+          </div>
         </section>
-        
-        <section className={styles.section}>
-          <h2>Vilka cookies använder vi?</h2>
-          <div className={styles.cookieCategories}>
-            {cookieCategories.map((category) => (
-              <div key={category.id} className={styles.cookieCategory}>
-                <div 
-                  className={`${styles.categoryHeader} ${expandedCategory === category.id ? styles.expanded : ''}`}
-                  onClick={() => toggleCategory(category.id)}
-                >
-                  <h3>{category.title}</h3>
-                  <span className={styles.toggleIcon}>
-                    {expandedCategory === category.id ? '−' : '+'}
-                  </span>
-                </div>
-                
-                {expandedCategory === category.id && (
-                  <div className={styles.categoryContent}>
-                    <p>{category.description}</p>
-                    <div className={styles.examplesBox}>
-                      <h4>Exempel på cookies:</h4>
-                      <ul>
-                        {category.examples.map((example, index) => (
-                          <li key={index}><code>{example}</code></li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className={styles.requiredBadge}>
-                      {category.required ? 'Nödvändig' : 'Valfri'}
-                    </div>
+
+        {/* Cookie Categories */}
+        <section className={styles.categoriesSection}>
+          <h2>Cookie-kategorier</h2>
+          <div className={styles.categories}>
+            {cookieCategories.map(category => (
+              <div
+                key={category.id}
+                className={`${styles.category} ${expandedCategory === category.id ? styles.expanded : ''}`}
+                style={{ '--category-color': category.color } as React.CSSProperties}
+              >
+                <div className={styles.categoryHeader} onClick={() => toggleCategory(category.id)}>
+                  <div className={styles.categoryTitle}>
+                    {category.icon}
+                    <h3>{category.title}</h3>
                   </div>
-                )}
+                  <ChevronDown className={styles.expandIcon} size={20} />
+                </div>
+
+                <div className={styles.categoryContent}>
+                  <p>{category.description}</p>
+                  <div className={styles.featuresList}>
+                    <h4>Funktioner:</h4>
+                    <ul>
+                      {category.features.map((feature, index) => (
+                        <li key={index}>
+                          <Check size={16} />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {category.required ? <div className={styles.requiredBadge}>Nödvändig</div> : null}
+                </div>
               </div>
             ))}
           </div>
         </section>
-        
-        <section className={styles.section}>
-          <h2>Hur hanterar jag cookies?</h2>
-          <p>
-            De flesta webbläsare låter dig se vilka cookies du har och radera dem individuellt eller 
-            blockera cookies från specifika eller alla webbplatser. Var medveten om att om du raderar 
-            eller blockerar cookies kan vissa delar av vår webbplats sluta fungera korrekt.
-          </p>
-          <div className={styles.browserLinks}>
-            <h3>Hantera cookies i din webbläsare:</h3>
-            <ul>
-              <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Google Chrome</a></li>
-              <li><a href="https://support.mozilla.org/sv/kb/cookies-information-webbplatser-lagrar-pa-din-dator" target="_blank" rel="noopener noreferrer">Mozilla Firefox</a></li>
-              <li><a href="https://support.apple.com/sv-se/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Safari</a></li>
-              <li><a href="https://support.microsoft.com/sv-se/microsoft-edge/ta-bort-cookies-i-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Microsoft Edge</a></li>
-            </ul>
+
+        {/* Cookie Preferences Modal */}
+        {showPreferences && (
+          <div className={styles.modal}>
+            <div className={styles.modalContent}>
+              <div className={styles.modalHeader}>
+                <h2>Cookie-inställningar</h2>
+                <button className={styles.closeButton} onClick={() => setShowPreferences(false)}>
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className={styles.modalBody}>
+                {cookieCategories.map(category => (
+                  <div key={category.id} className={styles.preferenceItem}>
+                    <div className={styles.preferenceInfo}>
+                      {category.icon}
+                      <div>
+                        <h4>{category.title}</h4>
+                        <p>{category.description}</p>
+                      </div>
+                    </div>
+                    <label className={styles.switch}>
+                      <input
+                        type="checkbox"
+                        checked={preferences[category.id]}
+                        onChange={() => togglePreference(category.id)}
+                        disabled={category.required}
+                      />
+                      <span className={styles.slider}></span>
+                    </label>
+                  </div>
+                ))}
+              </div>
+
+              <div className={styles.modalFooter}>
+                <button
+                  className={styles.secondaryButton}
+                  onClick={() => setShowPreferences(false)}
+                >
+                  Avbryt
+                </button>
+                <button className={styles.primaryButton} onClick={savePreferences}>
+                  Spara inställningar
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Additional Information */}
+        <section className={styles.additionalInfo}>
+          <div className={styles.infoCard}>
+            <h3>Hantera i webbläsaren</h3>
+            <p>
+              Du kan även hantera cookies direkt i din webbläsares inställningar. Här är länkar till
+              instruktioner för de vanligaste webbläsarna:
+            </p>
+            <div className={styles.browserLinks}>
+              <a
+                href="https://support.google.com/chrome/answer/95647"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Chrome <ArrowRight size={16} />
+              </a>
+              <a
+                href="https://support.mozilla.org/sv/kb/cookies-information-webbplatser-lagrar-pa-din-dator"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Firefox <ArrowRight size={16} />
+              </a>
+              <a
+                href="https://support.apple.com/sv-se/guide/safari/sfri11471/mac"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Safari <ArrowRight size={16} />
+              </a>
+              <a
+                href="https://support.microsoft.com/sv-se/microsoft-edge/ta-bort-cookies-i-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Edge <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+
+          <div className={styles.infoCard}>
+            <h3>Frågor?</h3>
+            <p>
+              Om du har frågor om hur vi använder cookies eller andra tekniska frågor, är du
+              välkommen att kontakta vår support.
+            </p>
+            <a href="/contact" className={styles.contactLink}>
+              Kontakta oss <ArrowRight size={16} />
+            </a>
           </div>
         </section>
-        
-        <section className={styles.section}>
-          <h2>Ändringar i vår cookie-policy</h2>
-          <p>
-            Vi kan uppdatera vår cookie-policy från tid till annan. När vi gör det kommer vi att revidera 
-            datumet för "senast uppdaterad" överst på denna sida. Vi uppmuntrar användare att regelbundet 
-            kontrollera denna sida för eventuella ändringar.
-          </p>
-        </section>
       </div>
-      
-      <section className={styles.cookiePreferences}>
-        <h2>Hantera dina cookie-inställningar</h2>
-        <p>Du kan när som helst ändra dina cookie-inställningar för vår webbplats.</p>
-        <button className={styles.preferencesButton} onClick={() => alert('Cookie-inställningar skulle visas här')}>
-          Ändra cookie-inställningar
-        </button>
-      </section>
-      
-      <section className={styles.contactSection}>
-        <h2>Frågor om vår cookie-policy?</h2>
-        <p>Om du har frågor om vår användning av cookies, kontakta oss gärna.</p>
-        <a href="/contact" className={styles.contactButton}>
-          Kontakta oss
-        </a>
-      </section>
     </div>
   );
-} 
+}

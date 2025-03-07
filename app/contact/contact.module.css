@@ -7,7 +7,11 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 2rem 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
 }
 
 .title {
@@ -22,18 +26,137 @@
   -webkit-text-fill-color: transparent;
 }
 
-.contactGrid {
+/* Hero Section */
+.heroSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.15) 0%, rgba(255, 0, 212, 0.15) 100%);
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.heroTag {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2) 0%, rgba(255, 0, 212, 0.2) 100%);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #f0f0f0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.heroContent h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-family);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.gradientText {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.heroContent p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  color: var(--secondary-light);
+  font-family: var(--font-family);
+  line-height: 1.6;
+}
+
+.heroVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroShape1 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.3) 0%, rgba(255, 0, 212, 0.3) 100%);
+  border-radius: 50%;
+  filter: blur(40px);
+  top: 20%;
+  right: 10%;
+  animation: float 6s ease-in-out infinite;
+}
+
+.heroShape2 {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(132, 0, 255, 0.2) 100%);
+  border-radius: 50%;
+  filter: blur(30px);
+  bottom: 20%;
+  right: 30%;
+  animation: float 8s ease-in-out infinite reverse;
+}
+
+.heroShape3 {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(255, 0, 128, 0.2) 0%, rgba(255, 102, 0, 0.2) 100%);
+  border-radius: 50%;
+  filter: blur(20px);
+  top: 40%;
+  right: 40%;
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Contact Section */
+.contactSection {
+  margin-bottom: 2rem;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
 }
 
 .contactInfo {
-  background: var(--card-gradient);
-  border-radius: 12px;
+  background: rgba(15, 3, 24, 0.7);
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: var(--card-shadow);
-  border: var(--card-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: fit-content;
 }
 
 .contactInfo h2 {
@@ -45,7 +168,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid rgba(132, 0, 255, 0.5);
   padding-bottom: 0.5rem;
   display: inline-block;
 }
@@ -54,6 +177,11 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.infoItem:hover {
+  transform: translateY(-5px);
 }
 
 .infoIcon {
@@ -62,10 +190,21 @@
   align-items: center;
   width: 50px;
   height: 50px;
-  background-color: var(--primary-light);
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2) 0%, rgba(255, 0, 212, 0.2) 100%);
   border-radius: 50%;
   margin-right: 1rem;
-  color: var(--primary-color);
+  color: white;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.infoItem:hover .infoIcon {
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.4) 0%, rgba(255, 0, 212, 0.4) 100%);
+  transform: scale(1.1);
+}
+
+.infoContent {
+  flex: 1;
 }
 
 .infoItem h3 {
@@ -82,10 +221,28 @@
   font-family: var(--font-family);
 }
 
+.infoNote {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
 .socialLinks {
+  margin-top: 2.5rem;
+}
+
+.socialLinks h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-family: var(--font-family);
+  font-weight: 600;
+}
+
+.socialIcons {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
 }
 
 .socialIcon {
@@ -94,23 +251,24 @@
   align-items: center;
   width: 40px;
   height: 40px;
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.3) 0%, rgba(255, 0, 212, 0.3) 100%);
   border-radius: 50%;
   color: white;
   transition: all 0.3s ease;
 }
 
 .socialIcon:hover {
-  background-color: var(--primary-hover);
-  transform: translateY(-3px);
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.6) 0%, rgba(255, 0, 212, 0.6) 100%);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(132, 0, 255, 0.3);
 }
 
 .contactForm {
-  background: var(--card-gradient);
-  border-radius: 12px;
+  background: rgba(15, 3, 24, 0.7);
+  border-radius: 16px;
   padding: 2rem;
-  box-shadow: var(--card-shadow);
-  border: var(--card-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .contactForm h2 {
@@ -122,9 +280,16 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid rgba(132, 0, 255, 0.5);
   padding-bottom: 0.5rem;
   display: inline-block;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .formGroup {
@@ -147,7 +312,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.05);
   color: white;
   font-family: var(--font-family);
@@ -156,13 +321,21 @@
 .formGroup input:focus,
 .formGroup textarea:focus {
   outline: none;
-  border-color: var(--primary-color);
+  border-color: rgba(132, 0, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(132, 0, 255, 0.2);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .submitButton {
-  width: 100%;
-  padding: 0.8rem;
-  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -171,20 +344,191 @@
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: var(--font-family);
-  box-shadow: var(--button-shadow);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.submitButton svg {
+  transition: transform 0.3s ease;
 }
 
 .submitButton:hover {
   transform: translateY(-2px);
-  box-shadow: var(--button-shadow-hover);
+  box-shadow: 0 6px 15px rgba(132, 0, 255, 0.4);
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 2rem;
+.submitButton:hover svg {
+  transform: translateX(5px);
+}
+
+/* FAQ Section */
+.faqSection {
+  background: rgba(15, 3, 24, 0.5);
+  padding: 4rem 2rem;
+  border-radius: 16px;
+  margin-bottom: 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-family);
+  font-weight: 700;
+}
+
+.sectionHeader p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--secondary-light);
+  font-family: var(--font-family);
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.faqItem {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.faqItem:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(132, 0, 255, 0.3);
+}
+
+.faqItem h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-family);
+  font-weight: 600;
+}
+
+.faqItem p {
+  color: var(--secondary-light);
+  font-family: var(--font-family);
+  line-height: 1.6;
+}
+
+/* Map Section */
+.mapSection {
+  margin-bottom: 2rem;
+}
+
+.mapContainer {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .heroSection {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
   }
-  
+
+  .heroContent {
+    text-align: center;
+    align-items: center;
+  }
+
+  .heroContent h1 {
+    font-size: 2.2rem;
+  }
+
+  .heroVisual {
+    display: none;
+  }
+
   .contactGrid {
     grid-template-columns: 1fr;
   }
-} 
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 1rem;
+    gap: 3rem;
+  }
+
+  .heroSection {
+    padding: 2.5rem 1rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .heroContent p {
+    font-size: 1rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.8rem;
+  }
+
+  .contactInfo,
+  .contactForm {
+    padding: 1.5rem;
+  }
+
+  .infoIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 1.8rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 1.6rem;
+  }
+
+  .contactInfo h2,
+  .contactForm h2 {
+    font-size: 1.5rem;
+  }
+
+  .infoItem {
+    flex-direction: column;
+  }
+
+  .infoIcon {
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+
+  .submitButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -14,52 +14,52 @@
   --primary-light: #a64dff;
   --primary-dark: #6a00cc;
   --primary-gradient: linear-gradient(135deg, #8400ff, #ff00d4);
-  
+
   /* Sekundära färger */
   --secondary-color: #ff00d4;
   --secondary-light: rgba(255, 255, 255, 0.8);
   --secondary-dark: #cc00a9;
   --secondary-lighter: rgba(255, 255, 255, 0.6);
-  
+
   /* Bakgrundsfärger */
   --background-dark: rgba(15, 3, 24, 0.95);
   --background-darker: rgba(10, 2, 16, 0.98);
   --background-white: rgba(255, 255, 255, 0.95);
   --background-gradient: linear-gradient(135deg, #070110, #0f0320);
-  
+
   /* Accentfärger */
   --accent-color: #00e5ff;
   --accent-light: #4dffff;
   --accent-dark: #00b8cc;
   --accent-gradient: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
-  
+
   /* Statusfärger */
   --success-color: #00e676;
   --error-color: #ff1744;
   --warning-color: #ffea00;
   --info-color: #2979ff;
-  
+
   /* Skuggor */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.4);
   --shadow-primary: 0 6px 12px rgba(132, 0, 255, 0.3);
-  
+
   /* Avrundade hörn */
   --border-radius-sm: 4px;
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --border-radius-full: 50%;
-  
+
   /* Kortstil */
   --card-gradient: linear-gradient(145deg, rgba(30, 10, 40, 0.6) 0%, rgba(15, 3, 24, 0.8) 100%);
   --card-border: 1px solid rgba(255, 255, 255, 0.1);
   --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  
+
   /* Knappstil */
   --button-shadow: 0 4px 10px rgba(132, 0, 255, 0.3);
   --button-shadow-hover: 0 6px 15px rgba(132, 0, 255, 0.5);
-  
+
   /* Hjälpvariabler för RGB-värden */
   --primary-rgb: 132, 0, 255;
   --secondary-rgb: 255, 0, 212;
@@ -87,4 +87,4 @@
  * .my-button:hover {
  *   box-shadow: var(--button-shadow-hover);
  * }
- */ 
+ */

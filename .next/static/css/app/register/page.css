@@ -1,0 +1,388 @@
+/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[11].oneOf[7].use[3]!./app/register/register.module.css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************/
+.register_container__D66an {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: var(--background-darker, rgba(10, 2, 16, 0.98));
+  color: white;
+}
+
+.register_registerWrapper__Ru_EO {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(15, 3, 24, 0.7);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.register_registerCard__VIsYs {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.register_cardHeader___V3cs {
+  margin-bottom: 2.5rem;
+}
+
+.register_cardTag__jkdkA {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba(132, 0, 255, 0.2);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8400ff;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(132, 0, 255, 0.3);
+}
+
+.register_cardHeader___V3cs h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.register_gradientText__xEQbV {
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.register_cardHeader___V3cs p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.register_form__Zumvs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.register_formGroup__oCtQV {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.register_formGroup__oCtQV label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.register_inputWrapper__Wig5D {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.register_inputWrapper__Wig5D svg {
+  position: absolute;
+  left: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.register_inputWrapper__Wig5D input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.register_inputWrapper__Wig5D input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.register_inputWrapper__Wig5D input:focus {
+  outline: none;
+  border-color: rgba(132, 0, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(132, 0, 255, 0.2);
+}
+
+.register_termsCheckbox__8x6Za {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.register_termsCheckbox__8x6Za input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  margin-top: 0.2rem;
+  accent-color: #8400ff;
+  cursor: pointer;
+}
+
+.register_termsCheckbox__8x6Za label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+.register_termsCheckbox__8x6Za a {
+  color: #8400ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.register_termsCheckbox__8x6Za a:hover {
+  color: #ff00d4;
+  text-decoration: underline;
+}
+
+.register_registerButton__v4KV4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(132, 0, 255, 0.3);
+}
+
+.register_registerButton__v4KV4:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(132, 0, 255, 0.4);
+}
+
+.register_registerButton__v4KV4 svg {
+  transition: transform 0.3s ease;
+}
+
+.register_registerButton__v4KV4:hover svg {
+  transform: translateX(5px);
+}
+
+.register_divider__WpG0s {
+  position: relative;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.register_divider__WpG0s::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.register_divider__WpG0s span {
+  position: relative;
+  background: rgba(15, 3, 24, 0.7);
+  padding: 0 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.register_socialLogin__BPdEQ {
+  margin-bottom: 2rem;
+}
+
+.register_socialButton___3ndg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register_socialButton___3ndg:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.register_loginLink__oR9H4 {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.register_loginLink__oR9H4 a {
+  color: #8400ff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.register_loginLink__oR9H4 a:hover {
+  color: #ff00d4;
+  text-decoration: underline;
+}
+
+.register_registerVisual__etuNA {
+  position: relative;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2) 0%, rgba(255, 0, 212, 0.2) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.register_visualContent__jxTPR {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+}
+
+.register_visualContent__jxTPR h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.register_visualContent__jxTPR p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.register_features__VKfHG {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.register_feature__TUdfY {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.register_feature__TUdfY svg {
+  color: #8400ff;
+}
+
+.register_feature__TUdfY span {
+  font-size: 1rem;
+  color: white;
+}
+
+.register_visualShape1__F_Ekk {
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2), rgba(255, 0, 212, 0.2));
+  filter: blur(40px);
+  animation: register_float__FWE8e 6s ease-in-out infinite alternate;
+}
+
+.register_visualShape2__9lVXO {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(132, 0, 255, 0.2));
+  filter: blur(30px);
+  animation: register_float__FWE8e 8s ease-in-out infinite alternate-reverse;
+}
+
+.register_visualShape3__AYk5m {
+  position: absolute;
+  top: 40%;
+  right: 30%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 0, 212, 0.2), rgba(0, 229, 255, 0.2));
+  filter: blur(20px);
+  animation: register_float__FWE8e 7s ease-in-out infinite alternate;
+}
+
+@keyframes register_float__FWE8e {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(10px, 20px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .register_registerWrapper__Ru_EO {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .register_registerVisual__etuNA {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .register_container__D66an {
+    padding: 1rem;
+  }
+
+  .register_registerCard__VIsYs {
+    padding: 2rem;
+  }
+
+  .register_cardHeader___V3cs h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .register_cardHeader___V3cs h1 {
+    font-size: 1.8rem;
+  }
+
+  .register_cardHeader___V3cs p {
+    font-size: 1rem;
+  }
+
+  .register_inputWrapper__Wig5D input {
+    padding: 0.8rem 0.8rem 0.8rem 2.8rem;
+  }
+}
+

@@ -4,30 +4,71 @@
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
-  background-color: #f8f9fa;
+  background-color: var(--background-darker, rgba(10, 2, 16, 0.98));
+  color: white;
+}
+
+.loginWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  background: rgba(15, 3, 24, 0.7);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .loginCard {
-  width: 100%;
-  max-width: 450px;
-  padding: 2.5rem;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.title {
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: #333;
+.cardHeader {
+  margin-bottom: 2.5rem;
+}
+
+.cardTag {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba(132, 0, 255, 0.2);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8400ff;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(132, 0, 255, 0.3);
+}
+
+.cardHeader h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.cardHeader p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
 }
 
 .form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .formGroup {
@@ -39,56 +80,290 @@
 .formGroup label {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #555;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.formGroup input {
-  padding: 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.formGroup input:focus {
-  outline: none;
-  border-color: #0070f3;
-}
-
-.button {
-  margin-top: 1rem;
-  padding: 0.8rem;
-  background-color: #0070f3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #0051a8;
-}
-
-.links {
+.inputWrapper {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
-  margin-top: 2rem;
-  text-align: center;
 }
 
-.link {
-  color: #0070f3;
+.inputWrapper svg {
+  position: absolute;
+  left: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.inputWrapper input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.inputWrapper input:focus {
+  outline: none;
+  border-color: rgba(132, 0, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(132, 0, 255, 0.2);
+}
+
+.forgotPassword {
+  text-align: right;
+  margin-bottom: 0.5rem;
+}
+
+.forgotPassword a {
+  color: #8400ff;
   font-size: 0.9rem;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.link:hover {
-  color: #0051a8;
+.forgotPassword a:hover {
+  color: #ff00d4;
   text-decoration: underline;
-} 
+}
+
+.loginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(132, 0, 255, 0.3);
+}
+
+.loginButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(132, 0, 255, 0.4);
+}
+
+.loginButton svg {
+  transition: transform 0.3s ease;
+}
+
+.loginButton:hover svg {
+  transform: translateX(5px);
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.divider span {
+  position: relative;
+  background: rgba(15, 3, 24, 0.7);
+  padding: 0 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+.socialLogin {
+  margin-bottom: 2rem;
+}
+
+.socialButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.socialButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.registerLink {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.registerLink a {
+  color: #8400ff;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.registerLink a:hover {
+  color: #ff00d4;
+  text-decoration: underline;
+}
+
+.loginVisual {
+  position: relative;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2) 0%, rgba(255, 0, 212, 0.2) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+.visualContent {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+}
+
+.visualContent h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.visualContent p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feature svg {
+  color: #8400ff;
+}
+
+.feature span {
+  font-size: 1rem;
+  color: white;
+}
+
+.visualShape1 {
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2), rgba(255, 0, 212, 0.2));
+  filter: blur(40px);
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+.visualShape2 {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(132, 0, 255, 0.2));
+  filter: blur(30px);
+  animation: float 8s ease-in-out infinite alternate-reverse;
+}
+
+.visualShape3 {
+  position: absolute;
+  top: 40%;
+  right: 30%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 0, 212, 0.2), rgba(0, 229, 255, 0.2));
+  filter: blur(20px);
+  animation: float 7s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(10px, 20px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .loginWrapper {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+
+  .loginVisual {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .loginCard {
+    padding: 2rem;
+  }
+
+  .cardHeader h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardHeader h1 {
+    font-size: 1.8rem;
+  }
+
+  .cardHeader p {
+    font-size: 1rem;
+  }
+
+  .inputWrapper input {
+    padding: 0.8rem 0.8rem 0.8rem 2.8rem;
+  }
+}

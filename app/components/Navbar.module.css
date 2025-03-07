@@ -335,11 +335,11 @@
   .container {
     padding: 0.75rem 1.5rem;
   }
-  
+
   .authButtons {
     display: none;
   }
-  
+
   .megaMenu.active {
     width: 100%;
   }
@@ -349,12 +349,12 @@
   .logo {
     font-size: 1.5rem;
   }
-  
+
   .menuSectionTitle {
     font-size: 1.1rem;
   }
-  
+
   .menuLink {
     font-size: 0.95rem;
   }
-} 
+}

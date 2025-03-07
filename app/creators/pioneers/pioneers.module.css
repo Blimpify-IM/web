@@ -1,0 +1,599 @@
+.creatorsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+/* Hero Section */
+.creatorsHero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.15) 0%, rgba(255, 0, 212, 0.15) 100%);
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 1;
+}
+
+.heroTag {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: rgba(132, 0, 255, 0.2);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(132, 0, 255, 0.3);
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.heroVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroShape1 {
+  position: absolute;
+  top: 10%;
+  right: 20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2), rgba(255, 0, 212, 0.2));
+  filter: blur(40px);
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+.heroShape2 {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(132, 0, 255, 0.2));
+  filter: blur(30px);
+  animation: float 8s ease-in-out infinite alternate-reverse;
+}
+
+.heroShape3 {
+  position: absolute;
+  top: 40%;
+  right: 30%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 0, 212, 0.2), rgba(0, 229, 255, 0.2));
+  filter: blur(20px);
+  animation: float 7s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(10px, 20px);
+  }
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.sectionHeader p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sectionTag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: rgba(132, 0, 255, 0.15);
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #ff00d4;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(255, 0, 212, 0.2);
+}
+
+/* Creator Types Section */
+.creatorTypesSection {
+  margin-bottom: 2rem;
+}
+
+.typesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.typeCard {
+  background: rgba(15, 3, 24, 0.7);
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.typeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.05) 0%, rgba(255, 0, 212, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.typeCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(132, 0, 255, 0.2);
+  border-color: rgba(132, 0, 255, 0.3);
+}
+
+.typeCard:hover::before {
+  opacity: 1;
+}
+
+.typeIcon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.1) 0%, rgba(255, 0, 212, 0.1) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  color: white;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.typeCard:hover .typeIcon {
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2) 0%, rgba(255, 0, 212, 0.2) 100%);
+  transform: scale(1.05);
+}
+
+.typeCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.typeCard p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.typeFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.typeFeatures li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+}
+
+.typeFeatures li svg {
+  margin-right: 0.8rem;
+  color: #ff00d4;
+  flex-shrink: 0;
+}
+
+/* Potential Section */
+.potentialSection {
+  margin-bottom: 2rem;
+}
+
+.potentialGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.potentialCard {
+  background: rgba(15, 3, 24, 0.7);
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.potentialCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.05) 0%, rgba(255, 0, 212, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.potentialCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(132, 0, 255, 0.2);
+  border-color: rgba(132, 0, 255, 0.3);
+}
+
+.potentialCard:hover::before {
+  opacity: 1;
+}
+
+.potentialNumber {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  margin-bottom: 1rem;
+  display: block;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.potentialCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+
+.potentialCard p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Opportunity Section */
+.opportunitySection {
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.15) 0%, rgba(255, 0, 212, 0.15) 100%);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.opportunityContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.opportunityVisual {
+  position: relative;
+  height: 400px;
+}
+
+.opportunityShape1 {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.2), rgba(255, 0, 212, 0.2));
+  filter: blur(50px);
+  animation: float 8s ease-in-out infinite alternate;
+}
+
+.opportunityShape2 {
+  position: absolute;
+  bottom: 10%;
+  right: 20%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(132, 0, 255, 0.2));
+  filter: blur(40px);
+  animation: float 10s ease-in-out infinite alternate-reverse;
+}
+
+.opportunityInfo {
+  z-index: 1;
+}
+
+.opportunityInfo h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.opportunityInfo p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.opportunityList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.opportunityList li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+}
+
+.opportunityList li svg {
+  margin-right: 1rem;
+  color: #ff00d4;
+  flex-shrink: 0;
+}
+
+/* CTA Section */
+.ctaSection {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, rgba(132, 0, 255, 0.1) 0%, rgba(255, 0, 212, 0.1) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ctaSection h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-weight: 700;
+}
+
+.ctaSection p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButtonPrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #8400ff 0%, #ff00d4 100%);
+  color: white;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(132, 0, 255, 0.3);
+}
+
+.ctaButtonPrimary svg {
+  margin-left: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaButtonPrimary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(132, 0, 255, 0.5);
+}
+
+.ctaButtonPrimary:hover svg {
+  transform: translateX(5px);
+}
+
+.ctaButtonSecondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.ctaButtonSecondary svg {
+  margin-left: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ctaButtonSecondary:hover svg {
+  transform: translateX(5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .creatorsHero {
+    grid-template-columns: 1fr;
+    padding: 4rem 1.5rem;
+  }
+
+  .heroContent h1 {
+    font-size: 3rem;
+  }
+
+  .heroVisual {
+    display: none;
+  }
+
+  .opportunityContent {
+    grid-template-columns: 1fr;
+  }
+
+  .opportunityVisual {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .creatorsContainer {
+    gap: 3rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .sectionHeader h2,
+  .opportunityInfo h2,
+  .ctaSection h2 {
+    font-size: 2rem;
+  }
+
+  .typesGrid,
+  .potentialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ctaButtonPrimary,
+  .ctaButtonSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .creatorsContainer {
+    padding: 1rem;
+  }
+
+  .creatorsHero {
+    padding: 3rem 1rem;
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .heroContent p,
+  .sectionHeader p,
+  .opportunityInfo p,
+  .ctaSection p {
+    font-size: 1rem;
+  }
+
+  .typeCard,
+  .potentialCard {
+    padding: 1.5rem;
+  }
+
+  .opportunitySection {
+    padding: 3rem 1rem;
+  }
+
+  .ctaSection {
+    padding: 3rem 1rem;
+  }
+}
