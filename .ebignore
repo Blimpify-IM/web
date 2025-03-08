@@ -3,4 +3,11 @@
 node_modules
 npm-debug.log
 README.md
-.next/cache 
+.next/cache
+.DS_Store
+*.log
+logs/*.log
+.vscode
+.idea
+*.swp
+*.swo 

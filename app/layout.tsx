@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Roboto } from 'next/font/google';
 import React from 'react';
 
@@ -14,6 +14,13 @@ const roboto = Roboto({
   display: 'swap',
   variable: '--font-roboto',
 });
+
+// Definiera viewport-konfiguration separat från metadata
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 // Definiera basmetadata för hela webbplatsen
 export const metadata: Metadata = {
@@ -82,11 +89,6 @@ export const metadata: Metadata = {
     },
   },
   manifest: '/site.webmanifest',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

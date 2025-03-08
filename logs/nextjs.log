@@ -1,0 +1,233 @@
+[2025-03-08T22:38:30.944Z] Starting Next.js in production mode
+[2025-03-08T22:38:30.945Z] Server will listen on port 8080
+[2025-03-08T22:38:30.945Z] Node version: v22.12.0
+[2025-03-08T22:38:30.945Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-08T22:38:30.945Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-08T22:38:30.945Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-08T22:38:31.133Z] Next.js app prepared
+[2025-03-08T22:38:31.135Z] > Server ready on port 8080
+[2025-03-08T22:38:41.148Z] GET / 200 - 7ms
+[2025-03-08T22:40:12.463Z] Starting Next.js in production mode
+[2025-03-08T22:40:12.471Z] Server will listen on port 8080
+[2025-03-08T22:40:12.471Z] Node version: v22.12.0
+[2025-03-08T22:40:12.471Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-08T22:40:12.471Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-08T22:40:12.471Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-08T22:40:12.690Z] Next.js app prepared
+[2025-03-08T22:40:12.693Z] > Server ready on port 8080
+[2025-03-08T22:40:26.862Z] GET / 200 - 7ms
+[2025-03-08T22:42:09.061Z] Starting Next.js in production mode
+[2025-03-08T22:42:09.070Z] Server will listen on port 8080
+[2025-03-08T22:42:09.070Z] Node version: v22.12.0
+[2025-03-08T22:42:09.070Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-08T22:42:09.070Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-08T22:42:09.070Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-08T22:42:09.286Z] Next.js app prepared
+[2025-03-08T22:42:09.289Z] > Server ready on port 8080
+[2025-03-08T22:42:11.579Z] GET / 200 - 9ms
+[2025-03-08T22:42:18.206Z] Handling request: GET /test
+[2025-03-08T22:42:18.301Z] GET /test 404 - 98ms
+[2025-03-08T22:42:18.310Z] GET /media/47cbc4e2adbc5db9-s.p.woff2 200 - 2ms
+[2025-03-08T22:42:18.313Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-08T22:42:18.323Z] GET /chunks/main-app-9039147bd19631df.js 200 - 11ms
+[2025-03-08T22:42:18.334Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 200 - 22ms
+[2025-03-08T22:42:18.335Z] GET /chunks/webpack-7d301ba4be61dc79.js 200 - 23ms
+[2025-03-08T22:42:18.336Z] GET /css/316a8dbb56eb984e.css 200 - 24ms
+[2025-03-08T22:42:18.341Z] GET /chunks/250-73d3750accb6c177.js 200 - 16ms
+[2025-03-08T22:42:18.341Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 19ms
+[2025-03-08T22:42:18.342Z] GET /chunks/547-3b278d0acbb07f97.js 200 - 6ms
+[2025-03-08T22:42:18.342Z] GET /chunks/app/layout-3949135461ee61cd.js 200 - 6ms
+[2025-03-08T22:42:18.342Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 30ms
+[2025-03-08T22:42:18.343Z] GET /site.webmanifest 200 - 1ms
+[2025-03-08T22:42:18.436Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-08T22:42:18.441Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-08T22:42:18.443Z] GET /?_rsc=acgkz 200 - 8ms
+[2025-03-08T22:42:18.447Z] GET /login?_rsc=acgkz 200 - 12ms
+[2025-03-08T22:42:18.447Z] GET /register?_rsc=acgkz 200 - 7ms
+[2025-03-08T22:42:18.450Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 1ms
+[2025-03-08T22:42:18.450Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 1ms
+[2025-03-08T22:42:31.459Z] GET /test.html 200 - 3ms
+[2025-03-08T22:43:48.697Z] Starting Next.js in production mode
+[2025-03-08T22:43:48.704Z] Server will listen on port 8080
+[2025-03-08T22:43:48.704Z] Node version: v22.12.0
+[2025-03-08T22:43:48.704Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-08T22:43:48.704Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-08T22:43:48.705Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-08T22:43:48.914Z] Next.js app prepared
+[2025-03-08T22:43:48.917Z] > Server ready on port 8080
+[2025-03-08T22:44:24.898Z] GET / 304 - 4ms
+[2025-03-08T22:44:29.326Z] GET / 304 - 2ms
+[2025-03-08T22:44:30.260Z] Handling request: GET /landingpage/index.php
+[2025-03-08T22:44:30.362Z] GET /landingpage/index.php 404 - 105ms
+[2025-03-08T22:44:30.383Z] GET /site.webmanifest 304 - 1ms
+[2025-03-08T22:44:30.441Z] GET /?_rsc=acgkz 304 - 1ms
+[2025-03-08T22:44:30.441Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-08T22:44:30.447Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-08T22:44:30.452Z] GET /login?_rsc=acgkz 200 - 11ms
+[2025-03-08T22:44:30.453Z] GET /register?_rsc=acgkz 200 - 6ms
+[2025-03-08T22:44:33.587Z] GET / 200 - 5ms
+[2025-03-08T22:44:37.271Z] GET / 304 - 3ms
+[2025-03-08T22:44:42.972Z] GET / 200 - 4ms
+[2025-03-08T22:44:45.400Z] GET / 304 - 1ms
+[2025-03-08T22:44:46.044Z] Handling request: GET /de
+[2025-03-08T22:44:46.072Z] GET /de 404 - 28ms
+[2025-03-08T22:44:46.076Z] GET /site.webmanifest 304 - 1ms
+[2025-03-08T22:44:46.140Z] GET /?_rsc=acgkz 304 - 1ms
+[2025-03-08T22:44:46.141Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-08T22:44:46.142Z] GET /register?_rsc=acgkz 200 - 2ms
+[2025-03-08T22:44:46.143Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-08T22:44:46.145Z] GET /login?_rsc=acgkz 200 - 2ms
+[2025-03-08T22:44:47.127Z] GET /css/9272200785af8881.css 200 - 5ms
+[2025-03-08T22:44:47.180Z] Handling request: GET /forgot-password?_rsc=7td7r
+[2025-03-08T22:44:47.194Z] GET /forgot-password?_rsc=7td7r 404 - 16ms
+[2025-03-08T22:44:48.106Z] Handling request: GET /register?_rsc=7td7r
+[2025-03-08T22:44:48.113Z] GET /register?_rsc=7td7r 200 - 8ms
+[2025-03-08T22:44:48.258Z] GET /css/cc8c8b9a5f40587a.css 200 - 3ms
+[2025-03-08T22:44:48.309Z] Handling request: GET /terms?_rsc=1t9g6
+[2025-03-08T22:44:48.322Z] Handling request: GET /privacy?_rsc=1t9g6
+[2025-03-08T22:44:48.335Z] GET /privacy?_rsc=1t9g6 200 - 26ms
+[2025-03-08T22:44:48.336Z] GET /terms?_rsc=1t9g6 200 - 28ms
+[2025-03-08T22:44:48.341Z] GET /chunks/app/privacy/page-8a8d0ed8d3dd7c98.js 200 - 4ms
+[2025-03-08T22:44:48.342Z] GET /chunks/app/terms/page-393a9b7062c05427.js 200 - 4ms
+[2025-03-08T22:44:50.540Z] Handling request: GET /about?_rsc=1t9g6
+[2025-03-08T22:44:50.546Z] Handling request: GET /features?_rsc=1t9g6
+[2025-03-08T22:44:50.553Z] Handling request: GET /pricing?_rsc=1t9g6
+[2025-03-08T22:44:50.557Z] Handling request: GET /contact?_rsc=1t9g6
+[2025-03-08T22:44:50.560Z] Handling request: GET /creators/how-it-works?_rsc=1t9g6
+[2025-03-08T22:44:50.572Z] GET /features?_rsc=1t9g6 200 - 33ms
+[2025-03-08T22:44:50.572Z] GET /pricing?_rsc=1t9g6 200 - 33ms
+[2025-03-08T22:44:50.573Z] GET /about?_rsc=1t9g6 200 - 36ms
+[2025-03-08T22:44:50.574Z] GET /contact?_rsc=1t9g6 200 - 17ms
+[2025-03-08T22:44:50.576Z] GET /creators/how-it-works?_rsc=1t9g6 200 - 16ms
+[2025-03-08T22:44:50.578Z] Handling request: GET /creators/resources?_rsc=1t9g6
+[2025-03-08T22:44:50.582Z] Handling request: GET /creators/pioneers?_rsc=1t9g6
+[2025-03-08T22:44:50.587Z] GET /chunks/app/pricing/page-ba31786cb39b45d5.js 200 - 12ms
+[2025-03-08T22:44:50.588Z] GET /chunks/app/features/page-bd6a4e7284b30349.js 200 - 14ms
+[2025-03-08T22:44:50.589Z] GET /chunks/app/about/page-6531191e013873a6.js 200 - 13ms
+[2025-03-08T22:44:50.589Z] Handling request: GET /creators/faq?_rsc=1t9g6
+[2025-03-08T22:44:50.592Z] Handling request: GET /faq?_rsc=1t9g6
+[2025-03-08T22:44:50.595Z] GET /chunks/app/creators/how-it-works/page-5a4b3715aef7293b.js 200 - 14ms
+[2025-03-08T22:44:50.598Z] GET /creators/pioneers?_rsc=1t9g6 200 - 17ms
+[2025-03-08T22:44:50.599Z] GET /creators/resources?_rsc=1t9g6 200 - 21ms
+[2025-03-08T22:44:50.599Z] GET /creators/faq?_rsc=1t9g6 200 - 10ms
+[2025-03-08T22:44:50.602Z] GET /faq?_rsc=1t9g6 200 - 10ms
+[2025-03-08T22:44:50.605Z] GET /chunks/app/creators/pioneers/page-acc4d1e93c08a6ee.js 200 - 3ms
+[2025-03-08T22:44:50.607Z] GET /chunks/app/creators/resources/page-46a7eca0bf0d0679.js 200 - 2ms
+[2025-03-08T22:44:50.608Z] GET /chunks/app/creators/faq/page-de1aeb34d1370fe3.js 200 - 3ms
+[2025-03-08T22:44:50.609Z] GET /chunks/app/faq/page-04a20ef363765ec8.js 200 - 1ms
+[2025-03-08T22:44:50.923Z] GET /?_rsc=1t9g6 200 - 3ms
+[2025-03-08T22:44:51.172Z] GET /css/1ceb8a20da433e5f.css 200 - 3ms
+[2025-03-08T22:44:52.987Z] GET /?_rsc=1658e 200 - 2ms
+[2025-03-08T22:44:53.455Z] GET / 200 - 2ms
+[2025-03-08T22:46:01.625Z] GET / 200 - 4ms
+[2025-03-08T22:46:04.672Z] GET / 304 - 1ms
+[2025-03-08T22:46:05.417Z] Handling request: GET /register
+[2025-03-08T22:46:05.424Z] GET /register 200 - 8ms
+[2025-03-08T22:46:05.564Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-08T22:46:05.583Z] GET /site.webmanifest 304 - 0ms
+[2025-03-08T22:46:05.595Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 304 - 31ms
+[2025-03-08T22:46:05.704Z] GET /?_rsc=1t9g6 304 - 1ms
+[2025-03-08T22:46:05.705Z] Handling request: GET /login?_rsc=1t9g6
+[2025-03-08T22:46:05.707Z] Handling request: GET /register?_rsc=1t9g6
+[2025-03-08T22:46:05.708Z] GET /login?_rsc=1t9g6 200 - 4ms
+[2025-03-08T22:46:05.709Z] Handling request: GET /privacy?_rsc=1t9g6
+[2025-03-08T22:46:05.709Z] GET /privacy?_rsc=1t9g6 200 - 1ms
+[2025-03-08T22:46:05.710Z] GET /register?_rsc=1t9g6 200 - 4ms
+[2025-03-08T22:46:05.710Z] Handling request: GET /terms?_rsc=1t9g6
+[2025-03-08T22:46:05.710Z] GET /terms?_rsc=1t9g6 200 - 2ms
+[2025-03-08T22:46:07.427Z] GET / 304 - 3ms
+[2025-03-08T22:46:10.578Z] GET / 304 - 3ms
+[2025-03-08T22:46:11.630Z] Handling request: GET /nigger
+[2025-03-08T22:46:11.662Z] GET /nigger 404 - 37ms
+[2025-03-08T22:46:11.664Z] GET /site.webmanifest 304 - 0ms
+[2025-03-08T22:46:11.720Z] GET /?_rsc=acgkz 304 - 1ms
+[2025-03-08T22:46:11.720Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-08T22:46:11.722Z] GET /login?_rsc=acgkz 200 - 3ms
+[2025-03-08T22:46:11.722Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-08T22:46:11.723Z] GET /register?_rsc=acgkz 200 - 3ms
+[2025-03-08T22:46:14.660Z] Handling request: GET /nigger
+[2025-03-08T22:46:14.683Z] GET /nigger 404 - 23ms
+[2025-03-08T22:46:14.703Z] GET /site.webmanifest 304 - 1ms
+[2025-03-08T22:46:14.735Z] GET /?_rsc=acgkz 304 - 1ms
+[2025-03-08T22:46:14.735Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-08T22:46:14.737Z] GET /login?_rsc=acgkz 200 - 2ms
+[2025-03-08T22:46:14.738Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-08T22:46:14.739Z] GET /register?_rsc=acgkz 200 - 1ms
+[2025-03-08T22:46:15.859Z] Handling request: GET /docs
+[2025-03-08T22:46:15.887Z] GET /docs 404 - 29ms
+[2025-03-08T22:46:15.891Z] GET /site.webmanifest 304 - 0ms
+[2025-03-08T22:46:15.950Z] GET /?_rsc=acgkz 304 - 0ms
+[2025-03-08T22:46:15.950Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-08T22:46:15.951Z] GET /login?_rsc=acgkz 200 - 1ms
+[2025-03-08T22:46:15.952Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-08T22:46:15.952Z] GET /register?_rsc=acgkz 200 - 1ms
+[2025-03-08T22:46:17.937Z] Handling request: GET /about?_rsc=acgkz
+[2025-03-08T22:46:17.939Z] Handling request: GET /features?_rsc=acgkz
+[2025-03-08T22:46:17.939Z] Handling request: GET /pricing?_rsc=acgkz
+[2025-03-08T22:46:17.941Z] Handling request: GET /contact?_rsc=acgkz
+[2025-03-08T22:46:17.942Z] GET /about?_rsc=acgkz 200 - 6ms
+[2025-03-08T22:46:17.942Z] GET /features?_rsc=acgkz 200 - 5ms
+[2025-03-08T22:46:17.943Z] GET /pricing?_rsc=acgkz 200 - 4ms
+[2025-03-08T22:46:17.943Z] Handling request: GET /creators/how-it-works?_rsc=acgkz
+[2025-03-08T22:46:17.947Z] GET /contact?_rsc=acgkz 200 - 7ms
+[2025-03-08T22:46:17.947Z] Handling request: GET /creators/pioneers?_rsc=acgkz
+[2025-03-08T22:46:17.949Z] GET /creators/how-it-works?_rsc=acgkz 200 - 8ms
+[2025-03-08T22:46:17.951Z] GET /creators/pioneers?_rsc=acgkz 200 - 4ms
+[2025-03-08T22:46:17.951Z] Handling request: GET /creators/resources?_rsc=acgkz
+[2025-03-08T22:46:17.952Z] Handling request: GET /creators/faq?_rsc=acgkz
+[2025-03-08T22:46:17.953Z] GET /creators/resources?_rsc=acgkz 200 - 2ms
+[2025-03-08T22:46:17.953Z] GET /creators/faq?_rsc=acgkz 200 - 2ms
+[2025-03-08T22:46:17.985Z] Handling request: GET /faq?_rsc=acgkz
+[2025-03-08T22:46:17.987Z] GET /faq?_rsc=acgkz 200 - 3ms
+[2025-03-08T22:46:18.018Z] Handling request: GET /terms?_rsc=acgkz
+[2025-03-08T22:46:18.020Z] GET /terms?_rsc=acgkz 200 - 3ms
+[2025-03-08T22:46:18.302Z] Handling request: GET /privacy?_rsc=acgkz
+[2025-03-08T22:46:18.303Z] GET /privacy?_rsc=acgkz 200 - 1ms
+[2025-03-08T22:46:18.318Z] Handling request: GET /cookies?_rsc=acgkz
+[2025-03-08T22:46:18.329Z] GET /cookies?_rsc=acgkz 200 - 11ms
+[2025-03-08T22:46:18.335Z] GET /chunks/app/cookies/page-70b321cabce36773.js 200 - 1ms
+[2025-03-08T22:46:19.380Z] GET /css/894fbceac7b96f6f.css 200 - 3ms
+[2025-03-08T22:46:22.104Z] Handling request: GET /contact?_rsc=5pyuy
+[2025-03-08T22:46:22.105Z] GET /contact?_rsc=5pyuy 200 - 2ms
+[2025-03-08T22:46:22.136Z] Handling request: GET /creators/pioneers?_rsc=5pyuy
+[2025-03-08T22:46:22.137Z] GET /creators/pioneers?_rsc=5pyuy 200 - 2ms
+[2025-03-08T22:46:22.969Z] Handling request: GET /faq?_rsc=5pyuy
+[2025-03-08T22:46:22.973Z] GET /faq?_rsc=5pyuy 200 - 4ms
+[2025-03-08T22:46:23.155Z] Handling request: GET /terms?_rsc=5pyuy
+[2025-03-08T22:46:23.158Z] GET /terms?_rsc=5pyuy 200 - 4ms
+[2025-03-08T22:46:23.474Z] GET /css/48bbec7c0bb09066.css 200 - 2ms
+[2025-03-08T22:46:25.236Z] Handling request: GET /about?_rsc=1nc4r
+[2025-03-08T22:46:25.243Z] GET /about?_rsc=1nc4r 200 - 7ms
+[2025-03-08T22:46:25.271Z] Handling request: GET /features?_rsc=1nc4r
+[2025-03-08T22:46:25.274Z] GET /features?_rsc=1nc4r 200 - 4ms
+[2025-03-08T22:46:25.304Z] Handling request: GET /pricing?_rsc=1nc4r
+[2025-03-08T22:46:25.308Z] GET /pricing?_rsc=1nc4r 200 - 4ms
+[2025-03-08T22:46:25.337Z] Handling request: GET /contact?_rsc=1nc4r
+[2025-03-08T22:46:25.339Z] GET /contact?_rsc=1nc4r 200 - 2ms
+[2025-03-08T22:46:25.804Z] Handling request: GET /creators/how-it-works?_rsc=1nc4r
+[2025-03-08T22:46:25.810Z] GET /creators/how-it-works?_rsc=1nc4r 200 - 7ms
+[2025-03-08T22:46:25.853Z] Handling request: GET /creators/pioneers?_rsc=1nc4r
+[2025-03-08T22:46:25.857Z] GET /creators/pioneers?_rsc=1nc4r 200 - 4ms
+[2025-03-08T22:46:26.637Z] Handling request: GET /creators/resources?_rsc=1nc4r
+[2025-03-08T22:46:26.641Z] GET /creators/resources?_rsc=1nc4r 200 - 5ms
+[2025-03-08T22:46:26.973Z] GET /css/a12b14370dc6cc70.css 200 - 2ms
+[2025-03-08T22:46:28.087Z] GET /?_rsc=fy3rx 200 - 2ms
+[2025-03-08T22:46:28.400Z] GET / 304 - 1ms
+[2025-03-08T22:47:53.919Z] Starting Next.js in production mode
+[2025-03-08T22:47:53.920Z] Server will listen on port 8080
+[2025-03-08T22:47:53.920Z] Node version: v22.12.0
+[2025-03-08T22:47:53.920Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-08T22:47:53.920Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-08T22:47:53.921Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, standalone, static, trace, types
+[2025-03-08T22:47:53.921Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[]},"experimental":{"optimizeCss":false},"output":"standalone"}
+[2025-03-08T22:47:54.047Z] Next.js app prepared
+[2025-03-08T22:47:56.683Z] GET / 200 - 4ms
+[2025-03-08T22:47:59.826Z] Handling request: GET /we
+[2025-03-08T22:47:59.866Z] GET /we 404 - 42ms
+[2025-03-08T22:47:59.880Z] GET /site.webmanifest 304 - 0ms
+[2025-03-08T22:47:59.952Z] GET /?_rsc=acgkz 304 - 1ms
+[2025-03-08T22:47:59.953Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-08T22:47:59.954Z] GET /login?_rsc=acgkz 200 - 1ms
+[2025-03-08T22:47:59.954Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-08T22:47:59.955Z] GET /register?_rsc=acgkz 200 - 2ms
+[2025-03-08T22:48:00.955Z] GET / 304 - 1ms
