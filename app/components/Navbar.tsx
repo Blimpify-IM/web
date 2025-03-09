@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState, useRef, useEffect } from 'react';
@@ -52,14 +51,13 @@ export default function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <Image
+          <img
             src="/images/simons.png"
             alt="Simons logo"
             width={120}
             height={40}
-            priority
-            style={{ height: 'auto' }}
             className={styles.logoImage}
+            style={{ height: 'auto' }}
           />
         </Link>
 

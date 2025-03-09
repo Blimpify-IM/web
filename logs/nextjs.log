@@ -231,3 +231,1086 @@
 [2025-03-08T22:47:59.954Z] Handling request: GET /register?_rsc=acgkz
 [2025-03-08T22:47:59.955Z] GET /register?_rsc=acgkz 200 - 2ms
 [2025-03-08T22:48:00.955Z] GET / 304 - 1ms
+[2025-03-09T08:58:02.643Z] Starting Next.js in production mode
+[2025-03-09T08:58:02.644Z] Server will listen on port 8080
+[2025-03-09T08:58:02.644Z] Node version: v22.12.0
+[2025-03-09T08:58:02.644Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T08:58:02.644Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T08:58:02.644Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T08:58:02.644Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[]},"experimental":{"optimizeCss":true}}
+[2025-03-09T08:58:02.768Z] Next.js app prepared
+[2025-03-09T08:58:02.770Z] > Server ready on port 8080
+[2025-03-09T08:58:09.953Z] GET / 304 - 6ms
+[2025-03-09T08:58:09.959Z] GET /site.webmanifest 304 - 1ms
+[2025-03-09T08:58:31.865Z] Handling request: GET /sefs
+[2025-03-09T08:58:31.948Z] GET /sefs 404 - 85ms
+[2025-03-09T08:58:31.957Z] GET /media/47cbc4e2adbc5db9-s.p.woff2 200 - 4ms
+[2025-03-09T08:58:31.959Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T08:58:31.972Z] GET /chunks/main-app-9039147bd19631df.js 200 - 13ms
+[2025-03-09T08:58:31.983Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 200 - 24ms
+[2025-03-09T08:58:31.986Z] GET /css/e52772ae0a0eb076.css 200 - 16ms
+[2025-03-09T08:58:31.989Z] GET /chunks/webpack-0adb053f2f873a91.js 200 - 18ms
+[2025-03-09T08:58:31.995Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 21ms
+[2025-03-09T08:58:31.996Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 23ms
+[2025-03-09T08:58:31.996Z] GET /chunks/547-3b278d0acbb07f97.js 200 - 9ms
+[2025-03-09T08:58:31.997Z] GET /chunks/app/layout-5de0a8cadef5765d.js 200 - 8ms
+[2025-03-09T08:58:31.998Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 26ms
+[2025-03-09T08:58:32.002Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T08:58:32.154Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T08:58:32.159Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T08:58:32.167Z] GET /?_rsc=acgkz 200 - 14ms
+[2025-03-09T08:58:32.196Z] GET /login?_rsc=acgkz 200 - 43ms
+[2025-03-09T08:58:32.197Z] GET /register?_rsc=acgkz 200 - 43ms
+[2025-03-09T08:58:32.202Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 1ms
+[2025-03-09T08:58:32.204Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 3ms
+[2025-03-09T08:58:33.683Z] GET / 200 - 2ms
+[2025-03-09T08:58:38.509Z] Handling request: GET /sefs
+[2025-03-09T08:58:38.541Z] GET /sefs 404 - 33ms
+[2025-03-09T08:58:38.556Z] GET /css/e52772ae0a0eb076.css 200 - 4ms
+[2025-03-09T08:58:38.561Z] GET /chunks/main-app-9039147bd19631df.js 200 - 5ms
+[2025-03-09T08:58:38.562Z] GET /chunks/app/layout-5de0a8cadef5765d.js 200 - 5ms
+[2025-03-09T08:58:38.563Z] GET /chunks/547-3b278d0acbb07f97.js 200 - 4ms
+[2025-03-09T08:58:38.564Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 6ms
+[2025-03-09T08:58:38.565Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 8ms
+[2025-03-09T08:58:38.566Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T08:58:38.568Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 13ms
+[2025-03-09T08:58:38.643Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T08:58:38.652Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T08:58:38.658Z] GET /?_rsc=acgkz 200 - 16ms
+[2025-03-09T08:58:38.658Z] GET /login?_rsc=acgkz 200 - 16ms
+[2025-03-09T08:58:38.658Z] GET /register?_rsc=acgkz 200 - 15ms
+[2025-03-09T08:58:38.662Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 2ms
+[2025-03-09T08:58:38.662Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 2ms
+[2025-03-09T08:58:39.629Z] GET /css/9272200785af8881.css 200 - 2ms
+[2025-03-09T08:58:39.681Z] Handling request: GET /forgot-password?_rsc=7td7r
+[2025-03-09T08:58:39.688Z] GET /forgot-password?_rsc=7td7r 404 - 8ms
+[2025-03-09T08:58:40.057Z] Handling request: GET /register?_rsc=7td7r
+[2025-03-09T08:58:40.064Z] GET /register?_rsc=7td7r 200 - 8ms
+[2025-03-09T08:58:40.292Z] GET /css/cc8c8b9a5f40587a.css 200 - 2ms
+[2025-03-09T08:58:40.337Z] Handling request: GET /terms?_rsc=1t9g6
+[2025-03-09T08:58:40.341Z] Handling request: GET /privacy?_rsc=1t9g6
+[2025-03-09T08:58:40.370Z] GET /terms?_rsc=1t9g6 200 - 33ms
+[2025-03-09T08:58:40.371Z] GET /privacy?_rsc=1t9g6 200 - 34ms
+[2025-03-09T08:58:40.375Z] GET /chunks/app/terms/page-393a9b7062c05427.js 200 - 2ms
+[2025-03-09T08:58:40.376Z] GET /chunks/app/privacy/page-8a8d0ed8d3dd7c98.js 200 - 2ms
+[2025-03-09T08:58:40.886Z] Handling request: GET /about?_rsc=1t9g6
+[2025-03-09T08:58:40.892Z] Handling request: GET /features?_rsc=1t9g6
+[2025-03-09T08:58:40.905Z] Handling request: GET /pricing?_rsc=1t9g6
+[2025-03-09T08:58:40.909Z] Handling request: GET /contact?_rsc=1t9g6
+[2025-03-09T08:58:40.913Z] Handling request: GET /creators/how-it-works?_rsc=1t9g6
+[2025-03-09T08:58:40.975Z] GET /about?_rsc=1t9g6 200 - 90ms
+[2025-03-09T08:58:40.978Z] GET /features?_rsc=1t9g6 200 - 92ms
+[2025-03-09T08:58:40.980Z] GET /pricing?_rsc=1t9g6 200 - 79ms
+[2025-03-09T08:58:40.981Z] GET /contact?_rsc=1t9g6 200 - 80ms
+[2025-03-09T08:58:40.982Z] Handling request: GET /creators/pioneers?_rsc=1t9g6
+[2025-03-09T08:58:40.984Z] GET /creators/how-it-works?_rsc=1t9g6 200 - 82ms
+[2025-03-09T08:58:40.987Z] Handling request: GET /creators/resources?_rsc=1t9g6
+[2025-03-09T08:58:40.993Z] GET /chunks/app/about/page-6531191e013873a6.js 200 - 14ms
+[2025-03-09T08:58:40.997Z] GET /chunks/app/features/page-bd6a4e7284b30349.js 200 - 13ms
+[2025-03-09T08:58:41.002Z] GET /chunks/app/pricing/page-ba31786cb39b45d5.js 200 - 16ms
+[2025-03-09T08:58:41.002Z] Handling request: GET /creators/faq?_rsc=1t9g6
+[2025-03-09T08:58:41.005Z] GET /chunks/app/creators/how-it-works/page-5a4b3715aef7293b.js 200 - 16ms
+[2025-03-09T08:58:41.006Z] Handling request: GET /faq?_rsc=1t9g6
+[2025-03-09T08:58:41.015Z] GET /creators/pioneers?_rsc=1t9g6 200 - 36ms
+[2025-03-09T08:58:41.020Z] GET /creators/resources?_rsc=1t9g6 200 - 34ms
+[2025-03-09T08:58:41.028Z] GET /chunks/app/creators/pioneers/page-acc4d1e93c08a6ee.js 200 - 11ms
+[2025-03-09T08:58:41.030Z] GET /creators/faq?_rsc=1t9g6 200 - 33ms
+[2025-03-09T08:58:41.032Z] GET /chunks/app/creators/resources/page-46a7eca0bf0d0679.js 200 - 9ms
+[2025-03-09T08:58:41.032Z] GET /faq?_rsc=1t9g6 200 - 28ms
+[2025-03-09T08:58:41.036Z] GET /chunks/app/creators/faq/page-de1aeb34d1370fe3.js 200 - 3ms
+[2025-03-09T08:58:41.036Z] GET /chunks/app/faq/page-04a20ef363765ec8.js 200 - 2ms
+[2025-03-09T08:58:41.882Z] GET /css/a9144040b9f5596b.css 200 - 3ms
+[2025-03-09T08:58:43.056Z] Handling request: GET /about?_rsc=1tame
+[2025-03-09T08:58:43.062Z] GET /about?_rsc=1tame 200 - 6ms
+[2025-03-09T08:58:43.069Z] Handling request: GET /pricing?_rsc=1tame
+[2025-03-09T08:58:43.072Z] GET /pricing?_rsc=1tame 200 - 3ms
+[2025-03-09T08:58:43.099Z] Handling request: GET /creators/how-it-works?_rsc=1tame
+[2025-03-09T08:58:43.102Z] GET /creators/how-it-works?_rsc=1tame 200 - 3ms
+[2025-03-09T08:58:43.373Z] Handling request: GET /cookies?_rsc=1tame
+[2025-03-09T08:58:43.410Z] GET /cookies?_rsc=1tame 200 - 40ms
+[2025-03-09T08:58:43.417Z] GET /chunks/app/cookies/page-70b321cabce36773.js 200 - 2ms
+[2025-03-09T08:58:44.004Z] Handling request: GET /faq?_rsc=1tame
+[2025-03-09T08:58:44.009Z] GET /faq?_rsc=1tame 200 - 6ms
+[2025-03-09T08:58:45.918Z] Handling request: GET /terms?_rsc=1tame
+[2025-03-09T08:58:45.923Z] GET /terms?_rsc=1tame 200 - 5ms
+[2025-03-09T08:58:46.405Z] GET /css/48bbec7c0bb09066.css 200 - 3ms
+[2025-03-09T08:58:48.755Z] Handling request: GET /register?_rsc=1nc4r
+[2025-03-09T08:58:48.759Z] GET /register?_rsc=1nc4r 200 - 6ms
+[2025-03-09T08:58:49.138Z] GET /?_rsc=1nc4r 200 - 3ms
+[2025-03-09T08:58:49.152Z] Handling request: GET /about?_rsc=1nc4r
+[2025-03-09T08:58:49.157Z] GET /about?_rsc=1nc4r 200 - 5ms
+[2025-03-09T08:58:49.168Z] Handling request: GET /pricing?_rsc=1nc4r
+[2025-03-09T08:58:49.170Z] GET /pricing?_rsc=1nc4r 200 - 3ms
+[2025-03-09T08:58:49.217Z] Handling request: GET /creators/resources?_rsc=1nc4r
+[2025-03-09T08:58:49.220Z] GET /creators/resources?_rsc=1nc4r 200 - 3ms
+[2025-03-09T08:58:50.040Z] Handling request: GET /cookies?_rsc=1nc4r
+[2025-03-09T08:58:50.044Z] GET /cookies?_rsc=1nc4r 200 - 4ms
+[2025-03-09T08:58:50.204Z] Handling request: GET /privacy?_rsc=1nc4r
+[2025-03-09T08:58:50.208Z] GET /privacy?_rsc=1nc4r 200 - 4ms
+[2025-03-09T08:58:50.251Z] Handling request: GET /terms?_rsc=1nc4r
+[2025-03-09T08:58:50.256Z] GET /terms?_rsc=1nc4r 200 - 6ms
+[2025-03-09T08:58:50.830Z] GET /css/894fbceac7b96f6f.css 200 - 4ms
+[2025-03-09T08:58:52.387Z] GET /?_rsc=5pyuy 200 - 2ms
+[2025-03-09T08:58:59.907Z] GET / 200 - 2ms
+[2025-03-09T09:03:53.392Z] Starting Next.js in production mode
+[2025-03-09T09:03:53.394Z] Server will listen on port 8080
+[2025-03-09T09:03:53.394Z] Node version: v22.12.0
+[2025-03-09T09:03:53.394Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T09:03:53.394Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T09:03:53.394Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T09:03:53.394Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[]},"experimental":{"optimizeCss":true}}
+[2025-03-09T09:03:53.585Z] Next.js app prepared
+[2025-03-09T09:03:53.588Z] > Server ready on port 8080
+[2025-03-09T09:03:56.804Z] Handling request: GET /hejh
+[2025-03-09T09:03:56.891Z] GET /hejh 404 - 90ms
+[2025-03-09T09:03:56.905Z] GET /media/47cbc4e2adbc5db9-s.p.woff2 200 - 2ms
+[2025-03-09T09:03:56.914Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T09:03:56.925Z] GET /chunks/main-app-9039147bd19631df.js 200 - 12ms
+[2025-03-09T09:03:56.940Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 200 - 27ms
+[2025-03-09T09:03:56.941Z] GET /css/e52772ae0a0eb076.css 200 - 28ms
+[2025-03-09T09:03:56.942Z] GET /chunks/webpack-0adb053f2f873a91.js 200 - 29ms
+[2025-03-09T09:03:56.948Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 34ms
+[2025-03-09T09:03:56.950Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 22ms
+[2025-03-09T09:03:56.951Z] GET /chunks/547-3b278d0acbb07f97.js 200 - 8ms
+[2025-03-09T09:03:56.952Z] GET /chunks/app/layout-5de0a8cadef5765d.js 200 - 8ms
+[2025-03-09T09:03:56.953Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 40ms
+[2025-03-09T09:03:56.955Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:03:57.049Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:03:57.054Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:03:57.056Z] GET /?_rsc=acgkz 200 - 8ms
+[2025-03-09T09:03:57.064Z] GET /login?_rsc=acgkz 200 - 16ms
+[2025-03-09T09:03:57.072Z] GET /register?_rsc=acgkz 200 - 23ms
+[2025-03-09T09:03:57.079Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 11ms
+[2025-03-09T09:03:57.082Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 7ms
+[2025-03-09T09:04:00.621Z] GET / 200 - 2ms
+[2025-03-09T09:04:04.549Z] Handling request: GET /hejh
+[2025-03-09T09:04:04.579Z] GET /hejh 404 - 30ms
+[2025-03-09T09:04:04.588Z] GET /css/e52772ae0a0eb076.css 200 - 3ms
+[2025-03-09T09:04:04.594Z] GET /chunks/main-app-9039147bd19631df.js 200 - 5ms
+[2025-03-09T09:04:04.596Z] GET /chunks/app/layout-5de0a8cadef5765d.js 200 - 7ms
+[2025-03-09T09:04:04.597Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 6ms
+[2025-03-09T09:04:04.598Z] GET /chunks/547-3b278d0acbb07f97.js 200 - 6ms
+[2025-03-09T09:04:04.599Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 10ms
+[2025-03-09T09:04:04.600Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:04:04.601Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 12ms
+[2025-03-09T09:04:04.661Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:04:04.665Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:04:04.670Z] GET /?_rsc=acgkz 200 - 11ms
+[2025-03-09T09:04:04.671Z] GET /login?_rsc=acgkz 200 - 11ms
+[2025-03-09T09:04:04.671Z] GET /register?_rsc=acgkz 200 - 10ms
+[2025-03-09T09:04:04.675Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 2ms
+[2025-03-09T09:04:04.676Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 3ms
+[2025-03-09T09:04:05.790Z] GET /css/9272200785af8881.css 200 - 1ms
+[2025-03-09T09:04:05.835Z] Handling request: GET /forgot-password?_rsc=7td7r
+[2025-03-09T09:04:05.843Z] GET /forgot-password?_rsc=7td7r 404 - 9ms
+[2025-03-09T09:04:07.886Z] Handling request: GET /register?_rsc=7td7r
+[2025-03-09T09:04:07.894Z] GET /register?_rsc=7td7r 200 - 10ms
+[2025-03-09T09:04:08.282Z] GET /css/cc8c8b9a5f40587a.css 200 - 3ms
+[2025-03-09T09:04:08.312Z] Handling request: GET /terms?_rsc=1t9g6
+[2025-03-09T09:04:08.326Z] Handling request: GET /privacy?_rsc=1t9g6
+[2025-03-09T09:04:08.341Z] GET /terms?_rsc=1t9g6 200 - 30ms
+[2025-03-09T09:04:08.350Z] GET /privacy?_rsc=1t9g6 200 - 38ms
+[2025-03-09T09:04:08.361Z] GET /chunks/app/terms/page-393a9b7062c05427.js 200 - 15ms
+[2025-03-09T09:04:08.363Z] GET /chunks/app/privacy/page-8a8d0ed8d3dd7c98.js 200 - 10ms
+[2025-03-09T09:04:08.686Z] Handling request: GET /login?_rsc=1t9g6
+[2025-03-09T09:04:08.691Z] GET /login?_rsc=1t9g6 200 - 5ms
+[2025-03-09T09:05:14.393Z] Handling request: GET /register
+[2025-03-09T09:05:14.406Z] GET /register 200 - 14ms
+[2025-03-09T09:05:14.424Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T09:05:14.429Z] GET /site.webmanifest 304 - 2ms
+[2025-03-09T09:05:14.433Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 304 - 9ms
+[2025-03-09T09:05:14.498Z] Handling request: GET /register?_rsc=1t9g6
+[2025-03-09T09:05:14.505Z] GET /?_rsc=1t9g6 200 - 8ms
+[2025-03-09T09:05:14.506Z] GET /register?_rsc=1t9g6 200 - 9ms
+[2025-03-09T09:05:14.506Z] Handling request: GET /login?_rsc=1t9g6
+[2025-03-09T09:05:14.509Z] GET /login?_rsc=1t9g6 200 - 3ms
+[2025-03-09T09:05:14.510Z] Handling request: GET /terms?_rsc=1t9g6
+[2025-03-09T09:05:14.513Z] GET /terms?_rsc=1t9g6 200 - 4ms
+[2025-03-09T09:05:14.513Z] Handling request: GET /privacy?_rsc=1t9g6
+[2025-03-09T09:05:14.516Z] GET /privacy?_rsc=1t9g6 200 - 3ms
+[2025-03-09T09:05:15.705Z] GET / 304 - 1ms
+[2025-03-09T09:05:15.706Z] GET /site.webmanifest 304 - 0ms
+[2025-03-09T09:05:19.725Z] GET / 304 - 1ms
+[2025-03-09T09:05:20.942Z] Handling request: GET /register
+[2025-03-09T09:05:20.946Z] GET /register 200 - 5ms
+[2025-03-09T09:05:21.509Z] Handling request: GET /register
+[2025-03-09T09:05:21.514Z] GET /register 200 - 6ms
+[2025-03-09T09:05:21.583Z] GET /?_rsc=1t9g6 304 - 1ms
+[2025-03-09T09:05:21.584Z] Handling request: GET /login?_rsc=1t9g6
+[2025-03-09T09:05:21.587Z] GET /login?_rsc=1t9g6 200 - 4ms
+[2025-03-09T09:05:21.587Z] Handling request: GET /register?_rsc=1t9g6
+[2025-03-09T09:05:21.589Z] GET /register?_rsc=1t9g6 200 - 6ms
+[2025-03-09T09:05:21.590Z] Handling request: GET /terms?_rsc=1t9g6
+[2025-03-09T09:05:21.591Z] GET /terms?_rsc=1t9g6 200 - 1ms
+[2025-03-09T09:05:21.592Z] Handling request: GET /privacy?_rsc=1t9g6
+[2025-03-09T09:05:21.593Z] GET /privacy?_rsc=1t9g6 200 - 1ms
+[2025-03-09T09:10:20.053Z] Starting Next.js in development mode
+[2025-03-09T09:10:20.054Z] Server will listen on port 8080
+[2025-03-09T09:10:20.054Z] Node version: v22.12.0
+[2025-03-09T09:10:20.054Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T09:10:20.054Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T09:10:20.054Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, standalone, static, trace, types
+[2025-03-09T09:10:20.055Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[]},"experimental":{"optimizeCss":true},"output":"standalone","trailingSlash":false}
+[2025-03-09T09:10:21.323Z] Next.js app prepared
+[2025-03-09T09:11:06.379Z] GET / 200 - 4ms
+[2025-03-09T09:11:10.152Z] GET / 200 - 4ms
+[2025-03-09T09:11:27.739Z] GET / 200 - 3ms
+[2025-03-09T09:12:26.441Z] Handling request: GET /register
+[2025-03-09T09:12:26.451Z] GET /register 200 - 12ms
+[2025-03-09T09:12:26.488Z] Handling request: GET /_next/static/css/e52772ae0a0eb076.css
+[2025-03-09T09:12:26.494Z] GET /_next/static/css/e52772ae0a0eb076.css 500 - 7ms
+[2025-03-09T09:12:26.499Z] Handling request: GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js
+[2025-03-09T09:12:26.500Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:12:26.502Z] GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js 500 - 7ms
+[2025-03-09T09:12:26.504Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 500 - 8ms
+[2025-03-09T09:12:26.504Z] Handling request: GET /_next/static/chunks/69-4464d8d1468c9d3a.js
+[2025-03-09T09:12:26.506Z] GET /_next/static/chunks/69-4464d8d1468c9d3a.js 500 - 7ms
+[2025-03-09T09:12:26.507Z] Handling request: GET /_next/static/chunks/main-app-9039147bd19631df.js
+[2025-03-09T09:12:26.511Z] GET /_next/static/chunks/main-app-9039147bd19631df.js 500 - 11ms
+[2025-03-09T09:12:26.511Z] Handling request: GET /_next/static/chunks/250-5cb2af5f9cc171e2.js
+[2025-03-09T09:12:26.514Z] GET /_next/static/chunks/250-5cb2af5f9cc171e2.js 500 - 9ms
+[2025-03-09T09:12:26.514Z] Handling request: GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js
+[2025-03-09T09:12:26.515Z] Handling request: GET /_next/static/chunks/app/register/page-a0932088b2afd87d.js
+[2025-03-09T09:12:26.517Z] GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js 500 - 9ms
+[2025-03-09T09:12:26.519Z] GET /_next/static/chunks/app/register/page-a0932088b2afd87d.js 500 - 11ms
+[2025-03-09T09:12:26.521Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:12:26.567Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:12:26.572Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 200 - 6ms
+[2025-03-09T09:12:31.076Z] Handling request: GET /register
+[2025-03-09T09:12:31.081Z] GET /register 200 - 6ms
+[2025-03-09T09:12:31.090Z] Handling request: GET /_next/static/css/e52772ae0a0eb076.css
+[2025-03-09T09:12:31.093Z] GET /_next/static/css/e52772ae0a0eb076.css 500 - 3ms
+[2025-03-09T09:12:31.096Z] Handling request: GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js
+[2025-03-09T09:12:31.098Z] GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js 500 - 4ms
+[2025-03-09T09:12:31.099Z] Handling request: GET /_next/static/chunks/69-4464d8d1468c9d3a.js
+[2025-03-09T09:12:31.099Z] Handling request: GET /_next/static/chunks/main-app-9039147bd19631df.js
+[2025-03-09T09:12:31.099Z] Handling request: GET /_next/static/chunks/250-5cb2af5f9cc171e2.js
+[2025-03-09T09:12:31.099Z] Handling request: GET /_next/static/chunks/app/register/page-a0932088b2afd87d.js
+[2025-03-09T09:12:31.101Z] GET /_next/static/chunks/69-4464d8d1468c9d3a.js 500 - 6ms
+[2025-03-09T09:12:31.102Z] GET /_next/static/chunks/main-app-9039147bd19631df.js 500 - 7ms
+[2025-03-09T09:12:31.103Z] GET /_next/static/chunks/250-5cb2af5f9cc171e2.js 500 - 8ms
+[2025-03-09T09:12:31.104Z] GET /_next/static/chunks/app/register/page-a0932088b2afd87d.js 500 - 9ms
+[2025-03-09T09:12:31.104Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:12:31.106Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 500 - 10ms
+[2025-03-09T09:12:31.106Z] Handling request: GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js
+[2025-03-09T09:12:31.108Z] GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js 500 - 3ms
+[2025-03-09T09:12:31.110Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:12:31.132Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:12:31.135Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 200 - 3ms
+[2025-03-09T09:12:31.848Z] Handling request: GET /login
+[2025-03-09T09:12:31.853Z] GET /login 200 - 5ms
+[2025-03-09T09:12:31.865Z] Handling request: GET /_next/static/css/e52772ae0a0eb076.css
+[2025-03-09T09:12:31.866Z] Handling request: GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js
+[2025-03-09T09:12:31.869Z] GET /_next/static/css/e52772ae0a0eb076.css 500 - 5ms
+[2025-03-09T09:12:31.872Z] GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js 500 - 8ms
+[2025-03-09T09:12:31.874Z] Handling request: GET /_next/static/chunks/69-4464d8d1468c9d3a.js
+[2025-03-09T09:12:31.877Z] GET /_next/static/chunks/69-4464d8d1468c9d3a.js 500 - 12ms
+[2025-03-09T09:12:31.877Z] Handling request: GET /_next/static/chunks/main-app-9039147bd19631df.js
+[2025-03-09T09:12:31.878Z] Handling request: GET /_next/static/chunks/250-5cb2af5f9cc171e2.js
+[2025-03-09T09:12:31.878Z] Handling request: GET /_next/static/chunks/app/login/page-7cdfc00aeaf2b7c8.js
+[2025-03-09T09:12:31.880Z] GET /_next/static/chunks/main-app-9039147bd19631df.js 500 - 13ms
+[2025-03-09T09:12:31.881Z] GET /_next/static/chunks/250-5cb2af5f9cc171e2.js 500 - 14ms
+[2025-03-09T09:12:31.882Z] GET /_next/static/chunks/app/login/page-7cdfc00aeaf2b7c8.js 500 - 15ms
+[2025-03-09T09:12:31.882Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:12:31.883Z] Handling request: GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js
+[2025-03-09T09:12:31.884Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 500 - 6ms
+[2025-03-09T09:12:31.885Z] GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js 500 - 7ms
+[2025-03-09T09:12:31.886Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:12:31.903Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:12:31.906Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 200 - 3ms
+[2025-03-09T09:12:32.683Z] Handling request: GET /about
+[2025-03-09T09:12:32.692Z] GET /about 500 - 10ms
+[2025-03-09T09:12:34.855Z] Handling request: GET /login
+[2025-03-09T09:12:34.860Z] GET /login 200 - 6ms
+[2025-03-09T09:12:34.872Z] Handling request: GET /_next/static/css/e52772ae0a0eb076.css
+[2025-03-09T09:12:34.875Z] GET /_next/static/css/e52772ae0a0eb076.css 500 - 4ms
+[2025-03-09T09:12:34.875Z] Handling request: GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js
+[2025-03-09T09:12:34.877Z] GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js 500 - 5ms
+[2025-03-09T09:12:34.879Z] Handling request: GET /_next/static/chunks/69-4464d8d1468c9d3a.js
+[2025-03-09T09:12:34.879Z] Handling request: GET /_next/static/chunks/main-app-9039147bd19631df.js
+[2025-03-09T09:12:34.883Z] GET /_next/static/chunks/69-4464d8d1468c9d3a.js 500 - 10ms
+[2025-03-09T09:12:34.884Z] GET /_next/static/chunks/main-app-9039147bd19631df.js 500 - 9ms
+[2025-03-09T09:12:34.884Z] Handling request: GET /_next/static/chunks/250-5cb2af5f9cc171e2.js
+[2025-03-09T09:12:34.884Z] Handling request: GET /_next/static/chunks/app/login/page-7cdfc00aeaf2b7c8.js
+[2025-03-09T09:12:34.886Z] GET /_next/static/chunks/250-5cb2af5f9cc171e2.js 500 - 8ms
+[2025-03-09T09:12:34.887Z] GET /_next/static/chunks/app/login/page-7cdfc00aeaf2b7c8.js 500 - 8ms
+[2025-03-09T09:12:34.887Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:12:34.887Z] Handling request: GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js
+[2025-03-09T09:12:34.888Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 500 - 8ms
+[2025-03-09T09:12:34.890Z] GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js 500 - 9ms
+[2025-03-09T09:12:34.891Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:12:34.915Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:12:34.917Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 200 - 3ms
+[2025-03-09T09:12:36.748Z] Handling request: GET /creators/resources
+[2025-03-09T09:12:36.755Z] GET /creators/resources 500 - 7ms
+[2025-03-09T09:12:38.461Z] Handling request: GET /login
+[2025-03-09T09:12:38.468Z] GET /login 200 - 8ms
+[2025-03-09T09:12:38.477Z] Handling request: GET /_next/static/css/e52772ae0a0eb076.css
+[2025-03-09T09:12:38.477Z] Handling request: GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js
+[2025-03-09T09:12:38.479Z] GET /_next/static/css/e52772ae0a0eb076.css 500 - 4ms
+[2025-03-09T09:12:38.481Z] GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js 500 - 5ms
+[2025-03-09T09:12:38.481Z] Handling request: GET /_next/static/chunks/69-4464d8d1468c9d3a.js
+[2025-03-09T09:12:38.483Z] GET /_next/static/chunks/69-4464d8d1468c9d3a.js 500 - 6ms
+[2025-03-09T09:12:38.484Z] Handling request: GET /_next/static/chunks/main-app-9039147bd19631df.js
+[2025-03-09T09:12:38.484Z] Handling request: GET /_next/static/chunks/250-5cb2af5f9cc171e2.js
+[2025-03-09T09:12:38.486Z] GET /_next/static/chunks/main-app-9039147bd19631df.js 500 - 8ms
+[2025-03-09T09:12:38.487Z] GET /_next/static/chunks/250-5cb2af5f9cc171e2.js 500 - 9ms
+[2025-03-09T09:12:38.487Z] Handling request: GET /_next/static/chunks/app/login/page-7cdfc00aeaf2b7c8.js
+[2025-03-09T09:12:38.488Z] GET /_next/static/chunks/app/login/page-7cdfc00aeaf2b7c8.js 500 - 6ms
+[2025-03-09T09:12:38.488Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:12:38.489Z] Handling request: GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js
+[2025-03-09T09:12:38.490Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 500 - 6ms
+[2025-03-09T09:12:38.491Z] GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js 500 - 6ms
+[2025-03-09T09:12:38.492Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:12:38.517Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:12:38.519Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 200 - 3ms
+[2025-03-09T09:13:08.350Z] Handling request: GET /login
+[2025-03-09T09:13:08.373Z] GET /login 200 - 24ms
+[2025-03-09T09:13:08.421Z] Handling request: GET /_next/static/css/e52772ae0a0eb076.css
+[2025-03-09T09:13:08.427Z] GET /_next/static/css/e52772ae0a0eb076.css 500 - 6ms
+[2025-03-09T09:13:08.429Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:13:08.432Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 500 - 4ms
+[2025-03-09T09:13:08.433Z] Handling request: GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js
+[2025-03-09T09:13:08.434Z] Handling request: GET /_next/static/chunks/69-4464d8d1468c9d3a.js
+[2025-03-09T09:13:08.436Z] GET /_next/static/chunks/fd9d1056-8f78d26414ffa56c.js 500 - 7ms
+[2025-03-09T09:13:08.438Z] GET /_next/static/chunks/69-4464d8d1468c9d3a.js 500 - 8ms
+[2025-03-09T09:13:08.438Z] Handling request: GET /_next/static/chunks/main-app-9039147bd19631df.js
+[2025-03-09T09:13:08.441Z] GET /_next/static/chunks/main-app-9039147bd19631df.js 500 - 8ms
+[2025-03-09T09:13:08.441Z] Handling request: GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js
+[2025-03-09T09:13:08.442Z] Handling request: GET /_next/static/chunks/250-5cb2af5f9cc171e2.js
+[2025-03-09T09:13:08.443Z] GET /_next/static/chunks/app/layout-5de0a8cadef5765d.js 500 - 9ms
+[2025-03-09T09:13:08.445Z] GET /_next/static/chunks/250-5cb2af5f9cc171e2.js 500 - 11ms
+[2025-03-09T09:13:08.445Z] Handling request: GET /_next/static/chunks/app/login/page-7cdfc00aeaf2b7c8.js
+[2025-03-09T09:13:08.447Z] GET /_next/static/chunks/app/login/page-7cdfc00aeaf2b7c8.js 500 - 8ms
+[2025-03-09T09:13:08.448Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:13:08.474Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:13:08.482Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 200 - 9ms
+[2025-03-09T09:17:16.126Z] Starting Next.js in production mode
+[2025-03-09T09:17:16.127Z] Server will listen on port 8080
+[2025-03-09T09:17:16.127Z] Node version: v22.12.0
+[2025-03-09T09:17:16.127Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T09:17:16.127Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T09:17:16.128Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T09:17:16.128Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[]},"experimental":{"optimizeCss":true}}
+[2025-03-09T09:17:16.258Z] Next.js app prepared
+[2025-03-09T09:17:16.261Z] > Server ready on port 8080
+[2025-03-09T09:17:21.847Z] Handling request: GET /
+[2025-03-09T09:17:21.949Z] GET / 200 - 105ms
+[2025-03-09T09:17:21.993Z] GET /css/316a8dbb56eb984e.css 200 - 6ms
+[2025-03-09T09:17:21.997Z] GET /css/705a4d830c6bdaf2.css 200 - 6ms
+[2025-03-09T09:17:21.997Z] GET /chunks/webpack-7d301ba4be61dc79.js 200 - 5ms
+[2025-03-09T09:17:22.000Z] GET /chunks/main-app-9039147bd19631df.js 200 - 5ms
+[2025-03-09T09:17:22.003Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 7ms
+[2025-03-09T09:17:22.004Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 10ms
+[2025-03-09T09:17:22.005Z] GET /chunks/841-fc7c256e864ce910.js 200 - 7ms
+[2025-03-09T09:17:22.006Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 6ms
+[2025-03-09T09:17:22.007Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 14ms
+[2025-03-09T09:17:22.007Z] GET /chunks/547-3b278d0acbb07f97.js 200 - 5ms
+[2025-03-09T09:17:22.008Z] GET /chunks/app/layout-3949135461ee61cd.js 200 - 3ms
+[2025-03-09T09:17:22.009Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:17:22.071Z] GET /images/patterns/circuit.svg 200 - 1ms
+[2025-03-09T09:17:22.216Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:17:22.222Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:17:22.228Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:17:22.234Z] GET /?_rsc=acgkz 200 - 19ms
+[2025-03-09T09:17:22.311Z] GET /login?_rsc=acgkz 200 - 95ms
+[2025-03-09T09:17:22.312Z] GET /register?_rsc=acgkz 200 - 96ms
+[2025-03-09T09:17:22.314Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 0ms
+[2025-03-09T09:17:22.315Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 1ms
+[2025-03-09T09:17:26.744Z] Handling request: GET /forgot-password?_rsc=7td7r
+[2025-03-09T09:17:26.756Z] GET /forgot-password?_rsc=7td7r 404 - 12ms
+[2025-03-09T09:17:27.269Z] Handling request: GET /register?_rsc=7td7r
+[2025-03-09T09:17:27.275Z] GET /register?_rsc=7td7r 200 - 6ms
+[2025-03-09T09:17:27.492Z] Handling request: GET /terms?_rsc=1t9g6
+[2025-03-09T09:17:27.501Z] Handling request: GET /privacy?_rsc=1t9g6
+[2025-03-09T09:17:27.535Z] GET /terms?_rsc=1t9g6 200 - 43ms
+[2025-03-09T09:17:27.536Z] GET /privacy?_rsc=1t9g6 200 - 44ms
+[2025-03-09T09:17:27.538Z] GET /chunks/app/terms/page-393a9b7062c05427.js 200 - 2ms
+[2025-03-09T09:17:27.539Z] GET /chunks/app/privacy/page-8a8d0ed8d3dd7c98.js 200 - 1ms
+[2025-03-09T09:17:28.081Z] Handling request: GET /register?_rsc=1t9g6
+[2025-03-09T09:17:28.090Z] GET /register?_rsc=1t9g6 200 - 9ms
+[2025-03-09T09:17:28.698Z] Handling request: GET /about?_rsc=1t9g6
+[2025-03-09T09:17:28.704Z] Handling request: GET /features?_rsc=1t9g6
+[2025-03-09T09:17:28.711Z] Handling request: GET /pricing?_rsc=1t9g6
+[2025-03-09T09:17:28.715Z] Handling request: GET /contact?_rsc=1t9g6
+[2025-03-09T09:17:28.723Z] Handling request: GET /creators/how-it-works?_rsc=1t9g6
+[2025-03-09T09:17:28.779Z] GET /about?_rsc=1t9g6 200 - 82ms
+[2025-03-09T09:17:28.780Z] GET /features?_rsc=1t9g6 200 - 83ms
+[2025-03-09T09:17:28.781Z] GET /pricing?_rsc=1t9g6 200 - 83ms
+[2025-03-09T09:17:28.783Z] GET /contact?_rsc=1t9g6 200 - 69ms
+[2025-03-09T09:17:28.783Z] Handling request: GET /creators/pioneers?_rsc=1t9g6
+[2025-03-09T09:17:28.786Z] GET /creators/how-it-works?_rsc=1t9g6 200 - 68ms
+[2025-03-09T09:17:28.789Z] Handling request: GET /creators/resources?_rsc=1t9g6
+[2025-03-09T09:17:28.798Z] GET /chunks/app/about/page-6531191e013873a6.js 200 - 15ms
+[2025-03-09T09:17:28.798Z] GET /chunks/app/features/page-bd6a4e7284b30349.js 200 - 15ms
+[2025-03-09T09:17:28.802Z] GET /chunks/app/pricing/page-ba31786cb39b45d5.js 200 - 16ms
+[2025-03-09T09:17:28.805Z] Handling request: GET /creators/faq?_rsc=1t9g6
+[2025-03-09T09:17:28.807Z] Handling request: GET /faq?_rsc=1t9g6
+[2025-03-09T09:17:28.811Z] GET /chunks/app/creators/how-it-works/page-5a4b3715aef7293b.js 200 - 21ms
+[2025-03-09T09:17:28.818Z] GET /creators/pioneers?_rsc=1t9g6 200 - 35ms
+[2025-03-09T09:17:28.821Z] GET /creators/resources?_rsc=1t9g6 200 - 33ms
+[2025-03-09T09:17:28.830Z] GET /chunks/app/creators/pioneers/page-acc4d1e93c08a6ee.js 200 - 10ms
+[2025-03-09T09:17:28.832Z] GET /chunks/app/creators/resources/page-46a7eca0bf0d0679.js 200 - 9ms
+[2025-03-09T09:17:28.832Z] GET /creators/faq?_rsc=1t9g6 200 - 30ms
+[2025-03-09T09:17:28.832Z] GET /faq?_rsc=1t9g6 200 - 29ms
+[2025-03-09T09:17:28.835Z] GET /chunks/app/creators/faq/page-de1aeb34d1370fe3.js 200 - 1ms
+[2025-03-09T09:17:28.836Z] GET /chunks/app/faq/page-04a20ef363765ec8.js 200 - 2ms
+[2025-03-09T09:17:29.662Z] Handling request: GET /cookies?_rsc=1t9g6
+[2025-03-09T09:17:29.686Z] GET /cookies?_rsc=1t9g6 200 - 25ms
+[2025-03-09T09:17:29.689Z] GET /chunks/app/cookies/page-70b321cabce36773.js 200 - 1ms
+[2025-03-09T09:17:30.402Z] GET /css/48bbec7c0bb09066.css 200 - 3ms
+[2025-03-09T09:17:31.966Z] Handling request: GET /?_rsc=1nc4r
+[2025-03-09T09:17:31.971Z] GET /?_rsc=1nc4r 200 - 6ms
+[2025-03-09T09:17:31.980Z] Handling request: GET /features?_rsc=1nc4r
+[2025-03-09T09:17:31.982Z] GET /features?_rsc=1nc4r 200 - 3ms
+[2025-03-09T09:17:32.047Z] Handling request: GET /creators/faq?_rsc=1nc4r
+[2025-03-09T09:17:32.050Z] GET /creators/faq?_rsc=1nc4r 200 - 3ms
+[2025-03-09T09:17:32.583Z] Handling request: GET /faq?_rsc=1nc4r
+[2025-03-09T09:17:32.588Z] GET /faq?_rsc=1nc4r 200 - 6ms
+[2025-03-09T09:17:32.630Z] Handling request: GET /terms?_rsc=1nc4r
+[2025-03-09T09:17:32.634Z] GET /terms?_rsc=1nc4r 200 - 4ms
+[2025-03-09T09:17:32.680Z] Handling request: GET /privacy?_rsc=1nc4r
+[2025-03-09T09:17:32.684Z] GET /privacy?_rsc=1nc4r 200 - 5ms
+[2025-03-09T09:17:33.253Z] GET /css/894fbceac7b96f6f.css 200 - 2ms
+[2025-03-09T09:17:38.602Z] Handling request: GET /?_rsc=5pyuy
+[2025-03-09T09:17:38.606Z] GET /?_rsc=5pyuy 200 - 5ms
+[2025-03-09T09:17:38.629Z] Handling request: GET /about?_rsc=5pyuy
+[2025-03-09T09:17:38.634Z] GET /about?_rsc=5pyuy 200 - 5ms
+[2025-03-09T09:17:38.730Z] Handling request: GET /features?_rsc=5pyuy
+[2025-03-09T09:17:38.734Z] GET /features?_rsc=5pyuy 200 - 4ms
+[2025-03-09T09:17:53.726Z] Handling request: GET /
+[2025-03-09T09:17:53.737Z] GET / 200 - 13ms
+[2025-03-09T09:17:53.793Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T09:17:53.811Z] GET /media/47cbc4e2adbc5db9-s.p.woff2 200 - 20ms
+[2025-03-09T09:17:53.825Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 200 - 32ms
+[2025-03-09T09:17:53.829Z] GET /chunks/webpack-7d301ba4be61dc79.js 200 - 18ms
+[2025-03-09T09:17:53.830Z] GET /css/316a8dbb56eb984e.css 200 - 19ms
+[2025-03-09T09:17:53.831Z] GET /css/705a4d830c6bdaf2.css 200 - 20ms
+[2025-03-09T09:17:53.831Z] GET /chunks/main-app-9039147bd19631df.js 200 - 5ms
+[2025-03-09T09:17:53.836Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 11ms
+[2025-03-09T09:17:53.836Z] GET /chunks/841-fc7c256e864ce910.js 200 - 3ms
+[2025-03-09T09:17:53.837Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 4ms
+[2025-03-09T09:17:53.838Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 5ms
+[2025-03-09T09:17:53.839Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 27ms
+[2025-03-09T09:17:53.839Z] GET /chunks/547-3b278d0acbb07f97.js 200 - 6ms
+[2025-03-09T09:17:53.841Z] GET /chunks/app/layout-3949135461ee61cd.js 200 - 3ms
+[2025-03-09T09:17:53.868Z] GET /images/patterns/circuit.svg 200 - 1ms
+[2025-03-09T09:17:53.935Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:17:53.938Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:17:53.939Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:17:53.942Z] Handling request: GET /favicon.ico
+[2025-03-09T09:17:53.944Z] GET /?_rsc=acgkz 200 - 10ms
+[2025-03-09T09:17:53.946Z] GET /login?_rsc=acgkz 200 - 12ms
+[2025-03-09T09:17:53.947Z] GET /register?_rsc=acgkz 200 - 12ms
+[2025-03-09T09:17:53.949Z] GET /site.webmanifest 200 - 14ms
+[2025-03-09T09:17:53.956Z] Handling request: GET /icons/android-chrome-192x192.png
+[2025-03-09T09:17:53.970Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 17ms
+[2025-03-09T09:17:53.972Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 19ms
+[2025-03-09T09:17:53.976Z] GET /favicon.ico 404 - 41ms
+[2025-03-09T09:17:53.977Z] GET /icons/android-chrome-192x192.png 404 - 24ms
+[2025-03-09T09:17:55.927Z] GET /site.webmanifest 304 - 2ms
+[2025-03-09T09:17:59.507Z] Handling request: GET /
+[2025-03-09T09:17:59.512Z] GET / 200 - 5ms
+[2025-03-09T09:17:59.558Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T09:17:59.562Z] GET /media/47cbc4e2adbc5db9-s.p.woff2 200 - 7ms
+[2025-03-09T09:17:59.566Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 200 - 10ms
+[2025-03-09T09:17:59.568Z] GET /css/316a8dbb56eb984e.css 200 - 11ms
+[2025-03-09T09:17:59.569Z] GET /css/705a4d830c6bdaf2.css 200 - 11ms
+[2025-03-09T09:17:59.570Z] GET /chunks/webpack-7d301ba4be61dc79.js 200 - 8ms
+[2025-03-09T09:17:59.573Z] GET /chunks/main-app-9039147bd19631df.js 200 - 3ms
+[2025-03-09T09:17:59.576Z] GET /chunks/841-fc7c256e864ce910.js 200 - 5ms
+[2025-03-09T09:17:59.577Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 12ms
+[2025-03-09T09:17:59.579Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 9ms
+[2025-03-09T09:17:59.583Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 19ms
+[2025-03-09T09:17:59.585Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 14ms
+[2025-03-09T09:17:59.586Z] GET /chunks/547-3b278d0acbb07f97.js 200 - 11ms
+[2025-03-09T09:17:59.587Z] GET /chunks/app/layout-3949135461ee61cd.js 200 - 8ms
+[2025-03-09T09:17:59.608Z] GET /images/patterns/circuit.svg 200 - 1ms
+[2025-03-09T09:17:59.661Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:17:59.662Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:17:59.663Z] GET /site.webmanifest 200 - 6ms
+[2025-03-09T09:17:59.665Z] GET /?_rsc=acgkz 200 - 5ms
+[2025-03-09T09:17:59.666Z] GET /register?_rsc=acgkz 200 - 5ms
+[2025-03-09T09:17:59.667Z] Handling request: GET /icons/android-chrome-192x192.png
+[2025-03-09T09:17:59.671Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 1ms
+[2025-03-09T09:17:59.684Z] GET /icons/android-chrome-192x192.png 404 - 17ms
+[2025-03-09T09:18:02.554Z] GET /site.webmanifest 304 - 1ms
+[2025-03-09T09:18:02.854Z] Handling request: GET /robots.txt
+[2025-03-09T09:18:02.880Z] GET /robots.txt 200 - 27ms
+[2025-03-09T09:18:04.610Z] Handling request: GET /icons/android-chrome-192x192.png
+[2025-03-09T09:18:04.631Z] GET /icons/android-chrome-192x192.png 404 - 22ms
+[2025-03-09T09:18:05.136Z] Handling request: GET /
+[2025-03-09T09:18:05.138Z] GET / 200 - 3ms
+[2025-03-09T09:18:05.151Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T09:18:05.154Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 304 - 4ms
+[2025-03-09T09:18:05.163Z] GET /images/patterns/circuit.svg 304 - 2ms
+[2025-03-09T09:18:05.203Z] GET /site.webmanifest 304 - 1ms
+[2025-03-09T09:18:05.204Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:18:05.206Z] GET /?_rsc=acgkz 200 - 4ms
+[2025-03-09T09:18:05.206Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:18:05.211Z] GET /register?_rsc=acgkz 200 - 9ms
+[2025-03-09T09:18:05.213Z] Handling request: GET /icons/android-chrome-192x192.png
+[2025-03-09T09:18:05.229Z] GET /icons/android-chrome-192x192.png 404 - 16ms
+[2025-03-09T09:31:28.014Z] Handling request: GET /
+[2025-03-09T09:31:28.046Z] GET / 200 - 44ms
+[2025-03-09T09:31:28.065Z] GET /site.webmanifest 200 - 3ms
+[2025-03-09T09:31:28.071Z] GET /images/patterns/circuit.svg 304 - 1ms
+[2025-03-09T09:31:28.157Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:31:28.159Z] GET /?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:31:28.160Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:31:28.161Z] GET /login?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:31:28.164Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:31:28.164Z] GET /register?_rsc=acgkz 200 - 0ms
+[2025-03-09T09:37:55.152Z] Handling request: GET /
+[2025-03-09T09:37:55.162Z] GET / 200 - 11ms
+[2025-03-09T09:37:55.183Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:37:55.193Z] GET /images/patterns/circuit.svg 304 - 1ms
+[2025-03-09T09:37:55.271Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:37:55.273Z] GET /register?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:37:55.275Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:37:55.277Z] GET /?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:37:55.279Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:37:55.280Z] GET /login?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:38:00.327Z] Handling request: GET /
+[2025-03-09T09:38:00.344Z] GET / 200 - 17ms
+[2025-03-09T09:38:01.331Z] Handling request: GET /neger
+[2025-03-09T09:38:01.356Z] GET /neger 404 - 26ms
+[2025-03-09T09:38:01.846Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T09:38:01.852Z] GET /site.webmanifest 304 - 0ms
+[2025-03-09T09:38:01.857Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 304 - 11ms
+[2025-03-09T09:38:01.950Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:38:01.953Z] GET /login?_rsc=acgkz 200 - 4ms
+[2025-03-09T09:38:01.953Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:38:01.956Z] GET /?_rsc=acgkz 200 - 6ms
+[2025-03-09T09:38:01.957Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:38:01.958Z] GET /register?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:38:02.973Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:38:02.978Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 304 - 5ms
+[2025-03-09T09:38:03.091Z] Handling request: GET /faq?_rsc=acgkz
+[2025-03-09T09:38:03.095Z] Handling request: GET /creators/how-it-works?_rsc=acgkz
+[2025-03-09T09:38:03.099Z] GET /faq?_rsc=acgkz 200 - 9ms
+[2025-03-09T09:38:03.099Z] GET /creators/how-it-works?_rsc=acgkz 200 - 8ms
+[2025-03-09T09:38:03.121Z] Handling request: GET /about?_rsc=acgkz
+[2025-03-09T09:38:03.124Z] Handling request: GET /creators/pioneers?_rsc=acgkz
+[2025-03-09T09:38:03.125Z] GET /about?_rsc=acgkz 200 - 4ms
+[2025-03-09T09:38:03.126Z] GET /creators/pioneers?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:38:03.171Z] Handling request: GET /features?_rsc=acgkz
+[2025-03-09T09:38:03.172Z] Handling request: GET /creators/resources?_rsc=acgkz
+[2025-03-09T09:38:03.174Z] GET /features?_rsc=acgkz 200 - 3ms
+[2025-03-09T09:38:03.174Z] GET /creators/resources?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:38:03.224Z] Handling request: GET /creators/faq?_rsc=acgkz
+[2025-03-09T09:38:03.225Z] Handling request: GET /pricing?_rsc=acgkz
+[2025-03-09T09:38:03.226Z] GET /creators/faq?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:38:03.227Z] GET /pricing?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:38:03.324Z] Handling request: GET /contact?_rsc=acgkz
+[2025-03-09T09:38:03.329Z] GET /contact?_rsc=acgkz 200 - 5ms
+[2025-03-09T09:38:15.843Z] Starting Next.js in production mode
+[2025-03-09T09:38:15.844Z] Server will listen on port 8080
+[2025-03-09T09:38:15.844Z] Node version: v22.12.0
+[2025-03-09T09:38:15.844Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T09:38:15.844Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T09:38:15.844Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T09:38:15.845Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[],"unoptimized":true},"experimental":{"optimizeCss":true}}
+[2025-03-09T09:38:16.024Z] Next.js app prepared
+[2025-03-09T09:38:42.557Z] Handling request: GET /
+[2025-03-09T09:38:42.563Z] GET / 200 - 7ms
+[2025-03-09T09:38:42.570Z] GET /site.webmanifest 304 - 5ms
+[2025-03-09T09:38:42.590Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T09:38:42.593Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 304 - 3ms
+[2025-03-09T09:38:42.608Z] GET /images/patterns/circuit.svg 304 - 1ms
+[2025-03-09T09:38:42.739Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:38:42.742Z] GET /?_rsc=acgkz 200 - 3ms
+[2025-03-09T09:38:42.742Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:38:42.745Z] GET /login?_rsc=acgkz 200 - 6ms
+[2025-03-09T09:38:42.746Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:38:42.748Z] GET /register?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:38:44.897Z] Handling request: GET /terms?_rsc=1t9g6
+[2025-03-09T09:38:44.899Z] GET /terms?_rsc=1t9g6 200 - 3ms
+[2025-03-09T09:38:44.899Z] Handling request: GET /privacy?_rsc=1t9g6
+[2025-03-09T09:38:44.900Z] GET /privacy?_rsc=1t9g6 200 - 3ms
+[2025-03-09T09:38:45.290Z] Handling request: GET /login?_rsc=1t9g6
+[2025-03-09T09:38:45.295Z] GET /login?_rsc=1t9g6 200 - 5ms
+[2025-03-09T09:38:45.450Z] Handling request: GET /forgot-password?_rsc=7td7r
+[2025-03-09T09:38:45.462Z] GET /forgot-password?_rsc=7td7r 404 - 12ms
+[2025-03-09T09:38:48.508Z] Handling request: GET /login/se
+[2025-03-09T09:38:48.531Z] GET /login/se 404 - 24ms
+[2025-03-09T09:38:48.538Z] GET /site.webmanifest 304 - 1ms
+[2025-03-09T09:38:48.592Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:38:48.593Z] GET /?_rsc=acgkz 200 - 1ms
+[2025-03-09T09:38:48.594Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:38:48.595Z] GET /login?_rsc=acgkz 200 - 1ms
+[2025-03-09T09:38:48.595Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:38:48.596Z] GET /register?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:38:49.674Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:38:49.677Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 304 - 3ms
+[2025-03-09T09:38:49.707Z] Handling request: GET /creators/how-it-works?_rsc=acgkz
+[2025-03-09T09:38:49.710Z] GET /creators/how-it-works?_rsc=acgkz 200 - 4ms
+[2025-03-09T09:38:49.711Z] Handling request: GET /faq?_rsc=acgkz
+[2025-03-09T09:38:49.713Z] GET /faq?_rsc=acgkz 200 - 6ms
+[2025-03-09T09:38:49.740Z] Handling request: GET /about?_rsc=acgkz
+[2025-03-09T09:38:49.743Z] GET /about?_rsc=acgkz 200 - 4ms
+[2025-03-09T09:38:49.744Z] Handling request: GET /creators/pioneers?_rsc=acgkz
+[2025-03-09T09:38:49.745Z] GET /creators/pioneers?_rsc=acgkz 200 - 5ms
+[2025-03-09T09:38:49.772Z] Handling request: GET /features?_rsc=acgkz
+[2025-03-09T09:38:49.776Z] GET /features?_rsc=acgkz 200 - 5ms
+[2025-03-09T09:38:49.776Z] Handling request: GET /creators/resources?_rsc=acgkz
+[2025-03-09T09:38:49.779Z] GET /creators/resources?_rsc=acgkz 200 - 7ms
+[2025-03-09T09:38:49.805Z] Handling request: GET /pricing?_rsc=acgkz
+[2025-03-09T09:38:49.809Z] GET /pricing?_rsc=acgkz 200 - 5ms
+[2025-03-09T09:38:49.809Z] Handling request: GET /creators/faq?_rsc=acgkz
+[2025-03-09T09:38:49.811Z] GET /creators/faq?_rsc=acgkz 200 - 6ms
+[2025-03-09T09:38:49.892Z] Handling request: GET /contact?_rsc=acgkz
+[2025-03-09T09:38:49.896Z] GET /contact?_rsc=acgkz 200 - 5ms
+[2025-03-09T09:44:48.099Z] Starting Next.js in production mode
+[2025-03-09T09:44:48.100Z] Server will listen on port 8080
+[2025-03-09T09:44:48.100Z] Node version: v22.12.0
+[2025-03-09T09:44:48.100Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T09:44:48.100Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T09:44:48.100Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T09:44:48.101Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[],"unoptimized":true},"experimental":{"optimizeCss":true}}
+[2025-03-09T09:44:48.296Z] Next.js app prepared
+[2025-03-09T09:45:14.521Z] Handling request: GET /login/se
+[2025-03-09T09:45:14.555Z] GET /login/se 404 - 35ms
+[2025-03-09T09:45:14.620Z] GET /css/316a8dbb56eb984e.css 200 - 20ms
+[2025-03-09T09:45:14.623Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:45:14.714Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:45:14.715Z] GET /chunks/main-app-9039147bd19631df.js 200 - 93ms
+[2025-03-09T09:45:14.724Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 102ms
+[2025-03-09T09:45:14.726Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 105ms
+[2025-03-09T09:45:14.726Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 102ms
+[2025-03-09T09:45:14.727Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 104ms
+[2025-03-09T09:45:14.727Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 106ms
+[2025-03-09T09:45:14.733Z] GET /site.webmanifest 200 - 3ms
+[2025-03-09T09:45:15.953Z] Handling request: GET /
+[2025-03-09T09:45:15.958Z] GET / 200 - 5ms
+[2025-03-09T09:45:15.975Z] GET /chunks/main-app-9039147bd19631df.js 200 - 5ms
+[2025-03-09T09:45:15.977Z] GET /css/316a8dbb56eb984e.css 200 - 12ms
+[2025-03-09T09:45:15.978Z] GET /css/705a4d830c6bdaf2.css 200 - 9ms
+[2025-03-09T09:45:15.985Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 15ms
+[2025-03-09T09:45:15.987Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:45:15.996Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 23ms
+[2025-03-09T09:45:15.997Z] GET /chunks/841-fc7c256e864ce910.js 200 - 17ms
+[2025-03-09T09:45:15.997Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 15ms
+[2025-03-09T09:45:15.997Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:45:15.998Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 15ms
+[2025-03-09T09:45:16.002Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 33ms
+[2025-03-09T09:45:16.003Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 16ms
+[2025-03-09T09:45:16.004Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:45:16.081Z] GET /images/patterns/circuit.svg 200 - 1ms
+[2025-03-09T09:45:19.489Z] Handling request: GET /hejh
+[2025-03-09T09:45:19.515Z] GET /hejh 404 - 27ms
+[2025-03-09T09:45:19.530Z] GET /css/316a8dbb56eb984e.css 200 - 4ms
+[2025-03-09T09:45:19.530Z] GET /chunks/main-app-9039147bd19631df.js 200 - 2ms
+[2025-03-09T09:45:19.536Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 8ms
+[2025-03-09T09:45:19.536Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:45:19.536Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:45:19.544Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 16ms
+[2025-03-09T09:45:19.546Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 13ms
+[2025-03-09T09:45:19.547Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 13ms
+[2025-03-09T09:45:19.548Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 20ms
+[2025-03-09T09:45:19.553Z] GET /site.webmanifest 200 - 3ms
+[2025-03-09T09:45:40.283Z] Handling request: HEAD /nonexistent-page
+[2025-03-09T09:45:40.295Z] HEAD /nonexistent-page 404 - 13ms
+[2025-03-09T09:45:47.898Z] HEAD /images/simons.png 200 - 0ms
+[2025-03-09T09:45:56.883Z] HEAD /favicon.ico 200 - 1ms
+[2025-03-09T09:46:06.494Z] HEAD /icons/android-chrome-192x192.png 200 - 0ms
+[2025-03-09T09:46:16.178Z] HEAD /apple-touch-icon.png 200 - 0ms
+[2025-03-09T09:51:27.074Z] Starting Next.js in production mode
+[2025-03-09T09:51:27.075Z] Server will listen on port 8080
+[2025-03-09T09:51:27.075Z] Node version: v22.12.0
+[2025-03-09T09:51:27.075Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T09:51:27.075Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T09:51:27.075Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T09:51:27.076Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[],"unoptimized":true},"experimental":{"optimizeCss":true}}
+[2025-03-09T09:51:27.276Z] Next.js app prepared
+[2025-03-09T09:51:33.498Z] Handling request: GET /hejh
+[2025-03-09T09:51:33.527Z] GET /hejh 404 - 31ms
+[2025-03-09T09:51:33.583Z] GET /css/316a8dbb56eb984e.css 200 - 4ms
+[2025-03-09T09:51:33.585Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:51:33.585Z] GET /chunks/main-app-9039147bd19631df.js 200 - 1ms
+[2025-03-09T09:51:33.590Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:51:33.590Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 6ms
+[2025-03-09T09:51:33.596Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 12ms
+[2025-03-09T09:51:33.597Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 11ms
+[2025-03-09T09:51:33.597Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 13ms
+[2025-03-09T09:51:33.600Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:51:33.601Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 17ms
+[2025-03-09T09:51:35.353Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75
+[2025-03-09T09:51:35.364Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=128&q=75 200 - 12ms
+[2025-03-09T09:51:37.762Z] Handling request: GET /
+[2025-03-09T09:51:37.768Z] GET / 200 - 6ms
+[2025-03-09T09:51:37.790Z] GET /css/316a8dbb56eb984e.css 200 - 9ms
+[2025-03-09T09:51:37.791Z] GET /chunks/main-app-9039147bd19631df.js 200 - 3ms
+[2025-03-09T09:51:37.792Z] GET /css/705a4d830c6bdaf2.css 200 - 11ms
+[2025-03-09T09:51:37.794Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:51:37.802Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 12ms
+[2025-03-09T09:51:37.803Z] GET /chunks/841-fc7c256e864ce910.js 200 - 11ms
+[2025-03-09T09:51:37.804Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 12ms
+[2025-03-09T09:51:37.805Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 13ms
+[2025-03-09T09:51:37.805Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 18ms
+[2025-03-09T09:51:37.805Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:51:37.813Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 9ms
+[2025-03-09T09:51:37.814Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 27ms
+[2025-03-09T09:51:37.815Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:51:37.836Z] GET /images/patterns/circuit.svg 200 - 2ms
+[2025-03-09T09:51:42.820Z] Handling request: GET /hjn
+[2025-03-09T09:51:42.849Z] GET /hjn 404 - 30ms
+[2025-03-09T09:51:42.861Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:51:42.861Z] GET /chunks/main-app-9039147bd19631df.js 200 - 2ms
+[2025-03-09T09:51:42.868Z] GET /css/316a8dbb56eb984e.css 200 - 10ms
+[2025-03-09T09:51:42.871Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 11ms
+[2025-03-09T09:51:42.873Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 13ms
+[2025-03-09T09:51:42.873Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:51:42.876Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 17ms
+[2025-03-09T09:51:42.878Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 8ms
+[2025-03-09T09:51:42.880Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 22ms
+[2025-03-09T09:51:42.885Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:51:47.164Z] Handling request: GET /okokok
+[2025-03-09T09:51:47.189Z] GET /okokok 404 - 26ms
+[2025-03-09T09:51:47.198Z] GET /css/316a8dbb56eb984e.css 200 - 3ms
+[2025-03-09T09:51:47.199Z] GET /chunks/main-app-9039147bd19631df.js 200 - 3ms
+[2025-03-09T09:51:47.201Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:51:47.201Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:51:47.209Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 12ms
+[2025-03-09T09:51:47.214Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 15ms
+[2025-03-09T09:51:47.214Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 18ms
+[2025-03-09T09:51:47.215Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 15ms
+[2025-03-09T09:51:47.215Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 20ms
+[2025-03-09T09:51:47.217Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:52:01.663Z] Handling request: GET /okokok
+[2025-03-09T09:52:01.691Z] GET /okokok 404 - 28ms
+[2025-03-09T09:52:01.700Z] GET /media/47cbc4e2adbc5db9-s.p.woff2 200 - 2ms
+[2025-03-09T09:52:01.706Z] Handling request: GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75
+[2025-03-09T09:52:01.708Z] Handling request: GET /_next/static/chunks/webpack-7d301ba4be61dc79.js
+[2025-03-09T09:52:01.713Z] GET /chunks/main-app-9039147bd19631df.js 200 - 6ms
+[2025-03-09T09:52:01.717Z] GET /_next/image?url=%2Fimages%2Fsimons.png&w=256&q=75 200 - 13ms
+[2025-03-09T09:52:01.717Z] GET /_next/static/chunks/webpack-7d301ba4be61dc79.js 400 - 12ms
+[2025-03-09T09:52:01.717Z] GET /css/316a8dbb56eb984e.css 200 - 13ms
+[2025-03-09T09:52:01.721Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:52:01.721Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:52:01.722Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 17ms
+[2025-03-09T09:52:01.734Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 15ms
+[2025-03-09T09:52:01.734Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 14ms
+[2025-03-09T09:52:01.735Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 17ms
+[2025-03-09T09:52:01.735Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 30ms
+[2025-03-09T09:52:01.736Z] GET /site.webmanifest 200 - 0ms
+[2025-03-09T09:52:16.007Z] Handling request: GET /nonexistent-page
+[2025-03-09T09:52:16.026Z] GET /nonexistent-page 404 - 20ms
+[2025-03-09T09:55:09.142Z] Starting Next.js in production mode
+[2025-03-09T09:55:09.143Z] Server will listen on port 8080
+[2025-03-09T09:55:09.143Z] Node version: v22.12.0
+[2025-03-09T09:55:09.143Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T09:55:09.143Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T09:55:09.143Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T09:55:09.143Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[],"unoptimized":true},"experimental":{"optimizeCss":true}}
+[2025-03-09T09:55:09.334Z] Next.js app prepared
+[2025-03-09T09:55:43.552Z] Handling request: GET /okokok
+[2025-03-09T09:55:43.592Z] GET /okokok 404 - 41ms
+[2025-03-09T09:55:43.612Z] GET /css/316a8dbb56eb984e.css 200 - 4ms
+[2025-03-09T09:55:43.617Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:55:43.626Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:55:43.626Z] GET /chunks/main-app-9039147bd19631df.js 200 - 10ms
+[2025-03-09T09:55:43.629Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 13ms
+[2025-03-09T09:55:43.632Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 14ms
+[2025-03-09T09:55:43.633Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 17ms
+[2025-03-09T09:55:43.633Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 18ms
+[2025-03-09T09:55:43.636Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 21ms
+[2025-03-09T09:55:43.637Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:55:51.498Z] Handling request: GET /
+[2025-03-09T09:55:51.505Z] GET / 200 - 7ms
+[2025-03-09T09:55:51.515Z] GET /css/316a8dbb56eb984e.css 200 - 2ms
+[2025-03-09T09:55:51.522Z] GET /css/705a4d830c6bdaf2.css 200 - 5ms
+[2025-03-09T09:55:51.523Z] GET /chunks/main-app-9039147bd19631df.js 200 - 4ms
+[2025-03-09T09:55:51.524Z] GET /chunks/841-fc7c256e864ce910.js 200 - 6ms
+[2025-03-09T09:55:51.526Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 7ms
+[2025-03-09T09:55:51.526Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:55:51.526Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:55:51.537Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 12ms
+[2025-03-09T09:55:51.537Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 13ms
+[2025-03-09T09:55:51.538Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 20ms
+[2025-03-09T09:55:51.538Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 15ms
+[2025-03-09T09:55:51.543Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 25ms
+[2025-03-09T09:55:51.543Z] GET /site.webmanifest 200 - 3ms
+[2025-03-09T09:55:51.556Z] GET /images/patterns/circuit.svg 200 - 5ms
+[2025-03-09T09:55:52.942Z] Handling request: GET /register
+[2025-03-09T09:55:52.946Z] GET /register 200 - 4ms
+[2025-03-09T09:55:52.965Z] GET /chunks/main-app-9039147bd19631df.js 200 - 5ms
+[2025-03-09T09:55:52.967Z] GET /css/cc8c8b9a5f40587a.css 200 - 12ms
+[2025-03-09T09:55:52.969Z] GET /css/316a8dbb56eb984e.css 200 - 15ms
+[2025-03-09T09:55:52.975Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:55:52.975Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 12ms
+[2025-03-09T09:55:52.975Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:55:52.985Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 29ms
+[2025-03-09T09:55:52.986Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 16ms
+[2025-03-09T09:55:52.987Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 17ms
+[2025-03-09T09:55:52.987Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 14ms
+[2025-03-09T09:55:52.987Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 32ms
+[2025-03-09T09:55:52.995Z] GET /site.webmanifest 200 - 2ms
+[2025-03-09T09:55:58.630Z] Handling request: GET /register/sd
+[2025-03-09T09:55:58.652Z] GET /register/sd 404 - 23ms
+[2025-03-09T09:55:58.664Z] GET /css/316a8dbb56eb984e.css 200 - 4ms
+[2025-03-09T09:55:58.665Z] GET /chunks/main-app-9039147bd19631df.js 200 - 3ms
+[2025-03-09T09:55:58.666Z] Handling request: GET /_next/static/chunks/547-3b278d0acbb07f97.js
+[2025-03-09T09:55:58.673Z] Handling request: GET /_next/static/chunks/app/layout-3949135461ee61cd.js
+[2025-03-09T09:55:58.677Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 14ms
+[2025-03-09T09:55:58.678Z] GET /_next/static/chunks/547-3b278d0acbb07f97.js 400 - 14ms
+[2025-03-09T09:55:58.678Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 17ms
+[2025-03-09T09:55:58.679Z] GET /_next/static/chunks/app/layout-3949135461ee61cd.js 400 - 13ms
+[2025-03-09T09:55:58.681Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:55:58.681Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 20ms
+[2025-03-09T09:57:15.551Z] Starting Next.js in production mode
+[2025-03-09T09:57:15.557Z] Server will listen on port 8080
+[2025-03-09T09:57:15.557Z] Node version: v22.12.0
+[2025-03-09T09:57:15.557Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T09:57:15.557Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T09:57:15.558Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T09:57:15.558Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[],"unoptimized":true},"experimental":{"optimizeCss":true}}
+[2025-03-09T09:57:15.770Z] Next.js app prepared
+[2025-03-09T09:57:15.773Z] > Server ready on port 8080
+[2025-03-09T09:57:31.548Z] Handling request: GET /
+[2025-03-09T09:57:31.640Z] GET / 200 - 95ms
+[2025-03-09T09:57:32.145Z] GET /media/47cbc4e2adbc5db9-s.p.woff2 200 - 8ms
+[2025-03-09T09:57:32.163Z] GET /images/simons.png 200 - 9ms
+[2025-03-09T09:57:32.165Z] GET /css/316a8dbb56eb984e.css 200 - 10ms
+[2025-03-09T09:57:32.166Z] GET /css/705a4d830c6bdaf2.css 200 - 10ms
+[2025-03-09T09:57:32.167Z] GET /chunks/webpack-7d301ba4be61dc79.js 200 - 9ms
+[2025-03-09T09:57:32.169Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 14ms
+[2025-03-09T09:57:32.172Z] GET /chunks/main-app-9039147bd19631df.js 200 - 7ms
+[2025-03-09T09:57:32.173Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 6ms
+[2025-03-09T09:57:32.173Z] GET /chunks/841-fc7c256e864ce910.js 200 - 5ms
+[2025-03-09T09:57:32.174Z] GET /chunks/app/layout-12478789112f9709.js 200 - 3ms
+[2025-03-09T09:57:32.175Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 6ms
+[2025-03-09T09:57:32.175Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 16ms
+[2025-03-09T09:57:32.176Z] GET /chunks/app/not-found-e5bf05e9be78d94f.js 200 - 1ms
+[2025-03-09T09:57:32.179Z] GET /site.webmanifest 200 - 0ms
+[2025-03-09T09:57:32.234Z] GET /images/patterns/circuit.svg 200 - 2ms
+[2025-03-09T09:57:32.351Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:57:32.358Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:57:32.365Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:57:32.369Z] GET /?_rsc=acgkz 200 - 21ms
+[2025-03-09T09:57:32.393Z] GET /login?_rsc=acgkz 200 - 44ms
+[2025-03-09T09:57:32.394Z] GET /register?_rsc=acgkz 200 - 44ms
+[2025-03-09T09:57:32.397Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 1ms
+[2025-03-09T09:57:32.398Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 2ms
+[2025-03-09T09:57:37.335Z] Handling request: GET /blaj
+[2025-03-09T09:57:37.361Z] GET /blaj 404 - 26ms
+[2025-03-09T09:57:37.367Z] GET /css/316a8dbb56eb984e.css 200 - 2ms
+[2025-03-09T09:57:37.370Z] GET /chunks/main-app-9039147bd19631df.js 200 - 4ms
+[2025-03-09T09:57:37.372Z] GET /chunks/app/not-found-e5bf05e9be78d94f.js 200 - 6ms
+[2025-03-09T09:57:37.383Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 16ms
+[2025-03-09T09:57:37.384Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 18ms
+[2025-03-09T09:57:37.384Z] GET /chunks/app/layout-12478789112f9709.js 200 - 15ms
+[2025-03-09T09:57:37.384Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 19ms
+[2025-03-09T09:57:37.386Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:57:37.497Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:57:37.501Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:57:37.504Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:57:37.509Z] GET /?_rsc=acgkz 200 - 17ms
+[2025-03-09T09:57:37.509Z] GET /login?_rsc=acgkz 200 - 13ms
+[2025-03-09T09:57:37.510Z] GET /register?_rsc=acgkz 200 - 13ms
+[2025-03-09T09:57:37.513Z] GET /chunks/841-fc7c256e864ce910.js 200 - 1ms
+[2025-03-09T09:57:37.514Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 2ms
+[2025-03-09T09:57:37.514Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 1ms
+[2025-03-09T09:57:37.515Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 2ms
+[2025-03-09T09:57:38.787Z] Handling request: GET /creators/how-it-works?_rsc=acgkz
+[2025-03-09T09:57:38.797Z] Handling request: GET /faq?_rsc=acgkz
+[2025-03-09T09:57:38.835Z] GET /creators/how-it-works?_rsc=acgkz 200 - 49ms
+[2025-03-09T09:57:38.837Z] GET /faq?_rsc=acgkz 200 - 50ms
+[2025-03-09T09:57:38.839Z] GET /chunks/app/creators/how-it-works/page-5a4b3715aef7293b.js 200 - 1ms
+[2025-03-09T09:57:38.841Z] GET /chunks/app/faq/page-04a20ef363765ec8.js 200 - 2ms
+[2025-03-09T09:57:39.070Z] Handling request: GET /about?_rsc=acgkz
+[2025-03-09T09:57:39.079Z] Handling request: GET /creators/pioneers?_rsc=acgkz
+[2025-03-09T09:57:39.114Z] GET /about?_rsc=acgkz 200 - 45ms
+[2025-03-09T09:57:39.116Z] GET /creators/pioneers?_rsc=acgkz 200 - 47ms
+[2025-03-09T09:57:39.120Z] GET /chunks/app/about/page-6531191e013873a6.js 200 - 1ms
+[2025-03-09T09:57:39.121Z] GET /chunks/app/creators/pioneers/page-acc4d1e93c08a6ee.js 200 - 1ms
+[2025-03-09T09:57:39.252Z] Handling request: GET /features?_rsc=acgkz
+[2025-03-09T09:57:39.261Z] Handling request: GET /creators/resources?_rsc=acgkz
+[2025-03-09T09:57:39.299Z] GET /features?_rsc=acgkz 200 - 48ms
+[2025-03-09T09:57:39.302Z] GET /creators/resources?_rsc=acgkz 200 - 50ms
+[2025-03-09T09:57:39.304Z] GET /chunks/app/features/page-bd6a4e7284b30349.js 200 - 3ms
+[2025-03-09T09:57:39.305Z] GET /chunks/app/creators/resources/page-46a7eca0bf0d0679.js 200 - 2ms
+[2025-03-09T09:57:40.486Z] Handling request: GET /pricing?_rsc=acgkz
+[2025-03-09T09:57:40.494Z] Handling request: GET /creators/faq?_rsc=acgkz
+[2025-03-09T09:57:40.523Z] GET /pricing?_rsc=acgkz 200 - 38ms
+[2025-03-09T09:57:40.525Z] GET /creators/faq?_rsc=acgkz 200 - 39ms
+[2025-03-09T09:57:40.528Z] GET /chunks/app/pricing/page-ba31786cb39b45d5.js 200 - 2ms
+[2025-03-09T09:57:40.529Z] GET /chunks/app/creators/faq/page-de1aeb34d1370fe3.js 200 - 1ms
+[2025-03-09T09:57:40.579Z] Handling request: GET /contact?_rsc=acgkz
+[2025-03-09T09:57:40.596Z] GET /contact?_rsc=acgkz 200 - 17ms
+[2025-03-09T09:57:44.311Z] Handling request: GET /
+[2025-03-09T09:57:44.318Z] GET / 200 - 8ms
+[2025-03-09T09:57:44.332Z] GET /css/316a8dbb56eb984e.css 200 - 4ms
+[2025-03-09T09:57:44.333Z] GET /css/705a4d830c6bdaf2.css 200 - 5ms
+[2025-03-09T09:57:44.334Z] GET /chunks/main-app-9039147bd19631df.js 200 - 4ms
+[2025-03-09T09:57:44.337Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 6ms
+[2025-03-09T09:57:44.338Z] GET /chunks/841-fc7c256e864ce910.js 200 - 5ms
+[2025-03-09T09:57:44.339Z] GET /chunks/app/layout-12478789112f9709.js 200 - 4ms
+[2025-03-09T09:57:44.340Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 6ms
+[2025-03-09T09:57:44.341Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 11ms
+[2025-03-09T09:57:44.343Z] GET /chunks/app/not-found-e5bf05e9be78d94f.js 200 - 3ms
+[2025-03-09T09:57:44.345Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 16ms
+[2025-03-09T09:57:44.345Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T09:57:44.370Z] GET /images/patterns/circuit.svg 200 - 2ms
+[2025-03-09T09:57:44.472Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:57:44.475Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:57:44.479Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:57:44.482Z] GET /?_rsc=acgkz 200 - 11ms
+[2025-03-09T09:57:44.483Z] GET /login?_rsc=acgkz 200 - 11ms
+[2025-03-09T09:57:44.484Z] GET /register?_rsc=acgkz 200 - 6ms
+[2025-03-09T09:57:44.489Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 3ms
+[2025-03-09T09:57:44.490Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 2ms
+[2025-03-09T09:57:48.770Z] Handling request: GET /ber
+[2025-03-09T09:57:48.796Z] GET /ber 404 - 27ms
+[2025-03-09T09:57:48.806Z] GET /chunks/main-app-9039147bd19631df.js 200 - 2ms
+[2025-03-09T09:57:48.807Z] GET /css/316a8dbb56eb984e.css 200 - 4ms
+[2025-03-09T09:57:48.809Z] GET /chunks/app/not-found-e5bf05e9be78d94f.js 200 - 4ms
+[2025-03-09T09:57:48.810Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 5ms
+[2025-03-09T09:57:48.811Z] GET /chunks/app/layout-12478789112f9709.js 200 - 2ms
+[2025-03-09T09:57:48.813Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 9ms
+[2025-03-09T09:57:48.814Z] GET /site.webmanifest 200 - 0ms
+[2025-03-09T09:57:48.816Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 12ms
+[2025-03-09T09:57:48.881Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:57:48.883Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:57:48.885Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:57:48.886Z] GET /?_rsc=acgkz 200 - 6ms
+[2025-03-09T09:57:48.886Z] GET /login?_rsc=acgkz 200 - 5ms
+[2025-03-09T09:57:48.887Z] GET /register?_rsc=acgkz 200 - 3ms
+[2025-03-09T09:57:48.889Z] GET /chunks/841-fc7c256e864ce910.js 200 - 1ms
+[2025-03-09T09:57:48.890Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 2ms
+[2025-03-09T09:57:48.890Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 2ms
+[2025-03-09T09:57:48.891Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 1ms
+[2025-03-09T09:57:50.090Z] Handling request: GET /
+[2025-03-09T09:57:50.094Z] GET / 200 - 5ms
+[2025-03-09T09:57:50.109Z] GET /css/316a8dbb56eb984e.css 200 - 6ms
+[2025-03-09T09:57:50.110Z] GET /css/705a4d830c6bdaf2.css 200 - 6ms
+[2025-03-09T09:57:50.111Z] GET /chunks/main-app-9039147bd19631df.js 200 - 6ms
+[2025-03-09T09:57:50.114Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 8ms
+[2025-03-09T09:57:50.115Z] GET /chunks/841-fc7c256e864ce910.js 200 - 4ms
+[2025-03-09T09:57:50.115Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 4ms
+[2025-03-09T09:57:50.116Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 11ms
+[2025-03-09T09:57:50.116Z] GET /chunks/app/layout-12478789112f9709.js 200 - 4ms
+[2025-03-09T09:57:50.118Z] GET /chunks/app/not-found-e5bf05e9be78d94f.js 200 - 4ms
+[2025-03-09T09:57:50.120Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 16ms
+[2025-03-09T09:57:50.121Z] GET /site.webmanifest 200 - 2ms
+[2025-03-09T09:57:50.147Z] GET /images/patterns/circuit.svg 200 - 1ms
+[2025-03-09T09:57:50.220Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:57:50.223Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:57:50.225Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:57:50.228Z] GET /?_rsc=acgkz 200 - 9ms
+[2025-03-09T09:57:50.229Z] GET /login?_rsc=acgkz 200 - 9ms
+[2025-03-09T09:57:50.229Z] GET /register?_rsc=acgkz 200 - 9ms
+[2025-03-09T09:57:50.233Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 2ms
+[2025-03-09T09:57:50.234Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 3ms
+[2025-03-09T09:59:22.601Z] Handling request: GET /
+[2025-03-09T09:59:22.614Z] GET / 200 - 14ms
+[2025-03-09T09:59:22.639Z] GET /css/316a8dbb56eb984e.css 200 - 3ms
+[2025-03-09T09:59:22.647Z] GET /chunks/841-fc7c256e864ce910.js 200 - 4ms
+[2025-03-09T09:59:22.648Z] GET /chunks/main-app-9039147bd19631df.js 200 - 4ms
+[2025-03-09T09:59:22.649Z] GET /css/705a4d830c6bdaf2.css 200 - 5ms
+[2025-03-09T09:59:22.650Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 5ms
+[2025-03-09T09:59:22.653Z] GET /chunks/app/layout-12478789112f9709.js 200 - 4ms
+[2025-03-09T09:59:22.653Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 9ms
+[2025-03-09T09:59:22.654Z] GET /chunks/app/not-found-e5bf05e9be78d94f.js 200 - 4ms
+[2025-03-09T09:59:22.654Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 5ms
+[2025-03-09T09:59:22.655Z] GET /site.webmanifest 200 - 0ms
+[2025-03-09T09:59:22.656Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 12ms
+[2025-03-09T09:59:22.698Z] GET /images/patterns/circuit.svg 200 - 2ms
+[2025-03-09T09:59:22.776Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:59:22.780Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:59:22.784Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:59:22.785Z] GET /?_rsc=acgkz 200 - 9ms
+[2025-03-09T09:59:22.786Z] GET /login?_rsc=acgkz 200 - 10ms
+[2025-03-09T09:59:22.786Z] GET /register?_rsc=acgkz 200 - 3ms
+[2025-03-09T09:59:22.788Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 1ms
+[2025-03-09T09:59:22.789Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 1ms
+[2025-03-09T09:59:27.293Z] Handling request: GET /bhb
+[2025-03-09T09:59:27.318Z] GET /bhb 404 - 25ms
+[2025-03-09T09:59:27.327Z] GET /css/316a8dbb56eb984e.css 200 - 3ms
+[2025-03-09T09:59:27.328Z] GET /chunks/main-app-9039147bd19631df.js 200 - 2ms
+[2025-03-09T09:59:27.330Z] GET /chunks/app/not-found-e5bf05e9be78d94f.js 200 - 3ms
+[2025-03-09T09:59:27.331Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 4ms
+[2025-03-09T09:59:27.332Z] GET /chunks/app/layout-12478789112f9709.js 200 - 3ms
+[2025-03-09T09:59:27.332Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 6ms
+[2025-03-09T09:59:27.334Z] GET /site.webmanifest 200 - 0ms
+[2025-03-09T09:59:27.336Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 11ms
+[2025-03-09T09:59:27.401Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T09:59:27.403Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T09:59:27.405Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T09:59:27.407Z] GET /?_rsc=acgkz 200 - 7ms
+[2025-03-09T09:59:27.407Z] GET /login?_rsc=acgkz 200 - 6ms
+[2025-03-09T09:59:27.407Z] GET /register?_rsc=acgkz 200 - 2ms
+[2025-03-09T09:59:27.409Z] GET /chunks/841-fc7c256e864ce910.js 200 - 1ms
+[2025-03-09T09:59:27.410Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 2ms
+[2025-03-09T09:59:27.410Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 2ms
+[2025-03-09T09:59:27.415Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 1ms
+[2025-03-09T10:00:54.089Z] Starting Next.js in production mode
+[2025-03-09T10:00:54.090Z] Server will listen on port 8080
+[2025-03-09T10:00:54.090Z] Node version: v22.12.0
+[2025-03-09T10:00:54.090Z] Current directory: /Users/simonmodin/Blimpify/web
+[2025-03-09T10:00:54.090Z] .next directory exists at /Users/simonmodin/Blimpify/web/.next
+[2025-03-09T10:00:54.090Z] .next directory contains: BUILD_ID, app-build-manifest.json, app-path-routes-manifest.json, build-manifest.json, cache, export-marker.json, images-manifest.json, next-minimal-server.js.nft.json, next-server.js.nft.json, package.json, prerender-manifest.js, prerender-manifest.json, react-loadable-manifest.json, required-server-files.json, routes-manifest.json, server, static, trace, types
+[2025-03-09T10:00:54.091Z] Loaded Next.js config: {"reactStrictMode":true,"poweredByHeader":false,"compress":true,"i18n":{"locales":["sv"],"defaultLocale":"sv"},"images":{"domains":[],"unoptimized":true},"experimental":{"optimizeCss":true}}
+[2025-03-09T10:00:54.280Z] Next.js app prepared
+[2025-03-09T10:00:54.283Z] > Server ready on port 8080
+[2025-03-09T10:00:58.364Z] Handling request: GET /bhb
+[2025-03-09T10:00:58.448Z] GET /bhb 404 - 87ms
+[2025-03-09T10:00:58.470Z] GET /css/316a8dbb56eb984e.css 200 - 6ms
+[2025-03-09T10:00:58.475Z] GET /chunks/main-app-9039147bd19631df.js 200 - 6ms
+[2025-03-09T10:00:58.479Z] GET /chunks/app/not-found-3f2550fab0962cca.js 200 - 10ms
+[2025-03-09T10:00:58.480Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 10ms
+[2025-03-09T10:00:58.481Z] GET /chunks/app/layout-12478789112f9709.js 200 - 7ms
+[2025-03-09T10:00:58.482Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 14ms
+[2025-03-09T10:00:58.484Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T10:00:58.484Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 16ms
+[2025-03-09T10:00:58.587Z] Handling request: GET /?_rsc=acgkz
+[2025-03-09T10:00:58.599Z] Handling request: GET /login?_rsc=acgkz
+[2025-03-09T10:00:58.602Z] Handling request: GET /register?_rsc=acgkz
+[2025-03-09T10:00:58.640Z] GET /?_rsc=acgkz 200 - 54ms
+[2025-03-09T10:00:58.641Z] GET /login?_rsc=acgkz 200 - 54ms
+[2025-03-09T10:00:58.641Z] GET /register?_rsc=acgkz 200 - 54ms
+[2025-03-09T10:00:58.646Z] GET /chunks/841-fc7c256e864ce910.js 200 - 2ms
+[2025-03-09T10:00:58.647Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 3ms
+[2025-03-09T10:00:58.647Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 3ms
+[2025-03-09T10:00:58.648Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 3ms
+[2025-03-09T10:01:02.467Z] Handling request: GET /creators/how-it-works?_rsc=acgkz
+[2025-03-09T10:01:02.470Z] Handling request: GET /faq?_rsc=acgkz
+[2025-03-09T10:01:02.499Z] GET /creators/how-it-works?_rsc=acgkz 200 - 33ms
+[2025-03-09T10:01:02.501Z] GET /faq?_rsc=acgkz 200 - 34ms
+[2025-03-09T10:01:02.503Z] GET /chunks/app/creators/how-it-works/page-5a4b3715aef7293b.js 200 - 1ms
+[2025-03-09T10:01:02.504Z] GET /chunks/app/faq/page-04a20ef363765ec8.js 200 - 2ms
+[2025-03-09T10:01:02.599Z] Handling request: GET /about?_rsc=acgkz
+[2025-03-09T10:01:02.604Z] Handling request: GET /creators/pioneers?_rsc=acgkz
+[2025-03-09T10:01:02.629Z] GET /about?_rsc=acgkz 200 - 30ms
+[2025-03-09T10:01:02.629Z] GET /creators/pioneers?_rsc=acgkz 200 - 25ms
+[2025-03-09T10:01:02.635Z] GET /chunks/app/about/page-6531191e013873a6.js 200 - 1ms
+[2025-03-09T10:01:02.637Z] GET /chunks/app/creators/pioneers/page-acc4d1e93c08a6ee.js 200 - 1ms
+[2025-03-09T10:01:02.838Z] Handling request: GET /features?_rsc=acgkz
+[2025-03-09T10:01:02.849Z] Handling request: GET /creators/resources?_rsc=acgkz
+[2025-03-09T10:01:02.890Z] GET /features?_rsc=acgkz 200 - 53ms
+[2025-03-09T10:01:02.891Z] GET /creators/resources?_rsc=acgkz 200 - 53ms
+[2025-03-09T10:01:02.897Z] GET /chunks/app/features/page-bd6a4e7284b30349.js 200 - 2ms
+[2025-03-09T10:01:02.898Z] GET /chunks/app/creators/resources/page-46a7eca0bf0d0679.js 200 - 1ms
+[2025-03-09T10:01:05.364Z] Handling request: GET /contact
+[2025-03-09T10:01:05.397Z] GET /contact 200 - 34ms
+[2025-03-09T10:01:05.413Z] GET /css/fc717c3fda910875.css 200 - 4ms
+[2025-03-09T10:01:05.414Z] GET /css/316a8dbb56eb984e.css 200 - 5ms
+[2025-03-09T10:01:05.416Z] GET /chunks/main-app-9039147bd19631df.js 200 - 4ms
+[2025-03-09T10:01:05.419Z] GET /chunks/250-5cb2af5f9cc171e2.js 200 - 7ms
+[2025-03-09T10:01:05.420Z] GET /chunks/app/layout-12478789112f9709.js 200 - 5ms
+[2025-03-09T10:01:05.420Z] GET /chunks/app/not-found-3f2550fab0962cca.js 200 - 5ms
+[2025-03-09T10:01:05.422Z] GET /chunks/69-4464d8d1468c9d3a.js 200 - 11ms
+[2025-03-09T10:01:05.424Z] GET /site.webmanifest 200 - 1ms
+[2025-03-09T10:01:05.425Z] GET /chunks/fd9d1056-8f78d26414ffa56c.js 200 - 15ms
+[2025-03-09T10:01:05.537Z] Handling request: GET /?_rsc=yikn4
+[2025-03-09T10:01:05.543Z] Handling request: GET /login?_rsc=yikn4
+[2025-03-09T10:01:05.548Z] Handling request: GET /register?_rsc=yikn4
+[2025-03-09T10:01:05.550Z] GET /?_rsc=yikn4 200 - 15ms
+[2025-03-09T10:01:05.550Z] GET /login?_rsc=yikn4 200 - 14ms
+[2025-03-09T10:01:05.551Z] GET /register?_rsc=yikn4 200 - 8ms
+[2025-03-09T10:01:05.555Z] GET /chunks/841-fc7c256e864ce910.js 200 - 2ms
+[2025-03-09T10:01:05.556Z] GET /chunks/app/page-7b5bdee4ac5e8425.js 200 - 2ms
+[2025-03-09T10:01:05.556Z] GET /chunks/app/login/page-7cdfc00aeaf2b7c8.js 200 - 2ms
+[2025-03-09T10:01:05.556Z] GET /chunks/app/register/page-a0932088b2afd87d.js 200 - 2ms
+[2025-03-09T10:01:06.722Z] GET /css/705a4d830c6bdaf2.css 200 - 4ms
+[2025-03-09T10:01:06.745Z] GET /images/patterns/circuit.svg 200 - 2ms

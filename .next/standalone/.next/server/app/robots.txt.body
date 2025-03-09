@@ -1,8 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
-
-Host: https://blimpify.com
-Sitemap: https://blimpify.com/sitemap.xml

@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -48,7 +47,7 @@ export default function Footer() {
         <div className={styles.footerGrid}>
           <div className={styles.footerBrand}>
             <Link href="/" className={styles.footerLogo}>
-              <Image
+              <img
                 src="/images/simons.png"
                 alt="Blimpify Logo"
                 width={60}

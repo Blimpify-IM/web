@@ -9,10 +9,11 @@ const nextConfig = {
     },
     images: {
         domains: [],
+        unoptimized: true,
     },
     // Inaktivera CSS-optimering som orsakar problem
     experimental: {
-        optimizeCss: false,
+        optimizeCss: true,
     },
 }
 
