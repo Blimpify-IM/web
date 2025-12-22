@@ -1,0 +1,20 @@
+{
+  "globalStyles": {
+    "radius": "full",
+    "accentColor": "purple",
+    "accentIntensity": "normal",
+    "isDark": false,
+    "themeTone": "neutral",
+    "fontPrimary": "Outfit",
+    "fontSecondary": "Outfit",
+    "fontWeightHeading": "bold",
+    "fontWeightBody": "regular",
+    "layoutContent": "xl",
+    "layoutMedia": "xl",
+    "sectionSpacing": "lg",
+    "containerSpacing": "md",
+    "navbarSpacing": "md",
+    "formWidth": "sm",
+    "typographyScale": "md"
+  }
+}
