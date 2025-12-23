@@ -60,9 +60,9 @@ export function Footer() {
           {/* RIGHT: Navigation (NO GRID) */}
           <HStack spacing="xl" align="start">
             {/* Pages */}
-            <VStack spacing="md" align="end">
+            <VStack spacing="md" align="start">
               <H3>Sidor</H3>
-              <VStack spacing="xs" align="end">
+              <VStack spacing="xs" align="start">
                 <FooterLink href="#how-it-works">Så fungerar det</FooterLink>
                 <FooterLink href="#portfolio">Våra projekt</FooterLink>
                 <FooterLink href="#testimonials">Testimonials</FooterLink>
@@ -72,9 +72,9 @@ export function Footer() {
             </VStack>
 
             {/* Contact */}
-            <VStack spacing="md" align="end">
+            <VStack spacing="md" align="start">
               <H3>Kontakt</H3>
-              <VStack spacing="xs" align="end">
+              <VStack spacing="xs" align="start">
                 <FooterExternal href="https://calendly.com/admin-blimpify/30min">
                   Boka möte
                 </FooterExternal>

@@ -1,10 +1,10 @@
 {
   "globalStyles": {
-    "isDark": true,
-    "radius": "full",
+    "isDark": false,
+    "radius": "2xl",
     "formWidth": "md",
-    "themeTone": "mono",
-    "accentColor": "purple",
+    "themeTone": "ink",
+    "accentColor": "inverse",
     "layoutMedia": "xl",
     "layoutContent": "sm",
     "navbarSpacing": "md",
