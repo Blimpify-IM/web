@@ -1,6 +1,9 @@
+
 import './globals.css';
 import type { Metadata } from 'next';
-import { getDesignConfigSync, buildCssVars, getThemeSyncScript } from '@/lib/theme/themeEngine';
+import { designSnippet } from '@blimpify-im/ui/design';
+import { StaticNavbar } from '@/components/layout/StaticNavbar';
+import { Footer } from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'Blimpify - Hemsida och affärsverktyg',
@@ -15,38 +18,35 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // Load design config and generate theme CSS/scripts
-  const designConfig = getDesignConfigSync();
-  const cssVars = buildCssVars(designConfig);
-  const themeSyncScript = getThemeSyncScript(designConfig);
-
-  const themeTone = designConfig?.globalStyles?.themeTone || "neutral";
-  const isDark = designConfig?.globalStyles?.isDark ?? false;
+  // Load design tokens from design.json and generate CSS
+  const design = await designSnippet();
 
   return (
     <html
       lang="sv"
       suppressHydrationWarning
-      data-theme-tone={themeTone === "neutral" ? "pure" : themeTone}
-      data-theme={isDark ? 'dark' : 'light'}
+      data-theme-tone={design.themeTone}
+      data-theme={design.isDark ? 'dark' : 'light'}
+      {...(design.accentColor === 'inverse' ? { 'data-accent-mode': 'inverse' } : {})}
     >
       <head>
         {/* Preconnect to Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Inject CSS variables from design.json */}
-        <style dangerouslySetInnerHTML={{ __html: cssVars }} />
-
-        {/* Theme sync script - runs before React hydration */}
-        <script dangerouslySetInnerHTML={{ __html: themeSyncScript }} />
+        {/* Inject design tokens as CSS variables */}
+        <style id="design-css">{design.css}</style>
       </head>
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        <StaticNavbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

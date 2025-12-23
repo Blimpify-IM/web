@@ -1,20 +1,20 @@
 {
   "globalStyles": {
+    "isDark": true,
     "radius": "full",
+    "formWidth": "md",
+    "themeTone": "mono",
     "accentColor": "purple",
-    "accentIntensity": "normal",
-    "isDark": false,
-    "themeTone": "neutral",
+    "layoutMedia": "xl",
+    "layoutContent": "sm",
+    "navbarSpacing": "md",
+    "sectionSpacing": "lg",
+    "containerSpacing": "xl",
+    "typographyScale": "md",
     "fontPrimary": "Outfit",
     "fontSecondary": "Outfit",
-    "fontWeightHeading": "bold",
-    "fontWeightBody": "regular",
-    "layoutContent": "xl",
-    "layoutMedia": "xl",
-    "sectionSpacing": "lg",
-    "containerSpacing": "md",
-    "navbarSpacing": "md",
-    "formWidth": "sm",
-    "typographyScale": "md"
+    "fontWeightHeadingNumeric": 700,
+    "fontWeightBodyNumeric": 500,
+    "fontWeightLabelNumeric": 600
   }
 }
