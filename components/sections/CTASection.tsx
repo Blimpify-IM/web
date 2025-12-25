@@ -11,6 +11,7 @@ import {
   Input,
   Button,
 } from '@blimpify-im/ui';
+import { Icon } from 'lucide-react';
 
 export function CTASection() {
   const [email, setEmail] = useState('');
@@ -58,7 +59,7 @@ export function CTASection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  
+                 
                   size="lg"
                 />
                 <Button

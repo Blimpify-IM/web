@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { designSnippet } from '@blimpify-im/ui/design';
 import { StaticNavbar } from '@/components/layout/StaticNavbar';
 import { Footer } from '@/components/layout/Footer';
+import { NavbarBar } from '@/components/layout/NavbarBar';
 
 export const metadata: Metadata = {
   title: 'Blimpify - Hemsida och affärsverktyg',
@@ -43,7 +44,7 @@ export default async function RootLayout({
         <style id="design-css">{design.css}</style>
       </head>
       <body suppressHydrationWarning>
-        <StaticNavbar />
+        <NavbarBar />
         <main>{children}</main>
         <Footer />
       </body>

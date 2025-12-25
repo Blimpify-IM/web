@@ -1,6 +1,6 @@
 'use client';
 
-import { Section, Container, Box, VStack, Button, H1, Body, Display } from '@blimpify-im/ui';
+import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer } from '@blimpify-im/ui';
 import Image from 'next/image';
 
 export function HeroSection() {
@@ -12,6 +12,8 @@ export function HeroSection() {
         minHeight: '100vh',
       }}
     >
+      {/* Responsive top spacing - larger on mobile (2.5x), smaller on desktop (1.5x) */}
+      <Spacer mobile={1.5} desktop={1} />
 
       {/* Hero Content */}
       <Container

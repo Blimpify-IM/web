@@ -73,14 +73,14 @@ export function FAQSection() {
             selectionMode="single"
             radius="md"
             radiusMode="edges"
-            variant="default"
+            variant="borderless"
             gap="none"
             showIndicator={true}
             defaultExpandedKeys={['0']}
           >
             {faqs.map((faq, index) => (
               <AccordionItem key={index} itemKey={String(index)} title={faq.question}>
-                <Body size="md" color="secondary" style={{ lineHeight: 1.6 }}>
+                <Body size="md" style={{ lineHeight: 1.6 }}>
                   {faq.answer}
                 </Body>
               </AccordionItem>

@@ -100,11 +100,13 @@ export function ScrollSection() {
               display: 'flex',
               flexDirection: 'column',
               gap: 'var(--space-xl)',
-              flex: '0 0 280px',
+              flex: '0 0 320px',
               position: 'sticky',
-              top: '120px',
+              top: '100px',
               alignSelf: 'flex-start',
               height: 'fit-content',
+              maxHeight: 'calc(100vh - 120px)',
+              overflowY: 'auto',
             }}
           >
             <VStack spacing="md">
@@ -120,6 +122,8 @@ export function ScrollSection() {
             {/* Accordion Sidebar Items */}
             <Accordion
               selectionMode="single"
+              variant='borderless'
+              showIndicator={false}
               expandedKeys={[String(activeIndex)]}
               onSelectionChange={(keys) => {
                 const index = parseInt(keys[0]);
@@ -221,57 +225,6 @@ export function ScrollSection() {
           </VStack>
         </div>
       </Container>
-
-      {/* Custom Styles */}
-      <style jsx global>{`
-        /* Accordion styling for scroll section */
-        .accordion-active {
-          opacity: 1 !important;
-        }
-
-        .accordion-item {
-          border-bottom: 1px solid var(--color-border-secondary);
-          opacity: 0.6;
-          cursor: pointer;
-          transition: opacity 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .accordion-item:hover {
-          opacity: 0.8;
-        }
-
-        .accordion-item.accordion-active {
-          opacity: 1;
-        }
-
-        @media (max-width: 767px) {
-          .scroll-section-grid {
-            flex-direction: column !important;
-            gap: var(--space-xl) !important;
-          }
-
-          /* Hide sticky sidebar on mobile */
-          .scroll-section-grid > div:first-child {
-            display: none !important;
-          }
-
-          /* Show mobile text */
-          .mobile-scroll-text {
-            display: block !important;
-          }
-
-          /* Remove overflow and transforms on mobile */
-          .overflow-container {
-            width: 100% !important;
-            margin-right: 0 !important;
-          }
-
-          .animated-box {
-            opacity: 1 !important;
-            transform: none !important;
-          }
-        }
-      `}</style>
     </Section>
   );
 }

@@ -5,16 +5,22 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { PricingSection } from '@/components/sections/PricingSection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CTASection } from '@/components/sections/CTASection';
+import { Divider } from '@blimpify-im/ui';
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <Divider></Divider>
       <ScrollSection />
+      <Divider></Divider>
       <TestimonialsSection />
+      <Divider></Divider>
       <PricingSection />
+      <Divider></Divider>
       <FAQSection />
       <CTASection />
+      
     </>
   );
 }

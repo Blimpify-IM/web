@@ -10,8 +10,8 @@ import {
   H3,
   Logo,
   LogoText,
+  TextLink,
 } from '@blimpify-im/ui';
-import Link from 'next/link';
 
 export function Footer() {
   return (
@@ -51,7 +51,7 @@ export function Footer() {
 
             <LogoText>Blimpify AB</LogoText>
 
-            <Body size="sm" color="secondary">
+            <Body size="sm" >
               Vi skapar anpassade hemsidor som du enkelt kan uppdatera utan att
               förstöra designen.
             </Body>
@@ -61,7 +61,7 @@ export function Footer() {
           <HStack spacing="xl" align="start">
             {/* Pages */}
             <VStack spacing="md" align="start">
-              <H3>Sidor</H3>
+              <H3 color='disabled'>Sidor</H3>
               <VStack spacing="xs" align="start">
                 <FooterLink href="#how-it-works">Så fungerar det</FooterLink>
                 <FooterLink href="#portfolio">Våra projekt</FooterLink>
@@ -73,7 +73,7 @@ export function Footer() {
 
             {/* Contact */}
             <VStack spacing="md" align="start">
-              <H3>Kontakt</H3>
+              <H3 color='disabled'>Kontakt</H3>
               <VStack spacing="xs" align="start">
                 <FooterExternal href="https://calendly.com/admin-blimpify/30min">
                   Boka möte
@@ -125,11 +125,12 @@ function FooterLink({
   children: React.ReactNode;
 }) {
   return (
-    <Link href={href} style={{ textDecoration: 'none' }}>
-      <Body size="sm" color="secondary" style={{ cursor: 'pointer' }}>
-        {children}
-      </Body>
-    </Link>
+    <TextLink
+      href={href}
+      size="sm"
+    >
+      {children}
+    </TextLink>
   );
 }
 
@@ -141,15 +142,14 @@ function FooterExternal({
   children: React.ReactNode;
 }) {
   return (
-    <a
+    <TextLink
       href={href}
+      variant="primary"
+      size="sm"
       target="_blank"
       rel="noopener noreferrer"
-      style={{ textDecoration: 'none' }}
     >
-      <Body size="sm" color="secondary" style={{ cursor: 'pointer' }}>
-        {children}
-      </Body>
-    </a>
+      {children}
+    </TextLink>
   );
 }
