@@ -23,7 +23,7 @@ interface PricingPlan {
   features: string[];
   popular?: boolean;
   cta: string;
-  variant: 'outlined' | 'elevated' | 'solid';
+  variant: 'outlined' | 'raised' | 'elevated' | 'solid';
 }
 
 const pricingPlans: PricingPlan[] = [
@@ -44,7 +44,7 @@ const pricingPlans: PricingPlan[] = [
     ],
     popular: true,
     cta: 'Välj Professional',
-    variant: 'elevated',
+    variant: 'raised',
   },
   {
     name: 'Enterprise',

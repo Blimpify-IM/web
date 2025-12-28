@@ -12,12 +12,16 @@ export function HeroSection() {
         minHeight: '100vh',
       }}
     >
+
+
       {/* Responsive top spacing - larger on mobile (2.5x), smaller on desktop (1.5x) */}
       <Spacer mobile={1.5} desktop={1} />
-
+      
       {/* Hero Content */}
       <Container
         style={{
+          position: 'relative',
+          zIndex: 1,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -53,7 +57,7 @@ export function HeroSection() {
           </Button>
         </VStack>
       </Container>
-      <Container useMediaWidth>
+      <Container useMediaWidth style={{ position: 'relative', zIndex: 1 }}>
         {/* Dashboard Mockup */}
           <Box style={{ width: '100%'}}>
             <Image

@@ -3,8 +3,6 @@
 import { useMemo } from 'react';
 import Image from 'next/image';
 import {
-  Section,
-  Container,
   Box,
   VStack,
   H2,
@@ -74,39 +72,33 @@ export function ScrollSection() {
   const { activeIndex, animationValues, scrollToIndex } = useScrollAnimation(imageRefs);
 
   return (
-    <Section
+    <section
       id="scroll-section"
-      overflow="visible"
-      overflowX="clip"
       style={{
         background: 'var(--color-surface-secondary)',
         paddingTop: 'var(--space-2xl)',
         paddingBottom: 'var(--space-2xl)',
       }}
     >
-      <Container>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--space-md)' }}>
         <div
           style={{
-            display: 'flex',
+            display: 'grid',
+            gridTemplateColumns: '320px 1fr',
             gap: 'var(--space-2xl)',
-            overflow: 'visible',
-            position: 'relative',
+            alignItems: 'start',
           }}
           className="scroll-section-grid"
         >
           {/* Sticky Sidebar - fixed width */}
           <aside
             style={{
+              position: 'sticky',
+              top: '200px',
+              alignSelf: 'flex-start',
               display: 'flex',
               flexDirection: 'column',
               gap: 'var(--space-xl)',
-              flex: '0 0 320px',
-              position: 'sticky',
-              top: '100px',
-              alignSelf: 'flex-start',
-              height: 'fit-content',
-              maxHeight: 'calc(100vh - 120px)',
-              overflowY: 'auto',
             }}
           >
             <VStack spacing="md">
@@ -224,7 +216,7 @@ export function ScrollSection() {
             })}
           </VStack>
         </div>
-      </Container>
-    </Section>
+      </div>
+    </section>
   );
 }

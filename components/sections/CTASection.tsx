@@ -34,7 +34,7 @@ export function CTASection() {
       id="cta"
       
       style={{
-        background: 'var(--surface-elevated)',
+        background: 'var(--surface-raised)',
       }}
     >
       <Container useFormWidth>
