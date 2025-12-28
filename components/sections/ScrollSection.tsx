@@ -3,6 +3,8 @@
 import { useMemo } from 'react';
 import Image from 'next/image';
 import {
+  Section,
+  Container,
   Box,
   VStack,
   H2,
@@ -72,15 +74,14 @@ export function ScrollSection() {
   const { activeIndex, animationValues, scrollToIndex } = useScrollAnimation(imageRefs);
 
   return (
-    <section
+    <Section
       id="scroll-section"
+      overflow="visible"
       style={{
-        background: 'var(--color-surface-secondary)',
-        paddingTop: 'var(--space-2xl)',
-        paddingBottom: 'var(--space-2xl)',
+        background: 'var(--surface-secondary)',
       }}
     >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 var(--space-md)' }}>
+      <Container>
         <div
           style={{
             display: 'grid',
@@ -216,7 +217,7 @@ export function ScrollSection() {
             })}
           </VStack>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 }

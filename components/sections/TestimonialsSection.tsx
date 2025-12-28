@@ -60,7 +60,7 @@ export function TestimonialsSection() {
           </VStack>
 
           {/* Testimonials Grid */}
-          <Grid columns={{sm: 1,md: 1, lg: 3 }}>
+          <Grid columns={{sm: 1,md: 2, lg: 3 }}>
             {testimonials.map((testimonial, index) => (
               <Card key={index} padding="lg" >
                 <CardContent>
