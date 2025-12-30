@@ -6,7 +6,7 @@
     "themeTone": "pure",
     "accentColor": "inverse",
     "layoutMedia": "xl",
-    "layoutContent": "sm",
+    "layoutContent": "md",
     "navbarSpacing": "md",
     "sectionSpacing": "xl",
     "containerSpacing": "lg",

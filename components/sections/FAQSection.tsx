@@ -74,7 +74,7 @@ export function FAQSection() {
             radius="md"
             radiusMode="edges"
             variant="borderless"
-            gap="none"
+            gap="lg"
             showIndicator={true}
             defaultExpandedKeys={['0']}
           >

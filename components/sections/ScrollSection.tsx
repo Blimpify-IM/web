@@ -74,19 +74,21 @@ export function ScrollSection() {
   const { activeIndex, animationValues, scrollToIndex } = useScrollAnimation(imageRefs);
 
   return (
-    <Section
+    <Section 
       id="scroll-section"
       overflow="visible"
+      overflowX="clip"
       style={{
         background: 'var(--surface-secondary)',
       }}
     >
-      <Container>
+      <Container useMediaWidth>
+        
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: '320px 1fr',
-            gap: 'var(--space-2xl)',
+            gridTemplateColumns: '280px 1fr',
+            gap: 'var(--space-xl)',
             alignItems: 'start',
           }}
           className="scroll-section-grid"
@@ -95,11 +97,12 @@ export function ScrollSection() {
           <aside
             style={{
               position: 'sticky',
-              top: '200px',
+              top: 'calc(50vh - 200px)',
               alignSelf: 'flex-start',
               display: 'flex',
               flexDirection: 'column',
               gap: 'var(--space-xl)',
+              overflow: 'visible',
             }}
           >
             <VStack spacing="md">
@@ -116,8 +119,9 @@ export function ScrollSection() {
             <Accordion
               selectionMode="single"
               variant='borderless'
+              gap='none'
               showIndicator={false}
-              expandedKeys={[String(activeIndex)]}
+              expandedKeys={[String(activeIndex ?? 0)]}
               onSelectionChange={(keys) => {
                 const index = parseInt(keys[0]);
                 if (!isNaN(index)) {

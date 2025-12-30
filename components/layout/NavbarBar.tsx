@@ -116,7 +116,7 @@ export function NavbarBar({
             }}
           >
             {menuItems.map((item, i) => (
-              <TextLink key={i} href={item.href} size="md">
+              <TextLink variant='button-ghost' key={i} href={item.href} size="md">
                 {item.label}
               </TextLink>
             ))}
