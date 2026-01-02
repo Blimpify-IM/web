@@ -59,7 +59,7 @@ export function TestimonialsSection() {
         <VStack spacing="3xl">
           {/* Header */}
           <VStack spacing="md" align="center">
-            <Tag> Testimonials</Tag>
+            <Tag variant="accent"> Testimonials</Tag>
             <H2 weight="bold" align="center">
               Vad våra klienter säger om oss
             </H2>
