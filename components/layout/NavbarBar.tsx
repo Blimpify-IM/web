@@ -128,7 +128,7 @@ export function NavbarBar({
               Kontakta oss
             </Button>
             <Button variant="accent" href="https://builder.blimpify-im.com" target="_blank">
-              Kom igång
+            Häng med
             </Button>
           </HStack>
         </div>

@@ -27,37 +27,35 @@ interface PricingPlan {
 }
 
 const pricingPlans: PricingPlan[] = [
+  
   {
-    name: 'Medlemskap',
+    name: 'Blimpify medlemskap (standard)',
     price: '490 kr',
     period: '/månad',
-    description: 'För företag som vill växa och synas mer',
+    description: 'För företag som vill fokusera på sin affär – inte på sin hemsida.',
     features: [
-      'Professionell hemsida',
-      'Mobilanpassad design',
-      'Enkelt CMS',
-      'Kontaktformulär',
-      'Domänhantering',
-      'Avancerad statistik',
-      'Priority support',
-      'SEO-optimering',
+      'En professionell hemsida, framtagen utifrån dina val',
+      'Struktur och grund som fungerar över tid',
+      'Möjlighet att justera text, färger och detaljer vid behov',
+      'Hjälp med domänkoppling och publicering',
+      'Överblick över hur hemsidan används',
+      'Support när något känns fel',
     ],
-    popular: true,
-    cta: 'Välj Professional',
+    popular: false,
+    cta: 'Kommer snart...',
     variant: 'raised',
   },
   {
-    name: 'Enterprise',
+    name: 'När behoven går bortom standard',
     price: 'Kontakta oss',
     period: '',
     description: 'Skräddarsydd lösning för större företag',
     features: [
-      'Allt i Professional',
-      'Custom funktioner',
-      'Dedikerad support',
-      'SLA-garanti',
-      'Obegränsade användare',
-      'API-integration',
+      'Ett större projekt med tydlig projektledning',
+      'Lösningar anpassade efter er verksamhet och era flöden',
+      'Stöd för mer avancerad funktionalitet vid behov',
+      'En dedikerad kontakt och långsiktigt samarbete',
+      'Avtal och upplägg anpassade efter omfattning och krav',
     ],
     cta: 'Kontakta oss',
     variant: 'outlined',
@@ -80,9 +78,6 @@ export function PricingSection() {
             <H2 weight="bold" align="center">
               Välj rätt plan för ditt företag
             </H2>
-            <Body size="lg" color="secondary" align="center">
-              Transparent prissättning utan dolda kostnader. Byt plan när som helst.
-            </Body>
           </VStack>
 
           {/* Pricing Cards */}

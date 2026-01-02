@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import Image from 'next/image';
 import {
   Section,
@@ -20,54 +20,84 @@ import {
 interface ScrollItem {
   title: string;
   description: string;
-  imageSrc: string;
+  imageLight: string;
+  imageDark: string;
   imageAlt: string;
 }
 
-const scrollItems: ScrollItem[] = [
+const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Hemsida',
-    description: 'En professionellt designad hemsida byggd av oss, baserad på dina val.',
-    imageSrc: '/assets/scrollsection/BDwebsite.png',
+    description: 'Du sätter riktningen. Vi tar hand om genomförandet.',
+    imageLight: '/assets/hemsida.png',
+    imageDark: '/assets/hemsida-dark.png',
     imageAlt: 'Hemsida',
   },
   {
     title: 'CMS',
-    description: 'Ändra text, bilder och innehåll när du vill – utan teknisk kunskap.',
-    imageSrc: '/assets/scrollsection/BDeditor.png',
+    description: 'Justera text, färger och detaljer när det behövs. Vi tar hand om struktur, helhet och större ändringar.',
+    imageLight: '/assets/cms.png',
+    imageDark: '/assets/cms-dark.png',
     imageAlt: 'CMS',
   },
   {
-    title: 'Bokningssystem',
-    description: 'Ett komplett bokningssystem med kalender, delbar länk och möjlighet att bädda in på din hemsida.',
-    imageSrc: '/assets/scrollsection/BDbokningar.png',
-    imageAlt: 'Bokningssystem',
-  },
-  {
     title: 'Domänhantering',
-    description: 'Koppla din domän och hantera DNS direkt i dashboarden.',
-    imageSrc: '/assets/scrollsection/BDdomäner.png',
+    description: 'Du pekar domänen hos din leverantör – vi kopplar den till vårt system och ser till att allt fungerar.',
+    imageLight: '/assets/domain.png',
+    imageDark: '/assets/domain-dark.png',
     imageAlt: 'Domänhantering',
   },
   {
     title: 'Statistik',
-    description: 'Följ trafiken och se hur din hemsida presterar.',
-    imageSrc: '/assets/scrollsection/BDstats.png',
+    description: 'Se hur din hemsida används – följ upp statistik och trafik.',
+    imageLight: '/assets/stats.png',
+    imageDark: '/assets/stats-dark.png',
     imageAlt: 'Statistik',
   },
   {
-    title: 'Fler verktyg på väg',
-    description: 'CRM, formulär, blogg, recensioner, medlemskap och fler moduler.',
-    imageSrc: '/assets/scrollsection/BDhållutkik.png',
+    title: 'Byggt för att växa',
+    description: 'Vi utvecklar Blimpify i nära dialog med våra medlemmar för att utvecklas tillsammans.',
+    imageLight: '/assets/news.png',
+    imageDark: '/assets/news-dark.png',
     imageAlt: 'Fler verktyg på väg',
   },
 ];
 
 export function ScrollSection() {
+  const [isDark, setIsDark] = useState(false);
+
+  // Detect theme from document
+  useEffect(() => {
+    const checkTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      setIsDark(theme === 'dark');
+    };
+
+    // Check initial theme
+    checkTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Create scroll items with correct image based on theme
+  const scrollItems = useMemo(() => {
+    return scrollItemsData.map(item => ({
+      ...item,
+      imageSrc: isDark ? item.imageDark : item.imageLight,
+    }));
+  }, [isDark]);
+
   // Create individual refs for each scroll part
   const imageRefs = useMemo(
     () => scrollItems.map(() => ({ current: null as HTMLElement | null })),
-    []
+    [scrollItems]
   );
 
   // Use our scroll animation hook
@@ -107,11 +137,10 @@ export function ScrollSection() {
           >
             <VStack spacing="md">
               <H2 weight="bold">
-                Vad du kan göra i Blimpify
+              Det här tar Blimpify hand om åt dig
               </H2>
               <Body size="md" color="secondary">
-                Blimpify samlar allt ditt företag behöver – hemsida, verktyg och kontroll – på ett
-                ställe.
+                -
               </Body>
             </VStack>
 

@@ -99,7 +99,7 @@ export function Footer() {
         >
           <HStack justify="between" align="center" wrap>
             <Body size="sm" color="tertiary">
-              © 2024 Blimpify AB Org.nr: 559519-2377. Alla rättigheter
+              © 2025 Blimpify AB Org.nr: 559519-2377. Alla rättigheter
               förbehållna.
             </Body>
 

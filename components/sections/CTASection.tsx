@@ -42,10 +42,11 @@ export function CTASection() {
           {/* Header */}
           <VStack spacing="md" align="center">
             <H2 weight="bold" align="center">
-              Redo att komma igång?
+            Vill du vara med från början?
             </H2>
-            <Body size="lg" color="secondary" align="center">
-              Skapa ditt konto idag och få din professionella hemsida inom 30 dagar.
+            <Body size="md" color="secondary" align="center">
+            Blimpify öppnar snart för ett begränsat antal tidiga medlemmar
+            som vill vara med och forma hur tjänsten utvecklas.
             </Body>
           </VStack>
 
@@ -69,11 +70,11 @@ export function CTASection() {
                   loading={loading}
                   disabled={!email}
                 >
-                  Kom igång
+                  Häng med
                 </Button>
               </HStack>
               <Body size="sm" color="tertiary" align="center">
-                Ta chansen nu innan platserna tar slut!
+              Early access • Begränsat antal platser • Ingen betalning nu
               </Body>
             </VStack>
           </form>

@@ -34,15 +34,14 @@ export function HeroSection() {
               size='xl'
               align="center"
             >
-              Plattformen för tjänsteföretag. 
+              En hemsida du inte behöver tänka på.
             </Display>
             <Body
-              size="xl"
+              size="lg"
               color="secondary"
               align="center"
             >
-              Hemsida och affärsverktyg – på ett ställe.
-            </Body>
+Blimpify finns för företag som vill fokusera på sin affär, sina kunder och inte på sin hemsida.            </Body>
           </VStack>
 
           <Button
@@ -53,7 +52,7 @@ export function HeroSection() {
               fontSize: '1.125rem',
             }}
           >
-            Starta ditt projekt
+            Se om Blimpify passar dig
           </Button>
         </VStack>
       </Container>
@@ -61,7 +60,7 @@ export function HeroSection() {
         {/* Dashboard Mockup */}
           <Box style={{ width: '100%'}}>
             <Image
-              src="/assets/splithero.png"
+              src="/assets/order-dark.png"
               alt="Website Builder Interface"
               width={4500}
               height={2675}

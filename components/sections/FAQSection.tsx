@@ -19,34 +19,34 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'Hur skiljer ni er från Wix, Squarespace och Webflow?',
+    question: 'Vad gör Blimpify?',
     answer:
-      'Aldrig trasig design. Hos oss kan du inte publicera en tom eller ful sida. Du väljer bara sektioner och färger, och vi bygger automatiskt en hemsida som alltid ser professionell ut.',
+      'Blimpify hjälper företag att ta fram och hantera sin hemsida utan att behöva tänka på helheten. Du delar dina önskemål och mål – vi tar ansvar för design, struktur och genomförande.',
   },
   {
-    question: 'Kan jag själv ändra min hemsida efteråt?',
+    question: 'Behöver jag kunna design eller teknik?',
     answer:
-      'Ja. Du får en dashboard där du enkelt kan uppdatera text, byta bilder och sektioner – utan att riskera designen.',
+      'Nej. Du behöver bara beskriva hur du vill att hemsidan ska kännas och fungera. Vi tar hand om det tekniska och designmässiga åt dig.',
   },
   {
-    question: 'Hur lång tid tar det att få en färdig hemsida?',
+    question: 'Kan jag göra ändringar själv?',
     answer:
-      'Du får din första version inom 30 dagar. Därefter gör vi eventuella justeringar tills du är nöjd.',
+      'Ja, du kan justera mindre saker som text, färger och detaljer själv. När det gäller större ändringar i struktur eller funktionalitet hjälper vi dig.',
   },
   {
-    question: 'Vad händer om jag inte gillar resultatet?',
+    question: 'När betalar jag för tjänsten?',
     answer:
-      'Vi erbjuder fria revisioner och en nöjd-kund-garanti. Om du fortfarande inte är nöjd får du pengarna tillbaka.',
+      'Det är gratis att skapa och skicka in din hemsida. Du betalar först när du väljer att publicera hemsidan och aktivera medlemskapet.',
   },
   {
-    question: 'Vilka funktioner ingår idag?',
+    question: 'Hur går processen till?',
     answer:
-      'Alla hemsidor kommer med kontaktformulär, mobilanpassning och support. Snart släpper vi bokning, e-handel och fler smarta verktyg.',
+      'Du skickar in dina val och önskemål, vi tar fram hemsidan utifrån det och återkommer när den är redo att granskas. När du är nöjd kan du välja att publicera.',
   },
   {
-    question: 'Äger jag min hemsida?',
+    question: 'Passar Blimpify alla företag?',
     answer:
-      'Ja. När din hemsida är byggd äger du den till 100 %. Du kan hosta hos oss eller ta med den till en annan leverantör. Vill du avsluta tjänsten hos oss så får du tillgång till koden',
+      'Blimpify passar företag som vet att design och utveckling inte är deras kärnkompetens och som hellre låter specialister ta ansvar för helheten. Du bidrar med riktning och mål – vi tar hand om design, struktur och genomförande.',
   },
 ];
 

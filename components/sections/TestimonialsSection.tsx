@@ -23,22 +23,28 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     name: 'Kevin Jansson',
-    role: 'CEO - Kjmarketingsweden och UGC Creator',
+    role: 'Grundare - Kjmarketingsweden & UGC Creator',
     content:
       'Extremt grymma grabbar som vet vad dom håller på med, från skiss av hemsidan till slutligt produktion har allt varit 10/10. Jag är extremt imponerad',
   },
   {
     name: 'Rickson Mansiamina',
-    role: 'CEO - DifferenceConsulting och författare',
+    role: 'Grundare - DifferenceConsulting & författare',
     content:
       'Tack för resan, grabbar! Det har varit ett riktigt bra samarbete. Ni har varit lyhörda och verkligen finjusterat tills hemsidan blev exakt som jag ville ha den. Ni har inte bara levererat, ni har brytt er. Stort tack för allt!',
   },
   {
-    name: 'Filip B.',
-    role: 'CEO and Co-Founder',
+    name: 'Filip Blank.',
+    role: 'Grundare - CreatorzMGMT',
     content:
       'Från första kontakt till lansering har samarbetet fungerat smidigt och professionellt. Ni har varit lyhörda för mina önskemål. Det tekniska fungerar utan problem så jag är väldigt nöjd',
   },
+  {
+    name: 'Philip Flensburg.',
+    role: 'Grundare & Vd - Marknadschefen',
+    content:
+      '  Att ha Simon och Blimpify med sig för att ha igång en så bra hemsida som möjligt är en no-brainer. Rekommenderar starkt att låta teamet göra din hemsida och underhålla den. De har alltid varit tillmötesgående och otroligt snabba och effektiva att jobba med. Låt deras kreativitet också flöda, du kommer inte ångra dig',
+  }
 ];
 
 export function TestimonialsSection() {
