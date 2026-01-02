@@ -60,7 +60,7 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
         {/* Dashboard Mockup */}
           <Box style={{ width: '100%'}}>
             <Image
-              src="/assets/order-dark.png"
+              src="/assets/order.png"
               alt="Website Builder Interface"
               width={4500}
               height={2675}

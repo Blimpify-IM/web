@@ -7,18 +7,26 @@ import { Footer } from '@/components/layout/Footer';
 import { NavbarBar } from '@/components/layout/NavbarBar';
 
 export const metadata: Metadata = {
-  title: 'Blimpify - Hemsida och affärsverktyg',
-  description: 'Hemsida och affärsverktyg – på ett ställe. Vi skapar anpassade hemsidor som du enkelt kan uppdatera utan att förstöra designen.',
-  keywords: ['hemsida', 'webbdesign', 'affärsverktyg', 'CRM', 'bokningssystem', 'Blimpify'],
+  title: 'Blimpify – En hemsida du inte behöver tänka på',
+  description:
+    'Blimpify hjälper företag att få en professionell hemsida utan att behöva bygga eller designa själva. Du delar dina önskemål – vi tar hand om design, struktur och publicering.',
+  keywords: [
+    'hemsida företag',
+    'webbdesign företag',
+    'professionell hemsida',
+    'hemsida utan krångel',
+    'webbdesign tjänst',
+    'Blimpify',
+  ],
   authors: [{ name: 'Blimpify' }],
   openGraph: {
-    title: 'Blimpify - Hemsida och affärsverktyg',
-    description: 'Hemsida och affärsverktyg – på ett ställe.',
+    title: 'Blimpify – En hemsida du inte behöver tänka på',
+    description:
+      'Professionella hemsidor för företag som vill fokusera på sin affär. Vi tar hand om design och struktur – du slipper tänka på tekniken.',
     type: 'website',
     locale: 'sv_SE',
   },
 };
-
 export default async function RootLayout({
   children,
 }: {

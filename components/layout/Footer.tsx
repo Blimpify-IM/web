@@ -52,8 +52,7 @@ export function Footer() {
             <LogoText>Blimpify AB</LogoText>
 
             <Body size="sm" >
-              Vi skapar anpassade hemsidor som du enkelt kan uppdatera utan att
-              förstöra designen.
+            Vi skapar professionella hemsidor för företag som vill fokusera på sin affär – inte på sin hemsida.
             </Body>
           </VStack>
 
