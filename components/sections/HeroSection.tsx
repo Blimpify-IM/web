@@ -52,7 +52,7 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
               fontSize: '1.125rem',
             }}
           >
-            Se om Blimpify passar dig
+            Var med från början
           </Button>
         </VStack>
       </Container>

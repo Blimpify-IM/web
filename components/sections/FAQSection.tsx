@@ -10,6 +10,7 @@ import {
   Accordion,
   AccordionItem,
   Tag,
+  Display,
 } from '@blimpify-im/ui';
 
 interface FAQItem {
@@ -63,9 +64,9 @@ export function FAQSection() {
           {/* Header */}
           <VStack spacing="md" align="center">
           <Tag variant="accent">FAQ</Tag>
-            <H2 weight="bold" align="center">
+            <Display size='lg' align="center">
               Vanliga Frågor
-            </H2>
+            </Display>
           </VStack>
 
           {/* FAQ List using Accordion */}

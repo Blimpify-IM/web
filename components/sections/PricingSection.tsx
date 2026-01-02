@@ -13,6 +13,7 @@ import {
   CardContent,
   Tag,
   Grid,
+  Display,
 } from '@blimpify-im/ui';
 
 interface PricingPlan {
@@ -75,9 +76,9 @@ export function PricingSection() {
           {/* Header */}
           <VStack spacing="md" align="center">
             <Tag variant="accent">Priser</Tag>
-            <H2 weight="bold" align="center">
+            <Display size='lg'>
               Välj rätt plan för ditt företag
-            </H2>
+            </Display>
           </VStack>
 
           {/* Pricing Cards */}

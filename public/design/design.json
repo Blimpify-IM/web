@@ -1,7 +1,7 @@
 {
   "globalStyles": {
     "isDark": false,
-    "radius": "lg",
+    "radius": "xl",
     "formWidth": "md",
     "themeTone": "pure",
     "accentColor": "purple",
@@ -13,8 +13,8 @@
     "typographyScale": "md",
     "fontPrimary": "Plus Jakarta Sans",
     "fontSecondary": "Plus Jakarta Sans",
-    "fontWeightHeadingNumeric": 700,
-    "fontWeightBodyNumeric": 500,
-    "fontWeightLabelNumeric": 600
+    "fontWeightHeadingNumeric": 800,
+    "fontWeightBodyNumeric": 600,
+    "fontWeightLabelNumeric": 700
   }
 }

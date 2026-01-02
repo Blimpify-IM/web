@@ -15,6 +15,7 @@ import {
   Accordion,
   AccordionItem,
   useScrollAnimation,
+  Display,
 } from '@blimpify-im/ui';
 
 interface ScrollItem {
@@ -113,6 +114,13 @@ export function ScrollSection() {
       }}
     >
       <Container useMediaWidth>
+        <VStack spacing="md">
+          <Display size='lg'>
+                Vad du kan göra i Blimpify
+          </Display>
+        </VStack>
+      </Container>
+      <Container useMediaWidth>
         
         <div
           style={{
@@ -135,14 +143,6 @@ export function ScrollSection() {
               overflow: 'visible',
             }}
           >
-            <VStack spacing="md">
-              <H2 weight="bold">
-              Det här tar Blimpify hand om åt dig
-              </H2>
-              <Body size="md" color="secondary">
-                -
-              </Body>
-            </VStack>
 
             {/* Accordion Sidebar Items */}
             <Accordion

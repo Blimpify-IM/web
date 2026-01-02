@@ -11,7 +11,8 @@ import {
   Card,
   CardContent,
   Tag,
-  Grid
+  Grid,
+  Display
 } from '@blimpify-im/ui';
 
 interface Testimonial {
@@ -60,9 +61,9 @@ export function TestimonialsSection() {
           {/* Header */}
           <VStack spacing="md" align="center">
             <Tag variant="accent"> Testimonials</Tag>
-            <H2 weight="bold" align="center">
+            <Display size='lg' align="center">
               Vad våra klienter säger om oss
-            </H2>
+            </Display>
           </VStack>
 
           {/* Testimonials Grid */}
