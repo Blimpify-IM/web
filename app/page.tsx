@@ -1,5 +1,6 @@
 'use client';
 import { HeroSection } from '@/components/sections/HeroSection';
+import { SystemSection } from '@/components/sections/SystemSection';
 import { ScrollSection } from '@/components/sections/ScrollSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { PricingSection } from '@/components/sections/PricingSection';
@@ -11,8 +12,11 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+
       <Divider></Divider>
       <ScrollSection />
+      <Divider></Divider>
+      <SystemSection />
       <Divider></Divider>
       <TestimonialsSection />
       <Divider></Divider>

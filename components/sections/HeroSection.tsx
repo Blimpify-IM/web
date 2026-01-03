@@ -1,9 +1,31 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer } from '@blimpify-im/ui';
 import Image from 'next/image';
 
 export function HeroSection() {
+  const [isDark, setIsDark] = useState(false);
+
+  // Detect theme from document
+  useEffect(() => {
+    const checkTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      setIsDark(theme === 'dark');
+    };
+
+    // Check initial theme
+    checkTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
   return (
     <Section
       style={{
@@ -31,8 +53,9 @@ export function HeroSection() {
         <VStack spacing="xl" align="center">
           <VStack spacing="lg" align="center" style={{ maxWidth: '800px' }}>
             <Display 
-              size='xl'
+              size='lg'
               align="center"
+              className="hero-display-responsive"
             >
               En hemsida du inte behöver tänka på.
             </Display>
@@ -40,6 +63,7 @@ export function HeroSection() {
               size="lg"
               color="secondary"
               align="center"
+              className="hero-body-responsive"
             >
 Blimpify finns för företag som vill fokusera på sin affär, sina kunder och inte på sin hemsida.            </Body>
           </VStack>
@@ -47,7 +71,7 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
           <Button
             variant="accent"
             size="xl"
-            href="https://builder.blimpify-im.com"
+            href="https://app.blimpify-im.com/waitlist"
             style={{
               fontSize: '1.125rem',
             }}
@@ -60,7 +84,7 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
         {/* Dashboard Mockup */}
           <Box style={{ width: '100%'}}>
             <Image
-              src="/assets/order.png"
+              src={isDark ? '/assets/order-dark.png' : '/assets/order.png'}
               alt="Website Builder Interface"
               width={4500}
               height={2675}
@@ -74,6 +98,28 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
             />
           </Box>
       </Container>
+
+      {/* Responsive styles for hero text */}
+      <style jsx global>{`
+        @media (max-width: 768px) {
+          .hero-display-responsive {
+            font-size: var(--font-display-md-size) !important;
+            line-height: var(--font-display-md-leading) !important;
+          }
+          
+          .hero-body-responsive {
+            font-size: var(--font-body-md-size) !important;
+            line-height: var(--font-body-md-leading) !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .hero-display-responsive {
+            font-size: var(--font-display-sm-size) !important;
+            line-height: var(--font-display-sm-leading) !important;
+          }
+        }
+      `}</style>
     </Section>
   );
 }

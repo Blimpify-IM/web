@@ -10,8 +10,10 @@ import {
   IconButton,
   Logo,
   Drawer,
+  Icon,
 } from '@blimpify-im/ui';
 import { Menu, X } from 'lucide-react';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 
 export interface NavbarBarProps {
   menuAlign?: 'left' | 'center' | 'right';
@@ -23,6 +25,51 @@ export function NavbarBar({
   transparent = false
 }: NavbarBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+
+  // Detect and handle theme
+  useEffect(() => {
+    const checkTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      setIsDark(theme === 'dark');
+    };
+
+    // Check initial theme
+    checkTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    document.documentElement.style.setProperty('--is-dark', newTheme === 'dark' ? '1' : '0');
+    
+    if (newTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    // Save to localStorage
+    if (typeof window !== 'undefined') {
+      const currentConfig = JSON.parse(localStorage.getItem('blimpify-theme-config') || '{}');
+      localStorage.setItem('blimpify-theme-config', JSON.stringify({
+        ...currentConfig,
+        themeMode: newTheme,
+      }));
+      
+      // Dispatch custom event for theme change
+      window.dispatchEvent(new Event('theme-changed'));
+    }
+  };
 
   // Auto-close drawer when screen becomes desktop size
   useEffect(() => {
@@ -41,9 +88,7 @@ export function NavbarBar({
 
   const menuItems = [
     { href: '#how-it-works', label: 'Så fungerar det' },
-    { href: '#portfolio', label: 'Våra projekt' },
     { href: '#testimonials', label: 'Testimonials' },
-    { href: '#faq', label: 'FAQ' },
     { href: '#priser', label: 'Priser' },
   ];
 
@@ -127,9 +172,20 @@ export function NavbarBar({
             <Button variant="ghost" href="/contact">
               Kontakta oss
             </Button>
-            <Button variant="accent" href="https://builder.blimpify-im.com" target="_blank">
+            <Button variant="accent" href="https://app.blimpify-im.com/waitlist" target="_blank">
             Häng med
             </Button>
+            <IconButton
+              variant="secondary"
+              size="md"
+              aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
+              onClick={toggleTheme}
+              icon={
+                <Icon size="md" color="button-ghost">
+                  {isDark ? <SunIcon /> : <MoonIcon />}
+                </Icon>
+              }
+            />
           </HStack>
         </div>
 
@@ -172,6 +228,21 @@ export function NavbarBar({
 
           {/* Action Buttons */}
           <VStack spacing="sm" style={{ marginTop: 'var(--foundation-space-4)' }}>
+            <IconButton
+              variant="ghost"
+              size="md"
+              aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
+              onClick={() => {
+                toggleTheme();
+                setMobileOpen(false);
+              }}
+              icon={
+                <Icon size="md" color="button-ghost">
+                  {isDark ? <SunIcon /> : <MoonIcon />}
+                </Icon>
+              }
+              style={{ width: '100%', justifyContent: 'flex-start' }}
+            />
             <Button
               variant="ghost"
               href="/contact"
@@ -182,7 +253,7 @@ export function NavbarBar({
             </Button>
             <Button
               variant="accent"
-              href="https://builder.blimpify-im.com"
+              href="https://app.blimpify-im.com/waitlist"
               target="_blank"
               onClick={() => setMobileOpen(false)}
               style={{ width: '100%' }}

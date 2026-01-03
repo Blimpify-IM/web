@@ -77,7 +77,7 @@ export function PricingSection() {
           <VStack spacing="md" align="center">
             <Tag variant="accent">Priser</Tag>
             <Display size='lg'>
-              Välj rätt plan för ditt företag
+            Hur kan Blimpify hjälpa ditt företag?
             </Display>
           </VStack>
 

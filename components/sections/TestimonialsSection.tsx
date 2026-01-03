@@ -12,7 +12,10 @@ import {
   CardContent,
   Tag,
   Grid,
-  Display
+  Display,
+  Box,
+  CarouselAnimation,
+  type CarouselAnimationItem,
 } from '@blimpify-im/ui';
 
 interface Testimonial {
@@ -48,7 +51,18 @@ const testimonials: Testimonial[] = [
   }
 ];
 
+// Helper function to truncate text by word count
+const truncateWords = (text: string, maxWords: number): string => {
+  const words = text.trim().split(/\s+/);
+  if (words.length <= maxWords) {
+    return text;
+  }
+  return words.slice(0, maxWords).join(' ') + '...';
+};
+
 export function TestimonialsSection() {
+  const MAX_WORDS = 30; // Maximum number of words to show
+
   return (
     <Section
       id="testimonials"
@@ -66,45 +80,69 @@ export function TestimonialsSection() {
             </Display>
           </VStack>
 
-          {/* Testimonials Grid */}
-          <Grid columns={{sm: 1,md: 2, lg: 3 }}>
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} padding="lg" >
-                <CardContent>
-                  <VStack spacing="lg">
-                    <VStack spacing="sm">
-                      <H3 weight="bold">{testimonial.name}</H3>
-                      <Body size="sm" color="tertiary">
-                        {testimonial.role}
-                      </Body>
-                    </VStack>
-                    <Body size="lg" color="primary" style={{ lineHeight: 1.6 }}>
-                      {testimonial.content}
-                    </Body>
-                  </VStack>
-                </CardContent>
-              </Card>
-            ))}
-          </Grid>
+          {/* Spinning Testimonials Carousel */}
+          <Box
+            style={{
+              width: '100%',
+              overflow: 'hidden',
+            }}
+          >
+            <CarouselAnimation
+              items={testimonials.map((testimonial, index) => ({
+                id: index,
+                content: (
+                  <Card 
+                    padding="lg" 
+                    style={{ 
+                      width: '100%', 
+                      minHeight: '320px',
+                      height: '100%',
+                      display: 'flex', 
+                      flexDirection: 'column' 
+                    }}
+                  >
+                    <CardContent style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                      <VStack spacing="lg" style={{ height: '100%' }}>
+                        <VStack spacing="sm">
+                          <H3 weight="bold">{testimonial.name}</H3>
+                          <Body size="sm" color="tertiary">
+                            {testimonial.role}
+                          </Body>
+                        </VStack>
+                        <Body 
+                          size="lg" 
+                          color="primary" 
+                          style={{ 
+                            lineHeight: 1.6, 
+                            flex: 1,
+                            wordBreak: 'break-word',
+                          }}
+                        >
+                          {truncateWords(testimonial.content, MAX_WORDS)}
+                        </Body>
+                      </VStack>
+                    </CardContent>
+                  </Card>
+                ),
+              }))}
+              speed={40}
+              direction="left"
+              containerHeight="auto"
+              backgroundColor="transparent"
+              padding="var(--foundation-space-4) 0"
+              itemWidth="400px"
+              itemHeight="320px"
+              itemPadding="0"
+              gap="var(--foundation-space-6)"
+              enableFadeEdges={true}
+              fadeWidth="100px"
+              duplicateCount={3}
+              enableHover={true}
+            />
+          </Box>
         </VStack>
       </Container>
 
-      {/* Responsive Styles */}
-      <style jsx global>{`
-        @media (max-width: 1024px) {
-          .testimonials-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-            gap: var(--space-xl) !important;
-          }
-        }
-
-        @media (max-width: 640px) {
-          .testimonials-grid {
-            grid-template-columns: 1fr !important;
-            gap: var(--space-lg) !important;
-          }
-        }
-      `}</style>
     </Section>
   );
 }

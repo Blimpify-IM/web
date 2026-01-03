@@ -9,7 +9,6 @@ import {
   Body,
   H3,
   Logo,
-  LogoText,
   TextLink,
 } from '@blimpify-im/ui';
 
@@ -41,15 +40,15 @@ export function Footer() {
               alt="Blimpify"
               width={36}
               height={36}
-              color="light"
+              border='default'
+              color="auto"
               radius="lg"
               textSize="lg"
               textWeight="extrabold"
               gap="sm"
               href="/"
+              text="blimpify"
             />
-
-            <LogoText>Blimpify AB</LogoText>
 
             <Body size="sm" >
             Vi skapar professionella hemsidor för företag som vill fokusera på sin affär – inte på sin hemsida.

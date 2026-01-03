@@ -28,39 +28,44 @@ interface ScrollItem {
 
 const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
-    title: 'Hemsida',
-    description: 'Du sätter riktningen. Vi tar hand om genomförandet.',
+    title: 'Hemsidan',
+    description:
+      'Vi bygger din hemsida utifrån dina val och ser till att helheten håller ihop — från första version till live.',
     imageLight: '/assets/hemsida.png',
     imageDark: '/assets/hemsida-dark.png',
     imageAlt: 'Hemsida',
   },
   {
-    title: 'CMS',
-    description: 'Justera text, färger och detaljer när det behövs. Vi tar hand om struktur, helhet och större ändringar.',
+    title: 'Innehåll & justeringar',
+    description:
+      'Du kan justera text, färger och enklare detaljer när det behövs. Vi ansvarar för struktur, design och större förändringar så att helheten alltid håller.',
     imageLight: '/assets/cms.png',
     imageDark: '/assets/cms-dark.png',
-    imageAlt: 'CMS',
+    imageAlt: 'Innehåll och justeringar',
   },
   {
-    title: 'Domänhantering',
-    description: 'Du pekar domänen hos din leverantör – vi kopplar den till vårt system och ser till att allt fungerar.',
-    imageLight: '/assets/domain.png',
-    imageDark: '/assets/domain-dark.png',
-    imageAlt: 'Domänhantering',
-  },
-  {
-    title: 'Statistik',
-    description: 'Se hur din hemsida används – följ upp statistik och trafik.',
+    title: 'Överblick & insikt',
+    description:
+      'Följ hur din hemsida används och få en enkel överblick över trafik och beteende – utan att behöva sätta upp egna verktyg.',
     imageLight: '/assets/stats.png',
     imageDark: '/assets/stats-dark.png',
     imageAlt: 'Statistik',
   },
   {
-    title: 'Byggt för att växa',
-    description: 'Vi utvecklar Blimpify i nära dialog med våra medlemmar för att utvecklas tillsammans.',
+    title: 'Domän & koppling',
+    description:
+      'Du pekar din domän hos din leverantör. Vi kopplar den till Blimpify och ser till att allt fungerar korrekt och stabilt.',
+    imageLight: '/assets/domain.png',
+    imageDark: '/assets/domain-dark.png',
+    imageAlt: 'Domänhantering',
+  },
+  {
+    title: 'Utveckling över tid',
+    description:
+      'Blimpify utvecklas löpande tillsammans med våra medlemmar. Det gör att din hemsida inte fastnar – utan kan förbättras i takt med tjänsten.',
     imageLight: '/assets/news.png',
     imageDark: '/assets/news-dark.png',
-    imageAlt: 'Fler verktyg på väg',
+    imageAlt: 'Utveckling över tid',
   },
 ];
 
@@ -114,9 +119,9 @@ export function ScrollSection() {
       }}
     >
       <Container useMediaWidth>
-        <VStack spacing="md">
+        <VStack align='center' spacing="md">
           <Display size='lg'>
-                Vad du kan göra i Blimpify
+          Det här tar Blimpify hand om åt dig
           </Display>
         </VStack>
       </Container>
@@ -205,6 +210,7 @@ export function ScrollSection() {
                     <OverflowContainer direction="right" spillAmount={220}>
                       <Box
                         style={{
+                          position: 'relative',
                           borderRadius: 'var(--selected-radius-scale-lg)',
                           overflow: 'hidden',
                           boxShadow:
@@ -212,20 +218,52 @@ export function ScrollSection() {
                               ? 'var(--shadow-strong)'
                               : 'var(--shadow-medium)',
                           transition: 'box-shadow 0.3s ease',
+                          minHeight: '500px',
                         }}
                       >
+                        {/* Background Image */}
                         <Image
-                          src={item.imageSrc}
-                          alt={item.imageAlt}
-                          width={1200}
-                          height={800}
-                          loading="lazy"
+                          src={isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'}
+                          alt="Background"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                           style={{
-                            width: '100%',
-                            height: 'auto',
-                            display: 'block',
+                            objectFit: 'cover',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            zIndex: 0,
                           }}
+                          priority={index === 0}
+                          loading={index === 0 ? 'eager' : 'lazy'}
                         />
+                        {/* Content Image on top */}
+                        <Box
+                          style={{
+                            position: 'relative',
+                            zIndex: 1,
+                            borderRadius: 'var(--selected-radius-scale-lg)',
+                            overflow: 'visible',
+                            border: '1px solid var(--border-default)',
+                            background: 'var(--surface-page)',
+                            padding: 'var(--foundation-space-4)',
+                            margin: 'var(--foundation-space-4)',
+                          }}
+                        >
+                          <Image
+                            src={item.imageSrc}
+                            alt={item.imageAlt}
+                            width={1200}
+                            height={800}
+                            loading="lazy"
+                            style={{
+                              width: '100%',
+                              height: 'auto',
+                              display: 'block',
+                              borderRadius: 'var(--selected-radius-scale-md)',
+                            }}
+                          />
+                        </Box>
                       </Box>
                     </OverflowContainer>
                   </AnimatedBox>
