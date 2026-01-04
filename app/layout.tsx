@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     'Blimpify',
   ],
   authors: [{ name: 'Blimpify' }],
+  icons: {
+    icon: '/assets/favicon_io/favicon.ico',
+    shortcut: '/assets/favicon_io/favicon-16x16.png',
+    apple: '/assets/favicon_io/apple-touch-icon.png',
+  },
   openGraph: {
     title: 'Blimpify – En hemsida du inte behöver tänka på',
     description:

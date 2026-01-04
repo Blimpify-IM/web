@@ -126,15 +126,15 @@ export function ScrollSection() {
         </VStack>
       </Container>
       <Container useMediaWidth>
-        
+        {/* Desktop & Mobile Layout */}
         <div
+          className="scroll-section-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: '280px 1fr',
             gap: 'var(--space-xl)',
             alignItems: 'start',
           }}
-          className="scroll-section-grid"
         >
           {/* Sticky Sidebar - fixed width */}
           <aside
@@ -148,7 +148,6 @@ export function ScrollSection() {
               overflow: 'visible',
             }}
           >
-
             {/* Accordion Sidebar Items */}
             <Accordion
               selectionMode="single"
@@ -190,105 +189,125 @@ export function ScrollSection() {
               };
 
               return (
-                <Box
+                <VStack
                   key={index}
-                  ref={(el) => {
-                    imageRefs[index].current = el;
-                  }}
-                  style={{
-                    minHeight: '500px',
-                    overflow: 'visible',
-                  }}
+                  spacing="md"
+                  align="stretch"
+                  className="scroll-section-item"
                 >
-                  {/* Animated Image with Overflow */}
-                  <AnimatedBox
-                    opacity={animValues.opacity}
-                    translateX={animValues.translateX}
-                    translateY={animValues.translateY}
-                    scale={animValues.scale}
+                  {/* Mobile Text - shown before image on mobile */}
+                  <VStack spacing="sm" align="start" className="scroll-section-mobile-text">
+                    <H3>{item.title}</H3>
+                    <Body size="md" color="secondary">
+                      {item.description}
+                    </Body>
+                  </VStack>
+                  
+                  <Box
+                    ref={(el) => {
+                      imageRefs[index].current = el;
+                    }}
+                    style={{
+                      overflow: 'visible',
+                    }}
                   >
-                    <OverflowContainer direction="right" spillAmount={220}>
-                      <Box
-                        style={{
-                          position: 'relative',
-                          borderRadius: 'var(--selected-radius-scale-lg)',
-                          overflow: 'hidden',
-                          boxShadow:
-                            activeIndex === index
-                              ? 'var(--shadow-strong)'
-                              : 'var(--shadow-medium)',
-                          transition: 'box-shadow 0.3s ease',
-                          minHeight: '500px',
-                        }}
-                      >
-                        {/* Background Image */}
-                        <Image
-                          src={isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'}
-                          alt="Background"
-                          fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                          style={{
-                            objectFit: 'cover',
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            zIndex: 0,
-                          }}
-                          priority={index === 0}
-                          loading={index === 0 ? 'eager' : 'lazy'}
-                        />
-                        {/* Content Image on top */}
+                    {/* Animated Image with Overflow */}
+                    <AnimatedBox
+                      opacity={animValues.opacity}
+                      translateX={animValues.translateX}
+                      translateY={animValues.translateY}
+                      scale={animValues.scale}
+                    >
+                      <OverflowContainer direction="right" spillAmount={220}>
                         <Box
                           style={{
                             position: 'relative',
-                            zIndex: 1,
                             borderRadius: 'var(--selected-radius-scale-lg)',
-                            overflow: 'visible',
-                            border: '1px solid var(--border-default)',
-                            background: 'var(--surface-page)',
+                            overflow: 'hidden',
+                            boxShadow:
+                              activeIndex === index
+                                ? 'var(--shadow-strong)'
+                                : 'var(--shadow-medium)',
+                            transition: 'box-shadow 0.3s ease',
                             padding: 'var(--foundation-space-4)',
-                            margin: 'var(--foundation-space-4)',
                           }}
                         >
+                          {/* Background Image */}
                           <Image
-                            src={item.imageSrc}
-                            alt={item.imageAlt}
-                            width={1200}
-                            height={800}
-                            loading="lazy"
+                            src={isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'}
+                            alt="Background"
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
                             style={{
-                              width: '100%',
-                              height: 'auto',
-                              display: 'block',
-                              borderRadius: 'var(--selected-radius-scale-md)',
+                              objectFit: 'cover',
+                              position: 'absolute',
+                              top: 0,
+                              left: 0,
+                              zIndex: 0,
                             }}
+                            priority={index === 0}
+                            loading={index === 0 ? 'eager' : 'lazy'}
                           />
+                          {/* Content Image on top */}
+                          <Box
+                            style={{
+                              position: 'relative',
+                              zIndex: 1,
+                              borderRadius: 'var(--selected-radius-scale-lg)',
+                              overflow: 'visible',
+                              border: '1px solid var(--border-default)',
+                              background: 'var(--surface-page)',
+                              padding: 'var(--foundation-space-3)',
+                            }}
+                          >
+                            <Image
+                              src={item.imageSrc}
+                              alt={item.imageAlt}
+                              width={1200}
+                              height={800}
+                              loading="lazy"
+                              style={{
+                                width: '100%',
+                                height: 'auto',
+                                display: 'block',
+                                borderRadius: 'var(--selected-radius-scale-md)',
+                              }}
+                            />
+                          </Box>
                         </Box>
-                      </Box>
-                    </OverflowContainer>
-                  </AnimatedBox>
-
-                  {/* Mobile-only text (hidden on desktop with Accordion) */}
-                  <div
-                    className="mobile-scroll-text"
-                    style={{
-                      display: 'none',
-                      marginTop: 'var(--space-lg)',
-                    }}
-                  >
-                    <VStack spacing="sm">
-                      <H3>{item.title}</H3>
-                      <Body size="md" color="secondary">
-                        {item.description}
-                      </Body>
-                    </VStack>
-                  </div>
-                </Box>
+                      </OverflowContainer>
+                    </AnimatedBox>
+                  </Box>
+                </VStack>
               );
             })}
           </VStack>
         </div>
       </Container>
+
+      {/* Responsive Styles */}
+      <style jsx global>{`
+        @media (max-width: 1024px) {
+          .scroll-section-grid {
+            grid-template-columns: 1fr !important;
+            gap: var(--foundation-space-8) !important;
+          }
+          
+          .scroll-section-grid aside {
+            display: none !important;
+          }
+          
+          .scroll-section-mobile-text {
+            display: flex !important;
+          }
+        }
+        
+        @media (min-width: 1025px) {
+          .scroll-section-mobile-text {
+            display: none !important;
+          }
+        }
+      `}</style>
     </Section>
   );
 }

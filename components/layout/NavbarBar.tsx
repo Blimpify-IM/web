@@ -87,9 +87,9 @@ export function NavbarBar({
   }, []);
 
   const menuItems = [
-    { href: '#how-it-works', label: 'Så fungerar det' },
+    { href: '#scroll-section', label: 'Så fungerar det' },
     { href: '#testimonials', label: 'Testimonials' },
-    { href: '#priser', label: 'Priser' },
+    { href: '#pricing', label: 'Priser' },
   ];
 
   return (
@@ -121,7 +121,7 @@ export function NavbarBar({
         {/* LEFT - Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--foundation-space-2)', flexShrink: 0 }}>
           <Logo
-            src="/assets/Blimpify AB Logo.png"
+            src="/assets/Blimpify AB logo.png"
             alt="Blimpify"
             width={36}
             height={36}
@@ -169,11 +169,8 @@ export function NavbarBar({
 
           {/* Action Buttons */}
           <HStack spacing="sm" style={{ flexShrink: 0, gap: 'var(--foundation-space-2)' }}>
-            <Button variant="ghost" href="/contact">
-              Kontakta oss
-            </Button>
             <Button variant="accent" href="https://app.blimpify-im.com/waitlist" target="_blank">
-            Häng med
+            Få tillgång
             </Button>
             <IconButton
               variant="secondary"
@@ -189,20 +186,30 @@ export function NavbarBar({
           </HStack>
         </div>
 
-        {/* MOBILE TOGGLE */}
+        {/* MOBILE ACTIONS - Theme Toggle + Menu Toggle */}
+        <HStack spacing="sm" className="navbar-bar__mobile-actions" style={{ display: 'none', gap: 'var(--foundation-space-2)' }}>
+          <IconButton
+            variant="ghost"
+            size="md"
+            aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
+            onClick={toggleTheme}
+            icon={
+              <Icon size="md" color="button-ghost">
+                {isDark ? <SunIcon /> : <MoonIcon />}
+              </Icon>
+            }
+          />
         <IconButton
           variant="ghost"
           size="md"
           aria-label="Toggle menu"
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="navbar-bar__mobile-toggle"
           style={{
-            display: 'none',
             color: 'var(--icon-strong)',
-            marginLeft: 'auto',
           }}
           icon={mobileOpen ? <X /> : <Menu />}
         />
+        </HStack>
       </Box>
 
       {/* MOBILE DRAWER */}
@@ -228,32 +235,9 @@ export function NavbarBar({
 
           {/* Action Buttons */}
           <VStack spacing="sm" style={{ marginTop: 'var(--foundation-space-4)' }}>
-            <IconButton
-              variant="ghost"
-              size="md"
-              aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
-              onClick={() => {
-                toggleTheme();
-                setMobileOpen(false);
-              }}
-              icon={
-                <Icon size="md" color="button-ghost">
-                  {isDark ? <SunIcon /> : <MoonIcon />}
-                </Icon>
-              }
-              style={{ width: '100%', justifyContent: 'flex-start' }}
-            />
-            <Button
-              variant="ghost"
-              href="/contact"
-              onClick={() => setMobileOpen(false)}
-              style={{ width: '100%' }}
-            >
-              Kontakta oss
-            </Button>
             <Button
               variant="accent"
-              href="https://app.blimpify-im.com/waitlist"
+                     href="https://app.blimpify-im.com/waitlist"
               target="_blank"
               onClick={() => setMobileOpen(false)}
               style={{ width: '100%' }}
@@ -271,8 +255,8 @@ export function NavbarBar({
             display: none !important;
           }
 
-          .navbar-bar__mobile-toggle {
-            display: block !important;
+          .navbar-bar__mobile-actions {
+            display: flex !important;
           }
         }
       `}</style>

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import {
   Section,
   Container,
@@ -10,6 +11,7 @@ import {
   H3,
   Logo,
   TextLink,
+  Display,
 } from '@blimpify-im/ui';
 
 export function Footer() {
@@ -23,70 +25,26 @@ export function Footer() {
     >
       <Container>
         {/* ================= TOP FOOTER ================= */}
-        <HStack
-          justify="between"
-          align="start"
-          wrap
-          style={{
-            width: '100%',
-            marginBottom: 'var(--foundation-space-12)',
-            gap: 'var(--foundation-space-12)',
-          }}
-        >
-          {/* LEFT: Logo */}
-          <VStack spacing="md" align="start" style={{ maxWidth: 420 }}>
+        <VStack spacing="md" align="center" style={{ marginBottom: 'var(--foundation-space-12)' }}>
+          <VStack spacing="sm" align="center">
             <Logo
-              src="/assets/Blimpify AB Logo.png"
+              src="/assets/Blimpify AB logo.png"
               alt="Blimpify"
               width={36}
               height={36}
               border='default'
               color="auto"
               radius="lg"
-              textSize="lg"
-              textWeight="extrabold"
-              gap="sm"
               href="/"
-              text="blimpify"
             />
-
-            <Body size="sm" >
-            Vi skapar professionella hemsidor för företag som vill fokusera på sin affär – inte på sin hemsida.
-            </Body>
+            <Display size='lg'>
+              blimpify
+            </Display>
           </VStack>
-
-          {/* RIGHT: Navigation (NO GRID) */}
-          <HStack spacing="xl" align="start">
-            {/* Pages */}
-            <VStack spacing="md" align="start">
-              <H3 color='disabled'>Sidor</H3>
-              <VStack spacing="xs" align="start">
-                <FooterLink href="#how-it-works">Så fungerar det</FooterLink>
-                <FooterLink href="#portfolio">Våra projekt</FooterLink>
-                <FooterLink href="#testimonials">Testimonials</FooterLink>
-                <FooterLink href="#faq">FAQ</FooterLink>
-                <FooterLink href="#priser">Priser</FooterLink>
-              </VStack>
-            </VStack>
-
-            {/* Contact */}
-            <VStack spacing="md" align="start">
-              <H3 color='disabled'>Kontakt</H3>
-              <VStack spacing="xs" align="start">
-                <FooterExternal href="https://calendly.com/admin-blimpify/30min">
-                  Boka möte
-                </FooterExternal>
-                <FooterLink href="/contact">Kontakta oss</FooterLink>
-                <FooterExternal href="https://builder.blimpify-im.com">
-                  Starta projekt
-                </FooterExternal>
-                <FooterExternal href="mailto:admin@blimpify-im.com">
-                  Skicka email
-                </FooterExternal>
-              </VStack>
-            </VStack>
-          </HStack>
-        </HStack>
+          <Body size="sm" align="center" style={{ maxWidth: 420 }}>
+          Vi bygger inte bara hemsidor. Vi tar ansvar för dem.
+          </Body>
+        </VStack>
 
         {/* ================= BOTTOM FOOTER ================= */}
         <Box
@@ -122,6 +80,16 @@ function FooterLink({
   href: string;
   children: React.ReactNode;
 }) {
+  // Use Next.js Link directly for internal links to avoid locale prefix issues
+  if (href.startsWith('/')) {
+    return (
+      <Link href={href} style={{ color: 'var(--text-link-color)', textDecoration: 'none' }}>
+        <Body size="sm" style={{ color: 'inherit' }}>{children}</Body>
+      </Link>
+    );
+  }
+  
+  // Use TextLink for hash links and other cases
   return (
     <TextLink
       href={href}

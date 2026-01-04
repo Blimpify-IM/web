@@ -69,14 +69,14 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
           </VStack>
 
           <Button
-            variant="accent"
+            variant="primary"
             size="xl"
-            href="https://app.blimpify-im.com/waitlist"
+            href="#scroll-section"
             style={{
               fontSize: '1.125rem',
             }}
           >
-            Var med från början
+            Se hur det fungerar
           </Button>
         </VStack>
       </Container>

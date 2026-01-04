@@ -329,6 +329,7 @@ interface ColorGridProps {
 function ColorGrid({ colors, selectedColor, onColorSelect }: ColorGridProps) {
   return (
     <div
+      className="color-grid"
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
@@ -530,6 +531,7 @@ function EditorPreview() {
           fullWidth
           size="sm"
           tooltipPlacement="bottom"
+          className="editor-preview-tabs"
         />
 
         {/* Tab Content - Fixed height and width to prevent jumping */}
@@ -767,14 +769,14 @@ export function SystemSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <VStack spacing="md" align="center">
-            <Display size="lg" align="center">
+          <VStack spacing="md" align="start" className="system-section-header">
+            <Display size="lg" align="left">
              Så fungerar Blimpify
             </Display>
           </VStack>
 
           {/* System Blocks - Alternating Card/Text Layout */}
-          <VStack spacing="3xl" align="stretch">
+          <VStack spacing="3xl" align="stretch" className="system-blocks-container">
             {systemBlocks.map((block, index) => {
               const isEven = index % 2 === 0;
 
@@ -795,8 +797,9 @@ export function SystemSection() {
                       order: isEven ? 1 : 2,
                       maxWidth: '500px',
                     }}
+                    className="system-block-text"
                   >
-                    <VStack spacing="md" align="start">
+                    <VStack spacing="md" align="start" className="system-block-text-content">
                       <H3 weight="semibold">{block.title}</H3>
                       <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
                         {block.description}
@@ -812,6 +815,7 @@ export function SystemSection() {
                       maxWidth: '450px',
                       justifySelf: isEven ? 'end' : 'start',
                     }}
+                    className="system-block-visual"
                   >
                     <Box
                       style={{
@@ -873,13 +877,43 @@ export function SystemSection() {
       {/* Responsive Styles */}
       <style jsx global>{`
         @media (max-width: 1024px) {
-          .system-block-layout {
-            grid-template-columns: 1fr !important;
-            gap: var(--foundation-space-12) !important;
+          .system-section-header {
+            align-items: flex-start !important;
           }
           
-          .system-block-layout > div {
-            order: initial !important;
+          .system-blocks-container {
+            gap: var(--foundation-space-16) !important;
+          }
+          
+          .system-block-layout {
+            grid-template-columns: 1fr !important;
+            gap: var(--foundation-space-8) !important;
+          }
+          
+          .system-block-text {
+            order: 1 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+          }
+          
+          .system-block-text-content {
+            align-items: flex-start !important;
+            text-align: left !important;
+          }
+          
+          .system-block-visual {
+            order: 2 !important;
+            max-width: 100% !important;
+            width: 100% !important;
+            justify-self: center !important;
+          }
+          
+          .editor-preview-tabs {
+            display: none !important;
+          }
+          
+          .color-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
           }
         }
       `}</style>

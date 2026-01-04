@@ -16,36 +16,25 @@ export function CTASection() {
       id="cta"
       
       style={{
-        background: 'var(--surface-raised)',
+        background: 'var(--surface-page)',
       }}
     >
       <Container useFormWidth>
-        <VStack spacing="2xl" align="center">
+        <VStack spacing="xl" align="center">
           {/* Header */}
-          <VStack spacing="md" align="center">
             <H2 weight="bold" align="center">
-            Vill du vara med från början?
+            Bli en av de första som använder Blimpify
             </H2>
-            <Body size="md" color="secondary" align="center">
-            Blimpify öppnar snart för ett begränsat antal tidiga medlemmar
-            som vill vara med och forma hur tjänsten utvecklas.
-            </Body>
-          </VStack>
 
           {/* CTA Button */}
-          <VStack spacing="md" align="center" style={{ width: '100%', maxWidth: '500px' }}>
-            <Button
-              variant="accent"
-              size="lg"
-              href="https://app.blimpify-im.com/waitlist"
-              target="_blank"
-            >
-              Häng med
-            </Button>
-            <Body size="sm" color="tertiary" align="center">
-              Early access • Begränsat antal platser • Ingen betalning nu
-            </Body>
-          </VStack>
+                <Button
+            variant="accent"
+                  size="lg"
+            href="https://app.blimpify-im.com/waitlist"
+            target="_blank"
+                >
+                  Få tillgång
+                </Button>
         </VStack>
       </Container>
     </Section>
