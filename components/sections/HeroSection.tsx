@@ -53,11 +53,11 @@ export function HeroSection() {
         <VStack spacing="xl" align="center">
           <VStack spacing="lg" align="center" style={{ maxWidth: '800px' }}>
             <Display 
-              size='lg'
+              size='xl'
               align="center"
               className="hero-display-responsive"
             >
-              En hemsida du inte behöver tänka på.
+              En hemsida du inte<br />behöver tänka på
             </Display>
             <Body
               size="lg"
