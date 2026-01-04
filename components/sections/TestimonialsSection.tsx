@@ -126,7 +126,7 @@ export function TestimonialsSection() {
               </Card>
                 ),
               }))}
-              speed={60}
+                    speed={80}
               direction="left"
               containerHeight="auto"
               backgroundColor="transparent"

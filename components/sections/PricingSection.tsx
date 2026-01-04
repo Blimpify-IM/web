@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import {
   Section,
   Container,
@@ -43,7 +44,7 @@ const pricingPlans: PricingPlan[] = [
       'Support när något känns fel',
     ],
     popular: false,
-    cta: 'Kommer snart...',
+    cta: 'Få tillgång',
     variant: 'raised',
   },
   {
@@ -146,13 +147,27 @@ export function PricingSection() {
                     </VStack>
 
                     {/* CTA Button */}
-                    <Button
-                      variant={plan.popular ? 'primary' : 'secondary'}
-                      size="lg"
-                      fullWidth
-                    >
-                      {plan.cta}
-                    </Button>
+                    {index === 0 ? (
+                      <Button
+                        variant={plan.popular ? 'primary' : 'secondary'}
+                        size="lg"
+                        fullWidth
+                        href="https://app.blimpify-im.com/waitlist"
+                        target="_blank"
+                      >
+                        {plan.cta}
+                      </Button>
+                    ) : (
+                      <Link href="/contact" style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
+                        <Button
+                          variant={plan.popular ? 'primary' : 'secondary'}
+                          size="lg"
+                          fullWidth
+                        >
+                          {plan.cta}
+                        </Button>
+                      </Link>
+                    )}
                   </VStack>
                 </CardContent>
               </Card>

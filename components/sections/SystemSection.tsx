@@ -55,19 +55,19 @@ const systemBlocks: SystemBlock[] = [
   {
     title: 'Vi bygger i vårt egenutvecklade system',
     description:
-      'När du blir medlem i Blimpify byggs din hemsida i vårt egenutvecklade system. Det gör att vi kan ta fullt ansvar för design, struktur och helhet – samtidigt som dina val och justeringar enkelt kan tas om hand inom ett sammanhållet ramverk.',
+      'När du blir medlem i Blimpify byggs din hemsida i vårt egenutvecklade system. Det gör att vi kan ta fullt ansvar för design, struktur och helhet. Samtidigt som dina val och justeringar enkelt kan tas om hand inom ett sammanhållet ramverk.',
     showEditor: true,
   },
   {
     title: 'Design som hålls samman och utvecklas',
     description:
-      'Blimpify bygger på ett eget design- och UI-system som vi utvecklar kontinuerligt. Det betyder att din hemsida inte är ett färdigt paket som fryser i tiden – utan en stabil grund som kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om.',
+      'Blimpify bygger på ett eget design- och UI-system som vi utvecklar kontinuerligt. Det betyder att din hemsida inte är ett färdigt paket som fryser i tiden. Utan en stabil grund som kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om.',
     showDocumentation: true,
   },
   {
     title: 'Stabil drift som vi ansvarar för',
     description:
-      'Bakom kulisserna använder vi etablerade tjänster som Stripe och AWS för drift, betalningar och infrastruktur. Vi sätter upp, konfigurerar och ansvarar för helheten – så att din hemsida är snabb, säker och stabil från dag ett.',
+      'Bakom kulisserna använder vi etablerade tjänster som Stripe och AWS för drift, betalningar och infrastruktur. Vi sätter upp, konfigurerar och ansvarar för helheten. Så att din hemsida är snabb, säker och stabil från dag ett.',
     showStats: true,
   },
 ];
@@ -769,9 +769,9 @@ export function SystemSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <VStack spacing="md" align="start" className="system-section-header">
-            <Display size="lg" align="left">
-             Så fungerar Blimpify
+          <VStack spacing="md" align="center" className="system-section-header">
+            <Display size="md" align="center">
+            Det som gör Blimpify annorlunda
             </Display>
           </VStack>
 
@@ -795,11 +795,11 @@ export function SystemSection() {
                   <Box
                     style={{
                       order: isEven ? 1 : 2,
-                      maxWidth: '500px',
+                      maxWidth: '300px',
                     }}
                     className="system-block-text"
                   >
-                    <VStack spacing="md" align="start" className="system-block-text-content">
+                    <VStack spacing="sm" align="start" className="system-block-text-content">
                       <H3 weight="semibold">{block.title}</H3>
                       <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
                         {block.description}

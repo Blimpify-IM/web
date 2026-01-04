@@ -30,7 +30,7 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Hemsidan',
     description:
-      'Vi bygger din hemsida utifrån dina val och ser till att helheten håller ihop — från första version till live.',
+      'Vi bygger din hemsida utifrån dina val och ser till att helheten håller ihop. Vi finns med från start till slut.',
     imageLight: '/assets/hemsida.png',
     imageDark: '/assets/hemsida-dark.png',
     imageAlt: 'Hemsida',
@@ -38,7 +38,7 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Innehåll & justeringar',
     description:
-      'Du kan justera text, färger och enklare detaljer när det behövs. Vi ansvarar för struktur, design och större förändringar så att helheten alltid håller.',
+      'Justera text, färger och enklare detaljer när det behövs. Vi ansvarar för struktur, design och större förändringar så att helheten alltid håller.',
     imageLight: '/assets/cms.png',
     imageDark: '/assets/cms-dark.png',
     imageAlt: 'Innehåll och justeringar',
@@ -46,7 +46,7 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Överblick & insikt',
     description:
-      'Följ hur din hemsida används och få en enkel överblick över trafik och beteende – utan att behöva sätta upp egna verktyg.',
+      'Följ hur din hemsida används och få en enkel överblick över trafik och beteende. Utan att behöva sätta upp egna verktyg.',
     imageLight: '/assets/stats.png',
     imageDark: '/assets/stats-dark.png',
     imageAlt: 'Statistik',
@@ -62,7 +62,7 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Utveckling över tid',
     description:
-      'Blimpify utvecklas löpande tillsammans med våra medlemmar. Det gör att din hemsida inte fastnar – utan kan förbättras i takt med tjänsten.',
+      'Blimpify utvecklas löpande tillsammans med våra medlemmar. Det gör att din hemsida inte fastnar. Utan kan förbättras i takt med tjänsten.',
     imageLight: '/assets/news.png',
     imageDark: '/assets/news-dark.png',
     imageAlt: 'Utveckling över tid',
@@ -119,9 +119,9 @@ export function ScrollSection() {
       }}
     >
       <Container useMediaWidth>
-        <VStack align='center' spacing="md">
-          <Display size='lg'>
-          Det här tar Blimpify hand om åt dig
+        <VStack spacing="md">
+          <Display size='md'>
+          Det här tar Blimpify hand om
           </Display>
         </VStack>
       </Container>
