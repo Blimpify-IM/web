@@ -23,6 +23,7 @@ export default function HomePage() {
       <PricingSection />
       <Divider></Divider>
       <CTASection />
+      <Divider></Divider>
       <FAQSection />
       
     </>
