@@ -377,7 +377,7 @@ function ControlRow({ label, children }: ControlRowProps) {
   );
 }
 
-// Documentation Preview Component - Shows impressive component previews
+// Documentation Preview Component - Shows impressive component previews (mobile-optimized)
 function DocumentationPreview() {
   return (
     <Box
@@ -387,24 +387,35 @@ function DocumentationPreview() {
         height: '100%',
         background: 'var(--surface-raised)',
         borderRadius: 'var(--radius-md)',
-        padding: 'var(--foundation-space-4)',
+        padding: 'var(--foundation-space-3)',
         overflow: 'auto',
         display: 'flex',
         flexDirection: 'column',
       }}
     >
-      <VStack spacing="sm" align="stretch" style={{ width: '100%', flex: 1 }}>
-        {/* Badge with Button */}
+      <VStack spacing="xs" align="stretch" style={{ width: '100%', flex: 1 }}>
+        {/* Compact Button Variants */}
         <Card variant="outlined">
-          <CardContent>
+          <CardContent style={{ padding: 'var(--foundation-space-2)' }}>
             <VStack spacing="xs" align="stretch">
-              <Label size="xs" color="secondary">Badge</Label>
-              <HStack spacing="xs" align="center">
+              <Label size="xs" color="secondary" style={{ fontSize: '10px' }}>Buttons</Label>
+              <HStack spacing="xs" style={{ flexWrap: 'wrap' }}>
+                <Button variant="primary" size="sm">Primary</Button>
+                <Button variant="accent" size="sm">Accent</Button>
+                <Button variant="secondary" size="sm">Secondary</Button>
+              </HStack>
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Badge Preview - Simplified */}
+        <Card variant="outlined">
+          <CardContent style={{ padding: 'var(--foundation-space-2)' }}>
+            <VStack spacing="xs" align="stretch">
+              <Label size="xs" color="secondary" style={{ fontSize: '10px' }}>Badge</Label>
+              <HStack spacing="xs" style={{ flexWrap: 'wrap' }}>
                 <Badge content={3} variant="accent">
                   <Button variant="primary" size="sm">Meddelanden</Button>
-                </Badge>
-                <Badge content="Nytt" variant="success">
-                  <Button variant="secondary" size="sm">Status</Button>
                 </Badge>
                 <Badge isDot variant="accent">
                   <Button variant="ghost" size="sm">Online</Button>
@@ -414,73 +425,25 @@ function DocumentationPreview() {
           </CardContent>
         </Card>
 
-        {/* Button Variants */}
+        {/* Progress Bar - Single */}
         <Card variant="outlined">
-          <CardContent>
+          <CardContent style={{ padding: 'var(--foundation-space-2)' }}>
             <VStack spacing="xs" align="stretch">
-              <Label size="xs" color="secondary">Buttons</Label>
-              <VStack spacing="xs" align="stretch">
-                <HStack spacing="xs">
-                  <Button variant="primary" size="sm">Primary</Button>
-                  <Button variant="accent" size="sm">Accent</Button>
-                  <Button variant="secondary" size="sm">Secondary</Button>
-                </HStack>
-                <HStack spacing="xs">
-                  <Button variant="ghost" size="sm">Ghost</Button>
-                  <Button variant="destructive" size="sm">Delete</Button>
-                </HStack>
-              </VStack>
+              <Label size="xs" color="secondary" style={{ fontSize: '10px' }}>Progress</Label>
+              <Progress value={75} />
             </VStack>
           </CardContent>
         </Card>
 
-        {/* Progress Bar */}
+        {/* Interactive - Compact */}
         <Card variant="outlined">
-          <CardContent>
+          <CardContent style={{ padding: 'var(--foundation-space-2)' }}>
             <VStack spacing="xs" align="stretch">
-              <Label size="xs" color="secondary">Progress</Label>
-              <VStack spacing="xs" align="stretch">
-                <Progress value={75} />
-                <Progress value={45} />
-                <Progress value={90} />
-              </VStack>
-            </VStack>
-          </CardContent>
-        </Card>
-
-        {/* Interactive Components */}
-        <Card variant="outlined">
-          <CardContent>
-            <VStack spacing="xs" align="stretch">
-              <Label size="xs" color="secondary">Interaktivt</Label>
-              <HStack spacing="xs" align="center">
-                <Spinner size="sm" variant="accent" />
-                <Button variant="accent" size="sm" leftIcon={<Icon size="xs"><CheckIcon /></Icon>}>
-                  Klar
-                </Button>
-                <Tag variant="accent">Aktiv</Tag>
+              <Label size="xs" color="secondary" style={{ fontSize: '10px' }}>Status</Label>
+              <HStack spacing="xs" align="center" style={{ flexWrap: 'wrap' }}>
+                <Spinner size="xs" variant="accent" />
+                <Tag variant="accent" style={{ fontSize: '10px', padding: '2px 6px' }}>Aktiv</Tag>
               </HStack>
-            </VStack>
-          </CardContent>
-        </Card>
-
-        {/* Accordion Preview */}
-        <Card variant="outlined">
-          <CardContent>
-            <VStack spacing="xs" align="stretch">
-              <Label size="xs" color="secondary">Accordion</Label>
-              <Accordion>
-                <AccordionItem itemKey="1" title="Komponenter">
-                  <Body size="xs" color="secondary">
-                    {DOC_CATEGORIES.length} kategorier
-                  </Body>
-                </AccordionItem>
-                <AccordionItem itemKey="2" title="Design System">
-                  <Body size="xs" color="secondary">
-                    Konsistent och skalbart
-                  </Body>
-                </AccordionItem>
-              </Accordion>
             </VStack>
           </CardContent>
         </Card>
@@ -493,7 +456,7 @@ function DocumentationPreview() {
             borderTop: '1px solid var(--border-subtle)',
           }}
         >
-          <Body size="xs" color="tertiary" align="center">
+          <Body size="xs" color="tertiary" align="center" style={{ fontSize: '9px' }}>
             {DOC_CATEGORIES.reduce((sum, cat) => sum + cat.components.length, 0)}+ komponenter
           </Body>
         </Box>
