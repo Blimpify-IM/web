@@ -46,7 +46,7 @@ export default function ContactPage() {
           phone: formData.phone || undefined,
           company: formData.company || undefined,
           message: formData.message,
-          toAddress: 'support@blimpify.com',
+          toAddress: 'support@blimpify.co',
           sendConfirmation: true,
           siteName: 'Blimpify',
           subject: 'Ny förfrågan från kontaktformulär',
