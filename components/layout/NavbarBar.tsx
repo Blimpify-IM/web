@@ -197,6 +197,9 @@ export function NavbarBar({
 
           {/* Action Buttons */}
           <HStack spacing="sm" style={{ flexShrink: 0, gap: 'var(--foundation-space-2)' }}>
+            <Button variant="ghost" href="https://app.blimpify-im.com/login" target="_blank">
+              Logga in
+            </Button>
             <Button variant="accent" href="https://app.blimpify-im.com/waitlist" target="_blank">
             Få tillgång
             </Button>
@@ -268,6 +271,15 @@ export function NavbarBar({
 
           {/* Action Buttons */}
           <VStack spacing="sm" style={{ marginTop: 'var(--foundation-space-4)' }}>
+            <Button
+              variant="ghost"
+              href="https://app.blimpify-im.com/login"
+              target="_blank"
+              onClick={() => setMobileOpen(false)}
+              style={{ width: '100%' }}
+            >
+              Logga in
+            </Button>
             <Button
               variant="accent"
                      href="https://app.blimpify-im.com/waitlist"
