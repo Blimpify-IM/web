@@ -87,10 +87,31 @@ export function NavbarBar({
   }, []);
 
   const menuItems = [
-    { href: '#scroll-section', label: 'Så fungerar det' },
-    { href: '#testimonials', label: 'Testimonials' },
-    { href: '#pricing', label: 'Priser' },
+    { href: '/#scroll-section', label: 'Så fungerar det', hash: 'scroll-section' },
+    { href: '/#testimonials', label: 'Testimonials', hash: 'testimonials' },
+    { href: '/#pricing', label: 'Priser', hash: 'pricing' },
   ];
+
+  // Handle hash navigation when clicking from other pages
+  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    const currentPath = window.location.pathname;
+    
+    // If we're on the home page, let default behavior handle it
+    if (currentPath === '/') {
+      // Already on home page, just scroll
+      e.preventDefault();
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return;
+    }
+    
+    // If we're on another page, navigate to home first
+    // The HashScrollHandler will handle scrolling after navigation
+    e.preventDefault();
+    window.location.href = `/#${hash}`;
+  };
 
   return (
     <nav
@@ -161,7 +182,12 @@ export function NavbarBar({
             }}
           >
             {menuItems.map((item, i) => (
-              <TextLink key={i} href={item.href} size="md">
+              <TextLink 
+                key={i} 
+                href={item.href} 
+                size="md"
+                onClick={(e) => item.hash && handleHashClick(e, item.hash)}
+              >
                 {item.label}
               </TextLink>
             ))}
@@ -227,7 +253,12 @@ export function NavbarBar({
               key={i}
               href={item.href}
               size="lg"
-              onClick={() => setMobileOpen(false)}
+              onClick={(e) => {
+                setMobileOpen(false);
+                if (item.hash) {
+                  handleHashClick(e, item.hash);
+                }
+              }}
             >
               {item.label}
             </TextLink>

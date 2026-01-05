@@ -71,7 +71,7 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
           <Button
             variant="primary"
             size="xl"
-            href="#scroll-section"
+            href="/#scroll-section"
             style={{
               fontSize: '1.125rem',
             }}

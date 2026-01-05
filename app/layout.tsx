@@ -2,9 +2,11 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { designSnippet } from '@blimpify-im/ui/design';
+import { ConsentProvider, CookieConsent, MarketingPixels } from '@blimpify-im/ui/consent';
 import { StaticNavbar } from '@/components/layout/StaticNavbar';
 import { Footer } from '@/components/layout/Footer';
 import { NavbarBar } from '@/components/layout/NavbarBar';
+import { HashScrollHandler } from '@/components/HashScrollHandler';
 
 export const metadata: Metadata = {
   title: 'Blimpify – En hemsida du inte behöver tänka på',
@@ -57,9 +59,14 @@ export default async function RootLayout({
         <style id="design-css">{design.css}</style>
       </head>
       <body suppressHydrationWarning>
+        <ConsentProvider>
+          <MarketingPixels pixels={[]} />
+          <HashScrollHandler />
         <NavbarBar />
         <main>{children}</main>
         <Footer />
+          <CookieConsent locale="sv" privacyPolicyUrl="/privacy" />
+        </ConsentProvider>
       </body>
     </html>
   );

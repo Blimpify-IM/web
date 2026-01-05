@@ -7,6 +7,7 @@ import {
   H2,
   Body,
   Button,
+  Display,
 } from '@blimpify-im/ui';
 
 export function CTASection() {
@@ -19,12 +20,11 @@ export function CTASection() {
         background: 'var(--surface-page)',
       }}
     >
-      <Container useFormWidth>
-        <VStack spacing="xl" align="center">
+        <VStack spacing="lg" align="center">
           {/* Header */}
-            <H2 weight="bold" align="center">
-            Bli en av de första som använder Blimpify
-            </H2>
+            <Display size='md' align="center" >
+            Vill du vara med från början?
+            </Display>
 
           {/* CTA Button */}
                 <Button
@@ -36,7 +36,6 @@ export function CTASection() {
                   Få tillgång
                 </Button>
         </VStack>
-      </Container>
     </Section>
   );
 }

@@ -63,7 +63,7 @@ export function FAQSection() {
         <VStack spacing="3xl">
           {/* Header */}
           <VStack spacing="md">
-            <Display size='lg' align="left">
+            <Display size='md' align="center">
               Vanliga Frågor
             </Display>
           </VStack>

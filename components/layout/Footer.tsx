@@ -44,7 +44,7 @@ export function Footer() {
           <Body size="sm" align="center" style={{ maxWidth: 420 }}>
           Vi bygger inte bara hemsidor. Vi tar ansvar för dem.
           </Body>
-        </VStack>
+            </VStack>
 
         {/* ================= BOTTOM FOOTER ================= */}
         <Box
