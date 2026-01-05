@@ -87,9 +87,11 @@ export function NavbarBar({
   }, []);
 
   const menuItems = [
-    { href: '/#scroll-section', label: 'Så fungerar det', hash: 'scroll-section' },
+    { href: '/#scroll-section', label: 'Vårt ansvar', hash: 'scroll-section' },
+    { href: '/#system-section', label: 'Annorlunda', hash: 'system-section' },
     { href: '/#testimonials', label: 'Testimonials', hash: 'testimonials' },
     { href: '/#pricing', label: 'Priser', hash: 'pricing' },
+    { href: '/#faq', label: 'FAQ', hash: 'faq' },
   ];
 
   // Handle hash navigation when clicking from other pages

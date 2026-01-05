@@ -200,13 +200,13 @@ export function PricingSection() {
                       </Button>
                     ) : (
                       <Link href="/contact" style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
-                        <Button
-                          variant={plan.popular ? 'primary' : 'secondary'}
-                          size="lg"
-                          fullWidth
-                        >
-                          {plan.cta}
-                        </Button>
+                    <Button
+                      variant={plan.popular ? 'primary' : 'secondary'}
+                      size="lg"
+                      fullWidth
+                    >
+                      {plan.cta}
+                    </Button>
                       </Link>
                     )}
                   </VStack>

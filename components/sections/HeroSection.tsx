@@ -69,14 +69,15 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
           </VStack>
 
           <Button
-            variant="primary"
+            variant="accent"
             size="xl"
-            href="/#scroll-section"
+            href="https://app.blimpify-im.com/signup?invite=early-access"
+            target="_blank"
             style={{
               fontSize: '1.125rem',
             }}
           >
-            Se hur det fungerar
+            Var med ifrån början
           </Button>
         </VStack>
       </Container>

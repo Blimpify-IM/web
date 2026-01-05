@@ -19,6 +19,15 @@ import {
   Label,
   SelectionCard,
   Icon,
+  Button,
+  Tag,
+  Input,
+  Badge,
+  Avatar,
+  Progress,
+  Spinner,
+  Accordion,
+  AccordionItem,
 } from '@blimpify-im/ui';
 import { Palette, CaseSensitive, LayoutDashboard, Spline, Car } from 'lucide-react';
 import { 
@@ -368,10 +377,11 @@ function ControlRow({ label, children }: ControlRowProps) {
   );
 }
 
-// Documentation Preview Component
+// Documentation Preview Component - Shows impressive component previews
 function DocumentationPreview() {
   return (
     <Box
+      className="documentation-preview"
       style={{
         width: '100%',
         height: '100%',
@@ -379,73 +389,114 @@ function DocumentationPreview() {
         borderRadius: 'var(--radius-md)',
         padding: 'var(--foundation-space-4)',
         overflow: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
       }}
     >
-      <VStack spacing="sm" align="stretch" style={{ width: '100%' }}>
-        {DOC_CATEGORIES.map((category) => {
-          const IconComponent = category.icon;
-          return (
-            <Box
-              key={category.id}
-              style={{
-                padding: 'var(--foundation-space-2)',
-                borderRadius: 'var(--radius-sm)',
-                background: 'var(--surface-page)',
-                border: '1px solid var(--border-subtle)',
-              }}
-            >
-              <HStack spacing="xs" align="center" style={{ marginBottom: 'var(--foundation-space-1)' }}>
-                <Icon size="xs" color="secondary">
-                  <IconComponent />
-                </Icon>
-                <Label size="xs" weight="semibold" style={{ fontSize: '10px', lineHeight: 1.2 }}>
-                  {category.label}
-                </Label>
-                <Body size="xs" color="tertiary" style={{ fontSize: '9px', lineHeight: 1.2 }}>
-                  ({category.components.length})
-                </Body>
+      <VStack spacing="sm" align="stretch" style={{ width: '100%', flex: 1 }}>
+        {/* Badge with Button */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs" align="stretch">
+              <Label size="xs" color="secondary">Badge</Label>
+              <HStack spacing="xs" align="center">
+                <Badge content={3} variant="accent">
+                  <Button variant="primary" size="sm">Meddelanden</Button>
+                </Badge>
+                <Badge content="Nytt" variant="success">
+                  <Button variant="secondary" size="sm">Status</Button>
+                </Badge>
+                <Badge isDot variant="accent">
+                  <Button variant="ghost" size="sm">Online</Button>
+                </Badge>
               </HStack>
-              <Box
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: 'var(--foundation-space-1)',
-                  marginTop: 'var(--foundation-space-1)',
-                }}
-              >
-                {category.components.slice(0, 6).map((component) => (
-                  <Box
-                    key={component.id}
-                    style={{
-                      padding: '2px 6px',
-                      borderRadius: 'var(--radius-xs)',
-                      background: 'var(--surface-subtle)',
-                      border: '1px solid var(--border-subtle)',
-                    }}
-                  >
-                    <Body size="xs" color="tertiary" style={{ fontSize: '8px', lineHeight: 1.2, whiteSpace: 'nowrap' }}>
-                      {component.label}
-                    </Body>
-                  </Box>
-                ))}
-                {category.components.length > 6 && (
-                  <Box
-                    style={{
-                      padding: '2px 6px',
-                      borderRadius: 'var(--radius-xs)',
-                      background: 'var(--surface-subtle)',
-                      border: '1px solid var(--border-subtle)',
-                    }}
-                  >
-                    <Body size="xs" color="tertiary" style={{ fontSize: '8px', lineHeight: 1.2 }}>
-                      +{category.components.length - 6}
-                    </Body>
-                  </Box>
-                )}
-              </Box>
-            </Box>
-          );
-        })}
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Button Variants */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs" align="stretch">
+              <Label size="xs" color="secondary">Buttons</Label>
+              <VStack spacing="xs" align="stretch">
+                <HStack spacing="xs">
+                  <Button variant="primary" size="sm">Primary</Button>
+                  <Button variant="accent" size="sm">Accent</Button>
+                  <Button variant="secondary" size="sm">Secondary</Button>
+                </HStack>
+                <HStack spacing="xs">
+                  <Button variant="ghost" size="sm">Ghost</Button>
+                  <Button variant="destructive" size="sm">Delete</Button>
+                </HStack>
+              </VStack>
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Progress Bar */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs" align="stretch">
+              <Label size="xs" color="secondary">Progress</Label>
+              <VStack spacing="xs" align="stretch">
+                <Progress value={75} />
+                <Progress value={45} />
+                <Progress value={90} />
+              </VStack>
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Interactive Components */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs" align="stretch">
+              <Label size="xs" color="secondary">Interaktivt</Label>
+              <HStack spacing="xs" align="center">
+                <Spinner size="sm" variant="accent" />
+                <Button variant="accent" size="sm" leftIcon={<Icon size="xs"><CheckIcon /></Icon>}>
+                  Klar
+                </Button>
+                <Tag variant="accent">Aktiv</Tag>
+              </HStack>
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Accordion Preview */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs" align="stretch">
+              <Label size="xs" color="secondary">Accordion</Label>
+              <Accordion>
+                <AccordionItem itemKey="1" title="Komponenter">
+                  <Body size="xs" color="secondary">
+                    {DOC_CATEGORIES.length} kategorier
+                  </Body>
+                </AccordionItem>
+                <AccordionItem itemKey="2" title="Design System">
+                  <Body size="xs" color="secondary">
+                    Konsistent och skalbart
+                  </Body>
+                </AccordionItem>
+              </Accordion>
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Component Count Footer */}
+        <Box
+          style={{
+            marginTop: 'auto',
+            paddingTop: 'var(--foundation-space-2)',
+            borderTop: '1px solid var(--border-subtle)',
+          }}
+        >
+          <Body size="xs" color="tertiary" align="center">
+            {DOC_CATEGORIES.reduce((sum, cat) => sum + cat.components.length, 0)}+ komponenter
+          </Body>
+        </Box>
       </VStack>
     </Box>
   );
@@ -762,6 +813,7 @@ export function SystemSection() {
 
   return (
     <Section
+      id="system-section"
       style={{
         background: 'var(--surface-page)',
       }}
@@ -876,6 +928,32 @@ export function SystemSection() {
 
       {/* Responsive Styles */}
       <style jsx global>{`
+        /* Custom Scrollbar for Documentation Preview */
+        .documentation-preview::-webkit-scrollbar {
+          width: 8px;
+        }
+        
+        .documentation-preview::-webkit-scrollbar-track {
+          background: var(--surface-subtle);
+          border-radius: var(--radius-full);
+        }
+        
+        .documentation-preview::-webkit-scrollbar-thumb {
+          background: var(--border-strong);
+          border-radius: var(--radius-full);
+          border: 2px solid var(--surface-subtle);
+        }
+        
+        .documentation-preview::-webkit-scrollbar-thumb:hover {
+          background: var(--icon-accent);
+        }
+        
+        /* Firefox scrollbar */
+        .documentation-preview {
+          scrollbar-width: thin;
+          scrollbar-color: var(--border-strong) var(--surface-subtle);
+        }
+
         @media (max-width: 1024px) {
           .system-section-header {
             align-items: flex-start !important;
