@@ -1,0 +1,20 @@
+# customHttp.yml
+# AWS Amplify Custom HTTP Headers Configuration
+# 
+# This file configures CloudFront response headers for security.
+# Deploy this file in the root of your repository to override UI settings.
+#
+# HSTS (HTTP Strict Transport Security):
+# - Ensures browsers always use HTTPS for this domain
+# - max-age=63072000: Remember for 2 years (730 days)
+# - includeSubDomains: Apply to all subdomains
+# - preload: Eligible for browser HSTS preload list
+#
+# @author William
+# @since 2026-01-03
+
+customHeaders:
+  - pattern: '**/*'
+    headers:
+      - key: 'Strict-Transport-Security'
+        value: 'max-age=63072000; includeSubDomains; preload'
