@@ -71,7 +71,7 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
           <Button
             variant="accent"
             size="xl"
-            href="https://app.blimpify-im.com/signup?invite=early-access"
+            href="https://app.blimpify-im.com/waitlist"
             target="_blank"
             style={{
               fontSize: '1.125rem',
