@@ -917,6 +917,13 @@ export function SystemSection() {
           scrollbar-color: var(--border-strong) var(--surface-subtle);
         }
 
+        /* Mobile optimizations for documentation preview */
+        @media (max-width: 768px) {
+          .documentation-preview {
+            padding: var(--foundation-space-2) !important;
+          }
+        }
+
         @media (max-width: 1024px) {
           .system-section-header {
             align-items: flex-start !important;
