@@ -5,7 +5,7 @@ import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer } fr
 import Image from 'next/image';
 
 export function HeroSection() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true); // Default to dark theme first
 
   // Detect theme from document
   useEffect(() => {

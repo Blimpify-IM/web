@@ -7,13 +7,13 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 /**
- * Middleware function to add security headers and remove debug headers
+ * Proxy function to add security headers and remove debug headers
  * 
  * Security:
  * - Adds security headers (CSP, X-Frame-Options, etc.)
  * - Removes Next.js debug headers in production
  */
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   const response = NextResponse.next();
   
   // Add security headers
@@ -28,9 +28,9 @@ export function middleware(req: NextRequest) {
     'Content-Security-Policy',
     "default-src 'self'; " +
     "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
-    "style-src 'self' 'unsafe-inline'; " +
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
     "img-src 'self' data: https:; " +
-    "font-src 'self' data:; " +
+    "font-src 'self' data: https://fonts.gstatic.com; " +
     "connect-src 'self' https:; " +
     "frame-ancestors 'none';"
   );

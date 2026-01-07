@@ -66,7 +66,7 @@ const pricingPlans: PricingPlan[] = [
 ];
 
 export function PricingSection() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true); // Default to dark theme first
 
   // Detect theme from document
   useEffect(() => {
