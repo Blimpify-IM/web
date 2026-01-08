@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import {
   Section,
   Container,
@@ -62,6 +63,17 @@ const truncateWords = (text: string, maxWords: number): string => {
 
 export function TestimonialsSection() {
   const MAX_WORDS = 30; // Maximum number of words to show
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <Section
@@ -79,84 +91,111 @@ export function TestimonialsSection() {
             </Display>
           </VStack>
 
-          {/* Spinning Testimonials Carousel */}
-          <Box
-            style={{
-              width: '100%',
-              overflow: 'hidden',
-            }}
-          >
-            <CarouselAnimation
-              items={testimonials.map((testimonial, index) => ({
-                id: index,
-                content: (
-                  <Card 
-                    padding="lg" 
-                    className="testimonial-card"
-                    style={{ 
-                      width: '100%', 
-                      minHeight: '320px',
-                      height: '100%',
-                      display: 'flex', 
-                      flexDirection: 'column' 
-                    }}
-                  >
-                    <CardContent style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                      <VStack spacing="lg" style={{ height: '100%' }}>
-                    <VStack spacing="sm">
-                      <H3 weight="bold">{testimonial.name}</H3>
-                      <Body size="sm" color="tertiary">
-                        {testimonial.role}
+          {/* Spinning Testimonials Carousel (Desktop) / Grid (Mobile) */}
+          {isMobile ? (
+            <Grid columns={{ base: 1 }} gap="lg">
+              {testimonials.map((testimonial, index) => (
+                <Card 
+                  key={index}
+                  padding="lg" 
+                  className="testimonial-card"
+                  style={{ 
+                    width: '100%', 
+                    minHeight: 'auto',
+                    height: 'auto',
+                    display: 'flex', 
+                    flexDirection: 'column' 
+                  }}
+                >
+                  <CardContent style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <VStack spacing="lg" style={{ height: '100%' }}>
+                      <VStack spacing="sm">
+                        <H3 weight="bold">{testimonial.name}</H3>
+                        <Body size="sm" color="tertiary">
+                          {testimonial.role}
+                        </Body>
+                      </VStack>
+                      <Body 
+                        size="lg" 
+                        color="primary" 
+                        style={{ 
+                          lineHeight: 1.6, 
+                          flex: 1,
+                          wordBreak: 'break-word',
+                        }}
+                      >
+                        {truncateWords(testimonial.content, MAX_WORDS)}
                       </Body>
                     </VStack>
-                        <Body 
-                          size="lg" 
-                          color="primary" 
-                          style={{ 
-                            lineHeight: 1.6, 
-                            flex: 1,
-                            wordBreak: 'break-word',
-                          }}
-                        >
-                          {truncateWords(testimonial.content, MAX_WORDS)}
-                    </Body>
-                  </VStack>
-                </CardContent>
-              </Card>
-                ),
-              }))}
-                    speed={80}
-              direction="left"
-              containerHeight="auto"
-              backgroundColor="transparent"
-              padding="var(--foundation-space-4) 0"
-              itemWidth="400px"
-              itemHeight="auto"
-              itemPadding="0"
-              gap="var(--foundation-space-6)"
-              enableFadeEdges={true}
-              fadeWidth="100px"
-              duplicateCount={6}
-              enableHover={true}
-              className="testimonials-carousel"
-            />
-          </Box>
+                  </CardContent>
+                </Card>
+              ))}
+            </Grid>
+          ) : (
+            <Box
+              style={{
+                width: '100%',
+                overflow: 'hidden',
+              }}
+            >
+              <CarouselAnimation
+                items={testimonials.map((testimonial, index) => ({
+                  id: index,
+                  content: (
+                    <Card 
+                      padding="lg" 
+                      className="testimonial-card"
+                      style={{ 
+                        width: '100%', 
+                        minHeight: '320px',
+                        height: '100%',
+                        display: 'flex', 
+                        flexDirection: 'column' 
+                      }}
+                    >
+                      <CardContent style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                        <VStack spacing="lg" style={{ height: '100%' }}>
+                      <VStack spacing="sm">
+                        <H3 weight="bold">{testimonial.name}</H3>
+                        <Body size="sm" color="tertiary">
+                          {testimonial.role}
+                        </Body>
+                      </VStack>
+                          <Body 
+                            size="lg" 
+                            color="primary" 
+                            style={{ 
+                              lineHeight: 1.6, 
+                              flex: 1,
+                              wordBreak: 'break-word',
+                            }}
+                          >
+                            {truncateWords(testimonial.content, MAX_WORDS)}
+                      </Body>
+                    </VStack>
+                  </CardContent>
+                </Card>
+                  ),
+                }))}
+                      speed={80}
+                direction="left"
+                containerHeight="auto"
+                backgroundColor="transparent"
+                padding="var(--foundation-space-4) 0"
+                itemWidth="400px"
+                itemHeight="auto"
+                itemPadding="0"
+                gap="var(--foundation-space-6)"
+                enableFadeEdges={true}
+                fadeWidth="100px"
+                duplicateCount={6}
+                enableHover={true}
+                className="testimonials-carousel"
+              />
+            </Box>
+          )}
         </VStack>
       </Container>
-
-      {/* Responsive Styles */}
-      <style jsx global>{`
-        @media (max-width: 768px) {
-          .testimonial-card {
-            minHeight: auto !important;
-            height: auto !important;
-          }
-          
-          .testimonials-carousel .Carousel-animation-item {
-            height: auto !important;
-          }
-        }
-      `}</style>
     </Section>
   );
 }
