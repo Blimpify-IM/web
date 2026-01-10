@@ -48,7 +48,7 @@ export default function TermsPage() {
                 <br />
                 Org.nr: 559519-2377
                 <br />
-                E-post: <a href="mailto:support@blimpify.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>support@blimpify.com</a>
+                E-post: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
               </Body>
             </VStack>
 
@@ -143,7 +143,7 @@ export default function TermsPage() {
             <VStack spacing="md" align="stretch">
               <H3 weight="semibold">6. Support och ändringar</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Support erbjuds via dashboard och e-post (<a href="mailto:support@blimpify.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>support@blimpify.com</a>).
+                Support erbjuds via dashboard och e-post (<a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>).
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 Blimpify besvarar ärenden inom 48 timmar under helgfria vardagar.
@@ -176,7 +176,7 @@ export default function TermsPage() {
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Begäran ska skickas skriftligt till <a href="mailto:support@blimpify.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>support@blimpify.com</a>.
+                Begäran ska skickas skriftligt till <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 Efter 30 dagar är återbetalning inte möjlig.

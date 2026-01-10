@@ -294,7 +294,7 @@ export default function PrivacyPage() {
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Begäran görs via e-post till <a href="mailto:support@blimpify.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>support@blimpify.com</a>.
+                Begäran görs via e-post till <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 Vi svarar inom <strong>30 dagar</strong>.
@@ -355,7 +355,7 @@ export default function PrivacyPage() {
                 <br />
                 Org.nr: 559519-2377
                 <br />
-                E-post: <a href="mailto:support@blimpify.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>support@blimpify.com</a>
+                E-post: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
               </Body>
             </VStack>
           </VStack>

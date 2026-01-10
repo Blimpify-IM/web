@@ -119,13 +119,6 @@ export function ScrollSection() {
       }}
     >
       <Container useMediaWidth>
-        <VStack spacing="md">
-          <Display size='md'>
-          Det här tar Blimpify hand om
-          </Display>
-        </VStack>
-      </Container>
-      <Container useMediaWidth>
         {/* Desktop & Mobile Layout */}
         <div
           className="scroll-section-grid"
@@ -148,6 +141,11 @@ export function ScrollSection() {
               overflow: 'visible',
             }}
           >
+            {/* Header */}
+            <VStack spacing="sm">
+              <H2 weight="bold">Det här tar Blimpify hand om</H2>
+            </VStack>
+            
             {/* Accordion Sidebar Items */}
             <Accordion
               selectionMode="single"

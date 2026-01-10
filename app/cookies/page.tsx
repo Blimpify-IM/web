@@ -505,7 +505,7 @@ export default function CookiesPage() {
                 <br />
                 Org.nr: 559519-2377
                 <br />
-                E-post: <a href="mailto:support@blimpify.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>support@blimpify.com</a>
+                E-post: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
               </Body>
             </VStack>
           </VStack>
