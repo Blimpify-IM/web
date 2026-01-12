@@ -141,9 +141,13 @@ export function ScrollSection() {
               overflow: 'visible',
             }}
           >
-            {/* Header */}
-            <VStack spacing="sm">
-              <H2 weight="bold">Det här tar Blimpify hand om</H2>
+            {/* Header - inside aside for proper alignment on desktop */}
+            <VStack 
+              spacing="sm" 
+              align="stretch" 
+              className="scroll-section-header"
+            >
+              <H2 weight="bold" className="scroll-section-header-title" style={{ margin: 0, padding: 'var(--foundation-space-4)' }}>Det här tar Blimpify hand om</H2>
             </VStack>
             
             {/* Accordion Sidebar Items */}
@@ -291,12 +295,35 @@ export function ScrollSection() {
             gap: var(--foundation-space-8) !important;
           }
           
+          /* Show header above content on mobile */
+          .scroll-section-header {
+            display: block !important;
+            margin-bottom: var(--space-lg) !important;
+          }
+          
           .scroll-section-grid aside {
             display: none !important;
           }
           
           .scroll-section-mobile-text {
             display: flex !important;
+          }
+          
+          /* Make header more prominent on mobile */
+          .scroll-section-header-title {
+            font-size: 2.1rem !important;
+            line-height: 1.2 !important;
+            font-weight: 700 !important;
+            padding: 0 !important;
+            margin-bottom: 0 !important;
+            letter-spacing: -0.02em !important;
+          }
+          
+          /* Ensure item titles (H3) are clearly smaller */
+          .scroll-section-mobile-text h3 {
+            font-size: 1.5rem !important;
+            font-weight: 600 !important;
+            line-height: 1.4 !important;
           }
         }
         
