@@ -1,6 +1,7 @@
 
 import './globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { designSnippet } from '@blimpify-im/ui/design';
 import { ConsentProvider, CookieConsent, MarketingPixels } from '@blimpify-im/ui/consent';
 import { StaticNavbar } from '@/components/layout/StaticNavbar';
@@ -55,10 +56,27 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
+        {/* Preconnect to Google Analytics */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+
         {/* Inject design tokens as CSS variables */}
         <style id="design-css">{design.css}</style>
       </head>
       <body suppressHydrationWarning>
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-482297975"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-482297975');
+          `}
+        </Script>
+
         <ConsentProvider>
           <MarketingPixels pixels={[]} />
           <HashScrollHandler />
