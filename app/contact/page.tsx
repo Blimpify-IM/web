@@ -34,8 +34,8 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://devapi.blimpify-im.com';
-      const response = await fetch(`${apiUrl}/api/public/contact/send-email-form`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.blimpify-im.com';
+      const response = await fetch(`${apiUrl}/api/contact/send-email-form`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
