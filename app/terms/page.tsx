@@ -1,4 +1,6 @@
-'use client';
+import { generateLegalPageMetadata } from '@/lib/seo';
+
+export const metadata = generateLegalPageMetadata('Användarvillkor', '/terms');
 
 'use client';
 
