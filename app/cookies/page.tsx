@@ -1,7 +1,3 @@
-import { generateLegalPageMetadata } from '@/lib/seo';
-
-export const metadata = generateLegalPageMetadata('Cookiepolicy', '/cookies');
-
 'use client';
 
 import {

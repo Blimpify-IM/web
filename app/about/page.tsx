@@ -1,12 +1,5 @@
-import { generateMetadata } from '@/lib/seo';
+'use client';
 
-export const metadata = generateMetadata({
-  title: 'Om oss',
-  description: 'Vi på Blimpify hjälper företag att växa digitalt med moderna hemsidor och affärsverktyg.',
-  path: '/about',
-});
-
-'use client'
 import { Section, Container, VStack, H1, Body } from '@blimpify-im/ui';
 
 export default function AboutPage() {

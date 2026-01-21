@@ -1,11 +1,3 @@
-import { generateMetadata } from '@/lib/seo';
-
-export const metadata = generateMetadata({
-  title: 'Kontakta oss',
-  description: 'Har du frågor om Blimpify? Kontakta oss så hjälper vi dig gärna.',
-  path: '/contact',
-});
-
 'use client';
 
 import { useState } from 'react';
