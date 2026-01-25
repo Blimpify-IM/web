@@ -230,22 +230,6 @@ export function ScrollSection() {
                             padding: 'var(--foundation-space-4)',
                           }}
                         >
-                          {/* Background Image */}
-                          <Image
-                            src={isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'}
-                            alt="Background"
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                            style={{
-                              objectFit: 'cover',
-                              position: 'absolute',
-                              top: 0,
-                              left: 0,
-                              zIndex: 0,
-                            }}
-                            priority={index === 0}
-                            loading={index === 0 ? 'eager' : 'lazy'}
-                          />
                           {/* Content Image on top */}
                           <Box
                             style={{
@@ -253,8 +237,7 @@ export function ScrollSection() {
                               zIndex: 1,
                               borderRadius: 'var(--selected-radius-scale-lg)',
                               overflow: 'visible',
-                              border: '1px solid var(--border-default)',
-                              background: 'var(--surface-page)',
+                              border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)'}`,
                               padding: 'var(--foundation-space-3)',
                             }}
                           >

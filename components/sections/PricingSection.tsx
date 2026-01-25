@@ -67,12 +67,60 @@ const pricingPlans: PricingPlan[] = [
 
 export function PricingSection() {
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
+  const [accentColor, setAccentColor] = useState<string>('blue');
 
-  // Detect theme from document
+  // Map accent colors to hue-rotate values
+  const getHueRotate = (color: string): string => {
+    const hueMap: Record<string, string> = {
+      blue: '0deg',
+      purple: '30deg',
+      pink: '90deg',
+      red: '120deg',
+      orange: '150deg',
+      tangerine: '150deg',
+      green: '120deg',
+      teal: '180deg',
+      indigo: '60deg',
+      inverse: '0deg',
+    };
+    return hueMap[color] || '0deg';
+  };
+
+  // Detect theme and accent color from document
   useEffect(() => {
     const checkTheme = () => {
       const theme = document.documentElement.getAttribute('data-theme');
       setIsDark(theme === 'dark');
+      
+      // Get accent color from CSS variable or design.json
+      const accentMode = document.documentElement.getAttribute('data-accent-mode');
+      if (accentMode === 'inverse') {
+        setAccentColor('inverse');
+      } else {
+        // Try to detect from CSS variable
+        const computedStyle = getComputedStyle(document.documentElement);
+        const accent500 = computedStyle.getPropertyValue('--foundation-accent-500').trim();
+        
+        // Map color values to color names (simplified approach)
+        // For now, read from design.json via fetch or use a default
+        fetch('/design/design.json')
+          .then(res => res.json())
+          .then(data => {
+            setAccentColor(data.globalStyles?.accentColor || 'blue');
+          })
+          .catch(() => {
+            // Fallback: try to detect from CSS
+            if (accent500.includes('blue') || accent500.includes('#3B82F6')) {
+              setAccentColor('blue');
+            } else if (accent500.includes('purple') || accent500.includes('#9333EA')) {
+              setAccentColor('purple');
+            } else if (accent500.includes('pink') || accent500.includes('#EC4899')) {
+              setAccentColor('pink');
+            } else {
+              setAccentColor('blue');
+            }
+          });
+      }
     };
 
     // Check initial theme
@@ -82,7 +130,7 @@ export function PricingSection() {
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme'],
+      attributeFilter: ['data-theme', 'data-accent-mode'],
     });
 
     return () => observer.disconnect();
@@ -118,11 +166,12 @@ export function PricingSection() {
                   display: 'flex',
                   flexDirection: 'column',
                   ...(index === 0 ? {
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'})`,
+                    backgroundImage: `url(${isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy4.png'})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundRepeat: 'no-repeat',
                     backgroundColor: 'transparent',
+                    filter: `hue-rotate(${getHueRotate(accentColor)})`,
                   } : {
                     backgroundColor: 'var(--surface-raised)',
                   }),
@@ -174,10 +223,13 @@ export function PricingSection() {
                     <VStack spacing="sm" style={{ flex: 1 }}>
                       {plan.features.map((feature, idx) => (
                         <HStack key={idx} spacing="sm">
-                          <span style={{ 
-                            color: 'var(--success-text)', 
-                            flexShrink: 0 
-                          }}>
+                          <span 
+                            className={index === 0 ? 'pricing-checkmark' : ''}
+                            style={{ 
+                              color: index === 0 ? undefined : 'var(--success-text)', 
+                              flexShrink: 0 
+                            }}
+                          >
                             ✓
                           </span>
                           <Body size="sm">
@@ -225,14 +277,32 @@ export function PricingSection() {
           }
         }
 
-        /* White text for standard plan in both light and dark mode - exclude button */
-        .pricing-card-with-bg h3:not(button h3),
-        .pricing-card-with-bg h2:not(button h2) {
+        /* Text color for standard plan - dark in light mode, white in dark mode - exclude button */
+        [data-theme="light"] .pricing-card-with-bg h3:not(button h3),
+        [data-theme="light"] .pricing-card-with-bg h2:not(button h2) {
+          color: #000000 !important;
+        }
+
+        [data-theme="dark"] .pricing-card-with-bg h3:not(button h3),
+        [data-theme="dark"] .pricing-card-with-bg h2:not(button h2) {
           color: #ffffff !important;
         }
 
-        .pricing-card-with-bg p:not(button p):not(button *) {
+        [data-theme="light"] .pricing-card-with-bg p:not(button p):not(button *) {
+          color: rgba(0, 0, 0, 0.8) !important;
+        }
+
+        [data-theme="dark"] .pricing-card-with-bg p:not(button p):not(button *) {
           color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        /* Checkmark color for pricing card with background */
+        [data-theme="light"] .pricing-card-with-bg .pricing-checkmark {
+          color: #000000 !important;
+        }
+
+        [data-theme="dark"] .pricing-card-with-bg .pricing-checkmark {
+          color: #ffffff !important;
         }
       `}</style>
     </Section>

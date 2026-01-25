@@ -742,12 +742,60 @@ function EditorPreview() {
 
 export function SystemSection() {
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
+  const [accentColor, setAccentColor] = useState<string>('blue');
 
-  // Detect theme from document
+  // Map accent colors to hue-rotate values
+  const getHueRotate = (color: string): string => {
+    const hueMap: Record<string, string> = {
+      blue: '0deg',
+      purple: '30deg',
+      pink: '90deg',
+      red: '120deg',
+      orange: '150deg',
+      tangerine: '150deg',
+      green: '120deg',
+      teal: '180deg',
+      indigo: '60deg',
+      inverse: '0deg',
+    };
+    return hueMap[color] || '0deg';
+  };
+
+  // Detect theme and accent color from document
   useEffect(() => {
     const checkTheme = () => {
       const theme = document.documentElement.getAttribute('data-theme');
       setIsDark(theme === 'dark');
+      
+      // Get accent color from CSS variable or design.json
+      const accentMode = document.documentElement.getAttribute('data-accent-mode');
+      if (accentMode === 'inverse') {
+        setAccentColor('inverse');
+      } else {
+        // Try to detect from CSS variable
+        const computedStyle = getComputedStyle(document.documentElement);
+        const accent500 = computedStyle.getPropertyValue('--foundation-accent-500').trim();
+        
+        // Map color values to color names (simplified approach)
+        // For now, read from design.json via fetch or use a default
+        fetch('/design/design.json')
+          .then(res => res.json())
+          .then(data => {
+            setAccentColor(data.globalStyles?.accentColor || 'blue');
+          })
+          .catch(() => {
+            // Fallback: try to detect from CSS
+            if (accent500.includes('blue') || accent500.includes('#3B82F6')) {
+              setAccentColor('blue');
+            } else if (accent500.includes('purple') || accent500.includes('#9333EA')) {
+              setAccentColor('purple');
+            } else if (accent500.includes('pink') || accent500.includes('#EC4899')) {
+              setAccentColor('pink');
+            } else {
+              setAccentColor('blue');
+            }
+          });
+      }
     };
 
     checkTheme();
@@ -755,7 +803,7 @@ export function SystemSection() {
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme'],
+      attributeFilter: ['data-theme', 'data-accent-mode'],
     });
 
     return () => observer.disconnect();
@@ -763,15 +811,8 @@ export function SystemSection() {
 
   // Determine background image for each block based on theme
   const getBackgroundImage = (index: number) => {
-    // Light mode: light, dark, light
-    // Dark mode: dark, light, dark
-    if (isDark) {
-      // Dark mode: dark, light, dark
-      return index === 1 ? '/assets/light-bg.png' : '/assets/dark-bg.png';
-    } else {
-      // Light mode: light, dark, light
-      return index === 1 ? '/assets/dark-bg.png' : '/assets/light-bg.png';
-    }
+    // Use cloud backgrounds based on theme
+    return isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy4.png';
   };
 
   return (
@@ -827,7 +868,7 @@ export function SystemSection() {
                     style={{
                       order: isEven ? 2 : 1,
                       width: '100%',
-                      maxWidth: '450px',
+                      maxWidth: '550px',
                       justifySelf: isEven ? 'end' : 'start',
                     }}
                     className="system-block-visual"
@@ -850,6 +891,7 @@ export function SystemSection() {
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
                         style={{
                           objectFit: 'cover',
+                          filter: `hue-rotate(${getHueRotate(accentColor)})`,
                         }}
                         priority={index === 0}
                         loading={index === 0 ? 'eager' : 'lazy'}
@@ -863,19 +905,19 @@ export function SystemSection() {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          padding: 'var(--foundation-space-6)',
+                          padding: 'var(--foundation-space-4)',
                         }}
                       >
                         {block.showEditor ? (
-                          <Box style={{ width: '100%', height: '100%' }}>
+                          <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
                             <EditorPreview />
                           </Box>
                         ) : block.showDocumentation ? (
-                          <Box style={{ width: '100%', height: '100%' }}>
+                          <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
                             <DocumentationPreview />
                           </Box>
                         ) : block.showStats ? (
-                          <Box style={{ width: '100%', height: '100%' }}>
+                          <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
                             <StatsPreview />
                           </Box>
                         ) : null}

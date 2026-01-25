@@ -6,12 +6,47 @@ import Image from 'next/image';
 
 export function HeroSection() {
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
+  const [accentColor, setAccentColor] = useState<string>('blue');
 
-  // Detect theme from document
+  // Map accent colors to hue-rotate values
+  const getHueRotate = (color: string): string => {
+    const hueMap: Record<string, string> = {
+      blue: '0deg',
+      purple: '30deg',
+      pink: '90deg',
+      red: '0deg',
+      orange: '150deg',
+      tangerine: '150deg',
+      green: '120deg',
+      teal: '180deg',
+      indigo: '60deg',
+      inverse: '0deg',
+    };
+    return hueMap[color] || '0deg';
+  };
+
+  // Detect theme and accent color from document
   useEffect(() => {
     const checkTheme = () => {
       const theme = document.documentElement.getAttribute('data-theme');
       setIsDark(theme === 'dark');
+      
+      // Get accent color from design.json
+      fetch('/design/design.json')
+        .then(res => res.json())
+        .then(data => {
+          const color = data.globalStyles?.accentColor || 'blue';
+          setAccentColor(color);
+        })
+        .catch(() => {
+          // Fallback: try to detect from CSS variable
+          const accentMode = document.documentElement.getAttribute('data-accent-mode');
+          if (accentMode === 'inverse') {
+            setAccentColor('inverse');
+          } else {
+            setAccentColor('blue');
+          }
+        });
     };
 
     // Check initial theme
@@ -21,10 +56,16 @@ export function HeroSection() {
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme'],
+      attributeFilter: ['data-theme', 'data-accent-mode'],
     });
 
-    return () => observer.disconnect();
+    // Also check for accent color changes periodically
+    const interval = setInterval(checkTheme, 1000);
+
+    return () => {
+      observer.disconnect();
+      clearInterval(interval);
+    };
   }, []);
   return (
     <Section
@@ -32,9 +73,71 @@ export function HeroSection() {
         position: 'relative',
         overflow: 'hidden',
         minHeight: '100vh',
+        backgroundColor: 'var(--surface-base)',
       }}
     >
+      {/* Cloud layer - transparent PNG */}
+      <div
+        className="hero-clouds"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url(/assets/${isDark ? 'trans-cloud-dark.png' : 'trans-cloud.png'})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'top center',
+          pointerEvents: 'none',
+          zIndex: 1,
+          filter: `hue-rotate(${getHueRotate(accentColor)})`,
+        }}
+      />
 
+      {/* Color tint layer - controlled by accent color tokens */}
+      <div
+        className="hero-tint"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: isDark
+            ? `
+              radial-gradient(
+                ellipse at top left,
+                var(--foundation-accent-700) 0%,
+                transparent 10%
+              ),
+              radial-gradient(
+                ellipse at top right,
+                var(--foundation-accent-800) 0%,
+                transparent 10%
+              ),
+              radial-gradient(
+                ellipse at top,
+                var(--foundation-accent-600) 0%,
+                transparent 8%
+              )
+            `
+            : `
+              radial-gradient(
+                ellipse at top left,
+                var(--foundation-accent-400) 0%,
+                transparent 15%
+              ),
+              radial-gradient(
+                ellipse at top right,
+                var(--foundation-accent-600) 0%,
+                transparent 15%
+              ),
+              radial-gradient(
+                ellipse at top,
+                var(--foundation-accent-300) 0%,
+                transparent 8%
+              )
+            `,
+          opacity: isDark ? 0.3 : 0.45,
+          zIndex: 2,
+          mixBlendMode: isDark ? 'overlay' : 'multiply',
+          pointerEvents: 'none',
+        }}
+      />
 
       {/* Responsive top spacing - larger on mobile (2.5x), smaller on desktop (1.5x) */}
       <Spacer mobile={1.5} desktop={1} />
@@ -43,7 +146,7 @@ export function HeroSection() {
       <Container
         style={{
           position: 'relative',
-          zIndex: 1,
+          zIndex: 3,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -81,20 +184,22 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
           </Button>
         </VStack>
       </Container>
-      <Container useMediaWidth style={{ position: 'relative', zIndex: 1 }}>
+      <Container useMediaWidth style={{ position: 'relative', zIndex: 3 }}>
         {/* Dashboard Mockup */}
-          <Box style={{ width: '100%'}}>
+          <Box style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
             <Image
-              src={isDark ? '/assets/order-dark.png' : '/assets/order.png'}
+              src={isDark ? '/assets/hemsida-dark.png' : '/assets/hemsida.png'}
               alt="Website Builder Interface"
               width={4500}
               height={2675}
               priority
               style={{
-                width: '100%',
+                width: '85%',
+                maxWidth: '1200px',
                 height: 'auto',
                 borderRadius: 'var(--selected-radius-scale-md)',
                 boxShadow: 'var(--shadow-strong)',
+                border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)'}`,
               }}
             />
           </Box>
@@ -119,6 +224,17 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
             font-size: var(--font-display-sm-size) !important;
             line-height: var(--font-display-sm-leading) !important;
           }
+        }
+
+        /* Subtle animation for hero tint */
+        .hero-tint {
+          animation: float 12s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(8px); }
+          100% { transform: translateY(0); }
         }
       `}</style>
     </Section>
