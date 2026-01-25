@@ -12,6 +12,7 @@ import {
   Tag,
   Display,
 } from '@blimpify-im/ui';
+import { StructuredData, generateFAQSchema } from '@/lib/seo';
 
 interface FAQItem {
   question: string;
@@ -59,6 +60,7 @@ export function FAQSection() {
         background: 'var(--surface-page)',
       }}
     >
+      <StructuredData data={generateFAQSchema(faqs)} />
       <Container >
         <VStack spacing="3xl">
           {/* Header */}

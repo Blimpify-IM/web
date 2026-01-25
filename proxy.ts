@@ -1,6 +1,6 @@
 // ===============================================
-// middleware.ts
-// Next.js Middleware for security headers
+// proxy.ts
+// Next.js Proxy for security headers
 // ===============================================
 
 import { NextResponse } from 'next/server';
@@ -13,7 +13,7 @@ import type { NextRequest } from 'next/server';
  * - Adds security headers (CSP, X-Frame-Options, etc.)
  * - Removes Next.js debug headers in production
  */
-export function proxy(req: NextRequest) {
+export default function proxy(req: NextRequest) {
   const response = NextResponse.next();
   
   // Add security headers
@@ -27,11 +27,11 @@ export function proxy(req: NextRequest) {
   response.headers.set(
     'Content-Security-Policy',
     "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
     "img-src 'self' data: https:; " +
     "font-src 'self' data: https://fonts.gstatic.com; " +
-    "connect-src 'self' https:; " +
+    "connect-src 'self' https: https://www.google-analytics.com https://www.googletagmanager.com; " +
     "frame-ancestors 'none';"
   );
   
@@ -44,7 +44,7 @@ export function proxy(req: NextRequest) {
   return response;
 }
 
-// Configure which paths trigger the middleware
+// Configure which paths trigger the proxy
 export const config = {
   matcher: ['/:path*'],
 };

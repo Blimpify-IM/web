@@ -1,37 +1,40 @@
 
 import './globals.css';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { designSnippet } from '@blimpify-im/ui/design';
 import { ConsentProvider, CookieConsent, MarketingPixels } from '@blimpify-im/ui/consent';
 import { StaticNavbar } from '@/components/layout/StaticNavbar';
 import { Footer } from '@/components/layout/Footer';
 import { NavbarBar } from '@/components/layout/NavbarBar';
 import { HashScrollHandler } from '@/components/HashScrollHandler';
+import { generateMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = {
-  title: 'Blimpify – En hemsida du inte behöver tänka på',
-  description:
-    'Blimpify hjälper företag att få en professionell hemsida utan att behöva bygga eller designa själva. Du delar dina önskemål – vi tar hand om design, struktur och publicering.',
-  keywords: [
-    'hemsida företag',
-    'webbdesign företag',
-    'professionell hemsida',
-    'hemsida utan krångel',
-    'webbdesign tjänst',
-    'Blimpify',
-  ],
-  authors: [{ name: 'Blimpify' }],
+  ...generateMetadata({
+    title: 'Blimpify',
+    description: 'Blimpify hjälper företag att få en professionell hemsida utan att behöva bygga eller designa själva. Du delar dina önskemål – vi tar hand om design, struktur och publicering.',
+    keywords: [
+      'hemsida företag',
+      'webbdesign företag',
+      'professionell hemsida',
+      'hemsida utan krångel',
+      'webbdesign tjänst',
+      'Blimpify',
+      'alternativ till Shopify',
+      'alternativ till Wix',
+      'alternativ till Squarespace',
+      'enklare än Shopify',
+      'enklare än Wix',
+      'hemsida för småföretag',
+      'företagshemsida Sverige',
+    ],
+    path: '/',
+  }),
   icons: {
     icon: '/assets/favicon_io/favicon.ico',
     shortcut: '/assets/favicon_io/favicon-16x16.png',
     apple: '/assets/favicon_io/apple-touch-icon.png',
-  },
-  openGraph: {
-    title: 'Blimpify – En hemsida du inte behöver tänka på',
-    description:
-      'Professionella hemsidor för företag som vill fokusera på sin affär. Vi tar hand om design och struktur – du slipper tänka på tekniken.',
-    type: 'website',
-    locale: 'sv_SE',
   },
 };
 export default async function RootLayout({
@@ -55,10 +58,27 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
+        {/* Preconnect to Google Analytics */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+
         {/* Inject design tokens as CSS variables */}
         <style id="design-css">{design.css}</style>
       </head>
       <body suppressHydrationWarning>
+        {/* Google Analytics 4 */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-482297975"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-482297975');
+          `}
+        </Script>
+
         <ConsentProvider>
           <MarketingPixels pixels={[]} />
           <HashScrollHandler />

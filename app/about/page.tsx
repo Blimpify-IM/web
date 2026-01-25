@@ -1,5 +1,5 @@
+'use client';
 
-'use client'
 import { Section, Container, VStack, H1, Body } from '@blimpify-im/ui';
 
 export default function AboutPage() {
