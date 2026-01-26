@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Section,
@@ -15,15 +16,49 @@ import {
 } from '@blimpify-im/ui';
 
 export function Footer() {
+  const [isDark, setIsDark] = useState(true);
+
+  // Detect theme from document
+  useEffect(() => {
+    const checkTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      setIsDark(theme === 'dark');
+    };
+
+    checkTheme();
+
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section
       as="footer"
       style={{
+        position: 'relative',
         background: 'var(--surface-page)',
-        borderTop: '1px solid var(--border-subtle)',
       }}
     >
-      <Container>
+      {/* Cloud background with fade-in from top */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url(/assets/${isDark ? 'cloudy-dark.png' : 'cloudy.png'})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'bottom center',
+          backgroundRepeat: 'no-repeat',
+          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)',
+          zIndex: 0,
+        }}
+      />
+      <Container style={{ position: 'relative', zIndex: 1 }}>
         {/* ================= TOP FOOTER ================= */}
         <VStack spacing="md" align="center" style={{ marginBottom: 'var(--foundation-space-12)' }}>
           <VStack spacing="sm" align="center">

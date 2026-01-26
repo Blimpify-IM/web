@@ -62,21 +62,21 @@ interface DocCategory {
 
 const systemBlocks: SystemBlock[] = [
   {
-    title: 'Vi bygger i vårt egenutvecklade system',
+    title: 'Ett sammanhållet system',
     description:
-      'När du blir medlem i Blimpify byggs din hemsida i vårt egenutvecklade system. Det gör att vi kan ta fullt ansvar för design, struktur och helhet. Samtidigt som dina val och justeringar enkelt kan tas om hand inom ett sammanhållet ramverk.',
+      'Din hemsida byggs i Blimpifys egen plattform vilket gör att vi kan ta fullt ansvar för design struktur och helhet istället för att lämna över ett projekt.',
     showEditor: true,
   },
   {
-    title: 'Design som hålls samman och utvecklas',
+    title: 'Design som håller över tid',
     description:
-      'Blimpify bygger på ett eget design- och UI-system som vi utvecklar kontinuerligt. Det betyder att din hemsida inte är ett färdigt paket som fryser i tiden. Utan en stabil grund som kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om.',
+      'Ett eget design och UI system gör att din hemsida kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om från grunden.',
     showDocumentation: true,
   },
   {
-    title: 'Stabil drift som vi ansvarar för',
+    title: 'Stabil drift som vi äger',
     description:
-      'Bakom kulisserna använder vi etablerade tjänster som Stripe och AWS för drift, betalningar och infrastruktur. Vi sätter upp, konfigurerar och ansvarar för helheten. Så att din hemsida är snabb, säker och stabil från dag ett.',
+      'Vi ansvarar för drift prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb stabil och fungerar från dag ett.',
     showStats: true,
   },
 ];
@@ -829,6 +829,9 @@ export function SystemSection() {
             <Display size="md" align="center">
             Det som gör Blimpify annorlunda
             </Display>
+            <Body size="lg" color="secondary" align="center" style={{ maxWidth: '600px' }}>
+              Det är därför vi kan ta ansvar för din hemsida – inte bara leverera den
+            </Body>
           </VStack>
 
           {/* System Blocks - Alternating Card/Text Layout */}

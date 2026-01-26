@@ -100,36 +100,26 @@ export function HeroSection() {
           background: isDark
             ? `
               radial-gradient(
-                ellipse at top left,
+                ellipse 200% 150% at top left,
                 var(--foundation-accent-700) 0%,
-                transparent 10%
+                transparent 25%
               ),
               radial-gradient(
-                ellipse at top right,
+                ellipse 200% 150% at top right,
                 var(--foundation-accent-800) 0%,
-                transparent 10%
-              ),
-              radial-gradient(
-                ellipse at top,
-                var(--foundation-accent-600) 0%,
-                transparent 8%
+                transparent 25%
               )
             `
             : `
               radial-gradient(
-                ellipse at top left,
-                var(--foundation-accent-400) 0%,
-                transparent 15%
+                ellipse 200% 150% at top left,
+                var(--foundation-accent-200) 0%,
+                transparent 30%
               ),
               radial-gradient(
-                ellipse at top right,
-                var(--foundation-accent-600) 0%,
-                transparent 15%
-              ),
-              radial-gradient(
-                ellipse at top,
-                var(--foundation-accent-300) 0%,
-                transparent 8%
+                ellipse 200% 150% at top right,
+                var(--foundation-accent-200) 0%,
+                transparent 30%
               )
             `,
           opacity: isDark ? 0.3 : 0.45,
@@ -160,7 +150,7 @@ export function HeroSection() {
               align="center"
               className="hero-display-responsive"
             >
-              En hemsida du inte<br />behöver tänka på
+              En hemsida skapad åt dig<br />inte av dig
             </Display>
             <Body
               size="lg"
@@ -168,7 +158,8 @@ export function HeroSection() {
               align="center"
               className="hero-body-responsive"
             >
-Blimpify finns för företag som vill fokusera på sin affär, sina kunder och inte på sin hemsida.            </Body>
+Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.          
+            </Body>
           </VStack>
 
           <Button
@@ -199,7 +190,7 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
                 height: 'auto',
                 borderRadius: 'var(--selected-radius-scale-md)',
                 boxShadow: 'var(--shadow-strong)',
-                border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)'}`,
+                border: `2x solid ${isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.1)'}`,
               }}
             />
           </Box>
