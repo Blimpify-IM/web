@@ -121,7 +121,7 @@ export function PricingSection() {
                     display: 'flex',
                     flexDirection: 'column',
                     ...(index === 0 ? {
-                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'})`,
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy-4.png'})`,
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
                       backgroundRepeat: 'no-repeat',

@@ -16,7 +16,6 @@ import {
   AccordionItem,
   useScrollAnimation,
   Display,
-  FadeIn,
 } from '@blimpify-im/ui';
 
 interface ScrollItem {
@@ -29,17 +28,17 @@ interface ScrollItem {
 
 const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
-    title: 'Sätt riktningen',
+    title: 'Satt riktningen',
     description:
-      'Skapa ett konto och skicka in dina val, mål och önskemål. Inga tekniska beslut.',
+      'Skapa ett konto och skicka in dina val, mal och onskemal. Inga tekniska beslut.',
     imageLight: '/assets/order.png',
     imageDark: '/assets/order-dark.png',
-    imageAlt: 'Sätt riktningen',
+    imageAlt: 'Satt riktningen',
   },
   {
     title: 'Vi tar fram hemsidan',
     description:
-      'Vi bygger din hemsida utifrån dina val och ansvarar för design, struktur och helhet.',
+      'Vi bygger din hemsida utifran dina val och ansvarar for design, struktur och helhet.',
     imageLight: '/assets/default.png',
     imageDark: '/assets/default-dark.png',
     imageAlt: 'Vi tar fram hemsidan',
@@ -47,35 +46,32 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Granska och justera',
     description:
-      'Du går igenom hemsidan i lugn och ro. Vi justerar tills det känns rätt.',
+      'Du gar igenom hemsidan i lugn och ro. Vi justerar tills det kans ratt.',
     imageLight: '/assets/cms.png',
     imageDark: '/assets/cms-dark.png',
     imageAlt: 'Granska och justera',
   },
   {
-    title: 'Publicera och gå vidare',
+    title: 'Publicera och ga vidare',
     description:
-      'När du är nöjd publiceras hemsidan. Därefter tar Blimpify ansvar för att den fungerar över tid.',
+      'Nar du ar nojd publiceras hemsidan. Darefter tar Blimpify ansvar for att den fungerar over tid.',
     imageLight: '/assets/hemsida.png',
     imageDark: '/assets/hemsida-dark.png',
-    imageAlt: 'Publicera och gå vidare',
+    imageAlt: 'Publicera och ga vidare',
   },
 ];
 
 export function ScrollSection() {
-  const [isDark, setIsDark] = useState(true); // Default to dark theme first
+  const [isDark, setIsDark] = useState(true);
 
-  // Detect theme from document
   useEffect(() => {
     const checkTheme = () => {
       const theme = document.documentElement.getAttribute('data-theme');
       setIsDark(theme === 'dark');
     };
 
-    // Check initial theme
     checkTheme();
 
-    // Watch for theme changes
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
@@ -85,25 +81,23 @@ export function ScrollSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Create scroll items with correct image based on theme
   const scrollItems = useMemo(() => {
-    return scrollItemsData.map(item => ({
+    return scrollItemsData.map((item) => ({
       ...item,
       imageSrc: isDark ? item.imageDark : item.imageLight,
     }));
   }, [isDark]);
 
-  // Create individual refs for each scroll part
   const imageRefs = useMemo(
     () => scrollItems.map(() => ({ current: null as HTMLElement | null })),
     [scrollItems]
   );
 
-  // Use our scroll animation hook
-  const { activeIndex, animationValues, scrollToIndex } = useScrollAnimation(imageRefs);
+  const { activeIndex, animationValues, scrollToIndex } =
+    useScrollAnimation(imageRefs);
 
   return (
-    <Section 
+    <Section
       id="scroll-section"
       overflow="visible"
       overflowX="clip"
@@ -111,8 +105,7 @@ export function ScrollSection() {
         background: 'var(--surface-secondary)',
       }}
     >
-      <Container >
-        {/* Desktop & Mobile Layout */}
+      <Container>
         <div
           className="scroll-section-grid"
           style={{
@@ -122,7 +115,6 @@ export function ScrollSection() {
             alignItems: 'start',
           }}
         >
-          {/* Sticky Sidebar - fixed width */}
           <aside
             style={{
               position: 'sticky',
@@ -134,22 +126,27 @@ export function ScrollSection() {
               overflow: 'visible',
             }}
           >
-            {/* Header - inside aside for proper alignment on desktop */}
-            <FadeIn direction="up" duration={700}>
-              <VStack
-                spacing="sm"
-                align="stretch"
-                className="scroll-section-header"
+            <VStack
+              spacing="sm"
+              align="stretch"
+              className="scroll-section-header"
+            >
+              <H2
+                weight="bold"
+                className="scroll-section-header-title"
+                style={{
+                  margin: 0,
+                  padding: 'var(--foundation-space-4)',
+                }}
               >
-                <H2 weight="bold" className="scroll-section-header-title" style={{ margin: 0, padding: 'var(--foundation-space-4)' }}>En enkel process</H2>
-              </VStack>
-            </FadeIn>
-            
-            {/* Accordion Sidebar Items */}
+                En enkel process
+              </H2>
+            </VStack>
+
             <Accordion
               selectionMode="single"
-              variant='borderless'
-              gap='none'
+              variant="borderless"
+              gap="none"
               showIndicator={false}
               expandedKeys={[String(activeIndex ?? 0)]}
               onSelectionChange={(keys) => {
@@ -174,7 +171,6 @@ export function ScrollSection() {
             </Accordion>
           </aside>
 
-          {/* Scrolling Content Column - flexible width */}
           <VStack spacing="3xl" style={{ overflow: 'visible', flex: '1' }}>
             {scrollItems.map((item, index) => {
               const animValues = animationValues[index] || {
@@ -192,23 +188,23 @@ export function ScrollSection() {
                   align="stretch"
                   className="scroll-section-item"
                 >
-                  {/* Mobile Text - shown before image on mobile */}
-                  <VStack spacing="sm" align="start" className="scroll-section-mobile-text">
+                  <VStack
+                    spacing="sm"
+                    align="start"
+                    className="scroll-section-mobile-text"
+                  >
                     <H3>{item.title}</H3>
                     <Body size="md" color="secondary">
                       {item.description}
                     </Body>
                   </VStack>
-                  
+
                   <Box
                     ref={(el) => {
                       imageRefs[index].current = el;
                     }}
-                    style={{
-                      overflow: 'visible',
-                    }}
+                    style={{ overflow: 'visible' }}
                   >
-                    {/* Animated Image with Overflow */}
                     <AnimatedBox
                       opacity={animValues.opacity}
                       translateX={animValues.translateX}
@@ -219,7 +215,8 @@ export function ScrollSection() {
                         <Box
                           style={{
                             position: 'relative',
-                            borderRadius: 'var(--selected-radius-scale-lg)',
+                            borderRadius:
+                              'var(--selected-radius-scale-lg)',
                             overflow: 'hidden',
                             boxShadow:
                               activeIndex === index
@@ -229,28 +226,12 @@ export function ScrollSection() {
                             padding: 'var(--foundation-space-4)',
                           }}
                         >
-                          {/* Background Image */}
-                          <Image
-                            src={isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'}
-                            alt="Background"
-                            fill
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                            style={{
-                              objectFit: 'cover',
-                              position: 'absolute',
-                              top: 0,
-                              left: 0,
-                              zIndex: 0,
-                            }}
-                            priority={index === 0}
-                            loading={index === 0 ? 'eager' : 'lazy'}
-                          />
-                          {/* Content Image on top */}
                           <Box
                             style={{
                               position: 'relative',
                               zIndex: 1,
-                              borderRadius: 'var(--selected-radius-scale-lg)',
+                              borderRadius:
+                                'var(--selected-radius-scale-lg)',
                               overflow: 'hidden',
                               padding: 'var(--foundation-space-3)',
                               backgroundColor: 'var(--surface-page)',
@@ -266,8 +247,10 @@ export function ScrollSection() {
                                 width: '100%',
                                 height: 'auto',
                                 display: 'block',
-                                borderRadius: 'var(--selected-radius-scale-lg)',
-                                backgroundColor: 'var(--surface-page)',
+                                borderRadius:
+                                  'var(--selected-radius-scale-lg)',
+                                backgroundColor:
+                                  'var(--surface-page)',
                               }}
                             />
                           </Box>
@@ -282,29 +265,26 @@ export function ScrollSection() {
         </div>
       </Container>
 
-      {/* Responsive Styles */}
       <style jsx global>{`
         @media (max-width: 1024px) {
           .scroll-section-grid {
             grid-template-columns: 1fr !important;
             gap: var(--foundation-space-8) !important;
           }
-          
-          /* Show header above content on mobile */
+
           .scroll-section-header {
             display: block !important;
             margin-bottom: var(--space-lg) !important;
           }
-          
+
           .scroll-section-grid aside {
             display: none !important;
           }
-          
+
           .scroll-section-mobile-text {
             display: flex !important;
           }
-          
-          /* Make header more prominent on mobile */
+
           .scroll-section-header-title {
             font-size: 2.1rem !important;
             line-height: 1.2 !important;
@@ -313,15 +293,14 @@ export function ScrollSection() {
             margin-bottom: 0 !important;
             letter-spacing: -0.02em !important;
           }
-          
-          /* Ensure item titles (H3) are clearly smaller */
+
           .scroll-section-mobile-text h3 {
             font-size: 1.5rem !important;
             font-weight: 600 !important;
             line-height: 1.4 !important;
           }
         }
-        
+
         @media (min-width: 1025px) {
           .scroll-section-mobile-text {
             display: none !important;
