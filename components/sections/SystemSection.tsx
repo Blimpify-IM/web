@@ -42,6 +42,12 @@ import {
   PhotoIcon,
   BellAlertIcon,
   ChartBarIcon,
+  CheckCircleIcon,
+  ShieldCheckIcon,
+  ServerIcon,
+  LockClosedIcon,
+  GlobeAltIcon,
+  ClockIcon,
 } from '@heroicons/react/24/outline';
 import { CheckIcon } from 'lucide-react';
 
@@ -465,68 +471,162 @@ function DocumentationPreview() {
   );
 }
 
-// Stats Preview Component
-function StatsPreview({ isDark }: { isDark: boolean }) {
+// Operations Status Component - Shows control and responsibility, not metrics
+function OperationsStatus() {
   return (
-    <Box
-      style={{
-        width: '100%',
-        height: '100%',
-        background: 'var(--surface-raised)',
-        borderRadius: 'var(--radius-md)',
-        padding: 'var(--foundation-space-4)',
-        overflow: 'hidden',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
-      }}
-    >
-      <VStack spacing="md" align="stretch" style={{ width: '100%' }}>
-        {/* Prestandapoäng */}
-        <Card variant="outlined">
-          <CardContent>
-            <VStack spacing="xs">
-              <Label color="secondary" size="xs">Prestandapoäng</Label>
-              <H4>95</H4>
+    <Card variant="outlined">
+      <CardContent>
+        <VStack spacing="lg" align="center">
+          {/* Main message */}
+          <VStack spacing="xs" align="center">
+            <Body size="lg" color="primary" align="center" weight="medium">
+              Allt fungerar. Vi ansvarar.
+            </Body>
+            <Body size="sm" color="tertiary" align="center">
+              Drift aktiv • Säkerhet aktiv • Uppdateringar hanteras löpande
+            </Body>
+          </VStack>
+          
+          {/* Divider */}
+          <Box
+            style={{
+              width: '100%',
+              height: '1px',
+              background: 'var(--border-subtle)',
+            }}
+          />
+          
+          {/* Visual status indicators - icons with progress */}
+          <VStack spacing="md" align="stretch" style={{ width: '100%' }}>
+            {/* Drift */}
+            <VStack spacing="xs" align="stretch">
+              <HStack spacing="sm" align="center" justify="between">
+                <HStack spacing="xs" align="center">
+                  <Box
+                    style={{
+                      padding: 'var(--foundation-space-2)',
+                      background: 'var(--surface-success-subtle)',
+                      borderRadius: 'var(--radius-sm)',
+                      border: '1px solid var(--border-success-subtle)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Icon size="md" color="success">
+                      <GlobeAltIcon />
+                    </Icon>
+                  </Box>
+                  <Icon size="sm" color="success">
+                    <CheckCircleIcon />
+                  </Icon>
+                </HStack>
+              </HStack>
+              <Progress value={100} size="sm" color="success" rounded animated />
             </VStack>
-          </CardContent>
-        </Card>
-
-        {/* Laddningstid */}
-        <Card variant="outlined">
-          <CardContent>
-            <VStack spacing="xs">
-              <Label color="secondary" size="xs">Laddningstid</Label>
-              <H4>150 ms</H4>
+            
+            {/* Säkerhet */}
+            <VStack spacing="xs" align="stretch">
+              <HStack spacing="sm" align="center" justify="between">
+                <HStack spacing="xs" align="center">
+                  <Box
+                    style={{
+                      padding: 'var(--foundation-space-2)',
+                      background: 'var(--surface-success-subtle)',
+                      borderRadius: 'var(--radius-sm)',
+                      border: '1px solid var(--border-success-subtle)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Icon size="md" color="success">
+                      <ShieldCheckIcon />
+                    </Icon>
+                  </Box>
+                  <Icon size="sm" color="success">
+                    <CheckCircleIcon />
+                  </Icon>
+                </HStack>
+              </HStack>
+              <Progress value={100} size="sm" color="success" rounded animated />
             </VStack>
-          </CardContent>
-        </Card>
-
-        {/* Uptime */}
-        <Card variant="outlined">
-          <CardContent>
-            <VStack spacing="xs">
-              <Label color="secondary" size="xs">Uptime</Label>
-              <H4>99.9 %</H4>
+            
+            {/* Server/Övervakning */}
+            <VStack spacing="xs" align="stretch">
+              <HStack spacing="sm" align="center" justify="between">
+                <HStack spacing="xs" align="center">
+                  <Box
+                    style={{
+                      padding: 'var(--foundation-space-2)',
+                      background: 'var(--surface-success-subtle)',
+                      borderRadius: 'var(--radius-sm)',
+                      border: '1px solid var(--border-success-subtle)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Icon size="md" color="success">
+                      <ServerIcon />
+                    </Icon>
+                  </Box>
+                  <Icon size="sm" color="success">
+                    <CheckCircleIcon />
+                  </Icon>
+                </HStack>
+              </HStack>
+              <Progress value={100} size="sm" color="success" rounded animated />
             </VStack>
-          </CardContent>
-        </Card>
-
-        {/* Status */}
-        <Box
-          style={{
-            marginTop: 'var(--foundation-space-2)',
-            paddingTop: 'var(--foundation-space-2)',
-            borderTop: '1px solid var(--border-subtle)',
-          }}
-        >
-          <Body size="sm" color="secondary" align="center">
-            All systems operational
-          </Body>
-        </Box>
-      </VStack>
-    </Box>
+          </VStack>
+          
+          {/* Bottom visual indicator */}
+          <HStack spacing="xs" align="center" justify="center">
+            <Box
+              style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: 'var(--radius-full)',
+                background: 'var(--interactive-success)',
+                animation: 'pulse 2s ease-in-out infinite',
+              }}
+            />
+            <Box
+              style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: 'var(--radius-full)',
+                background: 'var(--interactive-success)',
+                animation: 'pulse 2s ease-in-out infinite 0.3s',
+              }}
+            />
+            <Box
+              style={{
+                width: '8px',
+                height: '8px',
+                borderRadius: 'var(--radius-full)',
+                background: 'var(--interactive-success)',
+                animation: 'pulse 2s ease-in-out infinite 0.6s',
+              }}
+            />
+          </HStack>
+        </VStack>
+        
+        {/* Pulse animation */}
+        <style jsx>{`
+          @keyframes pulse {
+            0%, 100% {
+              opacity: 1;
+              transform: scale(1);
+            }
+            50% {
+              opacity: 0.5;
+              transform: scale(0.9);
+            }
+          }
+        `}</style>
+      </CardContent>
+    </Card>
   );
 }
 
@@ -874,6 +974,11 @@ export function SystemSection() {
                       <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
                         {block.description}
                       </Body>
+                      {index === 2 && (
+                        <Body size="sm" color="tertiary" style={{ marginTop: 'var(--foundation-space-2)' }}>
+                          Byggt på beprövad infrastruktur som används av miljontals företag världen över.
+                        </Body>
+                      )}
                     </VStack>
                   </Box>
 
@@ -927,7 +1032,7 @@ export function SystemSection() {
                           }}
                         >
                           <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
-                            <StatsPreview isDark={isDark} />
+                            <OperationsStatus />
                           </Box>
                         </Box>
                       )}
