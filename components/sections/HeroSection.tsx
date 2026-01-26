@@ -6,47 +6,12 @@ import Image from 'next/image';
 
 export function HeroSection() {
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
-  const [accentColor, setAccentColor] = useState<string>('blue');
 
-  // Map accent colors to hue-rotate values
-  const getHueRotate = (color: string): string => {
-    const hueMap: Record<string, string> = {
-      blue: '0deg',
-      purple: '30deg',
-      pink: '90deg',
-      red: '0deg',
-      orange: '150deg',
-      tangerine: '150deg',
-      green: '120deg',
-      teal: '180deg',
-      indigo: '60deg',
-      inverse: '0deg',
-    };
-    return hueMap[color] || '0deg';
-  };
-
-  // Detect theme and accent color from document
+  // Detect theme from document
   useEffect(() => {
     const checkTheme = () => {
       const theme = document.documentElement.getAttribute('data-theme');
       setIsDark(theme === 'dark');
-      
-      // Get accent color from design.json
-      fetch('/design/design.json')
-        .then(res => res.json())
-        .then(data => {
-          const color = data.globalStyles?.accentColor || 'blue';
-          setAccentColor(color);
-        })
-        .catch(() => {
-          // Fallback: try to detect from CSS variable
-          const accentMode = document.documentElement.getAttribute('data-accent-mode');
-          if (accentMode === 'inverse') {
-            setAccentColor('inverse');
-          } else {
-            setAccentColor('blue');
-          }
-        });
     };
 
     // Check initial theme
@@ -56,16 +21,10 @@ export function HeroSection() {
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme', 'data-accent-mode'],
+      attributeFilter: ['data-theme'],
     });
 
-    // Also check for accent color changes periodically
-    const interval = setInterval(checkTheme, 1000);
-
-    return () => {
-      observer.disconnect();
-      clearInterval(interval);
-    };
+    return () => observer.disconnect();
   }, []);
   return (
     <Section
@@ -73,7 +32,6 @@ export function HeroSection() {
         position: 'relative',
         overflow: 'hidden',
         minHeight: '100vh',
-        backgroundColor: 'var(--surface-base)',
       }}
     >
       {/* Cloud layer - transparent PNG */}
@@ -86,8 +44,7 @@ export function HeroSection() {
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           pointerEvents: 'none',
-          zIndex: 1,
-          filter: `hue-rotate(${getHueRotate(accentColor)})`,
+          zIndex: 1
         }}
       />
 
@@ -136,58 +93,62 @@ export function HeroSection() {
       <Container
         style={{
           position: 'relative',
-          zIndex: 3,
+          zIndex: 1,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           height: '100%',
         }}
       >
-        <FadeIn direction='up' >
         <VStack spacing="xl" align="center">
           <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
-            <Display 
-              size='xl'
-              align="center"
-              className="hero-display-responsive"
-            >
-              En hemsida skapad åt dig<br />inte av dig
-            </Display>
-            <Body
-              size="lg"
-              align="center"
-              className="hero-body-responsive"
-            >
-Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.          
-            </Body>
+            <FadeIn direction="up" duration={800} delay={0} enableScrollTrigger={false}>
+              <Display
+                size='xl'
+                align="center"
+                className="hero-display-responsive"
+              >
+                En hemsida skapad åt dig<br />inte av dig
+              </Display>
+            </FadeIn>
+            <FadeIn direction="up" duration={800} delay={200} enableScrollTrigger={false}>
+              <Body
+                size="lg"
+                align="center"
+                className="hero-body-responsive"
+              >
+                Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.
+              </Body>
+            </FadeIn>
           </VStack>
 
-          <Button
-            variant="accent"
-            size="xl"
-            href="https://app.blimpify-im.com/waitlist"
-            target="_blank"
-            style={{
-              fontSize: '1.125rem',
-            }}
-          >
-            Var med ifrån början
-          </Button>
+          <FadeIn direction="up" duration={600} delay={400} enableScrollTrigger={false}>
+            <Button
+              variant="accent"
+              size="xl"
+              href="https://app.blimpify-im.com/waitlist"
+              target="_blank"
+              style={{
+                fontSize: '1.125rem',
+              }}
+            >
+              Var med ifrån början
+            </Button>
+          </FadeIn>
         </VStack>
-        </FadeIn>
       </Container>
-      <Container useMediaWidth style={{ position: 'relative', zIndex: 3 }}>
+      <Container useMediaWidth style={{ position: 'relative', zIndex: 1 }}>
         {/* Dashboard Mockup */}
-          <Box style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+        <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
+          <Box style={{ width: '100%'}}>
             <Image
-              src={isDark ? '/assets/hemsida-dark.png' : '/assets/hemsida.png'}
+              src={isDark ? '/assets/order-dark.png' : '/assets/order.png'}
               alt="Website Builder Interface"
               width={4500}
               height={2675}
               priority
               style={{
-                width: '85%',
-                maxWidth: '1200px',
+                width: '100%',
                 height: 'auto',
                 borderRadius: 'var(--selected-radius-scale-md)',
                 boxShadow: 'var(--shadow-strong)',
@@ -195,7 +156,9 @@ Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.
               }}
             />
           </Box>
+        </Opacity>
       </Container>
+
       {/* Responsive styles for hero text */}
       <style jsx global>{`
         @media (max-width: 768px) {
@@ -215,17 +178,6 @@ Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.
             font-size: var(--font-display-sm-size) !important;
             line-height: var(--font-display-sm-leading) !important;
           }
-        }
-
-        /* Subtle animation for hero tint */
-        .hero-tint {
-          animation: float 12s ease-in-out infinite;
-        }
-
-        @keyframes float {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(8px); }
-          100% { transform: translateY(0); }
         }
       `}</style>
     </Section>

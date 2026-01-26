@@ -28,6 +28,7 @@ import {
   Spinner,
   Accordion,
   AccordionItem,
+  Alert,
 } from '@blimpify-im/ui';
 import { Palette, CaseSensitive, LayoutDashboard, Spline, Car } from 'lucide-react';
 import { 
@@ -474,159 +475,77 @@ function DocumentationPreview() {
 // Operations Status Component - Shows control and responsibility, not metrics
 function OperationsStatus() {
   return (
-    <Card variant="outlined">
-      <CardContent>
-        <VStack spacing="lg" align="center">
-          {/* Main message */}
-          <VStack spacing="xs" align="center">
-            <Body size="lg" color="primary" align="center" weight="medium">
-              Allt fungerar. Vi ansvarar.
-            </Body>
-            <Body size="sm" color="tertiary" align="center">
-              Drift aktiv • Säkerhet aktiv • Uppdateringar hanteras löpande
-            </Body>
-          </VStack>
-          
-          {/* Divider */}
-          <Box
-            style={{
-              width: '100%',
-              height: '1px',
-              background: 'var(--border-subtle)',
-            }}
-          />
-          
-          {/* Visual status indicators - icons with progress */}
-          <VStack spacing="md" align="stretch" style={{ width: '100%' }}>
-            {/* Drift */}
-            <VStack spacing="xs" align="stretch">
-              <HStack spacing="sm" align="center" justify="between">
-                <HStack spacing="xs" align="center">
-                  <Box
-                    style={{
-                      padding: 'var(--foundation-space-2)',
-                      background: 'var(--surface-success-subtle)',
-                      borderRadius: 'var(--radius-sm)',
-                      border: '1px solid var(--border-success-subtle)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Icon size="md" color="success">
-                      <GlobeAltIcon />
-                    </Icon>
-                  </Box>
-                  <Icon size="sm" color="success">
-                    <CheckCircleIcon />
-                  </Icon>
-                </HStack>
-              </HStack>
-              <Progress value={100} size="sm" color="success" rounded animated />
-            </VStack>
-            
-            {/* Säkerhet */}
-            <VStack spacing="xs" align="stretch">
-              <HStack spacing="sm" align="center" justify="between">
-                <HStack spacing="xs" align="center">
-                  <Box
-                    style={{
-                      padding: 'var(--foundation-space-2)',
-                      background: 'var(--surface-success-subtle)',
-                      borderRadius: 'var(--radius-sm)',
-                      border: '1px solid var(--border-success-subtle)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Icon size="md" color="success">
-                      <ShieldCheckIcon />
-                    </Icon>
-                  </Box>
-                  <Icon size="sm" color="success">
-                    <CheckCircleIcon />
-                  </Icon>
-                </HStack>
-              </HStack>
-              <Progress value={100} size="sm" color="success" rounded animated />
-            </VStack>
-            
-            {/* Server/Övervakning */}
-            <VStack spacing="xs" align="stretch">
-              <HStack spacing="sm" align="center" justify="between">
-                <HStack spacing="xs" align="center">
-                  <Box
-                    style={{
-                      padding: 'var(--foundation-space-2)',
-                      background: 'var(--surface-success-subtle)',
-                      borderRadius: 'var(--radius-sm)',
-                      border: '1px solid var(--border-success-subtle)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Icon size="md" color="success">
-                      <ServerIcon />
-                    </Icon>
-                  </Box>
-                  <Icon size="sm" color="success">
-                    <CheckCircleIcon />
-                  </Icon>
-                </HStack>
-              </HStack>
-              <Progress value={100} size="sm" color="success" rounded animated />
-            </VStack>
-          </VStack>
-          
-          {/* Bottom visual indicator */}
-          <HStack spacing="xs" align="center" justify="center">
-            <Box
-              style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: 'var(--radius-full)',
-                background: 'var(--interactive-success)',
-                animation: 'pulse 2s ease-in-out infinite',
-              }}
-            />
-            <Box
-              style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: 'var(--radius-full)',
-                background: 'var(--interactive-success)',
-                animation: 'pulse 2s ease-in-out infinite 0.3s',
-              }}
-            />
-            <Box
-              style={{
-                width: '8px',
-                height: '8px',
-                borderRadius: 'var(--radius-full)',
-                background: 'var(--interactive-success)',
-                animation: 'pulse 2s ease-in-out infinite 0.6s',
-              }}
-            />
+    <Box
+      style={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <VStack spacing="md" align="stretch" style={{ width: '100%', maxWidth: '320px' }}>
+        {/* Drift */}
+        <Box
+          style={{
+            padding: 'var(--foundation-space-4)',
+            background: 'var(--surface-raised)',
+            borderRadius: 'var(--radius-md)',
+            border: '1px solid var(--border-default)',
+          }}
+        >
+          <HStack spacing="md" align="center" justify="between">
+            <HStack spacing="sm" align="center">
+              <Icon size="md" color="success">
+                <GlobeAltIcon />
+              </Icon>
+              <Label color="secondary" size="sm">Publicerad</Label>
+            </HStack>
+            <Tag variant="success" size="small" surface="subtle">Aktiv</Tag>
           </HStack>
-        </VStack>
+        </Box>
         
-        {/* Pulse animation */}
-        <style jsx>{`
-          @keyframes pulse {
-            0%, 100% {
-              opacity: 1;
-              transform: scale(1);
-            }
-            50% {
-              opacity: 0.5;
-              transform: scale(0.9);
-            }
-          }
-        `}</style>
-      </CardContent>
-    </Card>
+        {/* Säkerhet */}
+        <Box
+          style={{
+            padding: 'var(--foundation-space-4)',
+            background: 'var(--surface-raised)',
+            borderRadius: 'var(--radius-md)',
+            border: '1px solid var(--border-default)',
+          }}
+        >
+          <HStack spacing="md" align="center" justify="between">
+            <HStack spacing="sm" align="center">
+              <Icon size="md" color="success">
+                <ShieldCheckIcon />
+              </Icon>
+              <Label color="secondary" size="sm">Säkerhet</Label>
+            </HStack>
+            <Tag variant="success" size="small" surface="subtle">Skyddad</Tag>
+          </HStack>
+        </Box>
+        
+        {/* Övervakning */}
+        <Box
+          style={{
+            padding: 'var(--foundation-space-4)',
+            background: 'var(--surface-raised)',
+            borderRadius: 'var(--radius-md)',
+            border: '1px solid var(--border-default)',
+          }}
+        >
+          <HStack spacing="md" align="center" justify="between">
+            <HStack spacing="sm" align="center">
+              <Icon size="md" color="success">
+                <ServerIcon />
+              </Icon>
+              <Label color="secondary" size="sm">Övervakad</Label>
+            </HStack>
+            <Tag variant="success" size="small" surface="subtle">Aktiv</Tag>
+          </HStack>
+        </Box>
+      </VStack>
+    </Box>
   );
 }
 
