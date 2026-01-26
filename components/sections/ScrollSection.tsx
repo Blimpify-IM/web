@@ -102,10 +102,36 @@ export function ScrollSection() {
       overflow="visible"
       overflowX="clip"
       style={{
-        background: 'var(--surface-secondary)',
+        position: 'relative',
       }}
     >
-      <Container>
+      {/* Background with fade to white */}
+      <Box
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+        }}
+      >
+        <Box
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `url(${isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy.png'})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'right center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        />
+        <Box
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: `linear-gradient(to bottom, ${isDark ? 'var(--surface-page)' : 'var(--surface-page)'} 0%, transparent 5%, transparent 95%, ${isDark ? 'var(--surface-page)' : 'var(--surface-page)'} 100%)`,
+          }}
+        />
+      </Box>
+      <Container style={{ position: 'relative', zIndex: 1 }}>
         <div
           className="scroll-section-grid"
           style={{

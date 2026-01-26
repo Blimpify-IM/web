@@ -19,52 +19,6 @@ import {
   FadeIn,
 } from '@blimpify-im/ui';
 
-interface PricingPlan {
-  name: string;
-  price: string;
-  period: string;
-  description: string;
-  features: string[];
-  popular?: boolean;
-  cta: string;
-  variant: 'outlined' | 'raised' | 'elevated' | 'solid';
-}
-
-const pricingPlans: PricingPlan[] = [
-  
-  {
-    name: 'Blimpify medlemskap (standard)',
-    price: '490 kr',
-    period: '/månad',
-    description: 'För företag som vill fokusera på sin affär – inte på sin hemsida.',
-    features: [
-      'En professionell hemsida, framtagen utifrån dina val',
-      'Struktur och grund som fungerar över tid',
-      'Möjlighet att justera text, färger och detaljer vid behov',
-      'Hjälp med domänkoppling och publicering',
-      'Överblick över hur hemsidan används',
-      'Support när något känns fel',
-    ],
-    popular: false,
-    cta: 'Få tillgång',
-    variant: 'outlined',
-  },
-  {
-    name: 'När behoven går bortom standard',
-    price: 'Kontakta oss',
-    period: '',
-    description: 'Skräddarsydd lösning för större företag',
-    features: [
-      'Ett större projekt med tydlig projektledning',
-      'Lösningar anpassade efter er verksamhet och era flöden',
-      'Stöd för mer avancerad funktionalitet vid behov',
-      'En dedikerad kontakt och långsiktigt samarbete',
-      'Avtal och upplägg anpassade efter omfattning och krav',
-    ],
-    cta: 'Kontakta oss',
-    variant: 'outlined',
-  },
-];
 
 export function PricingSection() {
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
@@ -109,114 +63,164 @@ export function PricingSection() {
 
           {/* Pricing Cards */}
           <Grid columns={2} gap="xl" className="pricing-grid">
-            {pricingPlans.map((plan, index) => (
-              <FadeIn key={index} direction="up" duration={600} delay={200 + index * 150}>
-                <Card
-                  variant={plan.variant}
-                  padding="lg"
-                  radius="lg"
-                  style={{
-                    position: 'relative',
-                    height: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    ...(index === 0 ? {
-                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy4.png'})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundColor: 'transparent',
-                    } : {
-                      backgroundColor: 'var(--surface-raised)',
-                    }),
-                  }}
-                  className={index === 0 ? 'pricing-card-with-bg' : ''}
-                >
-                  {plan.popular && (
-                    <div
-                      style={{
-                        position: 'absolute',
-                        top: '-12px',
-                        left: '50%',
-                        transform: 'translateX(-50%)',
-                      }}
-                    >
-                      <Tag variant="accent" surface="vibrant" size="small">
-                        Populärast
-                      </Tag>
-                    </div>
-                  )}
-
-                  <CardContent>
-                    <VStack spacing="2xl" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
-                      {/* Plan Header */}
-                      <VStack spacing="sm">
-                        <H3 weight="bold">
-                          {plan.name}
-                        </H3>
-                        <Body size="sm" color="secondary">
-                          {plan.description}
-                        </Body>
-                      </VStack>
-
-                      {/* Price */}
-                      <VStack spacing="xs">
-                        <HStack spacing="xs" align="baseline">
-                          <H2 weight="bold">
-                            {plan.price}
-                          </H2>
-                          {plan.period && (
-                            <Body size="md" color="tertiary">
-                              {plan.period}
-                            </Body>
-                          )}
-                        </HStack>
-                      </VStack>
-
-                      {/* Features */}
-                      <VStack spacing="sm" style={{ flex: 1 }}>
-                        {plan.features.map((feature, idx) => (
-                          <HStack key={idx} spacing="sm">
-                            <span style={{
-                              color: 'var(--success-text)',
-                              flexShrink: 0
-                            }}>
-                              ✓
-                            </span>
-                            <Body size="sm">
-                              {feature}
-                            </Body>
-                          </HStack>
-                        ))}
-                      </VStack>
-
-                      {/* CTA Button */}
-                      {index === 0 ? (
-                        <Button
-                          variant={plan.popular ? 'primary' : 'secondary'}
-                          size="lg"
-                          fullWidth
-                          href="https://app.blimpify-im.com/waitlist"
-                          target="_blank"
-                        >
-                          {plan.cta}
-                        </Button>
-                      ) : (
-                        <Link href="/contact" style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
-                          <Button
-                            variant={plan.popular ? 'primary' : 'secondary'}
-                            size="lg"
-                            fullWidth
-                          >
-                            {plan.cta}
-                          </Button>
-                        </Link>
-                      )}
+            {/* First Card - Blimpify medlemskap */}
+            <FadeIn direction="up" duration={600} delay={200}>
+              <Card
+                variant="outlined"
+                padding="lg"
+                radius="lg"
+                style={{
+                  position: 'relative',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  backgroundImage: `url(${isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy4.png'})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundColor: 'transparent',
+                }}
+              >
+                <CardContent>
+                  <VStack spacing="2xl" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
+                    {/* Plan Header */}
+                    <VStack spacing="sm">
+                      <H3 weight="bold">
+                        Blimpify medlemskap (standard)
+                      </H3>
+                      <Body size="sm">
+                        För företag som vill fokusera på sin affär – inte på sin hemsida.
+                      </Body>
                     </VStack>
-                  </CardContent>
-                </Card>
-              </FadeIn>
-            ))}
+
+                    {/* Price */}
+                    <VStack spacing="xs">
+                      <HStack spacing="xs" align="baseline">
+                        <H2 weight="bold">
+                          490 kr
+                        </H2>
+                        <Body size="md" color="tertiary">
+                          /månad
+                        </Body>
+                      </HStack>
+                    </VStack>
+
+                    {/* Features */}
+                    <VStack spacing="sm" style={{ flex: 1 }}>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">En professionell hemsida, framtagen utifrån dina val</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Struktur och grund som fungerar över tid</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Möjlighet att justera text, färger och detaljer vid behov</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Hjälp med domänkoppling och publicering</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Överblick över hur hemsidan används</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Support när något känns fel</Body>
+                      </HStack>
+                    </VStack>
+
+                    {/* CTA Button */}
+                    <Button
+                      variant="accent"
+                      size="lg"
+                      fullWidth
+                      href="https://app.blimpify-im.com/waitlist"
+                      target="_blank"
+                    >
+                      Få tillgång
+                    </Button>
+                  </VStack>
+                </CardContent>
+              </Card>
+            </FadeIn>
+
+            {/* Second Card - När behoven går bortom standard */}
+            <FadeIn direction="up" duration={600} delay={350}>
+              <Card
+                variant="outlined"
+                padding="lg"
+                radius="lg"
+                style={{
+                  position: 'relative',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  backgroundColor: 'var(--surface-raised)',
+                }}
+              >
+                <CardContent>
+                  <VStack spacing="2xl" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
+                    {/* Plan Header */}
+                    <VStack spacing="sm">
+                      <H3 weight="bold">
+                        När behoven går bortom standard
+                      </H3>
+                      <Body size="sm">
+                        Skräddarsydd lösning för större företag
+                      </Body>
+                    </VStack>
+
+                    {/* Price */}
+                    <VStack spacing="xs">
+                      <HStack spacing="xs" align="baseline">
+                        <H2 weight="bold">
+                          Kontakta oss
+                        </H2>
+                      </HStack>
+                    </VStack>
+
+                    {/* Features */}
+                    <VStack spacing="sm" style={{ flex: 1 }}>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Ett större projekt med tydlig projektledning</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Lösningar anpassade efter er verksamhet och era flöden</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Stöd för mer avancerad funktionalitet vid behov</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">En dedikerad kontakt och långsiktigt samarbete</Body>
+                      </HStack>
+                      <HStack spacing="sm">
+                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Avtal och upplägg anpassade efter omfattning och krav</Body>
+                      </HStack>
+                    </VStack>
+
+                    {/* CTA Button */}
+                    <Link href="/contact" style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
+                      <Button
+                        variant="secondary"
+                        size="lg"
+                        fullWidth
+                      >
+                        Kontakta oss
+                      </Button>
+                    </Link>
+                  </VStack>
+                </CardContent>
+              </Card>
+            </FadeIn>
           </Grid>
         </VStack>
       </Container>

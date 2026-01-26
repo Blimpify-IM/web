@@ -142,7 +142,7 @@ export function HeroSection() {
         <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
           <Box style={{ width: '100%'}}>
             <Image
-              src={isDark ? '/assets/order-dark.png' : '/assets/order.png'}
+              src={isDark ? '/assets/hemsida-dark.png' : '/assets/hemsida.png'}
               alt="Website Builder Interface"
               width={4500}
               height={2675}
