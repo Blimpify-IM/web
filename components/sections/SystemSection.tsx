@@ -62,21 +62,21 @@ interface DocCategory {
 
 const systemBlocks: SystemBlock[] = [
   {
-    title: 'Vi bygger i vårt egenutvecklade system',
+    title: 'Ett sammanhållet system',
     description:
-      'När du blir medlem i Blimpify byggs din hemsida i vårt egenutvecklade system. Det gör att vi kan ta fullt ansvar för design, struktur och helhet. Samtidigt som dina val och justeringar enkelt kan tas om hand inom ett sammanhållet ramverk.',
+      'Din hemsida byggs i Blimpifys egen plattform vilket gör att vi kan ta fullt ansvar för design struktur och helhet istället för att lämna över ett projekt.',
     showEditor: true,
   },
   {
-    title: 'Design som hålls samman och utvecklas',
+    title: 'Design som håller över tid',
     description:
-      'Blimpify bygger på ett eget design- och UI-system som vi utvecklar kontinuerligt. Det betyder att din hemsida inte är ett färdigt paket som fryser i tiden. Utan en stabil grund som kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om.',
+      'Ett eget design och UI system gör att din hemsida kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om från grunden.',
     showDocumentation: true,
   },
   {
-    title: 'Stabil drift som vi ansvarar för',
+    title: 'Stabil drift som vi äger',
     description:
-      'Bakom kulisserna använder vi etablerade tjänster som Stripe och AWS för drift, betalningar och infrastruktur. Vi sätter upp, konfigurerar och ansvarar för helheten. Så att din hemsida är snabb, säker och stabil från dag ett.',
+      'Vi ansvarar för drift prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb stabil och fungerar från dag ett.',
     showStats: true,
   },
 ];
@@ -763,14 +763,13 @@ export function SystemSection() {
 
   // Determine background image for each block based on theme
   const getBackgroundImage = (index: number) => {
-    // Light mode: light, dark, light
-    // Dark mode: dark, light, dark
-    if (isDark) {
-      // Dark mode: dark, light, dark
-      return index === 1 ? '/assets/light-bg.png' : '/assets/dark-bg.png';
+    // First two blocks use section images, third uses cloudy
+    if (index === 0) {
+      return isDark ? '/assets/section-1-dark.png' : '/assets/section-1.png';
+    } else if (index === 1) {
+      return isDark ? '/assets/section-2-dark.png' : '/assets/section-2.png';
     } else {
-      // Light mode: light, dark, light
-      return index === 1 ? '/assets/dark-bg.png' : '/assets/light-bg.png';
+      return isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy.png';
     }
   };
 
@@ -788,6 +787,9 @@ export function SystemSection() {
             <Display size="md" align="center">
             Det som gör Blimpify annorlunda
             </Display>
+            <Body size="lg" color="secondary" align="center" style={{ maxWidth: '600px' }}>
+              Det är därför vi kan ta ansvar för din hemsida – inte bara leverera den
+            </Body>
           </VStack>
 
           {/* System Blocks - Alternating Card/Text Layout */}
@@ -854,32 +856,6 @@ export function SystemSection() {
                         priority={index === 0}
                         loading={index === 0 ? 'eager' : 'lazy'}
                       />
-                      
-                      {/* Content Overlay */}
-                      <Box
-                        style={{
-                          position: 'absolute',
-                          inset: 0,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          padding: 'var(--foundation-space-6)',
-                        }}
-                      >
-                        {block.showEditor ? (
-                          <Box style={{ width: '100%', height: '100%' }}>
-                            <EditorPreview />
-                          </Box>
-                        ) : block.showDocumentation ? (
-                          <Box style={{ width: '100%', height: '100%' }}>
-                            <DocumentationPreview />
-                          </Box>
-                        ) : block.showStats ? (
-                          <Box style={{ width: '100%', height: '100%' }}>
-                            <StatsPreview />
-                          </Box>
-                        ) : null}
-                      </Box>
                     </Box>
                   </Box>
                 </Box>

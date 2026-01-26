@@ -28,44 +28,36 @@ interface ScrollItem {
 
 const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
-    title: 'Hemsidan',
+    title: 'Sätt riktningen',
     description:
-      'Vi bygger din hemsida utifrån dina val och ser till att helheten håller ihop. Vi finns med från start till slut.',
-    imageLight: '/assets/hemsida.png',
-    imageDark: '/assets/hemsida-dark.png',
-    imageAlt: 'Hemsida',
+      'Skapa ett konto och skicka in dina val, mål och önskemål. Inga tekniska beslut.',
+    imageLight: '/assets/order.png',
+    imageDark: '/assets/order-dark.png',
+    imageAlt: 'Sätt riktningen',
   },
   {
-    title: 'Innehåll & justeringar',
+    title: 'Vi tar fram hemsidan',
     description:
-      'Justera text, färger och enklare detaljer när det behövs. Vi ansvarar för struktur, design och större förändringar så att helheten alltid håller.',
+      'Vi bygger din hemsida utifrån dina val och ansvarar för design, struktur och helhet.',
+    imageLight: '/assets/default.png',
+    imageDark: '/assets/default-dark.png',
+    imageAlt: 'Vi tar fram hemsidan',
+  },
+  {
+    title: 'Granska och justera',
+    description:
+      'Du går igenom hemsidan i lugn och ro. Vi justerar tills det känns rätt.',
     imageLight: '/assets/cms.png',
     imageDark: '/assets/cms-dark.png',
-    imageAlt: 'Innehåll och justeringar',
+    imageAlt: 'Granska och justera',
   },
   {
-    title: 'Överblick & insikt',
+    title: 'Publicera och gå vidare',
     description:
-      'Följ hur din hemsida används och få en enkel överblick över trafik och beteende. Utan att behöva sätta upp egna verktyg.',
-    imageLight: '/assets/stats.png',
-    imageDark: '/assets/stats-dark.png',
-    imageAlt: 'Statistik',
-  },
-  {
-    title: 'Domän & koppling',
-    description:
-      'Du pekar din domän hos din leverantör. Vi kopplar den till Blimpify och ser till att allt fungerar korrekt och stabilt.',
-    imageLight: '/assets/domain.png',
-    imageDark: '/assets/domain-dark.png',
-    imageAlt: 'Domänhantering',
-  },
-  {
-    title: 'Utveckling över tid',
-    description:
-      'Blimpify utvecklas löpande tillsammans med våra medlemmar. Det gör att din hemsida inte fastnar. Utan kan förbättras i takt med tjänsten.',
-    imageLight: '/assets/news.png',
-    imageDark: '/assets/news-dark.png',
-    imageAlt: 'Utveckling över tid',
+      'När du är nöjd publiceras hemsidan. Därefter tar Blimpify ansvar för att den fungerar över tid.',
+    imageLight: '/assets/hemsida.png',
+    imageDark: '/assets/hemsida-dark.png',
+    imageAlt: 'Publicera och gå vidare',
   },
 ];
 
@@ -118,7 +110,7 @@ export function ScrollSection() {
         background: 'var(--surface-secondary)',
       }}
     >
-      <Container useMediaWidth>
+      <Container >
         {/* Desktop & Mobile Layout */}
         <div
           className="scroll-section-grid"
@@ -147,7 +139,7 @@ export function ScrollSection() {
               align="stretch" 
               className="scroll-section-header"
             >
-              <H2 weight="bold" className="scroll-section-header-title" style={{ margin: 0, padding: 'var(--foundation-space-4)' }}>Det här tar Blimpify hand om</H2>
+              <H2 weight="bold" className="scroll-section-header-title" style={{ margin: 0, padding: 'var(--foundation-space-4)' }}>En enkel process</H2>
             </VStack>
             
             {/* Accordion Sidebar Items */}
@@ -256,10 +248,9 @@ export function ScrollSection() {
                               position: 'relative',
                               zIndex: 1,
                               borderRadius: 'var(--selected-radius-scale-lg)',
-                              overflow: 'visible',
-                              border: '1px solid var(--border-default)',
-                              background: 'var(--surface-page)',
+                              overflow: 'hidden',
                               padding: 'var(--foundation-space-3)',
+                              backgroundColor: 'var(--surface-page)',
                             }}
                           >
                             <Image
@@ -272,7 +263,8 @@ export function ScrollSection() {
                                 width: '100%',
                                 height: 'auto',
                                 display: 'block',
-                                borderRadius: 'var(--selected-radius-scale-md)',
+                                borderRadius: 'var(--selected-radius-scale-lg)',
+                                backgroundColor: 'var(--surface-page)',
                               }}
                             />
                           </Box>

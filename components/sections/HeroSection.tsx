@@ -34,7 +34,58 @@ export function HeroSection() {
         minHeight: '100vh',
       }}
     >
+      {/* Cloud layer - transparent PNG */}
+      <div
+        className="hero-clouds"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url(/assets/${isDark ? 'trans-cloud-dark.png' : 'trans-cloud.png'})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'top center',
+          pointerEvents: 'none',
+          zIndex: 1,
+          filter: `hue-rotate(${getHueRotate(accentColor)})`,
+        }}
+      />
 
+      {/* Color tint layer - controlled by accent color tokens */}
+      <div
+        className="hero-tint"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: isDark
+            ? `
+              radial-gradient(
+                ellipse 200% 150% at top left,
+                var(--foundation-accent-700) 0%,
+                transparent 25%
+              ),
+              radial-gradient(
+                ellipse 200% 150% at top right,
+                var(--foundation-accent-800) 0%,
+                transparent 25%
+              )
+            `
+            : `
+              radial-gradient(
+                ellipse 200% 150% at top left,
+                var(--foundation-accent-200) 0%,
+                transparent 30%
+              ),
+              radial-gradient(
+                ellipse 200% 150% at top right,
+                var(--foundation-accent-200) 0%,
+                transparent 30%
+              )
+            `,
+          opacity: isDark ? 0.3 : 0.45,
+          zIndex: 2,
+          mixBlendMode: isDark ? 'overlay' : 'multiply',
+          pointerEvents: 'none',
+        }}
+      />
 
       {/* Responsive top spacing - larger on mobile (2.5x), smaller on desktop (1.5x) */}
       <Spacer mobile={1.5} desktop={1} />
@@ -51,21 +102,21 @@ export function HeroSection() {
         }}
       >
         <VStack spacing="xl" align="center">
-          <VStack spacing="lg" align="center" style={{ maxWidth: '800px' }}>
+          <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
             <Display 
               size='xl'
               align="center"
               className="hero-display-responsive"
             >
-              En hemsida du inte<br />behöver tänka på
+              En hemsida skapad åt dig<br />inte av dig
             </Display>
             <Body
               size="lg"
-              color="secondary"
               align="center"
               className="hero-body-responsive"
             >
-Blimpify finns för företag som vill fokusera på sin affär, sina kunder och inte på sin hemsida.            </Body>
+Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.          
+            </Body>
           </VStack>
 
           <Button
@@ -95,6 +146,7 @@ Blimpify finns för företag som vill fokusera på sin affär, sina kunder och i
                 height: 'auto',
                 borderRadius: 'var(--selected-radius-scale-md)',
                 boxShadow: 'var(--shadow-strong)',
+                border: `2x solid ${isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.1)'}`,
               }}
             />
           </Box>

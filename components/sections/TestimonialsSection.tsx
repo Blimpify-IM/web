@@ -139,6 +139,7 @@ export function TestimonialsSection() {
             }}
           >
             <CarouselAnimation
+              
               items={testimonials.map((testimonial, index) => ({
                 id: index,
                 content: (
@@ -189,7 +190,7 @@ export function TestimonialsSection() {
               enableFadeEdges={true}
               fadeWidth="100px"
               duplicateCount={6}
-              enableHover={true}
+              enableHover={false}
               className="testimonials-carousel"
             />
           </Box>
