@@ -817,62 +817,45 @@ export function SystemSection() {
                   }}
                   className="system-block-layout"
                 >
-                  {/* Text Content */}
-                  <Box
-                    style={{
-                      order: isEven ? 1 : 2,
-                      maxWidth: '300px',
-                    }}
-                    className="system-block-text"
-                  >
-                    <VStack spacing="sm" align="start" className="system-block-text-content">
-                      <H3 weight="semibold">{block.title}</H3>
-                      <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
-                        {block.description}
-                      </Body>
-                    </VStack>
-                  </Box>
-
-                  {/* Visual Block - Image with optional overlay */}
-                  <Opacity
-                    duration={800}
-                    delay={200 + index * 100}
-
-                  >
-                    <Box
-                      style={{
-                        width: '100%',
-                        maxWidth: '550px',
-                      order: isEven ? 2 : 1,
-                      justifySelf: isEven ? 'end' : 'start',
-                    }}
-                      className="system-block-visual"
-                    >
+                  {/* Text Content - Always first in DOM, positioned by grid */}
+                  {isEven ? (
+                    <>
                       <Box
                         style={{
-                          position: 'relative',
+                          gridColumn: 1,
+                        }}
+                        className="system-block-text"
+                      >
+                        <VStack spacing="sm" align="start" className="system-block-text-content" style={{ maxWidth: '400px' }}>
+                          <H3 weight="semibold">{block.title}</H3>
+                          <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
+                            {block.description}
+                          </Body>
+                        </VStack>
+                      </Box>
+                      <Box
+                        style={{
+                          gridColumn: 2,
                           width: '100%',
+                          maxWidth: '550px',
+                          position: 'relative',
                           aspectRatio: '1 / 1',
                           borderRadius: 'var(--radius-md)',
                           overflow: 'hidden',
                           boxShadow: 'var(--shadow-strong)',
                           border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
                         }}
+                        className="system-block-visual"
                       >
-                        {/* Background Image */}
                         <Image
                           src={getBackgroundImage(index)}
                           alt="Background"
                           fill
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
-                          style={{
-                            objectFit: 'cover',
-                          }}
+                          style={{ objectFit: 'cover' }}
                           priority={index === 0}
                           loading={index === 0 ? 'eager' : 'lazy'}
                         />
-
-                        {/* Content Overlay - Only for third block (Stats) */}
                         {block.showStats && (
                           <Box
                             style={{
@@ -892,8 +875,68 @@ export function SystemSection() {
                           </Box>
                         )}
                       </Box>
-                    </Box>
-                  </Opacity>
+                    </>
+                  ) : (
+                    <>
+                      <Box
+                        style={{
+                          gridColumn: 1,
+                          width: '100%',
+                          maxWidth: '550px',
+                          position: 'relative',
+                          aspectRatio: '1 / 1',
+                          borderRadius: 'var(--radius-md)',
+                          overflow: 'hidden',
+                          boxShadow: 'var(--shadow-strong)',
+                          border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
+                        }}
+                        className="system-block-visual"
+                      >
+                        <Image
+                          src={getBackgroundImage(index)}
+                          alt="Background"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
+                          style={{ objectFit: 'cover' }}
+                          priority={index === 0}
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                        />
+                        {block.showStats && (
+                          <Box
+                            style={{
+                              position: 'absolute',
+                              inset: 0,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              padding: 'var(--foundation-space-4)',
+                              zIndex: 2,
+                              opacity: 0.95,
+                            }}
+                          >
+                            <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
+                              <StatsPreview isDark={isDark} />
+                            </Box>
+                          </Box>
+                        )}
+                      </Box>
+                      <Box
+                        style={{
+                          gridColumn: 2,
+                          display: 'flex',
+                          justifyContent: 'flex-end',
+                        }}
+                        className="system-block-text"
+                      >
+                        <VStack spacing="sm" align="start" className="system-block-text-content" style={{ maxWidth: '400px' }}>
+                          <H3 weight="semibold">{block.title}</H3>
+                          <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
+                            {block.description}
+                          </Body>
+                        </VStack>
+                      </Box>
+                    </>
+                  )}
                 </Box>
               );
             })}
