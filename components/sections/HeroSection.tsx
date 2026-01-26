@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer } from '@blimpify-im/ui';
+import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer, FadeIn, Opacity } from '@blimpify-im/ui';
 import Image from 'next/image';
 
 export function HeroSection() {
@@ -143,6 +143,7 @@ export function HeroSection() {
           height: '100%',
         }}
       >
+        <FadeIn direction='up' >
         <VStack spacing="xl" align="center">
           <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
             <Display 
@@ -173,6 +174,7 @@ Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.
             Var med ifrån början
           </Button>
         </VStack>
+        </FadeIn>
       </Container>
       <Container useMediaWidth style={{ position: 'relative', zIndex: 3 }}>
         {/* Dashboard Mockup */}
@@ -194,7 +196,6 @@ Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.
             />
           </Box>
       </Container>
-
       {/* Responsive styles for hero text */}
       <style jsx global>{`
         @media (max-width: 768px) {
