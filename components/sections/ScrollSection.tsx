@@ -241,8 +241,7 @@ export function ScrollSection() {
                         <Box
                           style={{
                             position: 'relative',
-                            borderRadius:
-                              'var(--selected-radius-scale-lg)',
+                            borderRadius: 'var(--radius-xl)',
                             overflow: 'hidden',
                             transition: 'box-shadow 0.3s ease',
                             padding: 'var(--foundation-space-4)',
@@ -252,8 +251,7 @@ export function ScrollSection() {
                             style={{
                               position: 'relative',
                               zIndex: 1,
-                              borderRadius:
-                                'var(--selected-radius-scale-lg)',
+                              borderRadius: 'var(--radius-xl)',
                               overflow: 'hidden',
                               padding: 'var(--foundation-space-3)',
                               backgroundColor: 'var(--surface-page)',
@@ -269,10 +267,8 @@ export function ScrollSection() {
                                 width: '100%',
                                 height: 'auto',
                                 display: 'block',
-                                borderRadius:
-                                  'var(--selected-radius-scale-lg)',
-                                backgroundColor:
-                                  'var(--surface-page)',
+                                borderRadius: 'var(--radius-xl)',
+                                backgroundColor: 'var(--surface-page)',
                               }}
                             />
                           </Box>

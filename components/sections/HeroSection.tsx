@@ -43,6 +43,7 @@ export function HeroSection() {
           backgroundImage: `url(/assets/${isDark ? 'trans-cloud-dark.png' : 'trans-cloud.png'})`,
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
+          backgroundRepeat: 'no-repeat',
           pointerEvents: 'none',
           zIndex: 1
         }}
@@ -108,7 +109,8 @@ export function HeroSection() {
                 align="center"
                 className="hero-display-responsive"
               >
-                En hemsida skapad åt dig<br />inte av dig
+                <span className="hero-text-desktop">En hemsida skapad åt dig<br />inte av dig</span>
+                <span className="hero-text-mobile">En hemsida åt dig<br />inte av dig</span>
               </Display>
             </FadeIn>
             <FadeIn direction="up" duration={800} delay={200} enableScrollTrigger={false}>
@@ -142,7 +144,7 @@ export function HeroSection() {
         <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
           <Box style={{ width: '100%'}}>
             <Image
-              src={isDark ? '/assets/hemsida-dark.png' : '/assets/hemsida.png'}
+              src={isDark ? '/assets/hero-dark.png' : '/assets/hero.png'}
               alt="Website Builder Interface"
               width={4500}
               height={2675}
@@ -159,8 +161,16 @@ export function HeroSection() {
         </Opacity>
       </Container>
 
-      {/* Responsive styles for hero text */}
+      {/* Responsive styles for hero text and clouds */}
       <style jsx global>{`
+        .hero-text-desktop {
+          display: block;
+        }
+        
+        .hero-text-mobile {
+          display: none;
+        }
+        
         @media (max-width: 768px) {
           .hero-display-responsive {
             font-size: var(--font-display-md-size) !important;
@@ -171,12 +181,30 @@ export function HeroSection() {
             font-size: var(--font-body-md-size) !important;
             line-height: var(--font-body-md-leading) !important;
           }
+          
+          .hero-clouds {
+            background-size: 150% auto !important;
+            background-position: top center !important;
+          }
+          
+          .hero-text-desktop {
+            display: none;
+          }
+          
+          .hero-text-mobile {
+            display: block;
+          }
         }
         
         @media (max-width: 480px) {
           .hero-display-responsive {
             font-size: var(--font-display-sm-size) !important;
             line-height: var(--font-display-sm-leading) !important;
+          }
+          
+          .hero-clouds {
+            background-size: 200% auto !important;
+            background-position: top center !important;
           }
         }
       `}</style>

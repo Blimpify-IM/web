@@ -855,13 +855,10 @@ export function SystemSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <VStack spacing="md" align="center" className="system-section-header">
+          <VStack spacing="md" align="center" className="system-section-header" style={{ marginBottom: 'var(--foundation-space-16)' }}>
             <Display size="md" align="center">
-            Det som gör Blimpify annorlunda
+              Det som gör Blimpify annorlunda
             </Display>
-            <Body size="lg" color="secondary" align="center" style={{ maxWidth: '600px' }}>
-              Det är därför vi kan ta ansvar för din hemsida – inte bara leverera den
-            </Body>
           </VStack>
 
           {/* System Blocks - Alternating Card/Text Layout */}
@@ -1008,13 +1005,23 @@ export function SystemSection() {
             gap: var(--foundation-space-16) !important;
           }
           
+          .system-section-header {
+            align-items: flex-start !important;
+          }
+          
+          .system-section-header h1,
+          .system-section-header h2,
+          .system-section-header h3 {
+            text-align: left !important;
+          }
+          
           .system-block-layout {
             grid-template-columns: 1fr !important;
             gap: var(--foundation-space-8) !important;
           }
           
           .system-block-text {
-            order: 1 !important;
+            order: 2 !important;
             max-width: 100% !important;
             width: 100% !important;
           }
@@ -1025,7 +1032,7 @@ export function SystemSection() {
           }
           
           .system-block-visual {
-            order: 2 !important;
+            order: 1 !important;
             max-width: 100% !important;
             width: 100% !important;
             justify-self: center !important;
