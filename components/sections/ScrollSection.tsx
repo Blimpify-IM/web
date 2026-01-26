@@ -39,8 +39,8 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
     title: 'Vi tar fram hemsidan',
     description:
       'Vi bygger din hemsida utifrån dina val och ansvarar för design, struktur och helhet.',
-    imageLight: '/assets/cms.png',
-    imageDark: '/assets/cms-dark.png',
+    imageLight: '/assets/default.png',
+    imageDark: '/assets/default-dark.png',
     imageAlt: 'Vi tar fram hemsidan',
   },
   {
@@ -110,7 +110,7 @@ export function ScrollSection() {
         background: 'var(--surface-secondary)',
       }}
     >
-      <Container useMediaWidth>
+      <Container >
         {/* Desktop & Mobile Layout */}
         <div
           className="scroll-section-grid"
@@ -232,8 +232,9 @@ export function ScrollSection() {
                               position: 'relative',
                               zIndex: 1,
                               borderRadius: 'var(--selected-radius-scale-lg)',
-                              overflow: 'visible',
+                              overflow: 'hidden',
                               padding: 'var(--foundation-space-3)',
+                              backgroundColor: 'var(--surface-page)',
                             }}
                           >
                             <Image
@@ -246,7 +247,8 @@ export function ScrollSection() {
                                 width: '100%',
                                 height: 'auto',
                                 display: 'block',
-                                borderRadius: 'var(--selected-radius-scale-md)',
+                                borderRadius: 'var(--selected-radius-scale-lg)',
+                                backgroundColor: 'var(--surface-page)',
                               }}
                             />
                           </Box>

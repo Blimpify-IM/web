@@ -811,8 +811,14 @@ export function SystemSection() {
 
   // Determine background image for each block based on theme
   const getBackgroundImage = (index: number) => {
-    // Use cloud backgrounds based on theme
-    return isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy4.png';
+    // First two blocks use section images, third uses cloudy
+    if (index === 0) {
+      return isDark ? '/assets/section-1-dark.png' : '/assets/section-1.png';
+    } else if (index === 1) {
+      return isDark ? '/assets/section-2-dark.png' : '/assets/section-2.png';
+    } else {
+      return isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy.png';
+    }
   };
 
   return (
@@ -899,32 +905,6 @@ export function SystemSection() {
                         priority={index === 0}
                         loading={index === 0 ? 'eager' : 'lazy'}
                       />
-                      
-                      {/* Content Overlay */}
-                      <Box
-                        style={{
-                          position: 'absolute',
-                          inset: 0,
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          padding: 'var(--foundation-space-4)',
-                        }}
-                      >
-                        {block.showEditor ? (
-                          <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
-                            <EditorPreview />
-                          </Box>
-                        ) : block.showDocumentation ? (
-                          <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
-                            <DocumentationPreview />
-                          </Box>
-                        ) : block.showStats ? (
-                          <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
-                            <StatsPreview />
-                          </Box>
-                        ) : null}
-                      </Box>
                     </Box>
                   </Box>
                 </Box>

@@ -144,7 +144,7 @@ export function HeroSection() {
         }}
       >
         <VStack spacing="xl" align="center">
-          <VStack spacing="lg" align="center" style={{ maxWidth: '800px' }}>
+          <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
             <Display 
               size='xl'
               align="center"
@@ -154,7 +154,6 @@ export function HeroSection() {
             </Display>
             <Body
               size="lg"
-              color="secondary"
               align="center"
               className="hero-body-responsive"
             >
