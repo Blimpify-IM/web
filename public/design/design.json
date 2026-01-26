@@ -1,6 +1,6 @@
 {
   "globalStyles": {
-    "isDark": true,
+    "themeMode": "system",
     "radius": "xl",
     "formWidth": "md",
     "themeTone": "charcoal",

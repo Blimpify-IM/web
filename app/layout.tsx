@@ -50,7 +50,8 @@ export default async function RootLayout({
       lang="sv"
       suppressHydrationWarning
       data-theme-tone={design.themeTone}
-      data-theme={design.isDark ? 'dark' : 'light'}
+      data-theme={design.themeMode === 'dark' ? 'dark' : 'light'}  // Default to 'light' for SSR
+      data-theme-mode={design.themeMode}  // Store original mode for client JS
       {...(design.accentColor === 'inverse' ? { 'data-accent-mode': 'inverse' } : {})}
     >
       <head>
@@ -63,6 +64,30 @@ export default async function RootLayout({
 
         {/* Inject design tokens as CSS variables */}
         <style id="design-css">{design.css}</style>
+
+        {/* Client-side theme resolution script (must run before body renders) */}
+        {design.themeMode === 'system' && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  // Resolve 'system' mode immediately to prevent flash
+                  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  const theme = prefersDark ? 'dark' : 'light';
+                  document.documentElement.setAttribute('data-theme', theme);
+                  document.documentElement.style.setProperty('--is-dark', prefersDark ? '1' : '0');
+
+                  // Watch for OS preference changes
+                  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                    const newTheme = e.matches ? 'dark' : 'light';
+                    document.documentElement.setAttribute('data-theme', newTheme);
+                    document.documentElement.style.setProperty('--is-dark', e.matches ? '1' : '0');
+                  });
+                })();
+              `,
+            }}
+          />
+        )}
       </head>
       <body suppressHydrationWarning>
         {/* Google Analytics 4 */}

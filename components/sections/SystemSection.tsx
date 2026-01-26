@@ -111,7 +111,7 @@ const DOC_CATEGORIES: DocCategory[] = [
       { id: "clickable", label: "Clickable" },
       { id: "text-link", label: "TextLink" },
       { id: "nav", label: "Nav" },
-      { id: "navigation-tab", label: "NavigationTab" },
+      { id: "tabs", label: "Tabs" },
       { id: "segmented-control", label: "Segmented Control" },
       { id: "selection-card", label: "SelectionCard" },
       { id: "kbd", label: "Kbd" },
