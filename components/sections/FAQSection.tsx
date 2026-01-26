@@ -11,6 +11,7 @@ import {
   AccordionItem,
   Tag,
   Display,
+  FadeIn,
 } from '@blimpify-im/ui';
 import { StructuredData, generateFAQSchema } from '@/lib/seo';
 
@@ -64,30 +65,34 @@ export function FAQSection() {
       <Container >
         <VStack spacing="3xl">
           {/* Header */}
-          <VStack spacing="md">
-            <Display size='md' align="center">
-              Vanliga Frågor
-            </Display>
-          </VStack>
+          <FadeIn direction="up" duration={700}>
+            <VStack spacing="md">
+              <Display size='md' align="center">
+                Vanliga Frågor
+              </Display>
+            </VStack>
+          </FadeIn>
 
           {/* FAQ List using Accordion */}
-          <Accordion
-            selectionMode="single"
-            radius="md"
-            radiusMode="edges"
-            variant="borderless"
-            gap="lg"
-            showIndicator={true}
-            defaultExpandedKeys={['0']}
-          >
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} itemKey={String(index)} title={faq.question}>
-                <Body size="md" style={{ lineHeight: 1.6 }}>
-                  {faq.answer}
-                </Body>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <FadeIn direction="up" duration={600} delay={200}>
+            <Accordion
+              selectionMode="single"
+              radius="md"
+              radiusMode="edges"
+              variant="borderless"
+              gap="lg"
+              showIndicator={true}
+              defaultExpandedKeys={['0']}
+            >
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} itemKey={String(index)} title={faq.question}>
+                  <Body size="md" style={{ lineHeight: 1.6 }}>
+                    {faq.answer}
+                  </Body>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </FadeIn>
         </VStack>
       </Container>
     </Section>

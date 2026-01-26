@@ -16,6 +16,7 @@ import {
   AccordionItem,
   useScrollAnimation,
   Display,
+  FadeIn,
 } from '@blimpify-im/ui';
 
 interface ScrollItem {
@@ -134,13 +135,15 @@ export function ScrollSection() {
             }}
           >
             {/* Header - inside aside for proper alignment on desktop */}
-            <VStack 
-              spacing="sm" 
-              align="stretch" 
-              className="scroll-section-header"
-            >
-              <H2 weight="bold" className="scroll-section-header-title" style={{ margin: 0, padding: 'var(--foundation-space-4)' }}>En enkel process</H2>
-            </VStack>
+            <FadeIn direction="up" duration={700}>
+              <VStack
+                spacing="sm"
+                align="stretch"
+                className="scroll-section-header"
+              >
+                <H2 weight="bold" className="scroll-section-header-title" style={{ margin: 0, padding: 'var(--foundation-space-4)' }}>En enkel process</H2>
+              </VStack>
+            </FadeIn>
             
             {/* Accordion Sidebar Items */}
             <Accordion

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer } from '@blimpify-im/ui';
+import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer, FadeIn, Opacity } from '@blimpify-im/ui';
 import Image from 'next/image';
 
 export function HeroSection() {
@@ -45,7 +45,7 @@ export function HeroSection() {
           backgroundPosition: 'top center',
           pointerEvents: 'none',
           zIndex: 1,
-          filter: `hue-rotate(${getHueRotate(accentColor)})`,
+          filter: 'hue-rotate(${getHueRotate(accentColor)}'
         }}
       />
 
@@ -103,37 +103,44 @@ export function HeroSection() {
       >
         <VStack spacing="xl" align="center">
           <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
-            <Display 
-              size='xl'
-              align="center"
-              className="hero-display-responsive"
-            >
-              En hemsida skapad åt dig<br />inte av dig
-            </Display>
-            <Body
-              size="lg"
-              align="center"
-              className="hero-body-responsive"
-            >
-Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.          
-            </Body>
+            <FadeIn direction="up" duration={800} delay={0} enableScrollTrigger={false}>
+              <Display
+                size='xl'
+                align="center"
+                className="hero-display-responsive"
+              >
+                En hemsida skapad åt dig<br />inte av dig
+              </Display>
+            </FadeIn>
+            <FadeIn direction="up" duration={800} delay={200} enableScrollTrigger={false}>
+              <Body
+                size="lg"
+                align="center"
+                className="hero-body-responsive"
+              >
+                Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.
+              </Body>
+            </FadeIn>
           </VStack>
 
-          <Button
-            variant="accent"
-            size="xl"
-            href="https://app.blimpify-im.com/waitlist"
-            target="_blank"
-            style={{
-              fontSize: '1.125rem',
-            }}
-          >
-            Var med ifrån början
-          </Button>
+          <FadeIn direction="up" duration={600} delay={400} enableScrollTrigger={false}>
+            <Button
+              variant="accent"
+              size="xl"
+              href="https://app.blimpify-im.com/waitlist"
+              target="_blank"
+              style={{
+                fontSize: '1.125rem',
+              }}
+            >
+              Var med ifrån början
+            </Button>
+          </FadeIn>
         </VStack>
       </Container>
       <Container useMediaWidth style={{ position: 'relative', zIndex: 1 }}>
         {/* Dashboard Mockup */}
+        <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
           <Box style={{ width: '100%'}}>
             <Image
               src={isDark ? '/assets/order-dark.png' : '/assets/order.png'}
@@ -150,6 +157,7 @@ Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.
               }}
             />
           </Box>
+        </Opacity>
       </Container>
 
       {/* Responsive styles for hero text */}

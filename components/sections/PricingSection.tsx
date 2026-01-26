@@ -16,6 +16,7 @@ import {
   Tag,
   Grid,
   Display,
+  FadeIn,
 } from '@blimpify-im/ui';
 
 interface PricingPlan {
@@ -98,120 +99,123 @@ export function PricingSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <VStack spacing="md" align="center">
-            <Display size='md'>
-            Hur kan Blimpify hjälpa ditt företag?
-            </Display>
-          </VStack>
+          <FadeIn direction="up" duration={700}>
+            <VStack spacing="md" align="center">
+              <Display size='md'>
+                Hur kan Blimpify hjälpa ditt företag?
+              </Display>
+            </VStack>
+          </FadeIn>
 
           {/* Pricing Cards */}
           <Grid columns={2} gap="xl" className="pricing-grid">
             {pricingPlans.map((plan, index) => (
-              <Card
-                key={index}
-                variant={plan.variant}
-                padding="lg"
-                radius="lg"
-                style={{
-                  position: 'relative',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  ...(index === 0 ? {
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                    backgroundColor: 'transparent',
-                  } : {
-                    backgroundColor: 'var(--surface-raised)',
-                  }),
-                }}
-                className={index === 0 ? 'pricing-card-with-bg' : ''}
-              >
-                {plan.popular && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '-12px',
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                    }}
-                  >
-                    <Tag variant="accent" surface="vibrant" size="small">
-                      Populärast
-                    </Tag>
-                  </div>
-                )}
-
-                <CardContent>
-                  <VStack spacing="2xl" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
-                    {/* Plan Header */}
-                    <VStack spacing="sm">
-                      <H3 weight="bold">
-                        {plan.name}
-                      </H3>
-                      <Body size="sm" color="secondary">
-                        {plan.description}
-                      </Body>
-                    </VStack>
-
-                    {/* Price */}
-                    <VStack spacing="xs">
-                      <HStack spacing="xs" align="baseline">
-                        <H2 weight="bold">
-                          {plan.price}
-                        </H2>
-                        {plan.period && (
-                          <Body size="md" color="tertiary">
-                            {plan.period}
-                          </Body>
-                        )}
-                      </HStack>
-                    </VStack>
-
-                    {/* Features */}
-                    <VStack spacing="sm" style={{ flex: 1 }}>
-                      {plan.features.map((feature, idx) => (
-                        <HStack key={idx} spacing="sm">
-                          <span style={{ 
-                            color: 'var(--success-text)', 
-                            flexShrink: 0 
-                          }}>
-                            ✓
-                          </span>
-                          <Body size="sm">
-                            {feature}
-                          </Body>
-                        </HStack>
-                      ))}
-                    </VStack>
-
-                    {/* CTA Button */}
-                    {index === 0 ? (
-                      <Button
-                        variant={plan.popular ? 'primary' : 'secondary'}
-                        size="lg"
-                        fullWidth
-                        href="https://app.blimpify-im.com/waitlist"
-                        target="_blank"
-                      >
-                        {plan.cta}
-                      </Button>
-                    ) : (
-                      <Link href="/contact" style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
-                    <Button
-                      variant={plan.popular ? 'primary' : 'secondary'}
-                      size="lg"
-                      fullWidth
+              <FadeIn key={index} direction="up" duration={600} delay={200 + index * 150}>
+                <Card
+                  variant={plan.variant}
+                  padding="lg"
+                  radius="lg"
+                  style={{
+                    position: 'relative',
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    ...(index === 0 ? {
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${isDark ? '/assets/dark-bg.png' : '/assets/light-bg.png'})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundColor: 'transparent',
+                    } : {
+                      backgroundColor: 'var(--surface-raised)',
+                    }),
+                  }}
+                  className={index === 0 ? 'pricing-card-with-bg' : ''}
+                >
+                  {plan.popular && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: '-12px',
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                      }}
                     >
-                      {plan.cta}
-                    </Button>
-                      </Link>
-                    )}
-                  </VStack>
-                </CardContent>
-              </Card>
+                      <Tag variant="accent" surface="vibrant" size="small">
+                        Populärast
+                      </Tag>
+                    </div>
+                  )}
+
+                  <CardContent>
+                    <VStack spacing="2xl" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
+                      {/* Plan Header */}
+                      <VStack spacing="sm">
+                        <H3 weight="bold">
+                          {plan.name}
+                        </H3>
+                        <Body size="sm" color="secondary">
+                          {plan.description}
+                        </Body>
+                      </VStack>
+
+                      {/* Price */}
+                      <VStack spacing="xs">
+                        <HStack spacing="xs" align="baseline">
+                          <H2 weight="bold">
+                            {plan.price}
+                          </H2>
+                          {plan.period && (
+                            <Body size="md" color="tertiary">
+                              {plan.period}
+                            </Body>
+                          )}
+                        </HStack>
+                      </VStack>
+
+                      {/* Features */}
+                      <VStack spacing="sm" style={{ flex: 1 }}>
+                        {plan.features.map((feature, idx) => (
+                          <HStack key={idx} spacing="sm">
+                            <span style={{
+                              color: 'var(--success-text)',
+                              flexShrink: 0
+                            }}>
+                              ✓
+                            </span>
+                            <Body size="sm">
+                              {feature}
+                            </Body>
+                          </HStack>
+                        ))}
+                      </VStack>
+
+                      {/* CTA Button */}
+                      {index === 0 ? (
+                        <Button
+                          variant={plan.popular ? 'primary' : 'secondary'}
+                          size="lg"
+                          fullWidth
+                          href="https://app.blimpify-im.com/waitlist"
+                          target="_blank"
+                        >
+                          {plan.cta}
+                        </Button>
+                      ) : (
+                        <Link href="/contact" style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
+                          <Button
+                            variant={plan.popular ? 'primary' : 'secondary'}
+                            size="lg"
+                            fullWidth
+                          >
+                            {plan.cta}
+                          </Button>
+                        </Link>
+                      )}
+                    </VStack>
+                  </CardContent>
+                </Card>
+              </FadeIn>
             ))}
           </Grid>
         </VStack>

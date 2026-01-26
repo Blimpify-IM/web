@@ -8,6 +8,7 @@ import {
   Body,
   Button,
   Display,
+  FadeIn,
 } from '@blimpify-im/ui';
 
 export function CTASection() {
@@ -22,19 +23,23 @@ export function CTASection() {
     >
         <VStack spacing="lg" align="center">
           {/* Header */}
-            <Display size='md' align="center" >
-            Vill du vara med från början?
+          <FadeIn direction="up" duration={700}>
+            <Display size='md' align="center">
+              Vill du vara med från början?
             </Display>
+          </FadeIn>
 
           {/* CTA Button */}
-                <Button
-            variant="accent"
-                  size="lg"
-            href="https://app.blimpify-im.com/waitlist"
-            target="_blank"
-                >
-                  Få tillgång
-                </Button>
+          <FadeIn direction="up" duration={600} delay={200}>
+            <Button
+              variant="accent"
+              size="lg"
+              href="https://app.blimpify-im.com/waitlist"
+              target="_blank"
+            >
+              Få tillgång
+            </Button>
+          </FadeIn>
         </VStack>
     </Section>
   );

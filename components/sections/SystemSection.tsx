@@ -28,6 +28,8 @@ import {
   Spinner,
   Accordion,
   AccordionItem,
+  FadeIn,
+  Opacity,
 } from '@blimpify-im/ui';
 import { Palette, CaseSensitive, LayoutDashboard, Spline, Car } from 'lucide-react';
 import { 
@@ -783,14 +785,16 @@ export function SystemSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <VStack spacing="md" align="center" className="system-section-header">
-            <Display size="md" align="center">
-            Det som gör Blimpify annorlunda
-            </Display>
-            <Body size="lg" color="secondary" align="center" style={{ maxWidth: '600px' }}>
-              Det är därför vi kan ta ansvar för din hemsida – inte bara leverera den
-            </Body>
-          </VStack>
+          <FadeIn direction="up" duration={700}>
+            <VStack spacing="md" align="center" className="system-section-header">
+              <Display size="md" align="center">
+                Det som gör Blimpify annorlunda
+              </Display>
+              <Body size="lg" color="secondary" align="center" style={{ maxWidth: '600px' }}>
+                Det är därför vi kan ta ansvar för din hemsida – inte bara leverera den
+              </Body>
+            </VStack>
+          </FadeIn>
 
           {/* System Blocks - Alternating Card/Text Layout */}
           <VStack spacing="3xl" align="stretch" className="system-blocks-container">
@@ -809,55 +813,59 @@ export function SystemSection() {
                   className="system-block-layout"
                 >
                   {/* Text Content */}
-                  <Box
-                    style={{
-                      order: isEven ? 1 : 2,
-                      maxWidth: '300px',
-                    }}
-                    className="system-block-text"
-                  >
-                    <VStack spacing="sm" align="start" className="system-block-text-content">
-                      <H3 weight="semibold">{block.title}</H3>
-                      <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
-                        {block.description}
-                      </Body>
-                    </VStack>
-                  </Box>
-
-                  {/* Editor Preview or Image */}
-                  <Box
-                    style={{
-                      order: isEven ? 2 : 1,
-                      width: '100%',
-                      maxWidth: '450px',
-                      justifySelf: isEven ? 'end' : 'start',
-                    }}
-                    className="system-block-visual"
-                  >
+                  <FadeIn direction={isEven ? 'left' : 'right'} duration={600} delay={100 + index * 100}>
                     <Box
                       style={{
-                        position: 'relative',
-                        width: '100%',
-                        aspectRatio: '1 / 1',
-                        borderRadius: 'var(--radius-md)',
-                        overflow: 'hidden',
-                        boxShadow: 'var(--shadow-strong)',
+                        order: isEven ? 1 : 2,
+                        maxWidth: '300px',
                       }}
+                      className="system-block-text"
                     >
-                      {/* Background Image */}
-                      <Image
-                        src={getBackgroundImage(index)}
-                        alt="Background"
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
-                        style={{
-                          objectFit: 'cover',
-                        }}
-                        priority={index === 0}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                      />
+                      <VStack spacing="sm" align="start" className="system-block-text-content">
+                        <H3 weight="semibold">{block.title}</H3>
+                        <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
+                          {block.description}
+                        </Body>
+                      </VStack>
                     </Box>
-                  </Box>
+                  </FadeIn>
+
+                  {/* Editor Preview or Image */}
+                  <Opacity duration={800} delay={200 + index * 100}>
+                    <Box
+                      style={{
+                        order: isEven ? 2 : 1,
+                        width: '100%',
+                        maxWidth: '450px',
+                        justifySelf: isEven ? 'end' : 'start',
+                      }}
+                      className="system-block-visual"
+                    >
+                      <Box
+                        style={{
+                          position: 'relative',
+                          width: '100%',
+                          aspectRatio: '1 / 1',
+                          borderRadius: 'var(--radius-md)',
+                          overflow: 'hidden',
+                          boxShadow: 'var(--shadow-strong)',
+                        }}
+                      >
+                        {/* Background Image */}
+                        <Image
+                          src={getBackgroundImage(index)}
+                          alt="Background"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
+                          style={{
+                            objectFit: 'cover',
+                          }}
+                          priority={index === 0}
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                        />
+                      </Box>
+                    </Box>
+                  </Opacity>
                 </Box>
               );
             })}

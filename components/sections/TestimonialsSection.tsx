@@ -17,6 +17,7 @@ import {
   Box,
   CarouselAnimation,
   type CarouselAnimationItem,
+  FadeIn,
 } from '@blimpify-im/ui';
 
 interface Testimonial {
@@ -85,13 +86,16 @@ export function TestimonialsSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <VStack spacing="md" align="center">
-            <Display size='md' align="center">
-              Vad våra klienter säger om oss
-            </Display>
-          </VStack>
+          <FadeIn direction="up" duration={700}>
+            <VStack spacing="md" align="center">
+              <Display size='md' align="center">
+                Vad våra klienter säger om oss
+              </Display>
+            </VStack>
+          </FadeIn>
 
           {/* Spinning Testimonials Carousel (Desktop) / Grid (Mobile) */}
+          <FadeIn direction="up" duration={600} delay={200}>
           {isMobile ? (
             <Grid columns={{ base: 1 }} gap="lg">
               {testimonials.map((testimonial, index) => (
@@ -195,6 +199,7 @@ export function TestimonialsSection() {
             />
           </Box>
           )}
+          </FadeIn>
         </VStack>
       </Container>
     </Section>
