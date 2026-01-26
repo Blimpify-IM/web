@@ -218,10 +218,6 @@ export function ScrollSection() {
                             borderRadius:
                               'var(--selected-radius-scale-lg)',
                             overflow: 'hidden',
-                            boxShadow:
-                              activeIndex === index
-                                ? 'var(--shadow-strong)'
-                                : 'var(--shadow-medium)',
                             transition: 'box-shadow 0.3s ease',
                             padding: 'var(--foundation-space-4)',
                           }}

@@ -17,15 +17,14 @@ import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 
 export interface NavbarBarProps {
   menuAlign?: 'left' | 'center' | 'right';
-  transparent?: boolean;
 }
 
 export function NavbarBar({
   menuAlign = 'center',
-  transparent = false
 }: NavbarBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Detect and handle theme
   useEffect(() => {
@@ -70,6 +69,20 @@ export function NavbarBar({
       window.dispatchEvent(new Event('theme-changed'));
     }
   };
+
+  // Handle scroll behavior for transparent → glass transition
+  useEffect(() => {
+    const handleScroll = () => {
+      // Threshold of 8px feels snappy
+      setIsScrolled(window.scrollY > 8);
+    };
+
+    // Run on mount to handle page loads when already scrolled
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   // Auto-close drawer when screen becomes desktop size
   useEffect(() => {
@@ -117,16 +130,22 @@ export function NavbarBar({
 
   return (
     <nav
-      className={`navbar-bar ${transparent ? 'navbar-bar--transparent' : ''}`}
+      className={`navbar-bar ${isScrolled ? 'navbar-bar--scrolled' : ''}`}
       style={{
         position: 'fixed',
         top: 0,
         zIndex: 50,
-        background: transparent ? 'transparent' : 'var(--surface-nav, var(--surface-page))',
-        borderBottom: transparent ? 'none' : '1px solid var(--border-default)',
         width: '100%',
-        backdropFilter: transparent ? 'blur(8px)' : 'none',
-        WebkitBackdropFilter: transparent ? 'blur(8px)' : 'none',
+        transition: 'background 0.25s ease, backdrop-filter 0.25s ease, border-color 0.25s ease',
+        // Transparent at top, glass when scrolled
+        background: isScrolled
+          ? 'color-mix(in srgb, var(--surface-page) 75%, transparent)'
+          : 'transparent',
+        backdropFilter: isScrolled ? 'blur(16px) saturate(150%)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(16px) saturate(150%)' : 'none',
+        borderBottom: isScrolled
+          ? '1px solid var(--border-subtle)'
+          : '1px solid transparent',
       }}
     >
       <Box
