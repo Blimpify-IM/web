@@ -44,8 +44,7 @@ export function HeroSection() {
           backgroundSize: 'cover',
           backgroundPosition: 'top center',
           pointerEvents: 'none',
-          zIndex: 1,
-          filter: 'hue-rotate(${getHueRotate(accentColor)}'
+          zIndex: 1
         }}
       />
 

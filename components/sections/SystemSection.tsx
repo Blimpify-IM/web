@@ -468,12 +468,7 @@ function DocumentationPreview() {
 }
 
 // Stats Preview Component
-function StatsPreview() {
-  // Mock data for demonstration - in real implementation these would come from props or state
-  const loadTime = 150;
-  const performanceScore = 95;
-  const errorRate4xx = 0.00;
-
+function StatsPreview({ isDark }: { isDark: boolean }) {
   return (
     <Box
       style={{
@@ -483,45 +478,55 @@ function StatsPreview() {
         borderRadius: 'var(--radius-md)',
         padding: 'var(--foundation-space-4)',
         overflow: 'hidden',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
       }}
     >
-      <VStack spacing="sm" align="stretch" style={{ width: '100%' }}>
+      <VStack spacing="md" align="stretch" style={{ width: '100%' }}>
+        {/* Prestandapoäng */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs">
+              <Label color="secondary" size="xs">Prestandapoäng</Label>
+              <H4>95</H4>
+            </VStack>
+          </CardContent>
+        </Card>
+
         {/* Laddningstid */}
         <Card variant="outlined">
           <CardContent>
             <VStack spacing="xs">
               <Label color="secondary" size="xs">Laddningstid</Label>
-              <H4>{loadTime < 1000 ? `${Math.round(loadTime)} ms` : `${(loadTime / 1000).toFixed(1)} s`}</H4>
-              <Body size="xs" color="secondary">
-                {loadTime < 1000 ? 'Utmärkt' : loadTime < 2000 ? 'Bra' : 'Kan förbättras'}
-              </Body>
+              <H4>150 ms</H4>
             </VStack>
           </CardContent>
         </Card>
 
-        {/* Prestanda-poäng */}
+        {/* Uptime */}
         <Card variant="outlined">
           <CardContent>
             <VStack spacing="xs">
-              <Label color="secondary" size="xs">Prestanda-poäng</Label>
-              <H4>{Math.round(performanceScore)}</H4>
-              <Body size="xs" color="secondary">
-                {performanceScore >= 90 ? 'Utmärkt' : performanceScore >= 70 ? 'Bra' : 'Kan förbättras'}
-              </Body>
+              <Label color="secondary" size="xs">Uptime</Label>
+              <H4>99.9 %</H4>
             </VStack>
           </CardContent>
         </Card>
 
-        {/* 4xx-fel */}
-        <Card variant="outlined">
-          <CardContent>
-            <VStack spacing="xs">
-              <Label color="secondary" size="xs">4xx-fel</Label>
-              <H4>{errorRate4xx.toFixed(2)}%</H4>
-              <Body size="xs" color="secondary">Klientfel</Body>
-            </VStack>
-          </CardContent>
-        </Card>
+        {/* Status */}
+        <Box
+          style={{
+            marginTop: 'var(--foundation-space-2)',
+            paddingTop: 'var(--foundation-space-2)',
+            borderTop: '1px solid var(--border-subtle)',
+          }}
+        >
+          <Body size="sm" color="secondary" align="center">
+            All systems operational
+          </Body>
+        </Box>
       </VStack>
     </Box>
   );
@@ -813,32 +818,34 @@ export function SystemSection() {
                   className="system-block-layout"
                 >
                   {/* Text Content */}
-                  <FadeIn direction={isEven ? 'left' : 'right'} duration={600} delay={100 + index * 100}>
-                    <Box
-                      style={{
-                        order: isEven ? 1 : 2,
-                        maxWidth: '300px',
-                      }}
-                      className="system-block-text"
-                    >
-                      <VStack spacing="sm" align="start" className="system-block-text-content">
-                        <H3 weight="semibold">{block.title}</H3>
-                        <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
-                          {block.description}
-                        </Body>
-                      </VStack>
-                    </Box>
-                  </FadeIn>
+                  <Box
+                    style={{
+                      order: isEven ? 1 : 2,
+                      maxWidth: '300px',
+                    }}
+                    className="system-block-text"
+                  >
+                    <VStack spacing="sm" align="start" className="system-block-text-content">
+                      <H3 weight="semibold">{block.title}</H3>
+                      <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
+                        {block.description}
+                      </Body>
+                    </VStack>
+                  </Box>
 
-                  {/* Editor Preview or Image */}
-                  <Opacity duration={800} delay={200 + index * 100}>
+                  {/* Visual Block - Image with optional overlay */}
+                  <Opacity
+                    duration={800}
+                    delay={200 + index * 100}
+
+                  >
                     <Box
                       style={{
-                        order: isEven ? 2 : 1,
                         width: '100%',
-                        maxWidth: '450px',
-                        justifySelf: isEven ? 'end' : 'start',
-                      }}
+                        maxWidth: '550px',
+                      order: isEven ? 2 : 1,
+                      justifySelf: isEven ? 'end' : 'start',
+                    }}
                       className="system-block-visual"
                     >
                       <Box
@@ -849,6 +856,7 @@ export function SystemSection() {
                           borderRadius: 'var(--radius-md)',
                           overflow: 'hidden',
                           boxShadow: 'var(--shadow-strong)',
+                          border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
                         }}
                       >
                         {/* Background Image */}
@@ -856,13 +864,33 @@ export function SystemSection() {
                           src={getBackgroundImage(index)}
                           alt="Background"
                           fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
                           style={{
                             objectFit: 'cover',
                           }}
                           priority={index === 0}
                           loading={index === 0 ? 'eager' : 'lazy'}
                         />
+
+                        {/* Content Overlay - Only for third block (Stats) */}
+                        {block.showStats && (
+                          <Box
+                            style={{
+                              position: 'absolute',
+                              inset: 0,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              padding: 'var(--foundation-space-4)',
+                              zIndex: 2,
+                              opacity: 0.95,
+                            }}
+                          >
+                            <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
+                              <StatsPreview isDark={isDark} />
+                            </Box>
+                          </Box>
+                        )}
                       </Box>
                     </Box>
                   </Opacity>
