@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer, FadeIn, Opacity } from '@blimpify-im/ui';
+import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer, FadeIn, Opacity, OverflowContainer } from '@blimpify-im/ui';
 import Image from 'next/image';
 
 export function HeroSection() {
@@ -28,9 +28,10 @@ export function HeroSection() {
   }, []);
   return (
     <Section
+      overflow="visible"
+      overflowX="clip"
       style={{
         position: 'relative',
-        overflow: 'hidden',
         minHeight: '100vh',
       }}
     >
@@ -139,26 +140,47 @@ export function HeroSection() {
           </FadeIn>
         </VStack>
       </Container>
-      <Container useMediaWidth style={{ position: 'relative', zIndex: 1 }}>
+      <Container useMediaWidth style={{ position: 'relative', zIndex: 1, overflow: 'visible' }}>
         {/* Dashboard Mockup */}
         <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
-          <Box style={{ width: '100%'}}>
-            <Image
-              src={isDark ? '/assets/hero-dark.png' : '/assets/hero.png'}
-              alt="Website Builder Interface"
-              width={4500}
-              height={2675}
-              priority
-              className="hero-image"
+          <OverflowContainer direction="right" spillAmount={250} className="hero-overflow">
+            <Box
               style={{
-                width: '100%',
-                height: 'auto',
-                borderRadius: 'var(--selected-radius-scale-md)',
-                boxShadow: 'var(--shadow-strong)',
-                border: `2x solid ${isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.1)'}`,
+                position: 'relative',
+                borderRadius: 'var(--radius-xl)',
+                overflow: 'hidden',
+                padding: 'var(--foundation-space-4)',
               }}
-            />
-          </Box>
+            >
+              <Box
+                style={{
+                  position: 'relative',
+                  zIndex: 1,
+                  borderRadius: 'var(--radius-xl)',
+                  overflow: 'hidden',
+                  padding: 'var(--foundation-space-3)',
+                  backgroundColor: 'transparent',
+                }}
+              >
+                <Image
+                  src={isDark ? '/assets/hero-dark.png' : '/assets/hero.png'}
+                  alt="Website Builder Interface"
+                  width={4500}
+                  height={2675}
+                  priority
+                  className="hero-image"
+                  style={{
+                    width: '100%',
+                    height: 'auto',
+                    display: 'block',
+                    borderRadius: 'var(--radius-xl)',
+                    boxShadow: 'var(--shadow-strong)',
+                    backgroundColor: 'var(--surface-page)',
+                  }}
+                />
+              </Box>
+            </Box>
+          </OverflowContainer>
         </Opacity>
       </Container>
 
@@ -172,6 +194,14 @@ export function HeroSection() {
           display: none;
         }
         
+        /* Desktop: disable overflow spill on hero image */
+        @media (min-width: 769px) {
+          .hero-overflow {
+            width: 100% !important;
+            margin-right: 0 !important;
+          }
+        }
+
         @media (max-width: 768px) {
           .hero-display-responsive {
             font-size: var(--font-display-md-size) !important;
@@ -212,6 +242,9 @@ export function HeroSection() {
             background-position: top center !important;
           }
         }
+
+        
+
       `}</style>
     </Section>
   );
