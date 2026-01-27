@@ -149,6 +149,7 @@ export function HeroSection() {
               width={4500}
               height={2675}
               priority
+              className="hero-image"
               style={{
                 width: '100%',
                 height: 'auto',
@@ -193,6 +194,10 @@ export function HeroSection() {
           
           .hero-text-mobile {
             display: block;
+          }
+          
+          .hero-image {
+            border-radius: var(--radius-sm) !important;
           }
         }
         

@@ -71,7 +71,7 @@ const systemBlocks: SystemBlock[] = [
   {
     title: 'Ett sammanhållet system',
     description:
-      'Din hemsida byggs i Blimpifys egen plattform vilket gör att vi kan ta fullt ansvar för design struktur och helhet istället för att lämna över ett projekt.',
+      'Din hemsida byggs i Blimpifys egna plattform vilket gör att vi kan ta fullt ansvar för design, struktur och helhet.',
     showEditor: true,
   },
   {
@@ -83,7 +83,7 @@ const systemBlocks: SystemBlock[] = [
   {
     title: 'Stabil drift som vi äger',
     description:
-      'Vi ansvarar för drift prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb stabil och fungerar från dag ett.',
+      'Vi ansvarar för drift, prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb och stabil.',
     showStats: true,
   },
 ];

@@ -28,9 +28,9 @@ interface ScrollItem {
 
 const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
-    title: 'Satt riktningen',
+    title: 'Sätt riktningen',
     description:
-      'Skapa ett konto och skicka in dina val, mal och onskemal. Inga tekniska beslut.',
+      'Skapa ett konto och skicka in dina val, mal och önskemal. Inga tekniska beslut.',
     imageLight: '/assets/order.png',
     imageDark: '/assets/order-dark.png',
     imageAlt: 'Satt riktningen',
@@ -38,7 +38,7 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Vi tar fram hemsidan',
     description:
-      'Vi bygger din hemsida utifran dina val och ansvarar for design, struktur och helhet.',
+      'Vi bygger din hemsida utifrån dina val och ansvarar för design, struktur och helhet.',
     imageLight: '/assets/default.png',
     imageDark: '/assets/default-dark.png',
     imageAlt: 'Vi tar fram hemsidan',
@@ -46,15 +46,15 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Granska och justera',
     description:
-      'Du gar igenom hemsidan i lugn och ro. Vi justerar tills det kans ratt.',
+      'Du går igenom hemsidan i lugn och ro.',
     imageLight: '/assets/cms.png',
     imageDark: '/assets/cms-dark.png',
     imageAlt: 'Granska och justera',
   },
   {
-    title: 'Publicera och ga vidare',
+    title: 'Publicera och gå vidare',
     description:
-      'Nar du ar nojd publiceras hemsidan. Darefter tar Blimpify ansvar for att den fungerar over tid.',
+      'När du är nöjd publiceras hemsidan. Därefter tar Blimpify ansvar för att den fungerar över tid.',
     imageLight: '/assets/hemsida.png',
     imageDark: '/assets/hemsida-dark.png',
     imageAlt: 'Publicera och ga vidare',
