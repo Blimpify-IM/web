@@ -857,8 +857,8 @@ export function SystemSection() {
         <VStack spacing="3xl">
           {/* Header */}
           <FadeIn>
-          <VStack spacing="md" align="center" className="system-section-header" style={{ marginBottom: 'var(--foundation-space-16)' }}>
-            <Display size="md" align="center">
+          <VStack spacing="md" align="start" className="system-section-header" style={{ marginBottom: 'var(--foundation-space-16)' }}>
+            <Display size="md" align="left">
               Det som gör Blimpify annorlunda
             </Display>
           </VStack>

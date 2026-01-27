@@ -1,11 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Section, Container, Box, VStack, Button, H1, Body, Display, Spacer, FadeIn, Opacity, OverflowContainer } from '@blimpify-im/ui';
+import { useState, useEffect, useRef } from 'react';
+import { Section, Container, Box, VStack, Display, Spacer, FadeIn, Opacity, OverflowContainer, Body, Button } from '@blimpify-im/ui';
 import Image from 'next/image';
 
 export function HeroSection() {
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
+  const [rotation, setRotation] = useState(-15); // Start with negative rotation (lutar framåt)
+  const [isInitialized, setIsInitialized] = useState(false); // Track if scroll logic has initialized
+  const [imageReady, setImageReady] = useState(false); // Track if image should be visible
+  const imageRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
 
   // Detect theme from document
   useEffect(() => {
@@ -26,6 +31,64 @@ export function HeroSection() {
 
     return () => observer.disconnect();
   }, []);
+
+  // Initialize scroll logic first, then show image
+  useEffect(() => {
+    // Set up scroll handlers immediately
+    let hasScrolled = false;
+    
+    const handleScroll = () => {
+      if (!imageRef.current || !imageReady) return;
+      
+      // Mark that user has scrolled
+      if (!hasScrolled) {
+        hasScrolled = true;
+        setIsInitialized(true);
+      }
+
+      const windowHeight = window.innerHeight;
+      const imageRect = imageRef.current.getBoundingClientRect();
+      const imageTop = imageRect.top;
+      
+      // Start animation when image is visible in viewport
+      // Progress: 0 when image top is at viewport bottom, 1 when image top is at viewport top
+      const scrollProgress = Math.max(0, Math.min(1, (windowHeight - imageTop) / (windowHeight * 2)));
+
+      // Rotate from -15deg (lutar framåt) to +10deg (lutar uppåt) based on scroll
+      const minRotation = -15;
+      const maxRotation = 10;
+      const newRotation = minRotation + (maxRotation - minRotation) * scrollProgress;
+      
+      setRotation(newRotation);
+    };
+
+    // Set up scroll listeners immediately
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
+
+    // Wait for everything to mount, then show image
+    const showImage = () => {
+      // Wait for layout to stabilize
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          // Set initial rotation
+          setRotation(-15);
+          // Show image after a small delay to ensure scroll logic is ready
+          setTimeout(() => {
+            setImageReady(true);
+          }, 100);
+        });
+      });
+    };
+
+    // Initialize after component has mounted
+    setTimeout(showImage, 300);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [imageReady]);
   return (
     <Section
       overflow="visible"
@@ -35,9 +98,25 @@ export function HeroSection() {
         minHeight: '100vh',
       }}
     >
+      <div ref={sectionRef} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }} />
+      
+      {/* Warm undertone layer - subtle creamy base */}
+      <div
+        className="hero-warm-base"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: isDark
+            ? 'radial-gradient(ellipse 100% 100% at center, rgba(250, 245, 240, 0.03) 0%, transparent 50%)'
+            : 'radial-gradient(ellipse 100% 100% at center, rgba(250, 245, 240, 0.12) 0%, transparent 50%)',
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}
+      />
+
       {/* Cloud layer - transparent PNG */}
       <div
-        className="hero-clouds"
+        className="hero-clouds hero-clouds-fadein"
         style={{
           position: 'absolute',
           inset: 0,
@@ -49,6 +128,8 @@ export function HeroSection() {
           zIndex: 1
         }}
       />
+
+
 
       {/* Color tint layer - controlled by accent color tokens */}
       <div
@@ -82,7 +163,7 @@ export function HeroSection() {
               )
             `,
           opacity: isDark ? 0.3 : 0.45,
-          zIndex: 2,
+          zIndex: 3,
           mixBlendMode: isDark ? 'overlay' : 'multiply',
           pointerEvents: 'none',
         }}
@@ -108,10 +189,17 @@ export function HeroSection() {
               <Display
                 size='xl'
                 align="center"
+                color="accent"
                 className="hero-display-responsive"
               >
-                <span className="hero-text-desktop">En hemsida skapad åt dig<br />inte av dig</span>
-                <span className="hero-text-mobile">En hemsida åt dig<br />inte av dig</span>
+                <span className="hero-text-desktop">
+                  Hemsida åt dig<br />
+                  <span className="hero-text-chill">inte av dig</span>
+                </span>
+                <span className="hero-text-mobile">
+                  Hemsida åt dig<br />
+                  <span className="hero-text-chill">inte av dig</span>
+                </span>
               </Display>
             </FadeIn>
             <FadeIn direction="up" duration={800} delay={200} enableScrollTrigger={false}>
@@ -120,36 +208,44 @@ export function HeroSection() {
                 align="center"
                 className="hero-body-responsive"
               >
-                Du sätter riktningen. Vi tar ansvar för design, struktur och helhet.
+                Vi bygger inte bara hemsidor. Vi tar ansvar för dem.
               </Body>
             </FadeIn>
           </VStack>
 
           <FadeIn direction="up" duration={600} delay={400} enableScrollTrigger={false}>
             <Button
-              variant="accent"
+              variant="secondary"
               size="xl"
               href="https://app.blimpify-im.com/waitlist"
               target="_blank"
-              style={{
-                fontSize: '1.125rem',
-              }}
+              className="hero-cta-button"
             >
               Var med ifrån början
             </Button>
           </FadeIn>
         </VStack>
       </Container>
-      <Container useMediaWidth style={{ position: 'relative', zIndex: 1, overflow: 'visible' }}>
+      <Container useMediaWidth style={{ position: 'relative', zIndex: 1, overflow: 'visible', marginTop: 'var(--foundation-space-24)' }}>
         {/* Dashboard Mockup */}
         <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
           <OverflowContainer direction="right" spillAmount={200} className="hero-overflow">
             <Box
+              ref={imageRef}
               style={{
                 position: 'relative',
                 borderRadius: 'var(--radius-xl)',
                 overflow: 'hidden',
                 padding: 'var(--foundation-space-4)',
+                transform: `perspective(1000px) rotateX(${rotation}deg)`,
+                willChange: 'transform',
+                transformOrigin: 'center center',
+                maxWidth: '85%',
+                margin: '0 auto',
+                opacity: imageReady ? 1 : 0,
+                transition: imageReady 
+                  ? (isInitialized ? 'transform 0.1s ease-out, opacity 0.6s ease-out' : 'opacity 0.6s ease-out')
+                  : 'none',
               }}
             >
               <Box
@@ -186,12 +282,59 @@ export function HeroSection() {
 
       {/* Responsive styles for hero text and clouds */}
       <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+        
+        @keyframes fadeInClouds {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+        
+        .hero-clouds-fadein {
+          animation: fadeInClouds 1.2s ease-out forwards;
+        }
+        
         .hero-text-desktop {
           display: block;
         }
         
         .hero-text-mobile {
           display: none;
+        }
+        
+        .hero-text-chill {
+          color: var(--text-secondary);
+          font-family: 'Playfair Display', 'Libre Baskerville', 'Lora', serif;
+          font-style: italic;
+          font-weight: 400;
+        }
+        
+        .hero-cta-button {
+          transition: all 0.2s ease-out;
+          background-color: rgba(250, 245, 240, 0.6) !important;
+          border-color: rgba(220, 210, 200, 0.4) !important;
+          color: rgba(60, 55, 50, 0.9) !important;
+          backdrop-filter: blur(8px);
+        }
+        
+        [data-theme='dark'] .hero-cta-button {
+          background-color: rgba(40, 35, 30, 0.7) !important;
+          border-color: rgba(80, 70, 60, 0.5) !important;
+          color: rgba(240, 235, 230, 0.95) !important;
+        }
+        
+        .hero-cta-button:hover {
+          background-color: rgba(250, 245, 240, 0.8) !important;
+          border-color: rgba(200, 190, 180, 0.5) !important;
+          transform: translateY(-1px);
+        }
+        
+        [data-theme='dark'] .hero-cta-button:hover {
+          background-color: rgba(50, 45, 40, 0.85) !important;
+          border-color: rgba(100, 90, 80, 0.6) !important;
         }
         
         /* Desktop: disable overflow spill on hero image */
