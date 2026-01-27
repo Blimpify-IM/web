@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Section, Container, Box, VStack, Display, Spacer, FadeIn, Opacity, OverflowContainer, Body, Button } from '@blimpify-im/ui';
+import { Section, Container, Box, VStack, Display, Spacer, FadeIn, OverflowContainer, Body, Button } from '@blimpify-im/ui';
 import Image from 'next/image';
 
 export function HeroSection() {
@@ -126,7 +126,6 @@ export function HeroSection() {
           backgroundRepeat: 'no-repeat',
           pointerEvents: 'none',
           zIndex: 1,
-          opacity: isDark ? 0.9 : 0.85,
         }}
       />
 
@@ -229,7 +228,7 @@ export function HeroSection() {
       </Container>
       <Container useMediaWidth className="hero-image-container-wrapper" style={{ position: 'relative', zIndex: 1, overflow: 'visible', marginTop: 'var(--foundation-space-24)' }}>
         {/* Dashboard Mockup */}
-        <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
+        <FadeIn direction="up" duration={1000} delay={600} enableScrollTrigger={false}>
           <OverflowContainer direction="right" spillAmount={200} className="hero-overflow">
             <Box
               ref={imageRef}
@@ -280,37 +279,38 @@ export function HeroSection() {
               </Box>
             </Box>
           </OverflowContainer>
-        </Opacity>
+        </FadeIn>
       </Container>
 
       {/* Responsive styles for hero text and clouds */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
         
-        @keyframes fadeInClouds {
+        /* Cloud fade-in animations */
+        @keyframes fadeInCloudsDark {
           from {
             opacity: 0;
           }
           to {
-            opacity: 1;
+            opacity: 0.9;
+          }
+        }
+        
+        @keyframes fadeInCloudsLight {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 0.85;
           }
         }
         
         .hero-clouds-fadein {
-          animation: fadeInClouds 1.2s ease-out forwards;
+          animation: fadeInCloudsLight 1.2s ease-out forwards;
         }
         
-        /* Ensure clouds are visible */
-        .hero-clouds {
-          opacity: 1 !important;
-        }
-        
-        [data-theme='dark'] .hero-clouds {
-          opacity: 0.9 !important;
-        }
-        
-        [data-theme='light'] .hero-clouds {
-          opacity: 0.85 !important;
+        [data-theme='dark'] .hero-clouds-fadein {
+          animation: fadeInCloudsDark 1.2s ease-out forwards;
         }
         
         /* Force specific radius on hero image - not affected by design.json */
