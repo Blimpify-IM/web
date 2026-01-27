@@ -125,7 +125,8 @@ export function HeroSection() {
           backgroundPosition: 'top center',
           backgroundRepeat: 'no-repeat',
           pointerEvents: 'none',
-          zIndex: 1
+          zIndex: 1,
+          opacity: isDark ? 0.9 : 0.85,
         }}
       />
 
@@ -162,9 +163,9 @@ export function HeroSection() {
                 transparent 30%
               )
             `,
-          opacity: isDark ? 0.3 : 0.45,
-          zIndex: 3,
-          mixBlendMode: isDark ? 'overlay' : 'multiply',
+          opacity: isDark ? 0.25 : 0.35,
+          zIndex: 2,
+          mixBlendMode: isDark ? 'soft-light' : 'multiply',
           pointerEvents: 'none',
         }}
       />
@@ -297,6 +298,19 @@ export function HeroSection() {
         
         .hero-clouds-fadein {
           animation: fadeInClouds 1.2s ease-out forwards;
+        }
+        
+        /* Ensure clouds are visible */
+        .hero-clouds {
+          opacity: 1 !important;
+        }
+        
+        [data-theme='dark'] .hero-clouds {
+          opacity: 0.9 !important;
+        }
+        
+        [data-theme='light'] .hero-clouds {
+          opacity: 0.85 !important;
         }
         
         /* Force specific radius on hero image - not affected by design.json */
