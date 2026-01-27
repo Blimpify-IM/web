@@ -178,6 +178,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
               variant="secondary"
               size="md"
               onClick={toggleTheme}
+              aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
               icon={
                 <Icon size="md" color="button-ghost">
                   {isDark ? <SunIcon /> : <MoonIcon />}
@@ -193,6 +194,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             variant="ghost"
             size="md"
             onClick={toggleTheme}
+            aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
             icon={
               <Icon size="md" color="button-ghost">
                 {isDark ? <SunIcon /> : <MoonIcon />}
@@ -203,6 +205,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             variant="ghost"
             size="md"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Stäng meny' : 'Öppna meny'}
             icon={mobileOpen ? <X /> : <Menu />}
           />
         </HStack>
