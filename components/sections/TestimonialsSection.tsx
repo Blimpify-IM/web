@@ -32,28 +32,28 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     name: 'Kevin Jansson',
-    role: 'Grundare - Kjmarketingsweden & UGC Creator',
+    role: 'Kjmarketingsweden',
     content:
       'Extremt grymma grabbar som vet vad dom håller på med, från skiss av hemsidan till slutligt produktion har allt varit 10/10. Jag är extremt imponerad',
     avatar: '/assets/kjlogowhite.png',
   },
   {
     name: 'Rickson Mansiamina',
-    role: 'Grundare - DifferenceConsulting & författare',
+    role: 'DifferenceConsulting',
     content:
       'Tack för resan, grabbar! Det har varit ett riktigt bra samarbete. Ni har varit lyhörda och verkligen finjusterat tills hemsidan blev exakt som jag ville ha den. Ni har inte bara levererat, ni har brytt er. Stort tack för allt!',
     avatar: '/assets/dclogo.png',
   },
   {
-    name: 'Filip Blank.',
-    role: 'Grundare - CreatorzMGMT',
+    name: 'Filip Blank',
+    role: 'CreatorzMGMT',
     content:
       'Från första kontakt till lansering har samarbetet fungerat smidigt och professionellt. Ni har varit lyhörda för mina önskemål. Det tekniska fungerar utan problem så jag är väldigt nöjd',
     avatar: '',
   },
   {
     name: 'Philip Flensburg.',
-    role: 'Grundare & Vd - Marknadschefen',
+    role: 'Marknadschefen',
     content:
       'Rekommenderar starkt att låta teamet göra din hemsida och underhålla den. De har alltid varit tillmötesgående och otroligt snabba och effektiva att jobba med.',
     avatar: '/assets/mclogo.png',
@@ -122,7 +122,7 @@ export function TestimonialsSection() {
                     <VStack spacing="lg" style={{ height: '100%' }}>
                       <HStack spacing="md" align="center">
                         {testimonial.avatar && (
-                          <Avatar src={testimonial.avatar} size="lg" shape="rounded" />
+                          <Avatar src={testimonial.avatar} size="sm" shape="rounded" />
                         )}
                         <VStack spacing="xs">
                           <H3 weight="bold">{testimonial.name}</H3>

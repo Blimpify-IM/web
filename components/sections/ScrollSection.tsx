@@ -311,12 +311,6 @@ export function ScrollSection() {
             margin-bottom: 0 !important;
             letter-spacing: -0.02em !important;
           }
-
-          .scroll-section-mobile-text h3 {
-            font-size: 1.5rem !important;
-            font-weight: 600 !important;
-            line-height: 1.4 !important;
-          }
         }
 
         @media (min-width: 1025px) {
