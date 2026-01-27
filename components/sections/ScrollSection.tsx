@@ -254,7 +254,7 @@ export function ScrollSection() {
                               borderRadius: 'var(--radius-xl)',
                               overflow: 'hidden',
                               padding: 'var(--foundation-space-3)',
-                              backgroundColor: 'var(--surface-page)',
+                              backgroundColor: 'transparent',
                             }}
                           >
                             <Image

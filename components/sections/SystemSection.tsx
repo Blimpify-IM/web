@@ -28,7 +28,8 @@ import {
   Spinner,
   Accordion,
   AccordionItem,
-  Alert,
+  FadeIn,
+  Opacity,
 } from '@blimpify-im/ui';
 import { Palette, CaseSensitive, LayoutDashboard, Spline, Car } from 'lucide-react';
 import { 
@@ -43,12 +44,6 @@ import {
   PhotoIcon,
   BellAlertIcon,
   ChartBarIcon,
-  CheckCircleIcon,
-  ShieldCheckIcon,
-  ServerIcon,
-  LockClosedIcon,
-  GlobeAltIcon,
-  ClockIcon,
 } from '@heroicons/react/24/outline';
 import { CheckIcon } from 'lucide-react';
 
@@ -71,7 +66,7 @@ const systemBlocks: SystemBlock[] = [
   {
     title: 'Ett sammanhållet system',
     description:
-      'Din hemsida byggs i Blimpifys egna plattform vilket gör att vi kan ta fullt ansvar för design, struktur och helhet.',
+      'Din hemsida byggs i Blimpifys egen plattform vilket gör att vi kan ta fullt ansvar för design struktur och helhet istället för att lämna över ett projekt.',
     showEditor: true,
   },
   {
@@ -83,7 +78,7 @@ const systemBlocks: SystemBlock[] = [
   {
     title: 'Stabil drift som vi äger',
     description:
-      'Vi ansvarar för drift, prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb och stabil.',
+      'Vi ansvarar för drift prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb stabil och fungerar från dag ett.',
     showStats: true,
   },
 ];
@@ -472,77 +467,65 @@ function DocumentationPreview() {
   );
 }
 
-// Operations Status Component - Shows control and responsibility, not metrics
-function OperationsStatus() {
+// Stats Preview Component
+function StatsPreview({ isDark }: { isDark: boolean }) {
   return (
     <Box
       style={{
         width: '100%',
         height: '100%',
+        background: 'var(--surface-raised)',
+        borderRadius: 'var(--radius-md)',
+        padding: 'var(--foundation-space-4)',
+        overflow: 'hidden',
         display: 'flex',
+        flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
       }}
     >
-      <VStack spacing="md" align="stretch" style={{ width: '100%', maxWidth: '320px' }}>
-        {/* Drift */}
+      <VStack spacing="md" align="stretch" style={{ width: '100%' }}>
+        {/* Prestandapoäng */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs">
+              <Label color="secondary" size="xs">Prestandapoäng</Label>
+              <H4>95</H4>
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Laddningstid */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs">
+              <Label color="secondary" size="xs">Laddningstid</Label>
+              <H4>150 ms</H4>
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Uptime */}
+        <Card variant="outlined">
+          <CardContent>
+            <VStack spacing="xs">
+              <Label color="secondary" size="xs">Uptime</Label>
+              <H4>99.9 %</H4>
+            </VStack>
+          </CardContent>
+        </Card>
+
+        {/* Status */}
         <Box
           style={{
-            padding: 'var(--foundation-space-4)',
-            background: 'var(--surface-raised)',
-            borderRadius: 'var(--radius-md)',
-            border: '1px solid var(--border-default)',
+            marginTop: 'var(--foundation-space-2)',
+            paddingTop: 'var(--foundation-space-2)',
+            borderTop: '1px solid var(--border-subtle)',
           }}
         >
-          <HStack spacing="md" align="center" justify="between">
-            <HStack spacing="sm" align="center">
-              <Icon size="md" color="success">
-                <GlobeAltIcon />
-              </Icon>
-              <Label color="secondary" size="sm">Publicerad</Label>
-            </HStack>
-            <Tag variant="success" size="small" surface="subtle">Aktiv</Tag>
-          </HStack>
-        </Box>
-        
-        {/* Säkerhet */}
-        <Box
-          style={{
-            padding: 'var(--foundation-space-4)',
-            background: 'var(--surface-raised)',
-            borderRadius: 'var(--radius-md)',
-            border: '1px solid var(--border-default)',
-          }}
-        >
-          <HStack spacing="md" align="center" justify="between">
-            <HStack spacing="sm" align="center">
-              <Icon size="md" color="success">
-                <ShieldCheckIcon />
-              </Icon>
-              <Label color="secondary" size="sm">Säkerhet</Label>
-            </HStack>
-            <Tag variant="success" size="small" surface="subtle">Skyddad</Tag>
-          </HStack>
-        </Box>
-        
-        {/* Övervakning */}
-        <Box
-          style={{
-            padding: 'var(--foundation-space-4)',
-            background: 'var(--surface-raised)',
-            borderRadius: 'var(--radius-md)',
-            border: '1px solid var(--border-default)',
-          }}
-        >
-          <HStack spacing="md" align="center" justify="between">
-            <HStack spacing="sm" align="center">
-              <Icon size="md" color="success">
-                <ServerIcon />
-              </Icon>
-              <Label color="secondary" size="sm">Övervakad</Label>
-            </HStack>
-            <Tag variant="success" size="small" surface="subtle">Aktiv</Tag>
-          </HStack>
+          <Body size="sm" color="secondary" align="center">
+            All systems operational
+          </Body>
         </Box>
       </VStack>
     </Box>
@@ -766,60 +749,12 @@ function EditorPreview() {
 
 export function SystemSection() {
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
-  const [accentColor, setAccentColor] = useState<string>('blue');
 
-  // Map accent colors to hue-rotate values
-  const getHueRotate = (color: string): string => {
-    const hueMap: Record<string, string> = {
-      blue: '0deg',
-      purple: '30deg',
-      pink: '90deg',
-      red: '120deg',
-      orange: '150deg',
-      tangerine: '150deg',
-      green: '120deg',
-      teal: '180deg',
-      indigo: '60deg',
-      inverse: '0deg',
-    };
-    return hueMap[color] || '0deg';
-  };
-
-  // Detect theme and accent color from document
+  // Detect theme from document
   useEffect(() => {
     const checkTheme = () => {
       const theme = document.documentElement.getAttribute('data-theme');
       setIsDark(theme === 'dark');
-      
-      // Get accent color from CSS variable or design.json
-      const accentMode = document.documentElement.getAttribute('data-accent-mode');
-      if (accentMode === 'inverse') {
-        setAccentColor('inverse');
-      } else {
-        // Try to detect from CSS variable
-        const computedStyle = getComputedStyle(document.documentElement);
-        const accent500 = computedStyle.getPropertyValue('--foundation-accent-500').trim();
-        
-        // Map color values to color names (simplified approach)
-        // For now, read from design.json via fetch or use a default
-        fetch('/design/design.json')
-          .then(res => res.json())
-          .then(data => {
-            setAccentColor(data.globalStyles?.accentColor || 'blue');
-          })
-          .catch(() => {
-            // Fallback: try to detect from CSS
-            if (accent500.includes('blue') || accent500.includes('#3B82F6')) {
-              setAccentColor('blue');
-            } else if (accent500.includes('purple') || accent500.includes('#9333EA')) {
-              setAccentColor('purple');
-            } else if (accent500.includes('pink') || accent500.includes('#EC4899')) {
-              setAccentColor('pink');
-            } else {
-              setAccentColor('blue');
-            }
-          });
-      }
     };
 
     checkTheme();
@@ -827,7 +762,7 @@ export function SystemSection() {
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['data-theme', 'data-accent-mode'],
+      attributeFilter: ['data-theme'],
     });
 
     return () => observer.disconnect();
@@ -855,11 +790,16 @@ export function SystemSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <VStack spacing="md" align="center" className="system-section-header" style={{ marginBottom: 'var(--foundation-space-16)' }}>
-            <Display size="md" align="center">
-              Det som gör Blimpify annorlunda
-            </Display>
-          </VStack>
+          <FadeIn direction="up" duration={700}>
+            <VStack spacing="md" align="center" className="system-section-header">
+              <Display size="md" align="center">
+                Det som gör Blimpify annorlunda
+              </Display>
+              <Body size="lg" color="secondary" align="center" style={{ maxWidth: '600px' }}>
+                Det är därför vi kan ta ansvar för din hemsida – inte bara leverera den
+              </Body>
+            </VStack>
+          </FadeIn>
 
           {/* System Blocks - Alternating Card/Text Layout */}
           <VStack spacing="3xl" align="stretch" className="system-blocks-container">
@@ -877,83 +817,126 @@ export function SystemSection() {
                   }}
                   className="system-block-layout"
                 >
-                  {/* Text Content */}
-                  <Box
-                    style={{
-                      order: isEven ? 1 : 2,
-                      maxWidth: '300px',
-                    }}
-                    className="system-block-text"
-                  >
-                    <VStack spacing="sm" align="start" className="system-block-text-content">
-                      <H3 weight="semibold">{block.title}</H3>
-                      <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
-                        {block.description}
-                      </Body>
-                      {index === 2 && (
-                        <Body size="sm" color="tertiary" style={{ marginTop: 'var(--foundation-space-2)' }}>
-                          Byggt på beprövad infrastruktur som används av miljontals företag världen över.
-                        </Body>
-                      )}
-                    </VStack>
-                  </Box>
-
-                  {/* Editor Preview or Image */}
-                  <Box
-                    style={{
-                      order: isEven ? 2 : 1,
-                      width: '100%',
-                      maxWidth: '550px',
-                      justifySelf: isEven ? 'end' : 'start',
-                    }}
-                    className="system-block-visual"
-                  >
-                    <Box
-                      style={{
-                        position: 'relative',
-                        width: '100%',
-                        aspectRatio: '1 / 1',
-                        borderRadius: 'var(--radius-md)',
-                        overflow: 'hidden',
-                        boxShadow: 'var(--shadow-strong)',
-                        border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
-                      }}
-                    >
-                      {/* Background Image */}
-                      <Image
-                        src={getBackgroundImage(index)}
-                        alt="Background"
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
+                  {/* Text Content - Always first in DOM, positioned by grid */}
+                  {isEven ? (
+                    <>
+                      <Box
                         style={{
-                          objectFit: 'cover',
-                          filter: `hue-rotate(${getHueRotate(accentColor)})`,
+                          gridColumn: 1,
                         }}
-                        priority={index === 0}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                      />
-                      
-                      {/* Content Overlay - Only for third block (Stats) */}
-                      {block.showStats && (
-                        <Box
-                          style={{
-                            position: 'absolute',
-                            inset: 0,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            padding: 'var(--foundation-space-4)',
-                            zIndex: 2,
-                            opacity: 0.95,
-                          }}
-                        >
-                          <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
-                            <OperationsStatus />
+                        className="system-block-text"
+                      >
+                        <VStack spacing="sm" align="start" className="system-block-text-content" style={{ maxWidth: '400px' }}>
+                          <H3 weight="semibold">{block.title}</H3>
+                          <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
+                            {block.description}
+                          </Body>
+                        </VStack>
+                      </Box>
+                      <Box
+                        style={{
+                          gridColumn: 2,
+                          width: '100%',
+                          maxWidth: '550px',
+                          position: 'relative',
+                          aspectRatio: '1 / 1',
+                          borderRadius: 'var(--radius-md)',
+                          overflow: 'hidden',
+                          boxShadow: 'var(--shadow-strong)',
+                          border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
+                        }}
+                        className="system-block-visual"
+                      >
+                        <Image
+                          src={getBackgroundImage(index)}
+                          alt="Background"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
+                          style={{ objectFit: 'cover' }}
+                          priority={index === 0}
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                        />
+                        {block.showStats && (
+                          <Box
+                            style={{
+                              position: 'absolute',
+                              inset: 0,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              padding: 'var(--foundation-space-4)',
+                              zIndex: 2,
+                              opacity: 0.95,
+                            }}
+                          >
+                            <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
+                              <StatsPreview isDark={isDark} />
+                            </Box>
                           </Box>
-                        </Box>
-                      )}
-                    </Box>
-                  </Box>
+                        )}
+                      </Box>
+                    </>
+                  ) : (
+                    <>
+                      <Box
+                        style={{
+                          gridColumn: 1,
+                          width: '100%',
+                          maxWidth: '550px',
+                          position: 'relative',
+                          aspectRatio: '1 / 1',
+                          borderRadius: 'var(--radius-md)',
+                          overflow: 'hidden',
+                          boxShadow: 'var(--shadow-strong)',
+                          border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
+                        }}
+                        className="system-block-visual"
+                      >
+                        <Image
+                          src={getBackgroundImage(index)}
+                          alt="Background"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 550px"
+                          style={{ objectFit: 'cover' }}
+                          priority={index === 0}
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                        />
+                        {block.showStats && (
+                          <Box
+                            style={{
+                              position: 'absolute',
+                              inset: 0,
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              padding: 'var(--foundation-space-4)',
+                              zIndex: 2,
+                              opacity: 0.95,
+                            }}
+                          >
+                            <Box style={{ width: '100%', height: '100%', transform: 'scale(0.85)' }}>
+                              <StatsPreview isDark={isDark} />
+                            </Box>
+                          </Box>
+                        )}
+                      </Box>
+                      <Box
+                        style={{
+                          gridColumn: 2,
+                          display: 'flex',
+                          justifyContent: 'flex-end',
+                        }}
+                        className="system-block-text"
+                      >
+                        <VStack spacing="sm" align="start" className="system-block-text-content" style={{ maxWidth: '400px' }}>
+                          <H3 weight="semibold">{block.title}</H3>
+                          <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
+                            {block.description}
+                          </Body>
+                        </VStack>
+                      </Box>
+                    </>
+                  )}
                 </Box>
               );
             })}
@@ -1005,23 +988,13 @@ export function SystemSection() {
             gap: var(--foundation-space-16) !important;
           }
           
-          .system-section-header {
-            align-items: flex-start !important;
-          }
-          
-          .system-section-header h1,
-          .system-section-header h2,
-          .system-section-header h3 {
-            text-align: left !important;
-          }
-          
           .system-block-layout {
             grid-template-columns: 1fr !important;
             gap: var(--foundation-space-8) !important;
           }
           
           .system-block-text {
-            order: 2 !important;
+            order: 1 !important;
             max-width: 100% !important;
             width: 100% !important;
           }
@@ -1032,7 +1005,7 @@ export function SystemSection() {
           }
           
           .system-block-visual {
-            order: 1 !important;
+            order: 2 !important;
             max-width: 100% !important;
             width: 100% !important;
             justify-self: center !important;

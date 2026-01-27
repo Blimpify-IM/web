@@ -95,14 +95,20 @@ export function PricingSection() {
 
                     {/* Price */}
                     <VStack spacing="xs">
-                      <HStack spacing="xs" align="baseline">
+                      <HStack spacing="xs" justify='between' align="baseline">
+                        <HStack spacing='xs'>
                         <H2 weight="bold">
                           490 kr
                         </H2>
                         <Body size="md" color="tertiary">
                           /månad
                         </Body>
+                        </HStack>
+                        <Body size='xs'>
+                        exkl. moms
+                      </Body>
                       </HStack>
+
                     </VStack>
 
                     {/* Features */}
@@ -132,7 +138,6 @@ export function PricingSection() {
                         <Body size="sm">Support när något känns fel</Body>
                       </HStack>
                     </VStack>
-
                     {/* CTA Button */}
                     <Button
                       variant="accent"
@@ -143,6 +148,8 @@ export function PricingSection() {
                     >
                       Få tillgång
                     </Button>
+
+
                   </VStack>
                 </CardContent>
               </Card>
