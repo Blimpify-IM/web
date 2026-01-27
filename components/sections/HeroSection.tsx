@@ -36,6 +36,8 @@ export function HeroSection() {
   useEffect(() => {
     // Set up scroll handlers immediately
     let hasScrolled = false;
+    let rafId: number | null = null;
+    let lastRotation = -15;
     
     const handleScroll = () => {
       if (!imageRef.current || !imageReady) return;
@@ -46,20 +48,31 @@ export function HeroSection() {
         setIsInitialized(true);
       }
 
-      const windowHeight = window.innerHeight;
-      const imageRect = imageRef.current.getBoundingClientRect();
-      const imageTop = imageRect.top;
+      // Throttle with requestAnimationFrame for smooth performance
+      if (rafId !== null) return;
       
-      // Start animation when image is visible in viewport
-      // Progress: 0 when image top is at viewport bottom, 1 when image top is at viewport top
-      const scrollProgress = Math.max(0, Math.min(1, (windowHeight - imageTop) / (windowHeight * 2)));
+      rafId = requestAnimationFrame(() => {
+        rafId = null;
+        
+        const windowHeight = window.innerHeight;
+        const imageRect = imageRef.current!.getBoundingClientRect();
+        const imageTop = imageRect.top;
+        
+        // Start animation when image is visible in viewport
+        // Progress: 0 when image top is at viewport bottom, 1 when image top is at viewport top
+        const scrollProgress = Math.max(0, Math.min(1, (windowHeight - imageTop) / (windowHeight * 2)));
 
-      // Rotate from -15deg (lutar framåt) to +10deg (lutar uppåt) based on scroll
-      const minRotation = -15;
-      const maxRotation = 10;
-      const newRotation = minRotation + (maxRotation - minRotation) * scrollProgress;
-      
-      setRotation(newRotation);
+        // Rotate from -15deg (lutar framåt) to +10deg (lutar uppåt) based on scroll
+        const minRotation = -15;
+        const maxRotation = 10;
+        const newRotation = minRotation + (maxRotation - minRotation) * scrollProgress;
+        
+        // Only update state if rotation changed significantly (reduce re-renders)
+        if (Math.abs(newRotation - lastRotation) > 0.1) {
+          lastRotation = newRotation;
+          setRotation(newRotation);
+        }
+      });
     };
 
     // Set up scroll listeners immediately
@@ -87,6 +100,9 @@ export function HeroSection() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
     };
   }, [imageReady]);
   return (
@@ -238,14 +254,20 @@ export function HeroSection() {
                 borderRadius: '1rem',
                 overflow: 'hidden',
                 padding: 'var(--foundation-space-4)',
-                transform: `perspective(1000px) rotateX(${rotation}deg)`,
-                willChange: 'transform',
+                // Use translate3d for hardware acceleration and optimize for Safari
+                transform: `translate3d(0, 0, 0) perspective(1000px) rotateX(${rotation}deg)`,
+                WebkitTransform: `translate3d(0, 0, 0) perspective(1000px) rotateX(${rotation}deg)`,
+                willChange: isInitialized ? 'transform' : 'auto',
                 transformOrigin: 'center center',
+                WebkitTransformOrigin: 'center center',
+                backfaceVisibility: 'hidden',
+                WebkitBackfaceVisibility: 'hidden',
                 maxWidth: '85%',
                 margin: '0 auto',
                 opacity: imageReady ? 1 : 0,
+                // Only transition opacity, not transform (transform is updated via scroll)
                 transition: imageReady 
-                  ? (isInitialized ? 'transform 0.1s ease-out, opacity 0.6s ease-out' : 'opacity 0.6s ease-out')
+                  ? (isInitialized ? 'opacity 0.6s ease-out' : 'opacity 0.6s ease-out')
                   : 'none',
               }}
             >
@@ -316,6 +338,12 @@ export function HeroSection() {
         /* Force specific radius on hero image - not affected by design.json */
         .hero-image-container {
           border-radius: 1rem !important;
+          /* Safari optimization for 3D transforms */
+          -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          /* Force GPU acceleration */
+          -webkit-perspective: 1000px;
+          perspective: 1000px;
         }
         
         .hero-image-inner {
