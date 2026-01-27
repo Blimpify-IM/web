@@ -143,7 +143,7 @@ export function ScrollSection() {
             marginBottom: 'var(--space-lg)',
           }}
         >
-          En bekväm process
+          Vår process
         </H1>
         <div
           className="scroll-section-grid"
@@ -178,7 +178,7 @@ export function ScrollSection() {
                   padding: 'var(--foundation-space-4)',
                 }}
               >
-                En bekväm process
+               vår process 
               </H1>
             </VStack>
 
@@ -252,19 +252,21 @@ export function ScrollSection() {
                     >
                       <OverflowContainer direction="right" spillAmount={220}>
                         <Box
+                          className="scroll-section-image-container"
                           style={{
                             position: 'relative',
-                            borderRadius: 'var(--radius-xl)',
+                            borderRadius: '1.5rem',
                             overflow: 'hidden',
                             transition: 'box-shadow 0.3s ease',
                             padding: 'var(--foundation-space-4)',
                           }}
                         >
                           <Box
+                            className="scroll-section-image-inner"
                             style={{
                               position: 'relative',
                               zIndex: 1,
-                              borderRadius: 'var(--radius-xl)',
+                              borderRadius: '1.5rem',
                               overflow: 'hidden',
                               padding: 'var(--foundation-space-3)',
                               backgroundColor: 'transparent',
@@ -276,11 +278,12 @@ export function ScrollSection() {
                               width={1200}
                               height={800}
                               loading="lazy"
+                              className="scroll-section-image"
                               style={{
                                 width: '100%',
                                 height: 'auto',
                                 display: 'block',
-                                borderRadius: 'var(--radius-xl)',
+                                borderRadius: '1.5rem',
                                 backgroundColor: 'var(--surface-page)',
                               }}
                             />
@@ -334,11 +337,11 @@ export function ScrollSection() {
 
         @media (max-width: 1024px) {
           .scroll-section-mobile-title {
-            font-size: 2.1rem !important;
-            line-height: 1.2 !important;
-            font-weight: 700 !important;
-            letter-spacing: -0.02em !important;
-            margin-bottom: var(--foundation-space-8) !important;
+            display: none !important;
+          }
+          
+          .scroll-section-header-title {
+            display: none !important;
           }
         }
 
@@ -349,6 +352,21 @@ export function ScrollSection() {
 
           .scroll-section-mobile-title {
             display: none !important;
+          }
+        }
+        
+        /* Force specific radius on scroll section images - slightly more than hero image */
+        .scroll-section-image-container,
+        .scroll-section-image-inner,
+        .scroll-section-image {
+          border-radius: 1.6rem !important;
+        }
+        
+        @media (max-width: 768px) {
+          .scroll-section-image-container,
+          .scroll-section-image-inner,
+          .scroll-section-image {
+            border-radius: 1rem !important;
           }
         }
       `}</style>

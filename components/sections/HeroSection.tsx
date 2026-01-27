@@ -226,15 +226,16 @@ export function HeroSection() {
           </FadeIn>
         </VStack>
       </Container>
-      <Container useMediaWidth style={{ position: 'relative', zIndex: 1, overflow: 'visible', marginTop: 'var(--foundation-space-24)' }}>
+      <Container useMediaWidth className="hero-image-container-wrapper" style={{ position: 'relative', zIndex: 1, overflow: 'visible', marginTop: 'var(--foundation-space-24)' }}>
         {/* Dashboard Mockup */}
         <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
           <OverflowContainer direction="right" spillAmount={200} className="hero-overflow">
             <Box
               ref={imageRef}
+              className="hero-image-container"
               style={{
                 position: 'relative',
-                borderRadius: 'var(--radius-xl)',
+                borderRadius: '1rem',
                 overflow: 'hidden',
                 padding: 'var(--foundation-space-4)',
                 transform: `perspective(1000px) rotateX(${rotation}deg)`,
@@ -249,10 +250,11 @@ export function HeroSection() {
               }}
             >
               <Box
+                className="hero-image-inner"
                 style={{
                   position: 'relative',
                   zIndex: 1,
-                  borderRadius: 'var(--radius-xl)',
+                  borderRadius: '1rem',
                   overflow: 'hidden',
                   padding: 'var(--foundation-space-3)',
                   backgroundColor: 'transparent',
@@ -269,7 +271,7 @@ export function HeroSection() {
                     width: '100%',
                     height: 'auto',
                     display: 'block',
-                    borderRadius: 'var(--radius-xl)',
+                    borderRadius: '1rem',
                     boxShadow: 'var(--shadow-strong)',
                     backgroundColor: 'var(--surface-page)',
                   }}
@@ -297,6 +299,19 @@ export function HeroSection() {
           animation: fadeInClouds 1.2s ease-out forwards;
         }
         
+        /* Force specific radius on hero image - not affected by design.json */
+        .hero-image-container {
+          border-radius: 1rem !important;
+        }
+        
+        .hero-image-inner {
+          border-radius: 1rem !important;
+        }
+        
+        .hero-image {
+          border-radius: 1rem !important;
+        }
+        
         .hero-text-desktop {
           display: block;
         }
@@ -314,27 +329,24 @@ export function HeroSection() {
         
         .hero-cta-button {
           transition: all 0.2s ease-out;
-          background-color: rgba(250, 245, 240, 0.6) !important;
-          border-color: rgba(220, 210, 200, 0.4) !important;
-          color: rgba(60, 55, 50, 0.9) !important;
-          backdrop-filter: blur(8px);
+          background-color: rgba(20, 18, 16, 0.95) !important;
+          color: rgba(250, 248, 245, 0.98) !important;
+          border-color: rgba(40, 35, 30, 0.3) !important;
         }
         
         [data-theme='dark'] .hero-cta-button {
-          background-color: rgba(40, 35, 30, 0.7) !important;
-          border-color: rgba(80, 70, 60, 0.5) !important;
-          color: rgba(240, 235, 230, 0.95) !important;
+          background-color: rgba(245, 240, 235, 0.95) !important;
+          color: rgba(20, 18, 16, 0.98) !important;
+          border-color: rgba(220, 210, 200, 0.3) !important;
         }
         
         .hero-cta-button:hover {
-          background-color: rgba(250, 245, 240, 0.8) !important;
-          border-color: rgba(200, 190, 180, 0.5) !important;
+          background-color: rgba(25, 22, 20, 1) !important;
           transform: translateY(-1px);
         }
         
         [data-theme='dark'] .hero-cta-button:hover {
-          background-color: rgba(50, 45, 40, 0.85) !important;
-          border-color: rgba(100, 90, 80, 0.6) !important;
+          background-color: rgba(250, 245, 240, 1) !important;
         }
         
         /* Desktop: disable overflow spill on hero image */
@@ -342,6 +354,20 @@ export function HeroSection() {
           .hero-overflow {
             width: 100% !important;
             margin-right: 0 !important;
+          }
+        }
+        
+        /* Mobile: prevent overflow and center image */
+        @media (max-width: 768px) {
+          .hero-overflow {
+            width: 100% !important;
+            margin-right: 0 !important;
+            overflow: hidden !important;
+          }
+          
+          .hero-image-container-wrapper {
+            padding-left: var(--foundation-space-4) !important;
+            padding-right: var(--foundation-space-4) !important;
           }
         }
 
@@ -369,8 +395,35 @@ export function HeroSection() {
             display: block;
           }
           
+          .hero-image-container-wrapper {
+            margin-top: var(--foundation-space-8) !important;
+            padding-left: var(--foundation-space-2) !important;
+            padding-right: var(--foundation-space-2) !important;
+            overflow: hidden !important;
+            width: 100% !important;
+            max-width: 100% !important;
+          }
+          
+          .hero-overflow {
+            width: 100% !important;
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+            overflow: hidden !important;
+            padding: 0 !important;
+          }
+          
+          .hero-image-container {
+            max-width: 100% !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            padding-left: var(--foundation-space-2) !important;
+            padding-right: var(--foundation-space-2) !important;
+          }
+          
+          .hero-image-container,
+          .hero-image-inner,
           .hero-image {
-            border-radius: var(--radius-sm) !important;
+            border-radius: 0.5rem !important;
           }
         }
         

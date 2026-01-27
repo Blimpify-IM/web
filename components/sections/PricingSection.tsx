@@ -56,7 +56,7 @@ export function PricingSection() {
           <FadeIn direction="up" duration={700}>
             <VStack spacing="md" align="center">
               <Display size='md'>
-                Hur kan Blimpify hjälpa ditt företag?
+                Hur kan vi hjälpa ditt företag?
               </Display>
             </VStack>
           </FadeIn>
@@ -95,20 +95,17 @@ export function PricingSection() {
 
                     {/* Price */}
                     <VStack spacing="xs">
-                      <HStack spacing="xs" justify='between' align="baseline">
-                        <HStack spacing='xs'>
+                      <HStack spacing="xs" align="baseline">
                         <H2 weight="bold">
                           490 kr
                         </H2>
                         <Body size="md" color="tertiary">
                           /månad
                         </Body>
-                        </HStack>
-                        <Body size='xs'>
+                      </HStack>
+                      <Body size="xs" color="tertiary" style={{ marginTop: '-0.25rem' }}>
                         exkl. moms
                       </Body>
-                      </HStack>
-
                     </VStack>
 
                     {/* Features */}
@@ -145,6 +142,7 @@ export function PricingSection() {
                       fullWidth
                       href="https://app.blimpify-im.com/waitlist"
                       target="_blank"
+                      className="pricing-access-button"
                     >
                       Få tillgång
                     </Button>
@@ -220,6 +218,7 @@ export function PricingSection() {
                         variant="secondary"
                         size="lg"
                         fullWidth
+                        className="pricing-contact-button"
                       >
                         Kontakta oss
                       </Button>
@@ -241,6 +240,55 @@ export function PricingSection() {
         
         [data-theme="dark"] .pricing-checkmark {
           color: #ffffff !important;
+        }
+        
+        /* Pricing Access Button - same as navbar "Få tillgång" (krämiga färger) */
+        .pricing-access-button {
+          transition: all 0.2s ease-out;
+          background-color: rgba(250, 245, 240, 0.6) !important;
+          border-color: rgba(220, 210, 200, 0.4) !important;
+          color: rgba(60, 55, 50, 0.9) !important;
+          backdrop-filter: blur(8px);
+        }
+        
+        [data-theme='dark'] .pricing-access-button {
+          background-color: rgba(40, 35, 30, 0.7) !important;
+          border-color: rgba(80, 70, 60, 0.5) !important;
+          color: rgba(240, 235, 230, 0.95) !important;
+        }
+        
+        .pricing-access-button:hover {
+          background-color: rgba(250, 245, 240, 0.8) !important;
+          border-color: rgba(200, 190, 180, 0.5) !important;
+          transform: translateY(-1px);
+        }
+        
+        [data-theme='dark'] .pricing-access-button:hover {
+          background-color: rgba(50, 45, 40, 0.85) !important;
+          border-color: rgba(100, 90, 80, 0.6) !important;
+        }
+        
+        /* Pricing Contact Button - same as hero CTA "Var med ifrån början" (svart/vit) */
+        .pricing-contact-button {
+          transition: all 0.2s ease-out;
+          background-color: rgba(20, 18, 16, 0.95) !important;
+          color: rgba(250, 248, 245, 0.98) !important;
+          border-color: rgba(40, 35, 30, 0.3) !important;
+        }
+        
+        [data-theme='dark'] .pricing-contact-button {
+          background-color: rgba(245, 240, 235, 0.95) !important;
+          color: rgba(20, 18, 16, 0.98) !important;
+          border-color: rgba(220, 210, 200, 0.3) !important;
+        }
+        
+        .pricing-contact-button:hover {
+          background-color: rgba(25, 22, 20, 1) !important;
+          transform: translateY(-1px);
+        }
+        
+        [data-theme='dark'] .pricing-contact-button:hover {
+          background-color: rgba(250, 245, 240, 1) !important;
         }
         
         @media (max-width: 1024px) {

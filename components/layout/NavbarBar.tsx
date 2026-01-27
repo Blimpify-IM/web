@@ -168,10 +168,18 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           </HStack>
 
           <HStack spacing="sm">
-            <Button variant="ghost" href="https://app.blimpify-im.com/login">
+            <Button 
+              variant="ghost" 
+              href="https://app.blimpify-im.com/login"
+              className="navbar-login-button"
+            >
               Logga in
             </Button>
-            <Button variant="accent" href="https://app.blimpify-im.com/waitlist">
+            <Button 
+              variant="accent" 
+              href="https://app.blimpify-im.com/waitlist"
+              className="navbar-access-button"
+            >
               Få tillgång
             </Button>
             <IconButton
@@ -258,7 +266,12 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
               distance={DISTANCE}
               enableScrollTrigger={false}
             >
-              <Button variant="secondary" href="https://app.blimpify-im.com/login" style={{ width: '100%' }}>
+              <Button 
+                variant="secondary" 
+                href="https://app.blimpify-im.com/login" 
+                className="navbar-login-button"
+                style={{ width: '100%' }}
+              >
                 Logga in
               </Button>
             </FadeIn>
@@ -270,7 +283,12 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
               distance={DISTANCE}
               enableScrollTrigger={false}
             >
-              <Button variant="accent" href="https://app.blimpify-im.com/waitlist" style={{ width: '100%' }}>
+              <Button 
+                variant="accent" 
+                href="https://app.blimpify-im.com/waitlist" 
+                className="navbar-access-button"
+                style={{ width: '100%' }}
+              >
                 Kom igång
               </Button>
             </FadeIn>
@@ -279,6 +297,41 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
       </Drawer>
 
       <style jsx global>{`
+        .navbar-login-button {
+          background-color: var(--surface-raised) !important;
+          border: 1px solid var(--border-subtle) !important;
+        }
+        
+        .navbar-login-button:hover {
+          background-color: var(--surface-hover) !important;
+          border-color: var(--border-default) !important;
+        }
+        
+        .navbar-access-button {
+          transition: all 0.2s ease-out;
+          background-color: rgba(250, 245, 240, 0.6) !important;
+          border-color: rgba(220, 210, 200, 0.4) !important;
+          color: rgba(60, 55, 50, 0.9) !important;
+          backdrop-filter: blur(8px);
+        }
+        
+        [data-theme='dark'] .navbar-access-button {
+          background-color: rgba(40, 35, 30, 0.7) !important;
+          border-color: rgba(80, 70, 60, 0.5) !important;
+          color: rgba(240, 235, 230, 0.95) !important;
+        }
+        
+        .navbar-access-button:hover {
+          background-color: rgba(250, 245, 240, 0.8) !important;
+          border-color: rgba(200, 190, 180, 0.5) !important;
+          transform: translateY(-1px);
+        }
+        
+        [data-theme='dark'] .navbar-access-button:hover {
+          background-color: rgba(50, 45, 40, 0.85) !important;
+          border-color: rgba(100, 90, 80, 0.6) !important;
+        }
+        
         @media (max-width: 1124px) {
           .navbar-bar__content {
             display: none !important;

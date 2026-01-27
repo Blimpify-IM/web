@@ -72,6 +72,7 @@ const truncateWords = (text: string, maxWords: number): string => {
 export function TestimonialsSection() {
   const MAX_WORDS = 30; // Maximum number of words to show
   const [isMobile, setIsMobile] = useState(false);
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -83,14 +84,55 @@ export function TestimonialsSection() {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  // Detect theme from document
+  useEffect(() => {
+    const checkTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      setIsDark(theme === 'dark');
+    };
+
+    // Check initial theme
+    checkTheme();
+
+    // Watch for theme changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Section
       id="testimonials"
       style={{
         background: 'var(--surface-page)',
+        position: 'relative',
+        overflow: 'visible',
+        overflowX: 'clip',
       }}
     >
-      <Container>
+      {/* Cloud layer - transparent PNG */}
+      <div
+        className="testimonials-clouds"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url(/assets/${isDark ? 'trans-cloud-dark.png' : 'cloudy.png'})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          pointerEvents: 'none',
+          zIndex: 0,
+          opacity: 0.6,
+          maskImage: 'linear-gradient(to bottom, transparent 0%, transparent 8%, black 20%, black 80%, transparent 92%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, transparent 8%, black 20%, black 80%, transparent 92%, transparent 100%)',
+        }}
+      />
+      
+      <Container style={{ position: 'relative', zIndex: 1 }}>
         <VStack spacing="3xl">
           {/* Header */}
           <FadeIn direction="up" duration={700}>
@@ -99,8 +141,9 @@ export function TestimonialsSection() {
                 <Display
                   size="md"
                   align={isMobile ? "left" : "center"}
+                  className="testimonials-header"
                 >
-                  Vad våra klienter säger om oss
+                  Vad säger <span className="testimonials-header-break"><br /></span>våra kunder?
                 </Display>
               </VStack>
             </VStack>
@@ -224,6 +267,48 @@ export function TestimonialsSection() {
           </FadeIn>
         </VStack>
       </Container>
+      
+      <style jsx global>{`
+        .testimonials-header-break {
+          display: none;
+        }
+        
+        .testimonials-header-break::before {
+          content: ' ';
+        }
+        
+        @media (max-width: 768px) {
+          .testimonials-header-break {
+            display: inline;
+          }
+          
+          .testimonials-header-break::before {
+            content: '';
+          }
+        }
+        
+        .testimonials-clouds {
+          animation: fadeInClouds 1.2s ease-out forwards;
+        }
+        
+        @keyframes fadeInClouds {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 0.6;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .testimonials-clouds {
+            background-size: 150% auto !important;
+            background-position: center center !important;
+            mask-image: linear-gradient(to bottom, transparent 0%, transparent 5%, black 18%, black 82%, transparent 95%, transparent 100%) !important;
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 5%, black 18%, black 82%, transparent 95%, transparent 100%) !important;
+          }
+        }
+      `}</style>
     </Section>
   );
 }

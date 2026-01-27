@@ -1,7 +1,7 @@
 {
   "globalStyles": {
     "themeMode": "system",
-    "radius": "xl",
+    "radius": "full",
     "formWidth": "md",
     "themeTone": "pure",
     "accentColor": "inverse",
