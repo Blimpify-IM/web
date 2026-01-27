@@ -108,27 +108,27 @@ export function PricingSection() {
                     {/* Features */}
                     <VStack spacing="sm" style={{ flex: 1 }}>
                       <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">En professionell hemsida, framtagen utifrån dina val</Body>
                       </HStack>
                       <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Struktur och grund som fungerar över tid</Body>
                       </HStack>
-                      <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                      <HStack spacing="sm" className="pricing-feature-mobile-hide">
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Möjlighet att justera text, färger och detaljer vid behov</Body>
                       </HStack>
                       <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Hjälp med domänkoppling och publicering</Body>
                       </HStack>
-                      <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                      <HStack spacing="sm" className="pricing-feature-mobile-hide">
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Överblick över hur hemsidan används</Body>
                       </HStack>
                       <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Support när något känns fel</Body>
                       </HStack>
                     </VStack>
@@ -186,23 +186,23 @@ export function PricingSection() {
                     {/* Features */}
                     <VStack spacing="sm" style={{ flex: 1 }}>
                       <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Ett större projekt med tydlig projektledning</Body>
                       </HStack>
                       <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Lösningar anpassade efter er verksamhet och era flöden</Body>
                       </HStack>
-                      <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                      <HStack spacing="sm" className="pricing-feature-mobile-hide">
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Stöd för mer avancerad funktionalitet vid behov</Body>
                       </HStack>
                       <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">En dedikerad kontakt och långsiktigt samarbete</Body>
                       </HStack>
                       <HStack spacing="sm">
-                        <span style={{ color: 'var(--success-text)', flexShrink: 0 }}>✓</span>
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
                         <Body size="sm">Avtal och upplägg anpassade efter omfattning och krav</Body>
                       </HStack>
                     </VStack>
@@ -227,9 +227,22 @@ export function PricingSection() {
 
       {/* Responsive Styles */}
       <style jsx global>{`
+        /* Checkmark colors based on theme */
+        [data-theme="light"] .pricing-checkmark {
+          color: #000000 !important;
+        }
+        
+        [data-theme="dark"] .pricing-checkmark {
+          color: #ffffff !important;
+        }
+        
         @media (max-width: 1024px) {
           .pricing-grid {
             grid-template-columns: 1fr !important;
+          }
+          
+          .pricing-feature-mobile-hide {
+            display: none !important;
           }
         }
 
