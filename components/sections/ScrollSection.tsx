@@ -338,6 +338,7 @@ export function ScrollSection() {
             line-height: 1.2 !important;
             font-weight: 700 !important;
             letter-spacing: -0.02em !important;
+            margin-bottom: var(--foundation-space-8) !important;
           }
         }
 

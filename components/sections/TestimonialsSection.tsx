@@ -95,9 +95,14 @@ export function TestimonialsSection() {
           {/* Header */}
           <FadeIn direction="up" duration={700}>
             <VStack spacing="md" align="center">
-              <Display size='md' align="center">
-                Vad våra klienter säger om oss
-              </Display>
+              <VStack spacing="md" align={isMobile ? "start" : "center"}>
+                <Display
+                  size="md"
+                  align={isMobile ? "left" : "center"}
+                >
+                  Vad våra klienter säger om oss
+                </Display>
+              </VStack>
             </VStack>
           </FadeIn>
 
