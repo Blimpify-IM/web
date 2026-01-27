@@ -16,6 +16,7 @@ import {
   AccordionItem,
   useScrollAnimation,
   Display,
+  H1,
 } from '@blimpify-im/ui';
 
 interface ScrollItem {
@@ -119,8 +120,10 @@ export function ScrollSection() {
             inset: 0,
             backgroundImage: `url(${isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy.png'})`,
             backgroundSize: 'cover',
+
             backgroundPosition: 'right center',
             backgroundRepeat: 'no-repeat',
+            opacity: isDark ? 0.5 : 0.75 ,
           }}
         />
         <Box
@@ -132,6 +135,16 @@ export function ScrollSection() {
         />
       </Box>
       <Container style={{ position: 'relative', zIndex: 1 }}>
+        <H1
+          weight="bold"
+          className="scroll-section-mobile-title"
+          style={{
+            margin: 0,
+            marginBottom: 'var(--space-lg)',
+          }}
+        >
+          En bekväm process
+        </H1>
         <div
           className="scroll-section-grid"
           style={{
@@ -157,7 +170,7 @@ export function ScrollSection() {
               align="stretch"
               className="scroll-section-header"
             >
-              <H2
+              <H1
                 weight="bold"
                 className="scroll-section-header-title"
                 style={{
@@ -165,8 +178,8 @@ export function ScrollSection() {
                   padding: 'var(--foundation-space-4)',
                 }}
               >
-                En enkel process
-              </H2>
+                En bekväm process
+              </H1>
             </VStack>
 
             <Accordion
@@ -311,10 +324,29 @@ export function ScrollSection() {
             margin-bottom: 0 !important;
             letter-spacing: -0.02em !important;
           }
+
+          .scroll-section-mobile-text h3 {
+            font-size: 1.5rem !important;
+            font-weight: 800 !important;
+            line-height: 1.4 !important;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .scroll-section-mobile-title {
+            font-size: 2.1rem !important;
+            line-height: 1.2 !important;
+            font-weight: 700 !important;
+            letter-spacing: -0.02em !important;
+          }
         }
 
         @media (min-width: 1025px) {
           .scroll-section-mobile-text {
+            display: none !important;
+          }
+
+          .scroll-section-mobile-title {
             display: none !important;
           }
         }

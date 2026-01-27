@@ -143,7 +143,7 @@ export function HeroSection() {
       <Container useMediaWidth style={{ position: 'relative', zIndex: 1, overflow: 'visible' }}>
         {/* Dashboard Mockup */}
         <Opacity duration={1000} delay={600} enableScrollTrigger={false}>
-          <OverflowContainer direction="right" spillAmount={250} className="hero-overflow">
+          <OverflowContainer direction="right" spillAmount={200} className="hero-overflow">
             <Box
               style={{
                 position: 'relative',
