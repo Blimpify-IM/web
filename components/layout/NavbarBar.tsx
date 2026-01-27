@@ -11,6 +11,7 @@ import {
   Logo,
   Drawer,
   Icon,
+  FadeIn,
 } from '@blimpify-im/ui';
 import { Menu, X } from 'lucide-react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
@@ -19,12 +20,15 @@ export interface NavbarBarProps {
   menuAlign?: 'left' | 'center' | 'right';
 }
 
-export function NavbarBar({
-  menuAlign = 'center',
-}: NavbarBarProps) {
+export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // 🔹 animation config (ONLY used in mobile drawer)
+  const STAGGER = 60;
+  const DURATION = 420;
+  const DISTANCE = 20;
 
   // Detect and handle theme
   useEffect(() => {
@@ -33,10 +37,8 @@ export function NavbarBar({
       setIsDark(theme === 'dark');
     };
 
-    // Check initial theme
     checkTheme();
 
-    // Watch for theme changes
     const observer = new MutationObserver(checkTheme);
     observer.observe(document.documentElement, {
       attributes: true,
@@ -50,36 +52,22 @@ export function NavbarBar({
     const newTheme = isDark ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', newTheme);
     document.documentElement.style.setProperty('--is-dark', newTheme === 'dark' ? '1' : '0');
-    
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
 
-    // Save to localStorage
-    if (typeof window !== 'undefined') {
-      const currentConfig = JSON.parse(localStorage.getItem('blimpify-theme-config') || '{}');
-      localStorage.setItem('blimpify-theme-config', JSON.stringify({
-        ...currentConfig,
-        themeMode: newTheme,
-      }));
-      
-      // Dispatch custom event for theme change
-      window.dispatchEvent(new Event('theme-changed'));
-    }
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+
+    const currentConfig = JSON.parse(localStorage.getItem('blimpify-theme-config') || '{}');
+    localStorage.setItem(
+      'blimpify-theme-config',
+      JSON.stringify({ ...currentConfig, themeMode: newTheme })
+    );
+
+    window.dispatchEvent(new Event('theme-changed'));
   };
 
-  // Handle scroll behavior for transparent → glass transition
+  // Scroll glass effect
   useEffect(() => {
-    const handleScroll = () => {
-      // Threshold of 8px feels snappy
-      setIsScrolled(window.scrollY > 8);
-    };
-
-    // Run on mount to handle page loads when already scrolled
+    const handleScroll = () => setIsScrolled(window.scrollY > 8);
     handleScroll();
-
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -90,9 +78,7 @@ export function NavbarBar({
     const handleResize = () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-        if (window.innerWidth > 1024) {
-          setMobileOpen(false);
-        }
+        if (window.innerWidth > 1024) setMobileOpen(false);
       }, 50);
     };
     window.addEventListener('resize', handleResize);
@@ -100,30 +86,22 @@ export function NavbarBar({
   }, []);
 
   const menuItems = [
-    { href: '/#scroll-section', label: 'Vårt ansvar', hash: 'scroll-section' },
-    { href: '/#system-section', label: 'Annorlunda', hash: 'system-section' },
+    { href: '/#scroll-section', label: 'Process', hash: 'scroll-section' },
+    { href: '/#system-section', label: 'Tjänster', hash: 'system-section' },
     { href: '/#testimonials', label: 'Testimonials', hash: 'testimonials' },
     { href: '/#pricing', label: 'Priser', hash: 'pricing' },
     { href: '/#faq', label: 'FAQ', hash: 'faq' },
   ];
 
-  // Handle hash navigation when clicking from other pages
   const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     const currentPath = window.location.pathname;
-    
-    // If we're on the home page, let default behavior handle it
+
     if (currentPath === '/') {
-      // Already on home page, just scroll
       e.preventDefault();
-      const element = document.getElementById(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
-    
-    // If we're on another page, navigate to home first
-    // The HashScrollHandler will handle scrolling after navigation
+
     e.preventDefault();
     window.location.href = `/#${hash}`;
   };
@@ -136,8 +114,6 @@ export function NavbarBar({
         top: 0,
         zIndex: 50,
         width: '100%',
-        transition: 'background 0.25s ease, backdrop-filter 0.25s ease, border-color 0.25s ease',
-        // Transparent at top, glass when scrolled
         background: isScrolled
           ? 'color-mix(in srgb, var(--surface-page) 75%, transparent)'
           : 'transparent',
@@ -157,55 +133,32 @@ export function NavbarBar({
           maxWidth: 'var(--width-navbar)',
           margin: '0 auto',
           padding: 'var(--space-navbar)',
-          position: 'relative',
         }}
       >
-        {/* LEFT - Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--foundation-space-2)', flexShrink: 0 }}>
-          <Logo
-            src="/assets/Blimpify AB logo.png"
-            alt="Blimpify"
-            width={36}
-            height={36}
-            border='default'
-            color="auto"
-            radius="lg"
-            textSize="lg"
-            textWeight="extrabold"
-            gap="sm"
-            href="/"
-            text="blimpify"
-          />
-        </div>
+        <Logo
+          src="/assets/Blimpify AB logo.png"
+          alt="Blimpify"
+          width={36}
+          height={36}
+          border="default"
+          color="auto"
+          radius="lg"
+          text="blimpify"
+          textSize="lg"
+          textWeight="extrabold"
+          href="/"
+        />
 
-        {/* DESKTOP CONTENT */}
-        <div
-          className="navbar-bar__content"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            flexDirection: 'row',
-            flex: 1,
-            justifyContent: 'flex-end',
-            gap: 'var(--foundation-space-8)',
-          }}
-        >
-          {/* Menu Items */}
+        {/* DESKTOP CONTENT – ORÖRD */}
+        <div className="navbar-bar__content">
           <HStack
             className={`navbar-bar__middle navbar-bar__middle--${menuAlign}`}
             spacing="lg"
-            style={{
-              flexGrow: 1,
-              flexShrink: 0,
-              justifyContent: menuAlign === 'left' ? 'flex-start' : menuAlign === 'right' ? 'flex-end' : 'center',
-              gap: 'var(--foundation-space-5)',
-              minWidth: 0,
-            }}
           >
             {menuItems.map((item, i) => (
-              <TextLink 
-                key={i} 
-                href={item.href} 
+              <TextLink
+                key={i}
+                href={item.href}
                 size="md"
                 onClick={(e) => item.hash && handleHashClick(e, item.hash)}
               >
@@ -214,18 +167,16 @@ export function NavbarBar({
             ))}
           </HStack>
 
-          {/* Action Buttons */}
-          <HStack spacing="sm" style={{ flexShrink: 0, gap: 'var(--foundation-space-2)' }}>
-            <Button variant="ghost" href="https://app.blimpify-im.com/login" target="_blank">
+          <HStack spacing="sm">
+            <Button variant="ghost" href="https://app.blimpify-im.com/login">
               Logga in
             </Button>
-            <Button variant="accent" href="https://app.blimpify-im.com/waitlist" target="_blank">
-            Få tillgång
+            <Button variant="accent" href="https://app.blimpify-im.com/waitlist">
+              Få tillgång
             </Button>
             <IconButton
               variant="secondary"
               size="md"
-              aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
               onClick={toggleTheme}
               icon={
                 <Icon size="md" color="button-ghost">
@@ -236,12 +187,11 @@ export function NavbarBar({
           </HStack>
         </div>
 
-        {/* MOBILE ACTIONS - Theme Toggle + Menu Toggle */}
-        <HStack spacing="sm" className="navbar-bar__mobile-actions" style={{ display: 'none', gap: 'var(--foundation-space-2)' }}>
+        {/* MOBILE ACTIONS – EXAKT SOM FÖRUT */}
+        <HStack spacing="sm" className="navbar-bar__mobile-actions" style={{ display: 'none' }}>
           <IconButton
             variant="ghost"
             size="md"
-            aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
             onClick={toggleTheme}
             icon={
               <Icon size="md" color="button-ghost">
@@ -249,76 +199,87 @@ export function NavbarBar({
               </Icon>
             }
           />
-        <IconButton
-          variant="ghost"
-          size="md"
-          aria-label="Toggle menu"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          style={{
-            color: 'var(--icon-strong)',
-          }}
-          icon={mobileOpen ? <X /> : <Menu />}
-        />
+          <IconButton
+            variant="ghost"
+            size="md"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            icon={mobileOpen ? <X /> : <Menu />}
+          />
         </HStack>
       </Box>
 
-      {/* MOBILE DRAWER */}
+      {/* MOBILE DRAWER – ENDA ÄNDRINGEN: STAGGER */}
       <Drawer
         isOpen={mobileOpen}
         onClose={() => setMobileOpen(false)}
-        showCloseButton={false}
         preventScroll
         type="top"
+        className="drawer-variant-fullscreen"
+        showCloseButton={false}
       >
-        <VStack spacing="lg" align="stretch" style={{ padding: 'var(--foundation-space-6)' }}>
-          {/* Menu Items */}
+        <VStack
+          spacing="lg"
+          align="start"
+          style={{
+            padding: 'var(--foundation-space-6)',
+            paddingLeft: 'var(--foundation-space-4)',
+          }}
+        >
           {menuItems.map((item, i) => (
-            <TextLink
-              key={i}
-              href={item.href}
-              size="lg"
-              onClick={(e) => {
-                setMobileOpen(false);
-                if (item.hash) {
-                  handleHashClick(e, item.hash);
-                }
-              }}
+            <FadeIn
+              key={item.label}
+              direction="down"
+              duration={DURATION}
+              delay={i * STAGGER}
+              distance={DISTANCE}
+              enableScrollTrigger={false}
             >
-              {item.label}
-            </TextLink>
+              <TextLink
+                href={item.href}
+                size="lg"
+                onClick={(e) => {
+                  setMobileOpen(false);
+                  if (item.hash) handleHashClick(e, item.hash);
+                }}
+              >
+                {item.label}
+              </TextLink>
+            </FadeIn>
           ))}
 
-          {/* Action Buttons */}
-          <VStack spacing="sm" style={{ marginTop: 'var(--foundation-space-4)' }}>
-            <Button
-              variant="ghost"
-              href="https://app.blimpify-im.com/login"
-              target="_blank"
-              onClick={() => setMobileOpen(false)}
-              style={{ width: '100%' }}
+          <VStack spacing="sm" align="start" style={{ marginTop: 'var(--foundation-space-4)' }}>
+            <FadeIn
+              direction="down"
+              duration={DURATION}
+              delay={menuItems.length * STAGGER}
+              distance={DISTANCE}
+              enableScrollTrigger={false}
             >
-              Logga in
-            </Button>
-            <Button
-              variant="accent"
-                     href="https://app.blimpify-im.com/waitlist"
-              target="_blank"
-              onClick={() => setMobileOpen(false)}
-              style={{ width: '100%' }}
+              <Button variant="secondary" href="https://app.blimpify-im.com/login" style={{ width: '100%' }}>
+                Logga in
+              </Button>
+            </FadeIn>
+
+            <FadeIn
+              direction="down"
+              duration={DURATION}
+              delay={(menuItems.length + 1) * STAGGER}
+              distance={DISTANCE}
+              enableScrollTrigger={false}
             >
-              Kom igång
-            </Button>
+              <Button variant="accent" href="https://app.blimpify-im.com/waitlist" style={{ width: '100%' }}>
+                Kom igång
+              </Button>
+            </FadeIn>
           </VStack>
         </VStack>
       </Drawer>
 
-      {/* Responsive Styles */}
       <style jsx global>{`
-        @media (max-width: 1024px) {
+        @media (max-width: 1124px) {
           .navbar-bar__content {
             display: none !important;
           }
-
           .navbar-bar__mobile-actions {
             display: flex !important;
           }
@@ -327,4 +288,3 @@ export function NavbarBar({
     </nav>
   );
 }
-
