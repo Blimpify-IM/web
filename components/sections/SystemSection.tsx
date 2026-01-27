@@ -72,13 +72,13 @@ const systemBlocks: SystemBlock[] = [
   {
     title: 'Ett sammanhållet system',
     description:
-      'Din hemsida byggs i Blimpifys egna plattform vilket gör att vi kan ta fullt ansvar för design, struktur och helhet.',
+      'Din hemsida byggs i Blimpifys system, vilket gör att vi kan ta fullt ansvar för design, struktur och helhet över tid.',
     showEditor: true,
   },
   {
     title: 'Design som håller över tid',
     description:
-      'Ett eget design och UI system gör att din hemsida kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om från grunden.',
+      'Ett eget design- och UI-system gör att din hemsida kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om.',
     showDocumentation: true,
   },
   {

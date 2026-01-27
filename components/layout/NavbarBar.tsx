@@ -178,7 +178,6 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             <Button 
               variant="accent" 
               href="https://app.blimpify-im.com/waitlist"
-              className="navbar-access-button"
             >
               Få tillgång
             </Button>

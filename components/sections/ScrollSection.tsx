@@ -31,7 +31,7 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Sätt riktningen',
     description:
-      'Skapa ett konto och skicka in dina val, mal och önskemal. Inga tekniska beslut.',
+      'Skapa ett konto och skicka in dina val och önskemål. Inga tekniska beslut.',
     imageLight: '/assets/order.png',
     imageDark: '/assets/order-dark.png',
     imageAlt: 'Satt riktningen',
@@ -39,7 +39,7 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Vi tar fram hemsidan',
     description:
-      'Vi bygger din hemsida utifrån dina val och ansvarar för design, struktur och helhet.',
+      'Vi tar fram hemsidan utifrån dina val och ser till att allt hänger ihop.',
     imageLight: '/assets/default.png',
     imageDark: '/assets/default-dark.png',
     imageAlt: 'Vi tar fram hemsidan',
@@ -47,7 +47,7 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
     title: 'Granska och justera',
     description:
-      'Du går igenom hemsidan i lugn och ro.',
+      'Du granskar och justerar tills det känns rätt.',
     imageLight: '/assets/cms.png',
     imageDark: '/assets/cms-dark.png',
     imageAlt: 'Granska och justera',

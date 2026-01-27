@@ -231,7 +231,7 @@ export function HeroSection() {
 
           <FadeIn direction="up" duration={600} delay={400} enableScrollTrigger={false}>
             <Button
-              variant="secondary"
+              variant="accent"
               size="xl"
               href="https://app.blimpify-im.com/waitlist"
               target="_blank"
@@ -366,30 +366,9 @@ export function HeroSection() {
           color: var(--text-secondary);
           font-family: 'Playfair Display', 'Libre Baskerville', 'Lora', serif;
           font-style: italic;
-          font-weight: 400;
+          font-weight: 500;
         }
         
-        .hero-cta-button {
-          transition: all 0.2s ease-out;
-          background-color: rgba(20, 18, 16, 0.95) !important;
-          color: rgba(250, 248, 245, 0.98) !important;
-          border-color: rgba(40, 35, 30, 0.3) !important;
-        }
-        
-        [data-theme='dark'] .hero-cta-button {
-          background-color: rgba(245, 240, 235, 0.95) !important;
-          color: rgba(20, 18, 16, 0.98) !important;
-          border-color: rgba(220, 210, 200, 0.3) !important;
-        }
-        
-        .hero-cta-button:hover {
-          background-color: rgba(25, 22, 20, 1) !important;
-          transform: translateY(-1px);
-        }
-        
-        [data-theme='dark'] .hero-cta-button:hover {
-          background-color: rgba(250, 245, 240, 1) !important;
-        }
         
         /* Desktop: disable overflow spill on hero image */
         @media (min-width: 769px) {
