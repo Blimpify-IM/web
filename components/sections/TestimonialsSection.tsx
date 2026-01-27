@@ -104,7 +104,7 @@ export function TestimonialsSection() {
           {/* Spinning Testimonials Carousel (Desktop) / Grid (Mobile) */}
           <FadeIn direction="up" duration={600} delay={200}>
           {isMobile ? (
-            <Grid columns={{ base: 1 }} gap="lg">
+            <Grid columns={{ base: 1 }} gap="lg" style={{ alignItems: 'stretch' }}>
               {testimonials.map((testimonial, index) => (
                 <Card 
                   key={index}
@@ -112,8 +112,8 @@ export function TestimonialsSection() {
                   className="testimonial-card"
                   style={{ 
                     width: '100%', 
-                    minHeight: 'auto',
-                    height: 'auto',
+                    minHeight: '280px',
+                    height: '100%',
                     display: 'flex', 
                     flexDirection: 'column' 
                   }}
@@ -165,7 +165,7 @@ export function TestimonialsSection() {
                     style={{ 
                       width: '100%', 
                       minHeight: '320px',
-                      height: '100%',
+                      height: '320px',
                       display: 'flex', 
                       flexDirection: 'column' 
                     }}
