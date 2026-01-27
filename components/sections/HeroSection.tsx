@@ -237,7 +237,7 @@ export function HeroSection() {
               target="_blank"
               className="hero-cta-button"
             >
-              Var med ifrån början
+              Ansök om early access
             </Button>
           </FadeIn>
         </VStack>
