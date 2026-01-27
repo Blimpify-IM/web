@@ -94,7 +94,7 @@ export function Footer() {
               color: 'var(--text-subtle)',          // or whatever your normal text color is
               textDecoration: 'none',
             }}>
-              © 2025 Blimpify AB Org.nr: 559519-2377. Alla rättigheter
+              © 2025 Blimpify AB Org.nr:559519-2377. Alla rättigheter
               förbehållna.
             </Body>
 
