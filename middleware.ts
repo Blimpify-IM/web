@@ -24,7 +24,7 @@ function detectLocale(req: NextRequest): 'sv' | 'en' {
   }
 
   // Check CloudFront geo header (Amplify provides this in production)
-  const country = req.geo?.country || req.headers.get('cloudfront-viewer-country');
+  const country = req.headers.get('cloudfront-viewer-country');
   
   if (country) {
     // Nordic countries → Swedish
