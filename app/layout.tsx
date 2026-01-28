@@ -20,6 +20,14 @@ export default async function RootLayout({
       {...(design.accentColor === 'inverse' ? { 'data-accent-mode': 'inverse' } : {})}
     >
       <head>
+        {/* Google Fonts - Playfair Display for hero section */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+          rel="stylesheet"
+        />
+
         {/* CRITICAL: Load design CSS first */}
         <style id="design-css">{design.css}</style>
 

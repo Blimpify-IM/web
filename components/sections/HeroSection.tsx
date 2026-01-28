@@ -310,8 +310,6 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
 
       {/* Responsive styles for hero text and clouds */}
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-        
         /* Hero content fade-in animation */
         .hero-content-fadein {
           animation: fadeInHeroContent 0.8s ease-out forwards;
