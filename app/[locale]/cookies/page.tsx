@@ -44,7 +44,9 @@ export default function CookiesPage() {
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   {(translations[locale] as any).introduction.sites.map((site: string, i: number) => (
-                    <Body key={i} size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: `• ${site}` }} />
+                    <Body key={i} size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                      • {site}
+                    </Body>
                   ))}
                 </VStack>
               </Box>
