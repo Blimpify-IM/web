@@ -106,22 +106,11 @@ export function middleware(req: NextRequest) {
 
   const pathnameHasLocale = /^\/(sv|en)(\/|$)/.test(pathname);
   
-  // ROOT PATH: Redirect to locale-based path
+  // Skip root path - let page.tsx handle it
   if (pathname === '/') {
-    const detectedLocale = detectLocale(req);
-    const url = req.nextUrl.clone();
-    url.pathname = `/${detectedLocale}`;
-    
-    const response = NextResponse.redirect(url);
-    response.cookies.set('NEXT_LOCALE', detectedLocale, {
-      path: '/',
-      maxAge: 60 * 60 * 24 * 365,
-      sameSite: 'lax',
-    });
-    
-    return setSecurityHeaders(response);
+    return setSecurityHeaders(NextResponse.next());
   }
-
+  
   // If path doesn't have locale, redirect to detected locale
   if (!pathnameHasLocale) {
     const detectedLocale = detectLocale(req);

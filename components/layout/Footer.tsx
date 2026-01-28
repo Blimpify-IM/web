@@ -77,7 +77,7 @@ export function Footer() {
               border='default'
               color="auto"
               radius="lg"
-              href={`/${locale}`}
+              href="/"
             />
             <Display size='lg'>
               blimpify

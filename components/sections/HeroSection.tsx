@@ -8,21 +8,22 @@ import { useTranslation, useAppUrl, type Locale } from '@/utils/i18n';
 export function HeroSection({ translations }: { translations?: Record<Locale, any> }) {
   const { t } = useTranslation(translations);
   const getAppUrl = useAppUrl();
-  const [isDark, setIsDark] = useState(true); // Default to dark theme first
+  const [isDark, setIsDark] = useState<boolean | null>(null); // Start with null to detect mounting
   const [rotation, setRotation] = useState(-15); // Start with negative rotation (lutar framåt)
   const [isInitialized, setIsInitialized] = useState(false); // Track if scroll logic has initialized
   const [imageReady, setImageReady] = useState(false); // Track if image should be visible
+  const [contentReady, setContentReady] = useState(false); // Track if text content should fade in
   const imageRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
-  // Detect theme from document
+  // Detect theme from document - IMMEDIATELY on mount
   useEffect(() => {
     const checkTheme = () => {
       const theme = document.documentElement.getAttribute('data-theme');
       setIsDark(theme === 'dark');
     };
 
-    // Check initial theme
+    // Check initial theme IMMEDIATELY
     checkTheme();
 
     // Watch for theme changes
@@ -32,11 +33,18 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
       attributeFilter: ['data-theme'],
     });
 
+    // Trigger content fade-in immediately
+    requestAnimationFrame(() => {
+      setContentReady(true);
+    });
+
     return () => observer.disconnect();
   }, []);
 
-  // Initialize scroll logic first, then show image
+  // Initialize scroll logic and show image - ONLY after theme is detected
   useEffect(() => {
+    // Wait for theme to be detected
+    if (isDark === null) return;
     // Set up scroll handlers immediately
     let hasScrolled = false;
     let rafId: number | null = null;
@@ -82,32 +90,30 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleScroll, { passive: true });
 
-    // Wait for everything to mount, then show image
+    // Wait for layout to stabilize
     const showImage = () => {
-      // Wait for layout to stabilize
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           // Set initial rotation
           setRotation(-15);
-          // Show image after a small delay to ensure scroll logic is ready
-          setTimeout(() => {
-            setImageReady(true);
-          }, 100);
+          // Show image immediately after theme is ready
+          setImageReady(true);
         });
       });
     };
 
-    // Initialize after component has mounted
-    setTimeout(showImage, 300);
+    // Initialize immediately after theme is detected
+    const initTimeout = setTimeout(showImage, 50);
 
     return () => {
+      clearTimeout(initTimeout);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
       if (rafId !== null) {
         cancelAnimationFrame(rafId);
       }
     };
-  }, [imageReady]);
+  }, [isDark, imageReady]);
   return (
     <Section
       overflow="visible"
@@ -134,19 +140,21 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
       />
 
       {/* Cloud layer - transparent PNG */}
-      <div
-        className="hero-clouds hero-clouds-fadein"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `url(/assets/${isDark ? 'trans-cloud-dark.png' : 'trans-cloud.png'})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'top center',
-          backgroundRepeat: 'no-repeat',
-          pointerEvents: 'none',
-          zIndex: 1,
-        }}
-      />
+      {isDark !== null && (
+        <div
+          className="hero-clouds hero-clouds-fadein"
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundImage: `url(/assets/${isDark ? 'trans-cloud-dark.png' : 'trans-cloud.png'})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'top center',
+            backgroundRepeat: 'no-repeat',
+            pointerEvents: 'none',
+            zIndex: 1,
+          }}
+        />
+      )}
 
 
 
@@ -202,7 +210,14 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
           height: '100%',
         }}
       >
-        <VStack spacing="xl" align="center">
+        <VStack 
+          spacing="xl" 
+          align="center"
+          className={contentReady ? 'hero-content-fadein' : ''}
+          style={{
+            opacity: contentReady ? 1 : 0,
+          }}
+        >
           <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
             <Display
               size='xl'
@@ -210,14 +225,8 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
               color="accent"
               className="hero-display-responsive"
             >
-              <span className="hero-text-desktop">
-                {t('hero.title.line1')}<br />
-                <span className="hero-text-chill">{t('hero.title.line2')}</span>
-              </span>
-              <span className="hero-text-mobile">
-                {t('hero.title.line1')}<br />
-                <span className="hero-text-chill">{t('hero.title.line2')}</span>
-              </span>
+              {t('hero.title.line1')}<br />
+              <span className="hero-text-chill">{t('hero.title.line2')}</span>
             </Display>
             <Body
               size="lg"
@@ -303,6 +312,22 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
         
+        /* Hero content fade-in animation */
+        .hero-content-fadein {
+          animation: fadeInHeroContent 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInHeroContent {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
         /* Cloud fade-in animations */
         @keyframes fadeInCloudsDark {
           from {
@@ -349,14 +374,6 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
           border-radius: 1rem !important;
         }
         
-        .hero-text-desktop {
-          display: block;
-        }
-        
-        .hero-text-mobile {
-          display: none;
-        }
-        
         .hero-text-chill {
           color: var(--text-secondary);
           font-family: 'Playfair Display', 'Libre Baskerville', 'Lora', serif;
@@ -401,14 +418,6 @@ export function HeroSection({ translations }: { translations?: Record<Locale, an
           .hero-clouds {
             background-size: 150% auto !important;
             background-position: top center !important;
-          }
-          
-          .hero-text-desktop {
-            display: none;
-          }
-          
-          .hero-text-mobile {
-            display: block;
           }
           
           .hero-image-container-wrapper {
