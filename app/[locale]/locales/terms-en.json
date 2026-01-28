@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "Terms of Service - Blimpify",
+    "description": "Read our terms of service and conditions for using Blimpify's services"
+  },
+  "header": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: 2025-10-24"
+  },
+  "introduction": {
+    "text1": "These terms of service (\"the terms\") apply to the use of Blimpify AB's services.",
+    "text2": "By using or purchasing services via blimpify-im.com or app.blimpify-im.com, you accept these terms and enter into a binding agreement with Blimpify AB (\"we\", \"us\", \"Blimpify\")."
+  },
+  "sections": {
+    "company": {
+      "title": "1. Company Information",
+      "content": "Blimpify AB\nTallåsvägen 84, 186 51 Vallentuna, Sweden\nOrg.no: 559519-2377\nEmail: admin@blimpify-im.com"
+    },
+    "service": {
+      "title": "2. Service Description",
+      "items": [
+        "Blimpify offers customized digital solutions for businesses — including design, development, and operation of websites and web-based applications.",
+        "Our platform, Project Builder, allows customers to configure their website by choosing packages, design, structure, and features. All choices and prices are clearly displayed before ordering.",
+        "Blimpify may use third-party services (e.g., hosting, APIs, payment solutions). We are not responsible for disruptions or limitations caused by these external providers.",
+        "The customer is responsible for ensuring that all content (e.g., texts, images, logos, policy texts) is correct, legal, and free from copyright infringement.",
+        "Blimpify reserves the right to update, replace, or discontinue technical components of the service when this does not significantly impair the customer's access or functionality."
+      ]
+    },
+    "payment": {
+      "title": "3. Payment and Subscription",
+      "intro": "To keep the website active, a monthly subscription is required, the price of which is shown when ordering in Project Builder.",
+      "items": [
+        "The first month may be offered free of charge.",
+        "The subscription starts automatically after ordering and renews monthly via Stripe.",
+        "The customer can cancel their subscription at any time via their dashboard or by contacting support.",
+        "Already paid periods are not refunded.",
+        "In case of non-payment, Blimpify may pause or terminate the service until payment is received."
+      ],
+      "outro": "For customers ordering custom solutions outside Project Builder, special terms apply according to separate quote or project agreement."
+    },
+    "operation": {
+      "title": "4. Operation and Service Termination",
+      "items": [
+        "The subscription gives the customer the right to use the Blimpify platform for operating their website.",
+        "Upon cancelled or unpaid subscription, the website will be taken offline.",
+        "Since the Blimpify platform is an integrated and proprietary service, the customer cannot purchase or export their website to an external operating environment. The code is adapted for Blimpify's system and not intended for standalone installation.",
+        "The customer's account and data are stored for up to 12 months after termination. After that, the information is permanently deleted if no reactivation occurs."
+      ]
+    },
+    "rights": {
+      "title": "5. Usage Rights and Intellectual Property",
+      "items": [
+        "The customer retains ownership of all their own material that is uploaded or provided (e.g., texts, images, logos).",
+        "All technology, code, templates, design components, dashboard, Project Builder, and other infrastructure belong to Blimpify AB.",
+        "The customer receives a non-exclusive license to use these parts as long as the subscription is active.",
+        "Upon terminated subscription, the license automatically expires.",
+        "Content (customer's own texts, images, logos) can be requested in static form upon request."
+      ]
+    },
+    "support": {
+      "title": "6. Support and Changes",
+      "items": [
+        "Support is offered via dashboard and email (admin@blimpify-im.com).",
+        "Blimpify responds to inquiries within 48 hours on non-holiday weekdays.",
+        "Minor changes and adjustments can be made free of charge within the scope of the subscription.",
+        "Extensive changes or new features may be invoiced separately according to the current price list."
+      ]
+    },
+    "refund": {
+      "title": "7. Right of Withdrawal and Refund",
+      "intro": "The customer has the right to a refund (excluding subscription fees) within 30 days if:",
+      "conditions": [
+        "No website has been published,",
+        "No design or code production has been started, and",
+        "No implementation outside our environment has been initiated."
+      ],
+      "items": [
+        "Requests must be sent in writing to admin@blimpify-im.com.",
+        "After 30 days, refunds are not possible.",
+        "If work has been started, Blimpify may deduct reasonable compensation for time and resources spent."
+      ]
+    },
+    "privacy": {
+      "title": "8. Privacy and Personal Data",
+      "items": [
+        "Blimpify only collects basic contact information (e.g., name, company, email) to manage customer relationships.",
+        "Payment information is handled by Stripe and is not stored by Blimpify.",
+        "Processing of personal data is regulated in our Privacy Policy."
+      ]
+    },
+    "liability": {
+      "title": "9. Limitation of Liability",
+      "intro": "Blimpify is not responsible for:",
+      "items": [
+        "Disruptions or technical errors,",
+        "Loss of data caused by the customer's actions or third parties,",
+        "Indirect damages such as lost profits or business interruptions."
+      ],
+      "outro": "Blimpify's total financial liability is in all circumstances limited to the total amount the customer has paid during the last 3 months."
+    },
+    "changes": {
+      "title": "10. Changes to Terms",
+      "items": [
+        "Blimpify AB may update these terms.",
+        "New customers are directly covered by updated terms.",
+        "Existing customers are covered by the terms that applied at the time of order, unless otherwise agreed.",
+        "Changes are communicated via email or through a message in the dashboard."
+      ]
+    },
+    "law": {
+      "title": "11. Applicable Law and Disputes",
+      "items": [
+        "These terms are governed by Swedish law.",
+        "Disputes that cannot be resolved through dialogue between the parties shall be decided by a Swedish general court with Stockholm District Court as the first instance."
+      ]
+    }
+  }
+}

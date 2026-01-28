@@ -12,7 +12,9 @@ export function HashScrollHandler() {
 
   useEffect(() => {
     // Only handle hash scrolling on the home page
-    if (pathname !== '/') {
+    // Support both root (/) and locale paths (/sv, /en)
+    const isHomePage = pathname === '/' || pathname === '/sv' || pathname === '/en';
+    if (!isHomePage) {
       return;
     }
 

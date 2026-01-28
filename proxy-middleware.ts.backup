@@ -1,0 +1,137 @@
+// ===============================================
+// middleware.ts
+// Next.js Middleware for locale detection and routing
+// ===============================================
+
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+// Nordic countries where Swedish is preferred
+const NORDIC_COUNTRIES = ['SE', 'NO', 'DK', 'FI', 'IS'];
+
+/**
+ * Detect user's preferred locale from:
+ * 1. Cookie (NEXT_LOCALE)
+ * 2. CloudFront geo header (Amplify auto-adds this)
+ * 3. Accept-Language header
+ * 4. Default to 'en' for international
+ */
+function detectLocale(req: NextRequest): 'sv' | 'en' {
+  // Check cookie first (user preference)
+  const cookieLocale = req.cookies.get('NEXT_LOCALE')?.value;
+  if (cookieLocale === 'sv' || cookieLocale === 'en') {
+    return cookieLocale;
+  }
+
+  // Check CloudFront geo header (Amplify provides this in production)
+  // In development, you can test by manually setting this header
+  const country = req.geo?.country || req.headers.get('cloudfront-viewer-country');
+  
+  if (country) {
+    // Nordic countries → Swedish
+    if (NORDIC_COUNTRIES.includes(country.toUpperCase())) {
+      return 'sv';
+    }
+    // All other countries → English
+    return 'en';
+  }
+
+  // Fallback: Check Accept-Language header
+  const acceptLanguage = req.headers.get('accept-language');
+  if (acceptLanguage) {
+    const languages = acceptLanguage
+      .split(',')
+      .map(lang => {
+        const [code, qValue] = lang.trim().split(';q=');
+        const q = qValue ? parseFloat(qValue) : 1.0;
+        return { code: code.split('-')[0].toLowerCase(), q };
+      })
+      .sort((a, b) => b.q - a.q);
+
+    // Return Swedish if it's in the list
+    for (const { code } of languages) {
+      if (code === 'sv') return 'sv';
+    }
+  }
+
+  // Default to English for international audience
+  return 'en';
+}
+
+/**
+ * Middleware function to handle:
+ * - Locale detection and redirect to /[locale]/* paths
+ * - Security header cleanup
+ */
+export function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
+
+  // ============================================
+  // SKIP: Static files, API routes, _next
+  // ============================================
+  if (
+    pathname.startsWith('/api/') ||
+    pathname.startsWith('/_next/') ||
+    pathname.startsWith('/assets/') ||
+    pathname.startsWith('/favicon') ||
+    pathname.match(/\.(ico|png|jpg|jpeg|svg|css|js|woff|woff2|ttf|webp)$/)
+  ) {
+    return NextResponse.next();
+  }
+
+  // ============================================
+  // LOCALE DETECTION & REDIRECT
+  // ============================================
+  const pathnameHasLocale = /^\/(sv|en)(\/|$)/.test(pathname);
+  
+  // ROOT PATH: Redirect to locale-based path
+  if (pathname === '/') {
+    const detectedLocale = detectLocale(req);
+    const url = req.nextUrl.clone();
+    url.pathname = `/${detectedLocale}`;
+    
+    const response = NextResponse.redirect(url);
+    
+    // Set locale cookie for future visits
+    response.cookies.set('NEXT_LOCALE', detectedLocale, {
+      path: '/',
+      maxAge: 60 * 60 * 24 * 365, // 1 year
+      sameSite: 'lax',
+    });
+    
+    return response;
+  }
+
+  // Paths without locale will 404 (as expected)
+  if (!pathnameHasLocale) {
+    return NextResponse.next();
+  }
+
+  // Pass through locale paths with security headers
+  const response = NextResponse.next();
+
+  // ============================================
+  // SECURITY: Remove debug headers in production
+  // ============================================
+  if (process.env.NODE_ENV === 'production') {
+    response.headers.delete('x-nextjs-cache');
+    response.headers.delete('x-nextjs-prerender');
+    response.headers.delete('x-nextjs-stale-time');
+  }
+  
+  return response;
+}
+
+// Configure which paths the middleware runs on
+export const config = {
+  matcher: [
+    /*
+     * Match all request paths except:
+     * - _next/static (static files)
+     * - _next/image (image optimization)
+     * - assets folder
+     * - favicon.ico
+     */
+    '/((?!_next/static|_next/image|assets|favicon.ico).*)',
+  ],
+};

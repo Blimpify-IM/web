@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
 import {
   Box,
   HStack,
@@ -11,16 +12,22 @@ import {
   Logo,
   Drawer,
   Icon,
-  FadeIn,
 } from '@blimpify-im/ui';
 import { Menu, X } from 'lucide-react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { useTranslation, useAppUrl, type Locale } from '@/utils/i18n';
+import svTranslations from '@/app/[locale]/locales/sv.json';
+import enTranslations from '@/app/[locale]/locales/en.json';
+
+const translations = { sv: svTranslations, en: enTranslations };
 
 export interface NavbarBarProps {
   menuAlign?: 'left' | 'center' | 'right';
 }
 
 export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
+  const { t, locale } = useTranslation(translations);
+  const getAppUrl = useAppUrl();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,24 +93,24 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
   }, []);
 
   const menuItems = [
-    { href: '/#scroll-section', label: 'Process', hash: 'scroll-section' },
-    { href: '/#system-section', label: 'Tjänster', hash: 'system-section' },
-    { href: '/#testimonials', label: 'Testimonials', hash: 'testimonials' },
-    { href: '/#pricing', label: 'Priser', hash: 'pricing' },
-    { href: '/#faq', label: 'FAQ', hash: 'faq' },
+    { href: `/${locale}/#scroll-section`, label: t('layout.navbar.menu.process'), hash: 'scroll-section' },
+    { href: `/${locale}/#system-section`, label: t('layout.navbar.menu.services'), hash: 'system-section' },
+    { href: `/${locale}/#testimonials`, label: t('layout.navbar.menu.testimonials'), hash: 'testimonials' },
+    { href: `/${locale}/#pricing`, label: t('layout.navbar.menu.pricing'), hash: 'pricing' },
+    { href: `/${locale}/#faq`, label: t('layout.navbar.menu.faq'), hash: 'faq' },
   ];
 
   const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
     const currentPath = window.location.pathname;
 
-    if (currentPath === '/') {
+    if (currentPath === `/${locale}` || currentPath === '/') {
       e.preventDefault();
       document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
 
     e.preventDefault();
-    window.location.href = `/#${hash}`;
+    window.location.href = `/${locale}/#${hash}`;
   };
 
   return (
@@ -146,7 +153,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           text="blimpify"
           textSize="lg"
           textWeight="extrabold"
-          href="/"
+          href={`/${locale}`}
         />
 
         {/* DESKTOP CONTENT – ORÖRD */}
@@ -170,16 +177,16 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           <HStack spacing="sm">
             <Button 
               variant="ghost" 
-              href="https://app.blimpify-im.com/login"
+              href={getAppUrl('/login')}
               className="navbar-login-button"
             >
-              Logga in
+              {t('layout.navbar.login')}
             </Button>
             <Button 
               variant="accent" 
-              href="https://app.blimpify-im.com/waitlist"
+              href={getAppUrl('/waitlist')}
             >
-              Få tillgång
+              {t('layout.navbar.getStarted')}
             </Button>
             <IconButton
               variant="secondary"
@@ -236,61 +243,35 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           }}
         >
           {menuItems.map((item, i) => (
-            <FadeIn
+            <TextLink
               key={item.label}
-              direction="down"
-              duration={DURATION}
-              delay={i * STAGGER}
-              distance={DISTANCE}
-              enableScrollTrigger={false}
+              href={item.href}
+              size="lg"
+              onClick={(e) => {
+                setMobileOpen(false);
+                if (item.hash) handleHashClick(e, item.hash);
+              }}
             >
-              <TextLink
-                href={item.href}
-                size="lg"
-                onClick={(e) => {
-                  setMobileOpen(false);
-                  if (item.hash) handleHashClick(e, item.hash);
-                }}
-              >
-                {item.label}
-              </TextLink>
-            </FadeIn>
+              {item.label}
+            </TextLink>
           ))}
 
           <VStack spacing="sm" align="start" style={{ marginTop: 'var(--foundation-space-4)' }}>
-            <FadeIn
-              direction="down"
-              duration={DURATION}
-              delay={menuItems.length * STAGGER}
-              distance={DISTANCE}
-              enableScrollTrigger={false}
+            <Button 
+              variant="secondary" 
+              href={getAppUrl('/login')} 
+              className="navbar-login-button"
+              style={{ width: '100%' }}
             >
-              <Button 
-                variant="secondary" 
-                href="https://app.blimpify-im.com/login" 
-                className="navbar-login-button"
-                style={{ width: '100%' }}
-              >
-                Logga in
-              </Button>
-            </FadeIn>
-
-            <FadeIn
-              direction="down"
-              duration={DURATION}
-              delay={(menuItems.length + 1) * STAGGER}
-              distance={DISTANCE}
-              enableScrollTrigger={false}
+              {t('layout.navbar.login')}
+            </Button>
+            <Button 
+              variant="primary" 
+              href={getAppUrl('/waitlist')} 
+              style={{ width: '100%' }}
             >
-              <Button 
-                variant="accent" 
-                href="https://app.blimpify-im.com/waitlist" 
-                className="navbar-access-button"
-                style={{ width: '100%' }}
-              >
-                Kom igång
-              </Button>
-            </FadeIn>
+              {t('layout.navbar.getStarted')}
+            </Button>
           </VStack>
         </VStack>
       </Drawer>

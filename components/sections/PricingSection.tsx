@@ -16,11 +16,13 @@ import {
   Tag,
   Grid,
   Display,
-  FadeIn,
 } from '@blimpify-im/ui';
+import { useTranslation, useAppUrl, type Locale } from '@/utils/i18n';
 
 
-export function PricingSection() {
+export function PricingSection({ translations }: { translations?: Record<Locale, any> }) {
+  const { t, locale } = useTranslation(translations);
+  const getAppUrl = useAppUrl();
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
 
   // Detect theme from document
@@ -53,19 +55,16 @@ export function PricingSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <FadeIn direction="up" duration={700}>
-            <VStack spacing="md" align="center">
-              <Display size='md'>
-                Hur kan vi hjälpa ditt företag?
-              </Display>
-            </VStack>
-          </FadeIn>
+          <VStack spacing="md" align="center">
+            <Display size='md'>
+              {t('pricing.title')}
+            </Display>
+          </VStack>
 
           {/* Pricing Cards */}
           <Grid columns={2} gap="xl" className="pricing-grid">
             {/* First Card - Blimpify medlemskap */}
-            <FadeIn direction="up" duration={600} delay={200}>
-              <Card
+            <Card
                 variant="outlined"
                 padding="lg"
                 radius="lg"
@@ -86,10 +85,10 @@ export function PricingSection() {
                     {/* Plan Header */}
                     <VStack spacing="sm">
                       <H3 weight="bold">
-                        Blimpify medlemskap (standard)
+                        {t('pricing.standard.title')}
                       </H3>
                       <Body size="sm">
-                        För företag som vill fokusera på sin affär – inte på sin hemsida.
+                        {t('pricing.standard.subtitle')}
                       </Body>
                     </VStack>
 
@@ -97,14 +96,14 @@ export function PricingSection() {
                     <VStack spacing="xs">
                       <HStack spacing="xs" align="baseline">
                         <H2 weight="bold">
-                          490 kr
+                          {t('pricing.standard.price')}
                         </H2>
                         <Body size="md" color="tertiary">
-                          /månad
+                          {t('pricing.standard.period')}
                         </Body>
                       </HStack>
                       <Body size="xs" color="tertiary" style={{ marginTop: '-0.25rem' }}>
-                        exkl. moms
+                        {t('pricing.standard.vat')}
                       </Body>
                     </VStack>
 
@@ -112,27 +111,27 @@ export function PricingSection() {
                     <VStack spacing="sm" style={{ flex: 1 }}>
                       <HStack spacing="sm">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">En professionell hemsida, framtagen utifrån dina val</Body>
+                        <Body size="sm">{t('pricing.standard.features.0')}</Body>
                       </HStack>
                       <HStack spacing="sm">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Struktur och grund som fungerar över tid</Body>
+                        <Body size="sm">{t('pricing.standard.features.1')}</Body>
                       </HStack>
                       <HStack spacing="sm" className="pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Möjlighet att justera text, färger och detaljer vid behov</Body>
+                        <Body size="sm">{t('pricing.standard.features.2')}</Body>
                       </HStack>
                       <HStack spacing="sm">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Hjälp med domänkoppling och publicering</Body>
+                        <Body size="sm">{t('pricing.standard.features.3')}</Body>
                       </HStack>
                       <HStack spacing="sm" className="pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Överblick över hur hemsidan används</Body>
+                        <Body size="sm">{t('pricing.standard.features.4')}</Body>
                       </HStack>
                       <HStack spacing="sm">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Support när något känns fel</Body>
+                        <Body size="sm">{t('pricing.standard.features.5')}</Body>
                       </HStack>
                     </VStack>
                     {/* CTA Button */}
@@ -140,22 +139,20 @@ export function PricingSection() {
                       variant="accent"
                       size="lg"
                       fullWidth
-                      href="https://app.blimpify-im.com/waitlist"
+                      href={getAppUrl('/waitlist')}
                       target="_blank"
                       className="pricing-access-button"
                     >
-                      Få tillgång
+                      {t('pricing.standard.cta')}
                     </Button>
 
 
                   </VStack>
                 </CardContent>
               </Card>
-            </FadeIn>
 
             {/* Second Card - När behoven går bortom standard */}
-            <FadeIn direction="up" duration={600} delay={350}>
-              <Card
+            <Card
                 variant="outlined"
                 padding="lg"
                 radius="lg"
@@ -172,10 +169,10 @@ export function PricingSection() {
                     {/* Plan Header */}
                     <VStack spacing="sm">
                       <H3 weight="bold">
-                        När behoven går bortom standard
+                        {t('pricing.custom.title')}
                       </H3>
                       <Body size="sm">
-                        Skräddarsydd lösning för större företag
+                        {t('pricing.custom.subtitle')}
                       </Body>
                     </VStack>
 
@@ -183,7 +180,7 @@ export function PricingSection() {
                     <VStack spacing="xs">
                       <HStack spacing="xs" align="baseline">
                         <H2 weight="bold">
-                          Kontakta oss
+                          {t('pricing.custom.price')}
                         </H2>
                       </HStack>
                     </VStack>
@@ -192,41 +189,40 @@ export function PricingSection() {
                     <VStack spacing="sm" style={{ flex: 1 }}>
                       <HStack spacing="sm">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Ett större projekt med tydlig projektledning</Body>
+                        <Body size="sm">{t('pricing.custom.features.0')}</Body>
                       </HStack>
                       <HStack spacing="sm">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Lösningar anpassade efter er verksamhet och era flöden</Body>
+                        <Body size="sm">{t('pricing.custom.features.1')}</Body>
                       </HStack>
                       <HStack spacing="sm" className="pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Stöd för mer avancerad funktionalitet vid behov</Body>
+                        <Body size="sm">{t('pricing.custom.features.2')}</Body>
                       </HStack>
                       <HStack spacing="sm">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">En dedikerad kontakt och långsiktigt samarbete</Body>
+                        <Body size="sm">{t('pricing.custom.features.3')}</Body>
                       </HStack>
                       <HStack spacing="sm">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Avtal och upplägg anpassade efter omfattning och krav</Body>
+                        <Body size="sm">{t('pricing.custom.features.4')}</Body>
                       </HStack>
                     </VStack>
 
                     {/* CTA Button */}
-                    <Link href="/contact" style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
+                    <Link href={`/${locale}/contact`} style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
                       <Button
                         variant="secondary"
                         size="lg"
                         fullWidth
                         className="pricing-contact-button"
                       >
-                        Kontakta oss
+                        {t('pricing.custom.cta')}
                       </Button>
                     </Link>
                   </VStack>
                 </CardContent>
               </Card>
-            </FadeIn>
           </Grid>
         </VStack>
       </Container>

@@ -15,8 +15,14 @@ import {
   AlertDescription,
   Label,
 } from '@blimpify-im/ui';
+import { useTranslation, type Locale } from '@/utils/i18n';
+import svTranslations from '@/app/[locale]/locales/contact-sv.json';
+import enTranslations from '@/app/[locale]/locales/contact-en.json';
+
+const translations = { sv: svTranslations, en: enTranslations };
 
 export default function ContactPage() {
+  const { t } = useTranslation(translations);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -84,16 +90,17 @@ export default function ContactPage() {
         <Container useFormWidth>
           <VStack spacing="xl" align="center" style={{ maxWidth: '600px', margin: '0 auto' }}>
             <VStack spacing="md" align="center">
-              <H1 align="center">Tack för ditt meddelande!</H1>
-              <Body size="lg" color="secondary" align="center">
-                Vi har mottagit din förfrågan och kommer att kontakta dig inom kort.
-              </Body>
+              <AlertRoot variant="success" surface="subtle">
+                <AlertContent>
+                  <AlertDescription>{t('success')}</AlertDescription>
+                </AlertContent>
+              </AlertRoot>
             </VStack>
             <Button
               variant="primary"
               onClick={() => setSuccess(false)}
             >
-              Skicka ett nytt meddelande
+              {t('form.submit')}
             </Button>
           </VStack>
         </Container>
@@ -107,9 +114,9 @@ export default function ContactPage() {
         <VStack spacing="3xl" align="stretch" style={{ maxWidth: '600px', margin: '0 auto' }}>
           {/* Header */}
           <VStack spacing="md" align="center">
-            <H1 align="center">Kontakta oss</H1>
+            <H1 align="center">{t('hero.title')}</H1>
             <Body size="lg" color="secondary" align="center">
-              Har du frågor eller vill diskutera ditt projekt? Skicka oss ett meddelande så hör vi av oss.
+              {t('hero.description')}
             </Body>
           </VStack>
 
@@ -119,13 +126,13 @@ export default function ContactPage() {
               {/* Name */}
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Namn *
+                  {t('form.name.label')} *
                 </Label>
                 <Input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Ditt namn"
+                  placeholder={t('form.name.placeholder')}
                   required
                   disabled={isSubmitting}
                 />
@@ -134,13 +141,13 @@ export default function ContactPage() {
               {/* Email */}
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  E-post *
+                  {t('form.email.label')} *
                 </Label>
                 <Input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="din@email.com"
+                  placeholder={t('form.email.placeholder')}
                   required
                   disabled={isSubmitting}
                 />
@@ -149,13 +156,13 @@ export default function ContactPage() {
               {/* Phone */}
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Telefon
+                  {t('form.phone.label')}
                 </Label>
                 <Input
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="070-123 45 67"
+                  placeholder={t('form.phone.placeholder')}
                   disabled={isSubmitting}
                 />
               </VStack>
@@ -163,13 +170,13 @@ export default function ContactPage() {
               {/* Company */}
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Företag
+                  {t('form.company.label')}
                 </Label>
                 <Input
                   type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  placeholder="Ditt företag"
+                  placeholder={t('form.company.placeholder')}
                   disabled={isSubmitting}
                 />
               </VStack>
@@ -177,12 +184,12 @@ export default function ContactPage() {
               {/* Message */}
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Meddelande *
+                  {t('form.message.label')} *
                 </Label>
                 <Textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Berätta om ditt projekt eller ställ dina frågor..."
+                  placeholder={t('form.message.placeholder')}
                   rows={6}
                   required
                   disabled={isSubmitting}
@@ -207,7 +214,7 @@ export default function ContactPage() {
                 loading={isSubmitting}
                 disabled={isSubmitting}
               >
-                Skicka meddelande
+                {isSubmitting ? t('form.submitting') : t('form.submit')}
               </Button>
             </VStack>
           </form>

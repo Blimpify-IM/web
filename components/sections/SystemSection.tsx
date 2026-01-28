@@ -29,7 +29,6 @@ import {
   Accordion,
   AccordionItem,
   Alert,
-  FadeIn,
 } from '@blimpify-im/ui';
 import { Palette, CaseSensitive, LayoutDashboard, Spline, Car } from 'lucide-react';
 import { 
@@ -52,6 +51,7 @@ import {
   ClockIcon,
 } from '@heroicons/react/24/outline';
 import { CheckIcon } from 'lucide-react';
+import { useTranslation, type Locale } from '@/utils/i18n';
 
 interface SystemBlock {
   title: string;
@@ -61,6 +61,12 @@ interface SystemBlock {
   showStats?: boolean;
 }
 
+const systemBlocksConfig = [
+  { showEditor: true },
+  { showDocumentation: true },
+  { showStats: true },
+];
+
 interface DocCategory {
   id: string;
   label: string;
@@ -68,28 +74,6 @@ interface DocCategory {
   components: Array<{ id: string; label: string }>;
 }
 
-const systemBlocks: SystemBlock[] = [
-  {
-    title: 'Ett sammanhållet system',
-    description:
-      'Din hemsida byggs i Blimpifys system, vilket gör att vi kan ta fullt ansvar för design, struktur och helhet över tid.',
-    showEditor: true,
-  },
-  {
-    title: 'Design som håller över tid',
-    description:
-      'Ett eget design- och UI-system gör att din hemsida kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om.',
-    showDocumentation: true,
-  },
-  {
-    title: 'Stabil drift som vi äger',
-    description:
-      'Vi ansvarar för drift, prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb och stabil.',
-    showStats: true,
-  },
-];
-
-// Documentation Categories (from DocumentationLayout)
 const DOC_CATEGORIES: DocCategory[] = [
   {
     id: "typography",
@@ -765,9 +749,16 @@ function EditorPreview() {
   );
 }
 
-export function SystemSection() {
+export function SystemSection({ translations }: { translations?: Record<Locale, any> }) {
+  const { t } = useTranslation(translations);
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
   const [accentColor, setAccentColor] = useState<string>('blue');
+
+  const systemBlocks = systemBlocksConfig.map((config, index) => ({
+    title: t(`system.blocks.${index}.title`),
+    description: t(`system.blocks.${index}.description`),
+    ...config,
+  }));
 
   // Map accent colors to hue-rotate values
   const getHueRotate = (color: string): string => {
@@ -856,15 +847,12 @@ export function SystemSection() {
       <Container>
         <VStack spacing="3xl">
           {/* Header */}
-          <FadeIn>
           <VStack spacing="md" align="center" className="system-section-header" style={{ marginBottom: 'var(--foundation-space-16)' }}>
             <Display size="md" align="center">
-              Det som gör Blimpify annorlunda
+              {t('system.title')}
             </Display>
           </VStack>
-          </FadeIn>
 
-          <FadeIn>
           {/* System Blocks - Alternating Card/Text Layout */}
           <VStack spacing="3xl" align="stretch" className="system-blocks-container">
             {systemBlocks.map((block, index) => {
@@ -962,7 +950,6 @@ export function SystemSection() {
               );
             })}
           </VStack>
-          </FadeIn>
         </VStack>
       </Container>
 

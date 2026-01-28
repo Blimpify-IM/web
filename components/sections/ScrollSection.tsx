@@ -18,6 +18,7 @@ import {
   Display,
   H1,
 } from '@blimpify-im/ui';
+import { useTranslation, type Locale } from '@/utils/i18n';
 
 interface ScrollItem {
   title: string;
@@ -27,42 +28,31 @@ interface ScrollItem {
   imageAlt: string;
 }
 
-const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
+const scrollItemsImages = [
   {
-    title: 'Sätt riktningen',
-    description:
-      'Skapa ett konto och skicka in dina val och önskemål. Inga tekniska beslut.',
     imageLight: '/assets/order.png',
     imageDark: '/assets/order-dark.png',
     imageAlt: 'Satt riktningen',
   },
   {
-    title: 'Vi tar fram hemsidan',
-    description:
-      'Vi tar fram hemsidan utifrån dina val och ser till att allt hänger ihop.',
     imageLight: '/assets/default.png',
     imageDark: '/assets/default-dark.png',
     imageAlt: 'Vi tar fram hemsidan',
   },
   {
-    title: 'Granska och justera',
-    description:
-      'Du granskar och justerar tills det känns rätt.',
     imageLight: '/assets/cms.png',
     imageDark: '/assets/cms-dark.png',
     imageAlt: 'Granska och justera',
   },
   {
-    title: 'Publicera och gå vidare',
-    description:
-      'När du är nöjd publiceras hemsidan. Därefter tar Blimpify ansvar för att den fungerar över tid.',
     imageLight: '/assets/hemsida.png',
     imageDark: '/assets/hemsida-dark.png',
     imageAlt: 'Publicera och ga vidare',
   },
 ];
 
-export function ScrollSection() {
+export function ScrollSection({ translations }: { translations?: Record<Locale, any> }) {
+  const { t } = useTranslation(translations);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -83,11 +73,15 @@ export function ScrollSection() {
   }, []);
 
   const scrollItems = useMemo(() => {
-    return scrollItemsData.map((item) => ({
-      ...item,
+    return scrollItemsImages.map((item, index) => ({
+      title: t(`scroll.items.${index}.title`),
+      description: t(`scroll.items.${index}.description`),
+      imageLight: item.imageLight,
+      imageDark: item.imageDark,
+      imageAlt: item.imageAlt,
       imageSrc: isDark ? item.imageDark : item.imageLight,
     }));
-  }, [isDark]);
+  }, [isDark, t]);
 
   const imageRefs = useMemo(
     () => scrollItems.map(() => ({ current: null as HTMLElement | null })),
@@ -143,7 +137,7 @@ export function ScrollSection() {
             marginBottom: 'var(--space-lg)',
           }}
         >
-          Vår process
+          {t('scroll.title')}
         </H1>
         <div
           className="scroll-section-grid"
@@ -178,7 +172,7 @@ export function ScrollSection() {
                   padding: 'var(--foundation-space-4)',
                 }}
               >
-               vår process 
+                {t('scroll.title')}
               </H1>
             </VStack>
 

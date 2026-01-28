@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "title": "Blimpify - Professionell hemsida utan krångel",
+    "description": "Blimpify hjälper företag att få en professionell hemsida utan att behöva bygga eller designa själva. Du delar dina önskemål – vi tar hand om design, struktur och publicering."
+  },
+  "hero": {
+    "title": {
+      "line1": "Hemsida åt dig",
+      "line2": "inte av dig"
+    },
+    "subtitle": "Vi bygger inte bara hemsidor. Vi tar ansvar för dem.",
+    "cta": "Ansök om early access"
+  },
+  "scroll": {
+    "title": "Vår process",
+    "items": [
+      {
+        "title": "Sätt riktningen",
+        "description": "Skapa ett konto och skicka in dina val och önskemål. Inga tekniska beslut."
+      },
+      {
+        "title": "Vi tar fram hemsidan",
+        "description": "Vi tar fram hemsidan utifrån dina val och ser till att allt hänger ihop."
+      },
+      {
+        "title": "Granska och justera",
+        "description": "Du granskar och justerar tills det känns rätt."
+      },
+      {
+        "title": "Publicera och gå vidare",
+        "description": "När du är nöjd publiceras hemsidan. Därefter tar Blimpify ansvar för att den fungerar över tid."
+      }
+    ]
+  },
+  "system": {
+    "title": "Det som gör Blimpify annorlunda",
+    "blocks": [
+      {
+        "title": "Ett sammanhållet system",
+        "description": "Din hemsida byggs i Blimpifys system, vilket gör att vi kan ta fullt ansvar för design, struktur och helhet över tid."
+      },
+      {
+        "title": "Design som håller över tid",
+        "description": "Ett eget design- och UI-system gör att din hemsida kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om."
+      },
+      {
+        "title": "Stabil drift som vi äger",
+        "description": "Vi ansvarar för drift, prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb och stabil."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Vad säger våra kunder?",
+    "items": [
+      {
+        "name": "Kevin Jansson",
+        "role": "Kjmarketingsweden",
+        "content": "Extremt grymma grabbar som vet vad dom håller på med, från skiss av hemsidan till slutligt produktion har allt varit 10/10. Jag är extremt imponerad"
+      },
+      {
+        "name": "Rickson Mansiamina",
+        "role": "DifferenceConsulting",
+        "content": "Tack för resan, grabbar! Det har varit ett riktigt bra samarbete. Ni har varit lyhörda och verkligen finjusterat tills hemsidan blev exakt som jag ville ha den. Ni har inte bara levererat, ni har brytt er. Stort tack för allt!"
+      },
+      {
+        "name": "Filip Blank",
+        "role": "CreatorzMGMT",
+        "content": "Från första kontakt till lansering har samarbetet fungerat smidigt och professionellt. Ni har varit lyhörda för mina önskemål. Det tekniska fungerar utan problem så jag är väldigt nöjd"
+      },
+      {
+        "name": "Philip Flensburg.",
+        "role": "Marknadschefen",
+        "content": "Rekommenderar starkt att låta teamet göra din hemsida och underhålla den. De har alltid varit tillmötesgående och otroligt snabba och effektiva att jobba med."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "Hur kan vi hjälpa ditt företag?",
+    "standard": {
+      "title": "Blimpify medlemskap (standard)",
+      "subtitle": "För företag som vill fokusera på sin affär – inte på sin hemsida.",
+      "price": "490 kr",
+      "period": "/månad",
+      "vat": "exkl. moms",
+      "features": [
+        "En professionell hemsida, framtagen utifrån dina val",
+        "Struktur och grund som fungerar över tid",
+        "Möjlighet att justera text, färger och detaljer vid behov",
+        "Hjälp med domänkoppling och publicering",
+        "Överblick över hur hemsidan används",
+        "Support när något känns fel"
+      ],
+      "cta": "Få tillgång"
+    },
+    "custom": {
+      "title": "När behoven går bortom standard",
+      "subtitle": "Skräddarsydd lösning för större företag",
+      "price": "Kontakta oss",
+      "features": [
+        "Ett större projekt med tydlig projektledning",
+        "Lösningar anpassade efter er verksamhet och era flöden",
+        "Stöd för mer avancerad funktionalitet vid behov",
+        "En dedikerad kontakt och långsiktigt samarbete",
+        "Avtal och upplägg anpassade efter omfattning och krav"
+      ],
+      "cta": "Kontakta oss"
+    }
+  },
+  "faq": {
+    "title": "Vanliga Frågor",
+    "items": [
+      {
+        "question": "Vad gör Blimpify?",
+        "answer": "Blimpify hjälper företag att ta fram och hantera sin hemsida utan att behöva tänka på helheten. Du delar dina önskemål och mål – vi tar ansvar för design, struktur och genomförande."
+      },
+      {
+        "question": "Behöver jag kunna design eller teknik?",
+        "answer": "Nej. Du behöver bara beskriva hur du vill att hemsidan ska kännas och fungera. Vi tar hand om det tekniska och designmässiga åt dig."
+      },
+      {
+        "question": "Kan jag göra ändringar själv?",
+        "answer": "Ja, du kan justera mindre saker som text, färger och detaljer själv. När det gäller större ändringar i struktur eller funktionalitet hjälper vi dig."
+      },
+      {
+        "question": "När betalar jag för tjänsten?",
+        "answer": "Det är gratis att skapa och skicka in din hemsida. Du betalar först när du väljer att publicera hemsidan och aktivera medlemskapet."
+      },
+      {
+        "question": "Hur går processen till?",
+        "answer": "Du skickar in dina val och önskemål, vi tar fram hemsidan utifrån det och återkommer när den är redo att granskas. När du är nöjd kan du välja att publicera."
+      },
+      {
+        "question": "Passar Blimpify alla företag?",
+        "answer": "Blimpify passar företag som vet att design och utveckling inte är deras kärnkompetens och som hellre låter specialister ta ansvar för helheten. Du bidrar med riktning och mål – vi tar hand om design, struktur och genomförande."
+      }
+    ]
+  },
+  "common": {
+    "loading": "Laddar...",
+    "error": "Ett fel uppstod",
+    "success": "Lyckades!"
+  },
+  "layout": {
+    "navbar": {
+      "menu": {
+        "process": "Process",
+        "services": "Tjänster",
+        "testimonials": "Testimonials",
+        "pricing": "Priser",
+        "faq": "FAQ"
+      },
+      "login": "Logga in",
+      "getStarted": "Kom igång"
+    },
+    "footer": {
+      "tagline": "Vi bygger inte bara hemsidor. Vi tar ansvar för dem.",
+      "copyright": "© 2025 Blimpify AB Org.nr: 559519-2377. Alla rättigheter förbehållna.",
+      "terms": "Villkor",
+      "privacy": "Integritet",
+      "cookies": "Cookies"
+    }
+  }
+}

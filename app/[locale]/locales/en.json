@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "title": "Blimpify - Professional Website Without the Hassle",
+    "description": "Blimpify helps businesses get a professional website without having to build or design it themselves. You share your wishes – we handle design, structure, and publishing."
+  },
+  "hero": {
+    "title": {
+      "line1": "Website for you",
+      "line2": "not by you"
+    },
+    "subtitle": "We don't just build websites. We take responsibility for them.",
+    "cta": "Apply for early access"
+  },
+  "scroll": {
+    "title": "Our Process",
+    "items": [
+      {
+        "title": "Set the Direction",
+        "description": "Create an account and submit your choices and preferences. No technical decisions required."
+      },
+      {
+        "title": "We Build Your Website",
+        "description": "We build the website based on your input and ensure everything fits together."
+      },
+      {
+        "title": "Review and Adjust",
+        "description": "You review and adjust until it feels right."
+      },
+      {
+        "title": "Publish and Move Forward",
+        "description": "Once you're satisfied, the website is published. Blimpify then takes responsibility for keeping it running over time."
+      }
+    ]
+  },
+  "system": {
+    "title": "What Makes Blimpify Different",
+    "blocks": [
+      {
+        "title": "An Integrated System",
+        "description": "Your website is built in Blimpify's system, which allows us to take full responsibility for design, structure, and overall coherence over time."
+      },
+      {
+        "title": "Design That Lasts",
+        "description": "A dedicated design and UI system ensures your website can evolve without losing its expression or needing to be rebuilt."
+      },
+      {
+        "title": "Stable Operations We Own",
+        "description": "We are responsible for operations, performance, and security with proven infrastructure to ensure your website is fast and stable."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Do Our Customers Say?",
+    "items": [
+      {
+        "name": "Kevin Jansson",
+        "role": "Kjmarketingsweden",
+        "content": "Extremely awesome guys who know what they're doing, from website sketch to final production everything has been 10/10. I'm extremely impressed"
+      },
+      {
+        "name": "Rickson Mansiamina",
+        "role": "DifferenceConsulting",
+        "content": "Thanks for the journey, guys! It has been a really good collaboration. You have been responsive and really fine-tuned until the website became exactly as I wanted it. You have not just delivered, you have cared. Big thanks for everything!"
+      },
+      {
+        "name": "Filip Blank",
+        "role": "CreatorzMGMT",
+        "content": "From first contact to launch, the collaboration has worked smoothly and professionally. You have been responsive to my wishes. The technical side works without problems so I am very satisfied"
+      },
+      {
+        "name": "Philip Flensburg.",
+        "role": "Marknadschefen",
+        "content": "Strongly recommend letting the team create and maintain your website. They have always been accommodating and incredibly fast and efficient to work with."
+      }
+    ]
+  },
+  "pricing": {
+    "title": "How Can We Help Your Business?",
+    "standard": {
+      "title": "Blimpify Membership (Standard)",
+      "subtitle": "For businesses that want to focus on their business – not their website.",
+      "price": "490 SEK",
+      "period": "/month",
+      "vat": "excl. VAT",
+      "features": [
+        "A professional website, created based on your choices",
+        "Structure and foundation that works over time",
+        "Ability to adjust text, colors, and details as needed",
+        "Help with domain connection and publishing",
+        "Overview of how the website is being used",
+        "Support when something feels wrong"
+      ],
+      "cta": "Get Access"
+    },
+    "custom": {
+      "title": "When Needs Go Beyond Standard",
+      "subtitle": "Tailored solution for larger companies",
+      "price": "Contact Us",
+      "features": [
+        "A larger project with clear project management",
+        "Solutions adapted to your business and workflows",
+        "Support for more advanced functionality as needed",
+        "A dedicated contact and long-term collaboration",
+        "Contracts and arrangements tailored to scope and requirements"
+      ],
+      "cta": "Contact Us"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What does Blimpify do?",
+        "answer": "Blimpify helps businesses create and manage their website without having to think about the whole picture. You share your wishes and goals – we take responsibility for design, structure, and execution."
+      },
+      {
+        "question": "Do I need to know design or technology?",
+        "answer": "No. You only need to describe how you want the website to feel and function. We handle the technical and design aspects for you."
+      },
+      {
+        "question": "Can I make changes myself?",
+        "answer": "Yes, you can adjust smaller things like text, colors, and details yourself. For larger changes in structure or functionality, we help you."
+      },
+      {
+        "question": "When do I pay for the service?",
+        "answer": "It's free to create and submit your website. You pay only when you choose to publish the website and activate the membership."
+      },
+      {
+        "question": "How does the process work?",
+        "answer": "You submit your choices and preferences, we create the website based on that and get back to you when it's ready for review. When you're satisfied, you can choose to publish."
+      },
+      {
+        "question": "Is Blimpify suitable for all businesses?",
+        "answer": "Blimpify is suitable for businesses that know design and development aren't their core competencies and would rather let specialists take responsibility for the whole picture. You contribute direction and goals – we handle design, structure, and execution."
+      }
+    ]
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success!"
+  },
+  "layout": {
+    "navbar": {
+      "menu": {
+        "process": "Process",
+        "services": "Services",
+        "testimonials": "Testimonials",
+        "pricing": "Pricing",
+        "faq": "FAQ"
+      },
+      "login": "Login",
+      "getStarted": "Get Started"
+    },
+    "footer": {
+      "tagline": "We don't just build websites. We take responsibility for them.",
+      "copyright": "© 2025 Blimpify AB Org.no: 559519-2377. All rights reserved.",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "cookies": "Cookies"
+    }
+  }
+}

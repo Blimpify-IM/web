@@ -11,49 +11,44 @@ import {
   AccordionItem,
   Tag,
   Display,
-  FadeIn,
 } from '@blimpify-im/ui';
 import { StructuredData, generateFAQSchema } from '@/lib/seo';
+import { useTranslation, type Locale } from '@/utils/i18n';
 
 interface FAQItem {
   question: string;
   answer: string;
 }
 
-const faqs: FAQItem[] = [
-  {
-    question: 'Vad gör Blimpify?',
-    answer:
-      'Blimpify hjälper företag att ta fram och hantera sin hemsida utan att behöva tänka på helheten. Du delar dina önskemål och mål – vi tar ansvar för design, struktur och genomförande.',
-  },
-  {
-    question: 'Behöver jag kunna design eller teknik?',
-    answer:
-      'Nej. Du behöver bara beskriva hur du vill att hemsidan ska kännas och fungera. Vi tar hand om det tekniska och designmässiga åt dig.',
-  },
-  {
-    question: 'Kan jag göra ändringar själv?',
-    answer:
-      'Ja, du kan justera mindre saker som text, färger och detaljer själv. När det gäller större ändringar i struktur eller funktionalitet hjälper vi dig.',
-  },
-  {
-    question: 'När betalar jag för tjänsten?',
-    answer:
-      'Det är gratis att skapa och skicka in din hemsida. Du betalar först när du väljer att publicera hemsidan och aktivera medlemskapet.',
-  },
-  {
-    question: 'Hur går processen till?',
-    answer:
-      'Du skickar in dina val och önskemål, vi tar fram hemsidan utifrån det och återkommer när den är redo att granskas. När du är nöjd kan du välja att publicera.',
-  },
-  {
-    question: 'Passar Blimpify alla företag?',
-    answer:
-      'Blimpify passar företag som vet att design och utveckling inte är deras kärnkompetens och som hellre låter specialister ta ansvar för helheten. Du bidrar med riktning och mål – vi tar hand om design, struktur och genomförande.',
-  },
-];
+export function FAQSection({ translations }: { translations?: Record<Locale, any> }) {
+  const { t } = useTranslation(translations);
 
-export function FAQSection() {
+  const faqs: FAQItem[] = [
+    {
+      question: t('faq.items.0.question'),
+      answer: t('faq.items.0.answer'),
+    },
+    {
+      question: t('faq.items.1.question'),
+      answer: t('faq.items.1.answer'),
+    },
+    {
+      question: t('faq.items.2.question'),
+      answer: t('faq.items.2.answer'),
+    },
+    {
+      question: t('faq.items.3.question'),
+      answer: t('faq.items.3.answer'),
+    },
+    {
+      question: t('faq.items.4.question'),
+      answer: t('faq.items.4.answer'),
+    },
+    {
+      question: t('faq.items.5.question'),
+      answer: t('faq.items.5.answer'),
+    },
+  ];
   return (
     <Section
       id="faq"
@@ -65,17 +60,14 @@ export function FAQSection() {
       <Container >
         <VStack spacing="3xl">
           {/* Header */}
-          <FadeIn direction="up" duration={700}>
-            <VStack spacing="md">
-              <Display size='md' align="center">
-                Vanliga Frågor
-              </Display>
-            </VStack>
-          </FadeIn>
+          <VStack spacing="md">
+            <Display size='md' align="center">
+              {t('faq.title')}
+            </Display>
+          </VStack>
 
           {/* FAQ List using Accordion */}
-          <FadeIn direction="up" duration={600} delay={200}>
-            <Accordion
+          <Accordion
               selectionMode="single"
               radius="md"
               radiusMode="edges"
@@ -92,7 +84,6 @@ export function FAQSection() {
                 </AccordionItem>
               ))}
             </Accordion>
-          </FadeIn>
         </VStack>
       </Container>
     </Section>

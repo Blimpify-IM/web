@@ -14,8 +14,15 @@ import {
   TextLink,
   Display,
 } from '@blimpify-im/ui';
+import { useTranslation, type Locale } from '@/utils/i18n';
+import { useParams } from 'next/navigation';
+import svTranslations from '@/app/[locale]/locales/sv.json';
+import enTranslations from '@/app/[locale]/locales/en.json';
+
+const translations = { sv: svTranslations, en: enTranslations };
 
 export function Footer() {
+  const { t, locale } = useTranslation(translations);
   const [isDark, setIsDark] = useState(true);
 
   // Detect theme from document
@@ -70,14 +77,14 @@ export function Footer() {
               border='default'
               color="auto"
               radius="lg"
-              href="/"
+              href={`/${locale}`}
             />
             <Display size='lg'>
               blimpify
             </Display>
           </VStack>
           <Body size="sm" align="center" style={{ maxWidth: 420 }}>
-          Vi bygger inte bara hemsidor. Vi tar ansvar för dem.
+            {t('layout.footer.tagline')}
           </Body>
             </VStack>
 
@@ -94,14 +101,13 @@ export function Footer() {
               color: 'var(--text-subtle)',          // or whatever your normal text color is
               textDecoration: 'none',
             }}>
-              © 2025 Blimpify AB Org.nr:{'\u00A0'}559519{'\u2011'}2377. Alla rättigheter
-              förbehållna.
+              {t('layout.footer.copyright')}
             </Body>
 
             <HStack spacing="md">
-              <FooterLink href="/terms">Villkor</FooterLink>
-              <FooterLink href="/privacy">Integritet</FooterLink>
-              <FooterLink href="/cookies">Cookies</FooterLink>
+              <FooterLink href={`/${locale}/terms`}>{t('layout.footer.terms')}</FooterLink>
+              <FooterLink href={`/${locale}/privacy`}>{t('layout.footer.privacy')}</FooterLink>
+              <FooterLink href={`/${locale}/cookies`}>{t('layout.footer.cookies')}</FooterLink>
             </HStack>
           </HStack>
         </Box>

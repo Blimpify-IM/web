@@ -8,10 +8,11 @@ import {
   Body,
   Button,
   Display,
-  FadeIn,
 } from '@blimpify-im/ui';
+import { useAppUrl } from '@/utils/i18n';
 
 export function CTASection() {
+  const getAppUrl = useAppUrl();
 
   return (
     <Section
@@ -23,23 +24,19 @@ export function CTASection() {
     >
         <VStack spacing="lg" align="center">
           {/* Header */}
-          <FadeIn direction="up" duration={700}>
-            <Display size='md' align="center">
-              Vill du vara med från början?
-            </Display>
-          </FadeIn>
+          <Display size='md' align="center">
+            Vill du vara med från början?
+          </Display>
 
           {/* CTA Button */}
-          <FadeIn direction="up" duration={600} delay={200}>
-            <Button
-              variant="accent"
-              size="lg"
-              href="https://app.blimpify-im.com/waitlist"
-              target="_blank"
-            >
-              Få tillgång
-            </Button>
-          </FadeIn>
+          <Button
+            variant="accent"
+            size="lg"
+            href={getAppUrl('/waitlist')}
+            target="_blank"
+          >
+            Få tillgång
+          </Button>
         </VStack>
     </Section>
   );

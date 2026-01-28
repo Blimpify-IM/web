@@ -17,10 +17,10 @@ import {
   Box,
   CarouselAnimation,
   type CarouselAnimationItem,
-  FadeIn,
   HStack,
   Avatar,
 } from '@blimpify-im/ui';
+import { useTranslation, type Locale } from '@/utils/i18n';
 
 interface Testimonial {
   name: string;
@@ -29,35 +29,11 @@ interface Testimonial {
   avatar?: string;
 }
 
-const testimonials: Testimonial[] = [
-  {
-    name: 'Kevin Jansson',
-    role: 'Kjmarketingsweden',
-    content:
-      'Extremt grymma grabbar som vet vad dom håller på med, från skiss av hemsidan till slutligt produktion har allt varit 10/10. Jag är extremt imponerad',
-    avatar: '/assets/kjlogowhite.png',
-  },
-  {
-    name: 'Rickson Mansiamina',
-    role: 'DifferenceConsulting',
-    content:
-      'Tack för resan, grabbar! Det har varit ett riktigt bra samarbete. Ni har varit lyhörda och verkligen finjusterat tills hemsidan blev exakt som jag ville ha den. Ni har inte bara levererat, ni har brytt er. Stort tack för allt!',
-    avatar: '/assets/dclogo.png',
-  },
-  {
-    name: 'Filip Blank',
-    role: 'CreatorzMGMT',
-    content:
-      'Från första kontakt till lansering har samarbetet fungerat smidigt och professionellt. Ni har varit lyhörda för mina önskemål. Det tekniska fungerar utan problem så jag är väldigt nöjd',
-    avatar: '',
-  },
-  {
-    name: 'Philip Flensburg.',
-    role: 'Marknadschefen',
-    content:
-      'Rekommenderar starkt att låta teamet göra din hemsida och underhålla den. De har alltid varit tillmötesgående och otroligt snabba och effektiva att jobba med.',
-    avatar: '/assets/mclogo.png',
-  }
+const testimonialAvatars = [
+  '/assets/kjlogowhite.png',
+  '/assets/dclogo.png',
+  '',
+  '/assets/mclogo.png',
 ];
 
 // Helper function to truncate text by word count
@@ -69,10 +45,18 @@ const truncateWords = (text: string, maxWords: number): string => {
   return words.slice(0, maxWords).join(' ') + '...';
 };
 
-export function TestimonialsSection() {
+export function TestimonialsSection({ translations }: { translations?: Record<Locale, any> }) {
+  const { t } = useTranslation(translations);
   const MAX_WORDS = 30; // Maximum number of words to show
   const [isMobile, setIsMobile] = useState(false);
   const [isDark, setIsDark] = useState(true);
+
+  const testimonials = testimonialAvatars.map((avatar, index) => ({
+    name: t(`testimonials.items.${index}.name`),
+    role: t(`testimonials.items.${index}.role`),
+    content: t(`testimonials.items.${index}.content`),
+    avatar,
+  }));
 
   useEffect(() => {
     const checkMobile = () => {
@@ -135,22 +119,19 @@ export function TestimonialsSection() {
       <Container style={{ position: 'relative', zIndex: 1 }}>
         <VStack spacing="3xl">
           {/* Header */}
-          <FadeIn direction="up" duration={700}>
-            <VStack spacing="md" align="center">
-              <VStack spacing="md" align={isMobile ? "start" : "center"}>
-                <Display
-                  size="md"
-                  align={isMobile ? "left" : "center"}
-                  className="testimonials-header"
-                >
-                  Vad säger <span className="testimonials-header-break"><br /></span>våra kunder?
-                </Display>
-              </VStack>
+          <VStack spacing="md" align="center">
+            <VStack spacing="md" align={isMobile ? "start" : "center"}>
+              <Display
+                size="md"
+                align={isMobile ? "left" : "center"}
+                className="testimonials-header"
+              >
+                {t('testimonials.title')}
+              </Display>
             </VStack>
-          </FadeIn>
+          </VStack>
 
           {/* Spinning Testimonials Carousel (Desktop) / Grid (Mobile) */}
-          <FadeIn direction="up" duration={600} delay={200}>
           {isMobile ? (
             <Grid columns={{ base: 1 }} gap="lg" style={{ alignItems: 'stretch' }}>
               {testimonials.map((testimonial, index) => (
@@ -264,7 +245,6 @@ export function TestimonialsSection() {
             />
           </Box>
           )}
-          </FadeIn>
         </VStack>
       </Container>
       

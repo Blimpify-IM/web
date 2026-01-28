@@ -62,6 +62,11 @@ export default async function RootLayout({
         {/* Preconnect to Google Analytics */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
 
+        {/* 🌍 i18n: Language alternates for SEO */}
+        <link rel="alternate" hrefLang="sv" href="https://blimpify.com/sv" />
+        <link rel="alternate" hrefLang="en" href="https://blimpify.com/en" />
+        <link rel="alternate" hrefLang="x-default" href="https://blimpify.com/sv" />
+
         {/* Inject design tokens as CSS variables */}
         <style id="design-css">{design.css}</style>
 

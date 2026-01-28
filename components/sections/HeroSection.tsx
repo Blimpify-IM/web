@@ -1,10 +1,13 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Section, Container, Box, VStack, Display, Spacer, FadeIn, OverflowContainer, Body, Button } from '@blimpify-im/ui';
+import { Section, Container, Box, VStack, Display, Spacer, OverflowContainer, Body, Button } from '@blimpify-im/ui';
 import Image from 'next/image';
+import { useTranslation, useAppUrl, type Locale } from '@/utils/i18n';
 
-export function HeroSection() {
+export function HeroSection({ translations }: { translations?: Record<Locale, any> }) {
+  const { t } = useTranslation(translations);
+  const getAppUrl = useAppUrl();
   const [isDark, setIsDark] = useState(true); // Default to dark theme first
   const [rotation, setRotation] = useState(-15); // Start with negative rotation (lutar framåt)
   const [isInitialized, setIsInitialized] = useState(false); // Track if scroll logic has initialized
@@ -201,52 +204,45 @@ export function HeroSection() {
       >
         <VStack spacing="xl" align="center">
           <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
-            <FadeIn direction="up" duration={800} delay={0} enableScrollTrigger={false}>
-              <Display
-                size='xl'
-                align="center"
-                color="accent"
-                className="hero-display-responsive"
-              >
-                <span className="hero-text-desktop">
-                  Hemsida åt dig<br />
-                  <span className="hero-text-chill">inte av dig</span>
-                </span>
-                <span className="hero-text-mobile">
-                  Hemsida åt dig<br />
-                  <span className="hero-text-chill">inte av dig</span>
-                </span>
-              </Display>
-            </FadeIn>
-            <FadeIn direction="up" duration={800} delay={200} enableScrollTrigger={false}>
-              <Body
-                size="lg"
-                align="center"
-                className="hero-body-responsive"
-              >
-                Vi bygger inte bara hemsidor. Vi tar ansvar för dem.
-              </Body>
-            </FadeIn>
+            <Display
+              size='xl'
+              align="center"
+              color="accent"
+              className="hero-display-responsive"
+            >
+              <span className="hero-text-desktop">
+                {t('hero.title.line1')}<br />
+                <span className="hero-text-chill">{t('hero.title.line2')}</span>
+              </span>
+              <span className="hero-text-mobile">
+                {t('hero.title.line1')}<br />
+                <span className="hero-text-chill">{t('hero.title.line2')}</span>
+              </span>
+            </Display>
+            <Body
+              size="lg"
+              align="center"
+              className="hero-body-responsive"
+            >
+              {t('hero.subtitle')}
+            </Body>
           </VStack>
 
-          <FadeIn direction="up" duration={600} delay={400} enableScrollTrigger={false}>
-            <Button
-              variant="accent"
-              size="xl"
-              href="https://app.blimpify-im.com/waitlist"
-              target="_blank"
-              className="hero-cta-button"
-            >
-              Ansök om early access
-            </Button>
-          </FadeIn>
+          <Button
+            variant="accent"
+            size="xl"
+            href={getAppUrl('/waitlist')}
+            target="_blank"
+            className="hero-cta-button"
+          >
+            {t('hero.cta')}
+          </Button>
         </VStack>
       </Container>
       <Container useMediaWidth className="hero-image-container-wrapper" style={{ position: 'relative', zIndex: 1, overflow: 'visible', marginTop: 'var(--foundation-space-24)' }}>
         {/* Dashboard Mockup */}
-        <FadeIn direction="up" duration={1000} delay={600} enableScrollTrigger={false}>
-          <OverflowContainer direction="right" spillAmount={200} className="hero-overflow">
-            <Box
+        <OverflowContainer direction="right" spillAmount={200} className="hero-overflow">
+          <Box
               ref={imageRef}
               className="hero-image-container"
               style={{
@@ -301,7 +297,6 @@ export function HeroSection() {
               </Box>
             </Box>
           </OverflowContainer>
-        </FadeIn>
       </Container>
 
       {/* Responsive styles for hero text and clouds */}

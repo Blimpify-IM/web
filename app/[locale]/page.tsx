@@ -8,25 +8,32 @@ import { FAQSection } from '@/components/sections/FAQSection';
 import { CTASection } from '@/components/sections/CTASection';
 import { Divider } from '@blimpify-im/ui';
 import { StructuredData, generateOrganizationSchema, generateWebsiteSchema } from '@/lib/seo';
+import { useTranslation } from '@/utils/i18n';
+import svHome from './locales/sv.json';
+import enHome from './locales/en.json';
+
+const translations = { sv: svHome, en: enHome };
 
 export default function HomePage() {
+  const { t, locale } = useTranslation(translations);
+
   return (
     <>
       <StructuredData data={generateOrganizationSchema()} />
       <StructuredData data={generateWebsiteSchema()} />
       
-      <HeroSection />
+      <HeroSection translations={translations} />
 
       <Divider></Divider>
-      <ScrollSection />
+      <ScrollSection translations={translations} />
       <Divider></Divider>
-      <SystemSection />
+      <SystemSection translations={translations} />
       <Divider></Divider>
-      <TestimonialsSection />
+      <TestimonialsSection translations={translations} />
       <Divider></Divider>
-      <PricingSection />
+      <PricingSection translations={translations} />
       <Divider></Divider>
-      <FAQSection />
+      <FAQSection translations={translations} />
       
     </>
   );

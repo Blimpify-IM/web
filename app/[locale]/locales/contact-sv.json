@@ -1,0 +1,36 @@
+{
+  "meta": {
+    "title": "Kontakta Oss - Blimpify",
+    "description": "Har du frågor eller vill veta mer? Kontakta oss så hör vi av oss"
+  },
+  "hero": {
+    "title": "Kontakta oss",
+    "description": "Har du frågor eller vill veta mer om våra tjänster? Fyll i formuläret nedan så hör vi av oss så snart som möjligt."
+  },
+  "form": {
+    "name": {
+      "label": "Namn",
+      "placeholder": "Ditt namn"
+    },
+    "email": {
+      "label": "E-post",
+      "placeholder": "din@email.se"
+    },
+    "phone": {
+      "label": "Telefon (valfritt)",
+      "placeholder": "+46 70 123 45 67"
+    },
+    "company": {
+      "label": "Företag (valfritt)",
+      "placeholder": "Ditt företag"
+    },
+    "message": {
+      "label": "Meddelande",
+      "placeholder": "Berätta hur vi kan hjälpa dig..."
+    },
+    "submit": "Skicka meddelande",
+    "submitting": "Skickar..."
+  },
+  "success": "Tack för ditt meddelande! Vi hör av oss inom kort.",
+  "error": "Något gick fel. Försök igen eller kontakta oss på admin@blimpify-im.com"
+}

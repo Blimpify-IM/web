@@ -1,0 +1,116 @@
+{
+  "meta": {
+    "title": "Cookie Policy - Blimpify",
+    "description": "Learn how Blimpify uses cookies and similar technologies on our websites"
+  },
+  "header": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: 2025-11-14"
+  },
+  "introduction": {
+    "text1": "This cookie policy describes how Blimpify AB (\"we\", \"us\", \"Blimpify\") uses cookies and similar technologies on our websites:",
+    "sites": [
+      "blimpify-im.com (public website)",
+      "app.blimpify-im.com (dashboard/logged-in service)"
+    ],
+    "text2": "When you use our services, only cookies that are necessary for the websites to function are placed. Analytics cookies are only placed if you actively consent to them via our cookie banner."
+  },
+  "sections": {
+    "whatAreCookies": {
+      "title": "1. What Are Cookies?",
+      "intro": "Cookies are small text files that are stored on your device when you visit a website.",
+      "text": "Cookies are used to:",
+      "items": [
+        "make the website function correctly",
+        "keep you logged in",
+        "remember your settings",
+        "improve performance and user experience"
+      ],
+      "outro": "Some cookies are necessary for our service to work, while others are optional."
+    },
+    "ourCookies": {
+      "title": "2. Cookies We Use",
+      "intro": "We primarily use necessary and functional cookies.",
+      "text": "On certain parts of the service, we also use analytics cookies, which are only activated if you give your consent.",
+      "table": {
+        "headers": ["Cookie", "Type", "Purpose", "Duration"],
+        "rows": [
+          {
+            "cookie": "NEXT_LOCALE",
+            "type": "Functional",
+            "purpose": "Language setting (Swedish/English)",
+            "duration": "1 year"
+          },
+          {
+            "cookie": "auth_token",
+            "type": "Necessary",
+            "purpose": "Login and session management",
+            "duration": "30 days"
+          },
+          {
+            "cookie": "_ga, _gid",
+            "type": "Analytics",
+            "purpose": "Google Analytics (only with consent)",
+            "duration": "2 years / 24 hours"
+          },
+          {
+            "cookie": "cookie_consent",
+            "type": "Necessary",
+            "purpose": "Saves your cookie choice",
+            "duration": "1 year"
+          }
+        ]
+      },
+      "outro": "We do not use cookies for marketing, advertising, or third-party tracking."
+    },
+    "thirdPartyCookies": {
+      "title": "3. Third-Party Cookies",
+      "intro": "Certain cookies or similar technologies may be set by third-party providers we use:",
+      "table": {
+        "headers": ["Service", "Purpose", "Provider"],
+        "rows": [
+          {
+            "service": "Google Analytics",
+            "purpose": "Web analytics (only with consent)",
+            "provider": "Google LLC"
+          },
+          {
+            "service": "Stripe",
+            "purpose": "Payments and invoicing",
+            "provider": "Stripe Inc."
+          }
+        ]
+      },
+      "outro": "These technologies are only used for the purposes described in this policy."
+    },
+    "consent": {
+      "title": "4. Consent and Cookie Settings",
+      "intro": "On your first visit to our public website, a cookie banner is displayed where you can choose:",
+      "choices": [
+        "Accept all cookies (incl. analytics cookies)",
+        "Only necessary cookies"
+      ],
+      "text1": "If you choose \"Only necessary\", no analytics tools are loaded.",
+      "text2": "You can at any time:",
+      "options": [
+        "change or withdraw your consent via Cookie Settings (if active on the page), or",
+        "block cookies directly in your browser."
+      ],
+      "warning": "Note that if you block necessary cookies, certain features — such as login or payments — may stop working correctly."
+    },
+    "changes": {
+      "title": "5. Changes to Cookie Policy",
+      "items": [
+        "We may update this cookie policy as needed, for example if we add new features or change how we use cookies.",
+        "The latest version is always available on this page.",
+        "Significant changes are communicated via email or in the dashboard."
+      ]
+    },
+    "contact": {
+      "title": "6. Contact",
+      "intro": "Have questions about cookies or how we process your personal data?",
+      "text": "Contact us:",
+      "info": "Blimpify AB\nTallåsvägen 84\n186 51 Vallentuna, Sweden\nOrg.no: 559519-2377\nEmail: admin@blimpify-im.com"
+    }
+  }
+}

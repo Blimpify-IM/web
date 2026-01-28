@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "title": "Privacy Policy - Blimpify",
+    "description": "Learn how Blimpify collects, uses, and protects your personal data"
+  },
+  "header": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: 2025-10-24"
+  },
+  "introduction": {
+    "text": "This privacy policy describes how Blimpify AB (\"we\", \"us\" or \"Blimpify\") collects, uses, stores, and protects personal data. The policy applies to you who visit our website (blimpify-im.com), our customer dashboard (app.blimpify-im.com), or otherwise interact with our services."
+  },
+  "sections": {
+    "collection": {
+      "title": "1. Personal Data We Collect",
+      "intro": "We collect personal data to deliver our services, improve user experience, and fulfill our legal obligations.",
+      "text": "When you use our services, we may collect:",
+      "items": [
+        {
+          "label": "Contact information:",
+          "value": "name, email address, company name, phone number"
+        },
+        {
+          "label": "Account and project data:",
+          "value": "information you provide in Project Builder (e.g., choice of design, features, content, colors)"
+        },
+        {
+          "label": "Payment information:",
+          "value": "handled by third-party provider Stripe – we never store complete card details"
+        },
+        {
+          "label": "Login data:",
+          "value": "username, password (hashed), session and authentication data"
+        },
+        {
+          "label": "Technical data:",
+          "value": "IP address, browser, device type, interactions with our pages"
+        },
+        {
+          "label": "User behavior:",
+          "value": "purchase and usage history in the dashboard (app.blimpify-im.com)"
+        }
+      ]
+    },
+    "purpose": {
+      "title": "2. Why We Process Personal Data",
+      "intro": "We process your data to:",
+      "items": [
+        "Create and manage your account",
+        "Build, deliver, and maintain your website",
+        "Manage orders, subscriptions, and invoices",
+        "Provide customer support and revisions",
+        "Send important notices (e.g., payment confirmations, updates)",
+        "Improve and develop our services",
+        "Fulfill legal obligations (e.g., accounting requirements)"
+      ],
+      "outro": "Processing is based on contract, legal obligation, or our legitimate interest in delivering and improving the service."
+    },
+    "thirdParty": {
+      "title": "3. Third-Party Providers",
+      "intro": "We use trusted providers for operating and administering our services:",
+      "providers": [
+        {
+          "service": "Payments",
+          "purpose": "Card payments & subscriptions",
+          "provider": "Stripe"
+        },
+        {
+          "service": "Hosting & operations",
+          "purpose": "Web hosting, servers, and CDN",
+          "provider": "AWS"
+        },
+        {
+          "service": "Email",
+          "purpose": "Sending confirmations and notices",
+          "provider": "AWS SES"
+        }
+      ],
+      "outro": "These providers meet the requirements of the EU's General Data Protection Regulation (GDPR) and act as data processors or independent controllers according to their own privacy policies."
+    },
+    "storage": {
+      "title": "4. Storage and Security",
+      "items": [
+        "We store personal data as long as you are a customer or as long as required to fulfill contracts and legal requirements.",
+        "When the subscription is terminated, the account is saved for up to 12 months for possible reactivation and receipt management.",
+        "After that time, data is deleted or anonymized, except for invoices and payment information which are saved for 7 years according to accounting law.",
+        "The purpose of saving the account after termination is to allow the customer to access their receipts and payment history via the dashboard.",
+        "Upon request for deletion, all personal data is removed, except what we are legally required to retain.",
+        "Passwords are always stored hashed and we use technical and organizational security measures to prevent unauthorized access, loss, or manipulation."
+      ]
+    },
+    "rights": {
+      "title": "5. Your Rights Under GDPR",
+      "intro": "You have the right to:",
+      "items": [
+        "Request a register extract (see what data we have)",
+        "Request correction of incorrect data",
+        "Request deletion of data (\"the right to be forgotten\")",
+        "Restrict or object to certain processing",
+        "Request data portability (receive data in machine-readable format)"
+      ],
+      "contact": "Requests are made via email to admin@blimpify-im.com.",
+      "response": "We respond within 30 days."
+    },
+    "cookies": {
+      "title": "6. Cookies",
+      "intro": "We use cookies on our websites to:",
+      "items": [
+        "Keep you logged in",
+        "Save settings",
+        "Improve performance and user experience"
+      ],
+      "warning": "You can deny cookies via your browser, but some features may then stop working as intended.",
+      "link": "More information can be found in our Cookie Policy."
+    },
+    "policyChanges": {
+      "title": "7. Changes to the Policy",
+      "items": [
+        "We may update this policy as needed.",
+        "Significant changes are communicated via email or in the dashboard.",
+        "The latest version is always available on this page."
+      ]
+    },
+    "contact": {
+      "title": "8. Contact Information",
+      "label": "Data Controller:",
+      "info": "Blimpify AB\nTallåsvägen 84, 186 51 Vallentuna, Sweden\nOrg.no: 559519-2377\nEmail: admin@blimpify-im.com"
+    }
+  }
+}

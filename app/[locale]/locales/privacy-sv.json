@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "title": "Integritetspolicy - Blimpify",
+    "description": "Läs hur Blimpify samlar in, använder och skyddar dina personuppgifter"
+  },
+  "header": {
+    "title": "Integritetspolicy",
+    "lastUpdated": "Senast uppdaterad: 2025-10-24"
+  },
+  "introduction": {
+    "text": "Denna integritetspolicy beskriver hur Blimpify AB (\"vi\", \"oss\" eller \"Blimpify\") samlar in, använder, lagrar och skyddar personuppgifter. Policyn gäller för dig som besöker vår webbplats (blimpify-im.com), vår kunddashboard (app.blimpify-im.com) eller på annat sätt interagerar med våra tjänster."
+  },
+  "sections": {
+    "collection": {
+      "title": "1. Personuppgifter vi samlar in",
+      "intro": "Vi samlar in personuppgifter för att kunna leverera våra tjänster, förbättra användarupplevelsen och uppfylla våra juridiska skyldigheter.",
+      "text": "När du använder våra tjänster kan vi samla in:",
+      "items": [
+        {
+          "label": "Kontaktuppgifter:",
+          "value": "namn, e-postadress, företagsnamn, telefonnummer"
+        },
+        {
+          "label": "Konto- och projektdata:",
+          "value": "uppgifter du lämnar i Project Builder (t.ex. val av design, funktioner, innehåll, färger)"
+        },
+        {
+          "label": "Betalningsinformation:",
+          "value": "hanteras av tredjepartsleverantören Stripe – vi lagrar aldrig fullständiga kortuppgifter"
+        },
+        {
+          "label": "Inloggningsdata:",
+          "value": "användarnamn, lösenord (hashat), sessions- och autentiseringsdata"
+        },
+        {
+          "label": "Teknisk data:",
+          "value": "IP-adress, webbläsare, enhetstyp, interaktioner med våra sidor"
+        },
+        {
+          "label": "Användarbeteende:",
+          "value": "köp- och användningshistorik i dashboarden (app.blimpify-im.com)"
+        }
+      ]
+    },
+    "purpose": {
+      "title": "2. Varför vi behandlar personuppgifter",
+      "intro": "Vi behandlar dina uppgifter för att kunna:",
+      "items": [
+        "Skapa och hantera ditt konto",
+        "Bygga, leverera och underhålla din hemsida",
+        "Hantera beställningar, prenumerationer och fakturor",
+        "Tillhandahålla kundsupport och revisioner",
+        "Skicka viktiga notiser (t.ex. betalningsbekräftelser, uppdateringar)",
+        "Förbättra och utveckla våra tjänster",
+        "Uppfylla rättsliga skyldigheter (exempelvis bokföringskrav)"
+      ],
+      "outro": "Behandlingen sker med stöd av avtal, rättslig förpliktelse eller vårt berättigade intresse av att leverera och förbättra tjänsten."
+    },
+    "thirdParty": {
+      "title": "3. Tredjepartsleverantörer",
+      "intro": "Vi använder betrodda leverantörer för drift och administration av våra tjänster:",
+      "providers": [
+        {
+          "service": "Betalningar",
+          "purpose": "Kortbetalningar & prenumerationer",
+          "provider": "Stripe"
+        },
+        {
+          "service": "Hosting & drift",
+          "purpose": "Webbhotell, servrar och CDN",
+          "provider": "AWS"
+        },
+        {
+          "service": "E-post",
+          "purpose": "Utskick av bekräftelser och notiser",
+          "provider": "AWS SES"
+        }
+      ],
+      "outro": "Dessa leverantörer uppfyller kraven enligt EU:s dataskyddsförordning (GDPR) och agerar som personuppgiftsbiträden eller självständigt ansvariga enligt sina egna integritetspolicys."
+    },
+    "storage": {
+      "title": "4. Lagring och säkerhet",
+      "items": [
+        "Vi lagrar personuppgifter så länge du är kund eller så länge det krävs för att uppfylla avtal och lagkrav.",
+        "När prenumerationen avslutas sparas kontot i upp till 12 månader för eventuell återaktivering och kvitto hantering.",
+        "Efter den tiden raderas eller anonymiseras data, med undantag för fakturor och betalningsuppgifter som sparas i 7 år enligt bokföringslagen.",
+        "Syftet med att spara kontot efter avslut är att kunden ska kunna få tillgång till sina kvitton och betalningshistorik via dashboarden.",
+        "Vid begäran om radering tas all personlig data bort, förutom den som vi enligt lag måste bevara.",
+        "Lösenord lagras alltid hashat och vi använder tekniska och organisatoriska säkerhetsåtgärder för att förhindra obehörig åtkomst, förlust eller manipulation."
+      ]
+    },
+    "rights": {
+      "title": "5. Dina rättigheter enligt GDPR",
+      "intro": "Du har rätt att:",
+      "items": [
+        "Begära registerutdrag (se vilka uppgifter vi har)",
+        "Begära rättelse av felaktiga uppgifter",
+        "Begära radering av uppgifter (\"rätten att bli glömd\")",
+        "Begränsa eller invända mot viss behandling",
+        "Begära dataportabilitet (få ut uppgifter i maskinläsbart format)"
+      ],
+      "contact": "Begäran görs via e-post till admin@blimpify-im.com.",
+      "response": "Vi svarar inom 30 dagar."
+    },
+    "cookies": {
+      "title": "6. Cookies",
+      "intro": "Vi använder cookies på våra webbplatser för att:",
+      "items": [
+        "Hålla dig inloggad",
+        "Spara inställningar",
+        "Förbättra prestanda och användarupplevelse"
+      ],
+      "warning": "Du kan neka cookies via din webbläsare, men vissa funktioner kan då sluta fungera som avsett.",
+      "link": "Mer information finns i vår Cookiepolicy."
+    },
+    "policyChanges": {
+      "title": "7. Ändringar i policyn",
+      "items": [
+        "Vi kan uppdatera denna policy vid behov.",
+        "Väsentliga ändringar kommuniceras via e-post eller i dashboarden.",
+        "Den senaste versionen finns alltid tillgänglig på denna sida."
+      ]
+    },
+    "contact": {
+      "title": "8. Kontaktuppgifter",
+      "label": "Personuppgiftsansvarig:",
+      "info": "Blimpify AB\nTallåsvägen 84, 186 51 Vallentuna, Sverige\nOrg.nr: 559519-2377\nE-post: admin@blimpify-im.com"
+    }
+  }
+}

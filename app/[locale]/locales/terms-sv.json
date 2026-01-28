@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "Användarvillkor - Blimpify",
+    "description": "Läs våra användarvillkor och villkor för att använda Blimpifys tjänster"
+  },
+  "header": {
+    "title": "Användarvillkor",
+    "lastUpdated": "Senast uppdaterad: 2025-10-24"
+  },
+  "introduction": {
+    "text1": "Dessa användarvillkor (\"villkoren\") gäller för användning av Blimpify AB:s tjänster.",
+    "text2": "Genom att använda eller köpa tjänster via blimpify-im.com eller app.blimpify-im.com godkänner du dessa villkor och ingår ett bindande avtal med Blimpify AB (\"vi\", \"oss\", \"Blimpify\")."
+  },
+  "sections": {
+    "company": {
+      "title": "1. Företagsinformation",
+      "content": "Blimpify AB\nTallåsvägen 84, 186 51 Vallentuna, Sverige\nOrg.nr: 559519-2377\nE-post: admin@blimpify-im.com"
+    },
+    "service": {
+      "title": "2. Tjänstebeskrivning",
+      "items": [
+        "Blimpify erbjuder skräddarsydda digitala lösningar för företag — inklusive design, utveckling och drift av hemsidor och webbaserade applikationer.",
+        "Vår plattform, Project Builder, låter kunder konfigurera sin webbplats genom att välja paket, design, struktur och funktioner. Alla val och priser visas tydligt innan beställning.",
+        "Blimpify kan använda tredjepartstjänster (t.ex. hosting, API:er, betallösningar). Vi ansvarar inte för driftstörningar eller begränsningar som orsakas av dessa externa leverantörer.",
+        "Kunden ansvarar för att allt innehåll (t.ex. texter, bilder, logotyper, policytexter) är korrekt, lagligt och fritt från upphovsrättsintrång.",
+        "Blimpify förbehåller sig rätten att uppdatera, ersätta eller avveckla tekniska komponenter i tjänsten när detta inte väsentligt försämrar kundens åtkomst eller funktionalitet."
+      ]
+    },
+    "payment": {
+      "title": "3. Betalning och prenumeration",
+      "intro": "För att hålla hemsidan aktiv krävs en månadsprenumeration, vars pris framgår vid beställning i Project Builder.",
+      "items": [
+        "Den första månaden kan erbjudas kostnadsfritt.",
+        "Prenumerationen startar automatiskt efter beställning och förnyas månadsvis via Stripe.",
+        "Kunden kan säga upp sin prenumeration när som helst via sin dashboard eller genom att kontakta support.",
+        "Redan betald period återbetalas inte.",
+        "Vid utebliven betalning kan Blimpify pausa eller avsluta tjänsten tills betalning mottagits."
+      ],
+      "outro": "För kunder som beställer skräddarsydda lösningar utanför Project Builder gäller särskilda villkor enligt separat offert- eller projektavtal."
+    },
+    "operation": {
+      "title": "4. Drift och avslut av tjänst",
+      "items": [
+        "Prenumerationen ger kunden rätt att använda Blimpify-plattformen för drift av sin hemsida.",
+        "Vid uppsagd eller obetald prenumeration tas hemsidan offline.",
+        "Eftersom Blimpify-plattformen är en integrerad och proprietär tjänst kan kunden inte köpa loss eller exportera sin hemsida till extern driftmiljö. Koden är anpassad för Blimpifys system och inte avsedd för fristående installation.",
+        "Kundens konto och data sparas i upp till 12 månader efter avslut. Därefter raderas informationen permanent om ingen återaktivering sker."
+      ]
+    },
+    "rights": {
+      "title": "5. Nyttjanderätt och immateriella rättigheter",
+      "items": [
+        "Kunden behåller äganderätten till allt eget material som laddas upp eller tillhandahålls (t.ex. texter, bilder, logotyper).",
+        "All teknik, kod, mallar, designkomponenter, dashboard, Project Builder och övrig infrastruktur tillhör Blimpify AB.",
+        "Kunden får en icke-exklusiv licens att använda dessa delar så länge prenumerationen är aktiv.",
+        "Vid avslutad prenumeration upphör licensen automatiskt.",
+        "Innehållet (kundens egna texter, bilder, logotyper) kan begäras ut i statisk form på förfrågan."
+      ]
+    },
+    "support": {
+      "title": "6. Support och ändringar",
+      "items": [
+        "Support erbjuds via dashboard och e-post (admin@blimpify-im.com).",
+        "Blimpify besvarar ärenden inom 48 timmar under helgfria vardagar.",
+        "Mindre ändringar och justeringar kan göras kostnadsfritt inom ramen för prenumerationen.",
+        "Omfattande ändringar eller nya funktioner kan faktureras separat enligt gällande prislista."
+      ]
+    },
+    "refund": {
+      "title": "7. Ångerrätt och återbetalning",
+      "intro": "Kunden har rätt till återbetalning (exklusive prenumerationsavgifter) inom 30 dagar om:",
+      "conditions": [
+        "Ingen hemsida har publicerats,",
+        "Ingen design- eller kodproduktion har påbörjats, och",
+        "Ingen implementation utanför vår miljö har inletts."
+      ],
+      "items": [
+        "Begäran ska skickas skriftligt till admin@blimpify-im.com.",
+        "Efter 30 dagar är återbetalning inte möjlig.",
+        "Om arbete har påbörjats kan Blimpify dra av skälig ersättning för nedlagd tid och resurser."
+      ]
+    },
+    "privacy": {
+      "title": "8. Integritet och personuppgifter",
+      "items": [
+        "Blimpify samlar endast in grundläggande kontaktuppgifter (t.ex. namn, företag, e-post) för att hantera kundrelationer.",
+        "Betalningsuppgifter hanteras av Stripe och lagras inte av Blimpify.",
+        "Behandling av personuppgifter regleras i vår Integritetspolicy."
+      ]
+    },
+    "liability": {
+      "title": "9. Ansvarsbegränsning",
+      "intro": "Blimpify ansvarar inte för:",
+      "items": [
+        "Driftstörningar eller tekniska fel,",
+        "Förlust av data orsakad av kundens agerande eller tredjepart,",
+        "Indirekta skador såsom utebliven vinst eller avbrott i verksamhet."
+      ],
+      "outro": "Blimpifys totala ekonomiska ansvar är under alla omständigheter begränsat till den totala summa kunden betalat under de senaste 3 månaderna."
+    },
+    "changes": {
+      "title": "10. Ändringar av villkor",
+      "items": [
+        "Blimpify AB kan uppdatera dessa villkor.",
+        "Nya kunder omfattas direkt av uppdaterade villkor.",
+        "Befintliga kunder omfattas av de villkor som gällde vid beställning, om inget annat avtalas.",
+        "Ändringar kommuniceras via e-post eller genom meddelande i dashboarden."
+      ]
+    },
+    "law": {
+      "title": "11. Tillämplig lag och tvist",
+      "items": [
+        "Dessa villkor regleras av svensk lag.",
+        "Tvister som inte kan lösas genom dialog mellan parterna ska avgöras av svensk allmän domstol med Stockholms tingsrätt som första instans."
+      ]
+    }
+  }
+}
