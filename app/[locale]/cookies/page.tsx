@@ -181,7 +181,9 @@ export default function CookiesPage() {
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   {(translations[locale] as any).sections.consent.choices.map((choice: string, i: number) => (
-                    <Body key={i} size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: `• ${choice}` }} />
+                    <Body key={i} size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                      • {choice}
+                    </Body>
                   ))}
                 </VStack>
               </Box>
@@ -200,7 +202,9 @@ export default function CookiesPage() {
                   ))}
                 </VStack>
               </Box>
-              <Body size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: t('sections.consent.warning') }} />
+              <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                {t('sections.consent.warning')}
+              </Body>
             </VStack>
 
             {/* 5. Changes */}
@@ -222,7 +226,9 @@ export default function CookiesPage() {
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 {t('sections.contact.text')}
               </Body>
-              <Body size="md" color="primary" style={{ lineHeight: 1.7, whiteSpace: 'pre-line' }} dangerouslySetInnerHTML={{ __html: t('sections.contact.info') }} />
+              <Body size="md" color="primary" style={{ lineHeight: 1.7, whiteSpace: 'pre-line' }}>
+                {t('sections.contact.info')}
+              </Body>
             </VStack>
           </VStack>
         </VStack>
