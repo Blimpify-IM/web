@@ -170,7 +170,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           <HStack spacing="sm">
             <Button 
               variant="ghost" 
-              href="https://app.blimpify-im.com/login"
+              href="https://app.blimpify-im.com/sv/login"
               className="navbar-login-button"
             >
               Logga in
@@ -267,7 +267,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             >
               <Button 
                 variant="secondary" 
-                href="https://app.blimpify-im.com/login" 
+                href="https://app.blimpify-im.com/sv/login" 
                 className="navbar-login-button"
                 style={{ width: '100%' }}
               >

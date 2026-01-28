@@ -144,7 +144,7 @@ export function StaticNavbar() {
                 iconOnly
               />
 
-              <Button variant="ghost" href="https://app.blimpify-im.com/login">
+              <Button variant="ghost" href="https://app.blimpify-im.com/sv/login">
                 Logga in
               </Button>
               <Button variant="accent" href="https://builder.blimpify-im.com">
@@ -198,7 +198,7 @@ export function StaticNavbar() {
           <VStack spacing="sm" className="drawer-pill-actions">
             <Button
               variant="ghost"
-              href="https://app.blimpify-im.com/login"
+              href="https://app.blimpify-im.com/sv/login"
               onClick={() => setMobileOpen(false)}
               className="drawer-pill-button"
             >
