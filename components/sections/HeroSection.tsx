@@ -233,7 +233,7 @@ export function HeroSection() {
             <Button
               variant="accent"
               size="xl"
-              href="https://app.blimpify-im.com/waitlist"
+              href="https://app.blimpify-im.com/sv/waitlist"
               target="_blank"
               className="hero-cta-button"
             >
