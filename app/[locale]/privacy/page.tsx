@@ -37,7 +37,9 @@ export default function PrivacyPage() {
           <VStack spacing="2xl" align="stretch" style={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
             {/* Introduction */}
             <VStack spacing="md" align="stretch">
-              <Body size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: t('introduction.text') }} />
+              <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                {t('introduction.text')}
+              </Body>
             </VStack>
 
             {/* 1. Collection */}
@@ -75,7 +77,9 @@ export default function PrivacyPage() {
                   ))}
                 </VStack>
               </Box>
-              <Body size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: t('sections.purpose.outro') }} />
+              <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                {t('sections.purpose.outro')}
+              </Body>
             </VStack>
 
             {/* 3. Third Party */}
@@ -130,7 +134,9 @@ export default function PrivacyPage() {
             <VStack spacing="md" align="stretch">
               <H3 weight="semibold">{t('sections.storage.title')}</H3>
               {(translations[locale] as any).sections.storage.items.map((item: string, i: number) => (
-                <Body key={i} size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: item }} />
+                <Body key={i} size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                  {item}
+                </Body>
               ))}
             </VStack>
 
@@ -143,12 +149,18 @@ export default function PrivacyPage() {
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   {(translations[locale] as any).sections.rights.items.map((item: string, i: number) => (
-                    <Body key={i} size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: `• ${item}`}} />
+                    <Body key={i} size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                      • {item}
+                    </Body>
                   ))}
                 </VStack>
               </Box>
-              <Body size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: t('sections.rights.contact') }} />
-              <Body size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: t('sections.rights.response') }} />
+              <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                {t('sections.rights.contact')}
+              </Body>
+              <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                {t('sections.rights.response')}
+              </Body>
             </VStack>
 
             {/* 6. Cookies */}
@@ -169,7 +181,9 @@ export default function PrivacyPage() {
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 {t('sections.cookies.warning')}
               </Body>
-              <Body size="md" color="primary" style={{ lineHeight: 1.7 }} dangerouslySetInnerHTML={{ __html: t('sections.cookies.link') }} />
+              <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
+                {t('sections.cookies.link')}
+              </Body>
             </VStack>
 
             {/* 7. Policy Changes */}
@@ -188,7 +202,9 @@ export default function PrivacyPage() {
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 <strong>{t('sections.contact.label')}</strong>
               </Body>
-              <Body size="md" color="primary" style={{ lineHeight: 1.7, whiteSpace: 'pre-line' }} dangerouslySetInnerHTML={{ __html: t('sections.contact.info') }} />
+              <Body size="md" color="primary" style={{ lineHeight: 1.7, whiteSpace: 'pre-line' }}>
+                {t('sections.contact.info')}
+              </Body>
             </VStack>
           </VStack>
         </VStack>
