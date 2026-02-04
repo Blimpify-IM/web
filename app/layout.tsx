@@ -1,7 +1,6 @@
 
 import './globals.css';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { designSnippet } from '@blimpify-im/ui/design';
 import { ConsentProvider, CookieConsent, MarketingPixels } from '@blimpify-im/ui/consent';
 import { StaticNavbar } from '@/components/layout/StaticNavbar';
@@ -59,9 +58,6 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
-        {/* Preconnect to Google Analytics */}
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-
         {/* Inject design tokens as CSS variables */}
         <style id="design-css">{design.css}</style>
 
@@ -90,22 +86,9 @@ export default async function RootLayout({
         )}
       </head>
       <body suppressHydrationWarning>
-        {/* Google Analytics 4 */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-LY6YMV89SC"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-LY6YMV89SC');
-          `}
-        </Script>
-
         <ConsentProvider>
-          <MarketingPixels pixels={[]} />
+          {/* GA4 laddas endast efter att användaren accepterat analyscookies (via cookie-bannern) */}
+          <MarketingPixels pixels={[{ platform: 'google', pixel_id: 'G-LY6YMV89SC' }]} />
           <HashScrollHandler />
         <NavbarBar />
         <main>{children}</main>

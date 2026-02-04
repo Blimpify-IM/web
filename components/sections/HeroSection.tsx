@@ -378,17 +378,15 @@ export function HeroSection() {
           }
         }
         
-        /* Mobile: prevent overflow and center image */
+        /* Mobile: dölj hero-bilden (dashboard-mockup) på mindre enheter – spara data/laddning */
         @media (max-width: 768px) {
+          .hero-image-container-wrapper {
+            display: none !important;
+          }
           .hero-overflow {
             width: 100% !important;
             margin-right: 0 !important;
             overflow: hidden !important;
-          }
-          
-          .hero-image-container-wrapper {
-            padding-left: var(--foundation-space-4) !important;
-            padding-right: var(--foundation-space-4) !important;
           }
         }
 
