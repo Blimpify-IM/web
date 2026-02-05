@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   Box,
   HStack,
@@ -12,6 +13,7 @@ import {
   Drawer,
   Icon,
   FadeIn,
+  Body,
 } from '@blimpify-im/ui';
 import { Menu, X } from 'lucide-react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
@@ -155,16 +157,28 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             className={`navbar-bar__middle navbar-bar__middle--${menuAlign}`}
             spacing="lg"
           >
-            {menuItems.map((item, i) => (
-              <TextLink
-                key={i}
-                href={item.href}
-                size="md"
-                onClick={(e) => item.hash && handleHashClick(e, item.hash)}
-              >
-                {item.label}
-              </TextLink>
-            ))}
+            {menuItems.map((item, i) =>
+              item.hash ? (
+                <TextLink
+                  key={i}
+                  href={item.href}
+                  size="md"
+                  onClick={(e) => handleHashClick(e, item.hash)}
+                >
+                  {item.label}
+                </TextLink>
+              ) : (
+                <Link
+                  key={i}
+                  href={item.href}
+                  style={{ color: 'var(--text-link-color)', textDecoration: 'none' }}
+                >
+                  <Body size="md" weight="medium" style={{ color: 'inherit' }}>
+                    {item.label}
+                  </Body>
+                </Link>
+              )
+            )}
           </HStack>
 
           <HStack spacing="sm">
@@ -244,16 +258,28 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
               distance={DISTANCE}
               enableScrollTrigger={false}
             >
-              <TextLink
-                href={item.href}
-                size="lg"
-                onClick={(e) => {
-                  setMobileOpen(false);
-                  if (item.hash) handleHashClick(e, item.hash);
-                }}
-              >
-                {item.label}
-              </TextLink>
+              {item.hash ? (
+                <TextLink
+                  href={item.href}
+                  size="lg"
+                  onClick={(e) => {
+                    setMobileOpen(false);
+                    handleHashClick(e, item.hash);
+                  }}
+                >
+                  {item.label}
+                </TextLink>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  style={{ color: 'var(--text-link-color)', textDecoration: 'none' }}
+                >
+                  <Body size="lg" weight="medium" style={{ color: 'inherit' }}>
+                    {item.label}
+                  </Body>
+                </Link>
+              )}
             </FadeIn>
           ))}
 

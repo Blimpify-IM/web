@@ -16,11 +16,10 @@ import {
   Label,
 } from '@blimpify-im/ui';
 
-export default function ContactPage() {
+export default function PartnerskapPage() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     company: '',
     message: '',
   });
@@ -43,13 +42,12 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          phone: formData.phone || undefined,
           company: formData.company || undefined,
           message: formData.message,
           toAddress: 'admin@blimpify-im.com',
           sendConfirmation: true,
           siteName: 'Blimpify',
-          subject: 'Ny förfrågan från kontaktformulär',
+          subject: 'Ny partnerskapsförfrågan',
         }),
       });
 
@@ -64,7 +62,6 @@ export default function ContactPage() {
         setFormData({
           name: '',
           email: '',
-          phone: '',
           company: '',
           message: '',
         });
@@ -82,19 +79,23 @@ export default function ContactPage() {
     return (
       <Section>
         <Container useFormWidth>
-          <VStack spacing="xl" align="center" style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <VStack spacing="md" align="center">
-              <H1 align="center">Tack för ditt meddelande!</H1>
-              <Body size="lg" color="secondary" align="center">
-                Vi har mottagit din förfrågan och kommer att kontakta dig inom kort.
-              </Body>
+          <VStack spacing="3xl" align="stretch">
+            <VStack spacing="2xl" align="stretch" style={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
+              <VStack spacing="xl" align="center">
+                <VStack spacing="md" align="center">
+                  <H1 align="center">Tack för att du hör av dig!</H1>
+                  <Body size="lg" color="secondary" align="center">
+                    Vi har mottagit din partnerskapsförfrågan. Om vi ser en matchning återkommer vi.
+                  </Body>
+                </VStack>
+                <Button
+                  variant="primary"
+                  onClick={() => setSuccess(false)}
+                >
+                  Skicka en ny förfrågan
+                </Button>
+              </VStack>
             </VStack>
-            <Button
-              variant="primary"
-              onClick={() => setSuccess(false)}
-            >
-              Skicka ett nytt meddelande
-            </Button>
           </VStack>
         </Container>
       </Section>
@@ -104,19 +105,20 @@ export default function ContactPage() {
   return (
     <Section>
       <Container useFormWidth>
-        <VStack spacing="3xl" align="stretch" style={{ maxWidth: '600px', margin: '0 auto' }}>
-          {/* Header */}
-          <VStack spacing="md" align="center">
-            <H1 align="center">Kontakta oss</H1>
-            <Body size="lg" color="secondary" align="center">
-              Har du frågor eller vill diskutera ditt projekt? Skicka oss ett meddelande så hör vi av oss.
-            </Body>
-          </VStack>
+        <VStack spacing="3xl" align="stretch">
+          {/* Header + content – samma struktur som cookies/privacy/terms */}
+          <VStack spacing="2xl" align="stretch" style={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
+            {/* Header */}
+            <VStack spacing="md" align="center">
+              <H1 align="center">Har du någon rolig ide?</H1>
+              <Body size="lg" color="secondary" align="center">
+                Är du intresserad av att jobba med oss, eller har du något annat spännande förslag? Tveka inte på att höra av dig. Vi är öppna för allt.
+              </Body>
+            </VStack>
 
-          {/* Contact Form */}
-          <form onSubmit={handleSubmit}>
-            <VStack spacing="lg" align="stretch">
-              {/* Name */}
+            {/* Form */}
+            <form onSubmit={handleSubmit}>
+              <VStack spacing="lg" align="stretch">
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
                   Namn *
@@ -131,7 +133,6 @@ export default function ContactPage() {
                 />
               </VStack>
 
-              {/* Email */}
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
                   E-post *
@@ -146,50 +147,33 @@ export default function ContactPage() {
                 />
               </VStack>
 
-              {/* Phone */}
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Telefon
-                </Label>
-                <Input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="070-123 45 67"
-                  disabled={isSubmitting}
-                />
-              </VStack>
-
-              {/* Company */}
-              <VStack spacing="xs" align="stretch">
-                <Label size="sm" weight="medium">
-                  Företag
+                  Företag / organisation
                 </Label>
                 <Input
                   type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  placeholder="Ditt företag"
+                  placeholder="Ditt företag eller organisation"
                   disabled={isSubmitting}
                 />
               </VStack>
 
-              {/* Message */}
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Meddelande *
+                  Berätta kort vad du tänker dig *
                 </Label>
                 <Textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Berätta om ditt projekt eller ställ dina frågor..."
+                  placeholder="T.ex. samarbete, samprojekt, idé du vill utforska..."
                   rows={6}
                   required
                   disabled={isSubmitting}
                 />
               </VStack>
 
-              {/* Error Message */}
               {error && (
                 <AlertRoot variant="error" surface="subtle">
                   <AlertContent>
@@ -198,7 +182,6 @@ export default function ContactPage() {
                 </AlertRoot>
               )}
 
-              {/* Submit Button */}
               <Button
                 type="submit"
                 variant="accent"
@@ -207,10 +190,11 @@ export default function ContactPage() {
                 loading={isSubmitting}
                 disabled={isSubmitting}
               >
-                Skicka meddelande
+                Skicka förfrågan
               </Button>
             </VStack>
           </form>
+          </VStack>
         </VStack>
       </Container>
     </Section>

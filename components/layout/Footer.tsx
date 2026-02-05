@@ -99,6 +99,7 @@ export function Footer() {
             </Body>
 
             <HStack spacing="md">
+              <FooterLink href="/partnerskap">Partnerskap</FooterLink>
               <FooterLink href="/terms">Villkor</FooterLink>
               <FooterLink href="/privacy">Integritet</FooterLink>
               <FooterLink href="/cookies">Cookies</FooterLink>

@@ -32,5 +32,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date().toISOString().split('T')[0],
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/partnerskap`,
+      lastModified: new Date().toISOString().split('T')[0],
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified: new Date().toISOString().split('T')[0],
+      priority: 0.6,
+    },
   ];
 }

@@ -94,7 +94,7 @@ export function PricingSection() {
                     </VStack>
 
                     {/* Price */}
-                    <VStack spacing="xs">
+                    <VStack spacing="xs" className="pricing-price-block">
                       <HStack spacing="xs" align="baseline">
                         <H2 weight="bold">
                           490 kr
@@ -109,30 +109,30 @@ export function PricingSection() {
                     </VStack>
 
                     {/* Features */}
-                    <VStack spacing="sm" style={{ flex: 1 }}>
-                      <HStack spacing="sm">
+                    <VStack spacing="sm" style={{ flex: 1 }} className="pricing-features">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">En professionell hemsida, framtagen utifrån dina val</Body>
+                        <Body size="sm" className="pricing-feature-text">En professionell hemsida, framtagen utifrån dina val</Body>
                       </HStack>
-                      <HStack spacing="sm">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Struktur och grund som fungerar över tid</Body>
+                        <Body size="sm" className="pricing-feature-text">Struktur och grund som fungerar över tid</Body>
                       </HStack>
-                      <HStack spacing="sm" className="pricing-feature-mobile-hide">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Möjlighet att justera text, färger och detaljer vid behov</Body>
+                        <Body size="sm" className="pricing-feature-text">Möjlighet att justera text, färger och detaljer vid behov</Body>
                       </HStack>
-                      <HStack spacing="sm">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Hjälp med domänkoppling och publicering</Body>
+                        <Body size="sm" className="pricing-feature-text">Hjälp med domänkoppling och publicering</Body>
                       </HStack>
-                      <HStack spacing="sm" className="pricing-feature-mobile-hide">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Överblick över hur hemsidan används</Body>
+                        <Body size="sm" className="pricing-feature-text">Överblick över hur hemsidan används</Body>
                       </HStack>
-                      <HStack spacing="sm">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Support när något känns fel</Body>
+                        <Body size="sm" className="pricing-feature-text">Support när något känns fel</Body>
                       </HStack>
                     </VStack>
                     {/* CTA Button */}
@@ -175,40 +175,43 @@ export function PricingSection() {
                         När behoven går bortom standard
                       </H3>
                       <Body size="sm">
-                        Skräddarsydd lösning för större företag
+                        Så finns vi här ändå
                       </Body>
                     </VStack>
 
-                    {/* Price */}
-                    <VStack spacing="xs">
+                    {/* Price - samma struktur som vänster kort så layouten matchar */}
+                    <VStack spacing="xs" className="pricing-price-block">
                       <HStack spacing="xs" align="baseline">
                         <H2 weight="bold">
-                          Kontakta oss
+                          Anpassad
                         </H2>
                       </HStack>
+                      <Body size="xs" color="tertiary" style={{ marginTop: '-0.25rem' }}>
+                        efter behov
+                      </Body>
                     </VStack>
 
                     {/* Features */}
-                    <VStack spacing="sm" style={{ flex: 1 }}>
-                      <HStack spacing="sm">
+                    <VStack spacing="sm" style={{ flex: 1 }} className="pricing-features">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Ett större projekt med tydlig projektledning</Body>
+                        <Body size="sm" className="pricing-feature-text">Ett större projekt med tydlig projektledning</Body>
                       </HStack>
-                      <HStack spacing="sm">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Lösningar anpassade efter er verksamhet och era flöden</Body>
+                        <Body size="sm" className="pricing-feature-text">Lösningar anpassade efter er verksamhet och era flöden</Body>
                       </HStack>
-                      <HStack spacing="sm" className="pricing-feature-mobile-hide">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Stöd för mer avancerad funktionalitet vid behov</Body>
+                        <Body size="sm" className="pricing-feature-text">Stöd för mer avancerad funktionalitet vid behov</Body>
                       </HStack>
-                      <HStack spacing="sm">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">En dedikerad kontakt och långsiktigt samarbete</Body>
+                        <Body size="sm" className="pricing-feature-text">En dedikerad kontakt och långsiktigt samarbete</Body>
                       </HStack>
-                      <HStack spacing="sm">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Avtal och upplägg anpassade efter omfattning och krav</Body>
+                        <Body size="sm" className="pricing-feature-text">Avtal och upplägg anpassade efter omfattning och krav</Body>
                       </HStack>
                     </VStack>
 
@@ -241,7 +244,16 @@ export function PricingSection() {
         [data-theme="dark"] .pricing-checkmark {
           color: #ffffff !important;
         }
-        
+
+        /* Samma maxbredd för feature-text i båda korten – jämn layout */
+        .pricing-feature-row {
+          align-items: flex-start;
+        }
+        .pricing-feature-text {
+          flex: 1;
+          min-width: 0;
+          max-width: 32ch;
+        }
         
         @media (max-width: 1024px) {
           .pricing-grid {
@@ -250,6 +262,10 @@ export function PricingSection() {
           
           .pricing-feature-mobile-hide {
             display: none !important;
+          }
+
+          .pricing-feature-text {
+            max-width: none;
           }
         }
 
