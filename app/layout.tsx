@@ -3,7 +3,6 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { designSnippet } from '@blimpify-im/ui/design';
 import { ConsentProvider, CookieConsent, MarketingPixels } from '@blimpify-im/ui/consent';
-import { StaticNavbar } from '@/components/layout/StaticNavbar';
 import { Footer } from '@/components/layout/Footer';
 import { NavbarBar } from '@/components/layout/NavbarBar';
 import { HashScrollHandler } from '@/components/HashScrollHandler';
