@@ -209,12 +209,14 @@ export function HeroSection() {
                 className="hero-display-responsive"
               >
                 <span className="hero-text-desktop">
-                  Hemsida åt dig<br />
-                  <span className="hero-text-chill">inte av dig</span>
+                  Sites that fly<br />
+
+                  <span className="hero-text-chill"> viewers that land</span>
                 </span>
                 <span className="hero-text-mobile">
-                  Hemsida åt dig<br />
-                  <span className="hero-text-chill">inte av dig</span>
+                  Sites that fly<br /> 
+
+                  <span className="hero-text-chill">viewers that land</span>
                 </span>
               </Display>
             </FadeIn>
@@ -224,7 +226,7 @@ export function HeroSection() {
                 align="center"
                 className="hero-body-responsive"
               >
-                Vi bygger inte bara hemsidor. Vi tar ansvar för dem.
+                Turn traffic into real interest. Built for real users.
               </Body>
             </FadeIn>
           </VStack>
@@ -237,7 +239,7 @@ export function HeroSection() {
               target="_blank"
               className="hero-cta-button"
             >
-              Ansök om early access
+              Get started for free
             </Button>
           </FadeIn>
         </VStack>

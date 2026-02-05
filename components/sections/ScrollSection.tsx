@@ -29,36 +29,36 @@ interface ScrollItem {
 
 const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
-    title: 'Sätt riktningen',
+    title: 'Set the direction',
     description:
-      'Skapa ett konto och skicka in dina val och önskemål. Inga tekniska beslut.',
+      'Create an account and submit your choices and preferences. No technical decisions.',
     imageLight: '/assets/order.png',
     imageDark: '/assets/order-dark.png',
-    imageAlt: 'Satt riktningen',
+    imageAlt: 'Set the direction',
   },
   {
-    title: 'Vi tar fram hemsidan',
+    title: 'We create your website',
     description:
-      'Vi tar fram hemsidan utifrån dina val och ser till att allt hänger ihop.',
+      'We create the website based on your choices and make sure everything fits together.',
     imageLight: '/assets/default.png',
     imageDark: '/assets/default-dark.png',
-    imageAlt: 'Vi tar fram hemsidan',
+    imageAlt: 'We create your website',
   },
   {
-    title: 'Granska och justera',
+    title: 'Review and adjust',
     description:
-      'Du granskar och justerar tills det känns rätt.',
+      'You review and adjust until it feels right.',
     imageLight: '/assets/cms.png',
     imageDark: '/assets/cms-dark.png',
-    imageAlt: 'Granska och justera',
+    imageAlt: 'Review and adjust',
   },
   {
-    title: 'Publicera och gå vidare',
+    title: 'Publish and move forward',
     description:
-      'När du är nöjd publiceras hemsidan. Därefter tar Blimpify ansvar för att den fungerar över tid.',
+      'When you\'re satisfied, the website is published. After that, Blimpify takes responsibility for keeping it working over time.',
     imageLight: '/assets/hemsida.png',
     imageDark: '/assets/hemsida-dark.png',
-    imageAlt: 'Publicera och ga vidare',
+    imageAlt: 'Publish and move forward',
   },
 ];
 
@@ -143,7 +143,7 @@ export function ScrollSection() {
             marginBottom: 'var(--space-lg)',
           }}
         >
-          Vår process
+          Our process
         </H1>
         <div
           className="scroll-section-grid"
@@ -178,7 +178,7 @@ export function ScrollSection() {
                   padding: 'var(--foundation-space-4)',
                 }}
               >
-               vår process 
+               Our process
               </H1>
             </VStack>
 

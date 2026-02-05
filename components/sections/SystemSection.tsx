@@ -70,21 +70,21 @@ interface DocCategory {
 
 const systemBlocks: SystemBlock[] = [
   {
-    title: 'Ett sammanhållet system',
+    title: 'A cohesive system',
     description:
-      'Din hemsida byggs i Blimpifys system, vilket gör att vi kan ta fullt ansvar för design, struktur och helhet över tid.',
+      'Your website is built in Blimpify\'s system, which allows us to take full responsibility for design, structure, and overall quality over time.',
     showEditor: true,
   },
   {
-    title: 'Design som håller över tid',
+    title: 'Design that lasts over time',
     description:
-      'Ett eget design- och UI-system gör att din hemsida kan utvecklas vidare utan att tappa sitt uttryck eller behöva byggas om.',
+      'A dedicated design and UI system means your website can evolve without losing its expression or needing to be rebuilt.',
     showDocumentation: true,
   },
   {
-    title: 'Stabil drift som vi äger',
+    title: 'Stable operations that we own',
     description:
-      'Vi ansvarar för drift, prestanda och säkerhet med beprövad infrastruktur så att din hemsida är snabb och stabil.',
+      'We are responsible for operations, performance, and security with proven infrastructure so your website is fast and stable.',
     showStats: true,
   },
 ];
@@ -500,13 +500,13 @@ function OperationsStatus() {
               <Icon size="md" color="success">
                 <GlobeAltIcon />
               </Icon>
-              <Label color="secondary" size="sm">Publicerad</Label>
+              <Label color="secondary" size="sm">Published</Label>
             </HStack>
-            <Tag variant="success" size="small" surface="subtle">Aktiv</Tag>
+            <Tag variant="success" size="small" surface="subtle">Active</Tag>
           </HStack>
         </Box>
-        
-        {/* Säkerhet */}
+
+        {/* Security */}
         <Box
           style={{
             padding: 'var(--foundation-space-4)',
@@ -520,13 +520,13 @@ function OperationsStatus() {
               <Icon size="md" color="success">
                 <ShieldCheckIcon />
               </Icon>
-              <Label color="secondary" size="sm">Säkerhet</Label>
+              <Label color="secondary" size="sm">Security</Label>
             </HStack>
-            <Tag variant="success" size="small" surface="subtle">Skyddad</Tag>
+            <Tag variant="success" size="small" surface="subtle">Protected</Tag>
           </HStack>
         </Box>
-        
-        {/* Övervakning */}
+
+        {/* Monitoring */}
         <Box
           style={{
             padding: 'var(--foundation-space-4)',
@@ -540,9 +540,9 @@ function OperationsStatus() {
               <Icon size="md" color="success">
                 <ServerIcon />
               </Icon>
-              <Label color="secondary" size="sm">Övervakad</Label>
+              <Label color="secondary" size="sm">Monitored</Label>
             </HStack>
-            <Tag variant="success" size="small" surface="subtle">Aktiv</Tag>
+            <Tag variant="success" size="small" surface="subtle">Active</Tag>
           </HStack>
         </Box>
       </VStack>
@@ -859,7 +859,7 @@ export function SystemSection() {
           <FadeIn>
           <VStack spacing="md" align="center" className="system-section-header" style={{ marginBottom: 'var(--foundation-space-16)' }}>
             <Display size="md" align="center">
-              Det som gör Blimpify annorlunda
+              What makes Blimpify different
             </Display>
           </VStack>
           </FadeIn>
@@ -894,11 +894,6 @@ export function SystemSection() {
                       <Body size="lg" color="secondary" style={{ lineHeight: 1.7 }}>
                         {block.description}
                       </Body>
-                      {index === 2 && (
-                        <Body size="sm" color="tertiary" style={{ marginTop: 'var(--foundation-space-2)' }}>
-                          Byggt på beprövad infrastruktur som används av miljontals företag världen över.
-                        </Body>
-                      )}
                     </VStack>
                   </Box>
 

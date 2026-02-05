@@ -85,23 +85,22 @@ export function Footer() {
         <Box
           style={{
             paddingTop: 'var(--foundation-space-8)',
-            borderTop: '1px solid var(--border-subtle)',
           }}
         >
           <HStack justify="between" align="center" wrap>
-            <Body size="sm" color="tertiary"   
+            <Body size="sm" color="tertiary"
             style={{
               color: 'var(--text-subtle)',          // or whatever your normal text color is
               textDecoration: 'none',
             }}>
-              © 2025 Blimpify AB Org.nr:{'\u00A0'}559519{'\u2011'}2377. Alla rättigheter
-              förbehållna.
+              © 2025 Blimpify AB Org.nr:{'\u00A0'}559519{'\u2011'}2377. All rights
+              reserved.
             </Body>
 
             <HStack spacing="md">
-              <FooterLink href="/partnerskap">Partnerskap</FooterLink>
-              <FooterLink href="/terms">Villkor</FooterLink>
-              <FooterLink href="/privacy">Integritet</FooterLink>
+              <FooterLink href="/partnerskap">Partnership</FooterLink>
+              <FooterLink href="/terms">Terms</FooterLink>
+              <FooterLink href="/privacy">Privacy</FooterLink>
               <FooterLink href="/cookies">Cookies</FooterLink>
             </HStack>
           </HStack>

@@ -89,9 +89,9 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
 
   const menuItems = [
     { href: '/#scroll-section', label: 'Process', hash: 'scroll-section' },
-    { href: '/#system-section', label: 'Tjänster', hash: 'system-section' },
+    { href: '/#system-section', label: 'Services', hash: 'system-section' },
     { href: '/#testimonials', label: 'Testimonials', hash: 'testimonials' },
-    { href: '/#pricing', label: 'Priser', hash: 'pricing' },
+    { href: '/#pricing', label: 'Pricing', hash: 'pricing' },
     { href: '/#faq', label: 'FAQ', hash: 'faq' },
   ];
 
@@ -182,24 +182,24 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           </HStack>
 
           <HStack spacing="sm">
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               href="https://app.blimpify-im.com/sv/login"
               className="navbar-login-button"
             >
-              Logga in
+              Log in
             </Button>
-            <Button 
-              variant="accent" 
+            <Button
+              variant="accent"
               href="https://app.blimpify-im.com/sv/waitlist"
             >
-              Få tillgång
+              Get started
             </Button>
             <IconButton
               variant="secondary"
               size="md"
               onClick={toggleTheme}
-              aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
+              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
               icon={
                 <Icon size="md" color="button-ghost">
                   {isDark ? <SunIcon /> : <MoonIcon />}
@@ -209,13 +209,13 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           </HStack>
         </div>
 
-        {/* MOBILE ACTIONS – EXAKT SOM FÖRUT */}
+        {/* MOBILE ACTIONS */}
         <HStack spacing="sm" className="navbar-bar__mobile-actions" style={{ display: 'none' }}>
           <IconButton
             variant="ghost"
             size="md"
             onClick={toggleTheme}
-            aria-label={isDark ? 'Växla till ljust läge' : 'Växla till mörkt läge'}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
             icon={
               <Icon size="md" color="button-ghost">
                 {isDark ? <SunIcon /> : <MoonIcon />}
@@ -226,7 +226,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             variant="ghost"
             size="md"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Stäng meny' : 'Öppna meny'}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             icon={mobileOpen ? <X /> : <Menu />}
           />
         </HStack>
@@ -291,13 +291,13 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
               distance={DISTANCE}
               enableScrollTrigger={false}
             >
-              <Button 
-                variant="secondary" 
-                href="https://app.blimpify-im.com/sv/login" 
+              <Button
+                variant="secondary"
+                href="https://app.blimpify-im.com/sv/login"
                 className="navbar-login-button"
                 style={{ width: '100%' }}
               >
-                Logga in
+                Log in
               </Button>
             </FadeIn>
 
@@ -308,13 +308,13 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
               distance={DISTANCE}
               enableScrollTrigger={false}
             >
-              <Button 
-                variant="accent" 
-                href="https://app.blimpify-im.com/waitlist" 
+              <Button
+                variant="accent"
+                href="https://app.blimpify-im.com/waitlist"
                 className="navbar-access-button"
                 style={{ width: '100%' }}
               >
-                Kom igång
+                Get Started
               </Button>
             </FadeIn>
           </VStack>

@@ -56,7 +56,7 @@ export function PricingSection() {
           <FadeIn direction="up" duration={700}>
             <VStack spacing="md" align="center">
               <Display size='md'>
-                Hur kan vi hjälpa ditt företag?
+                How can we help your business?
               </Display>
             </VStack>
           </FadeIn>
@@ -86,10 +86,10 @@ export function PricingSection() {
                     {/* Plan Header */}
                     <VStack spacing="sm">
                       <H3 weight="bold">
-                        Blimpify medlemskap (standard)
+                        Blimpify membership (standard)
                       </H3>
                       <Body size="sm">
-                        För företag som vill fokusera på sin affär – inte på sin hemsida.
+                        For businesses that want to focus on their business
                       </Body>
                     </VStack>
 
@@ -97,14 +97,14 @@ export function PricingSection() {
                     <VStack spacing="xs" className="pricing-price-block">
                       <HStack spacing="xs" align="baseline">
                         <H2 weight="bold">
-                          490 kr
+                          $49
                         </H2>
                         <Body size="md" color="tertiary">
-                          /månad
+                          /month
                         </Body>
                       </HStack>
                       <Body size="xs" color="tertiary" style={{ marginTop: '-0.25rem' }}>
-                        exkl. moms
+                        excl. VAT
                       </Body>
                     </VStack>
 
@@ -112,27 +112,27 @@ export function PricingSection() {
                     <VStack spacing="sm" style={{ flex: 1 }} className="pricing-features">
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">En professionell hemsida, framtagen utifrån dina val</Body>
+                        <Body size="sm">A professional website, created based on your choices</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Struktur och grund som fungerar över tid</Body>
+                        <Body size="sm">Structure and foundation that works over time</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Möjlighet att justera text, färger och detaljer vid behov</Body>
+                        <Body size="sm">Ability to adjust text, colors, and details as needed</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Hjälp med domänkoppling och publicering</Body>
+                        <Body size="sm">Help with domain connection and publishing</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Överblick över hur hemsidan används</Body>
+                        <Body size="sm">Overview of how your website is being used</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Support när något känns fel</Body>
+                        <Body size="sm">Support when something doesn't feel right</Body>
                       </HStack>
                     </VStack>
                     {/* CTA Button */}
@@ -144,7 +144,7 @@ export function PricingSection() {
                       target="_blank"
                       className="pricing-access-button"
                     >
-                      Få tillgång
+                      Get Access
                     </Button>
 
 
@@ -172,10 +172,10 @@ export function PricingSection() {
                     {/* Plan Header */}
                     <VStack spacing="sm">
                       <H3 weight="bold">
-                        När behoven går bortom standard
+                        When needs go beyond standard
                       </H3>
                       <Body size="sm">
-                        Så finns vi här ändå
+                        Tailored solution for larger businesses
                       </Body>
                     </VStack>
 
@@ -183,11 +183,11 @@ export function PricingSection() {
                     <VStack spacing="xs" className="pricing-price-block">
                       <HStack spacing="xs" align="baseline">
                         <H2 weight="bold">
-                          Anpassad
+                          Contact us
                         </H2>
                       </HStack>
                       <Body size="xs" color="tertiary" style={{ marginTop: '-0.25rem' }}>
-                        efter behov
+                        as needed
                       </Body>
                     </VStack>
 
@@ -195,23 +195,23 @@ export function PricingSection() {
                     <VStack spacing="sm" style={{ flex: 1 }} className="pricing-features">
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Ett större projekt med tydlig projektledning</Body>
+                        <Body size="sm">A larger project with clear project management</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Lösningar anpassade efter er verksamhet och era flöden</Body>
+                        <Body size="sm">Solutions tailored to your business and workflows</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Stöd för mer avancerad funktionalitet vid behov</Body>
+                        <Body size="sm">Support for more advanced functionality when needed</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">En dedikerad kontakt och långsiktigt samarbete</Body>
+                        <Body size="sm">A dedicated contact and long-term collaboration</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm" className="pricing-feature-text">Avtal och upplägg anpassade efter omfattning och krav</Body>
+                        <Body size="sm">Contracts and setup adapted to scope and requirements</Body>
                       </HStack>
                     </VStack>
 
@@ -223,7 +223,7 @@ export function PricingSection() {
                         fullWidth
                         className="pricing-contact-button"
                       >
-                        Kontakta oss
+                        Contact us
                       </Button>
                     </Link>
                   </VStack>

@@ -47,14 +47,14 @@ export default function PartnerskapPage() {
           toAddress: 'admin@blimpify-im.com',
           sendConfirmation: true,
           siteName: 'Blimpify',
-          subject: 'Ny partnerskapsförfrågan',
+          subject: 'New partnership inquiry',
         }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.errors?.[0]?.msg || data.message || 'Något gick fel');
+        throw new Error(data.errors?.[0]?.msg || data.message || 'Something went wrong');
       }
 
       if (data.success) {
@@ -66,10 +66,10 @@ export default function PartnerskapPage() {
           message: '',
         });
       } else {
-        throw new Error(data.message || 'Något gick fel');
+        throw new Error(data.message || 'Something went wrong');
       }
     } catch (err: any) {
-      setError(err.message || 'Något gick fel. Försök igen senare.');
+      setError(err.message || 'Something went wrong. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -83,16 +83,16 @@ export default function PartnerskapPage() {
             <VStack spacing="2xl" align="stretch" style={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
               <VStack spacing="xl" align="center">
                 <VStack spacing="md" align="center">
-                  <H1 align="center">Tack för att du hör av dig!</H1>
+                  <H1 align="center">Thanks for reaching out!</H1>
                   <Body size="lg" color="secondary" align="center">
-                    Vi har mottagit din partnerskapsförfrågan. Om vi ser en matchning återkommer vi.
+                    We have received your partnership inquiry. If we see a match, we'll get back to you.
                   </Body>
                 </VStack>
                 <Button
                   variant="primary"
                   onClick={() => setSuccess(false)}
                 >
-                  Skicka en ny förfrågan
+                  Send a new inquiry
                 </Button>
               </VStack>
             </VStack>
@@ -106,13 +106,13 @@ export default function PartnerskapPage() {
     <Section>
       <Container useFormWidth>
         <VStack spacing="3xl" align="stretch">
-          {/* Header + content – samma struktur som cookies/privacy/terms */}
+          {/* Header + content – same structure as cookies/privacy/terms */}
           <VStack spacing="2xl" align="stretch" style={{ maxWidth: '800px', margin: '0 auto', width: '100%' }}>
             {/* Header */}
             <VStack spacing="md" align="center">
-              <H1 align="center">Har du någon rolig ide?</H1>
+              <H1 align="center">Got an interesting idea?</H1>
               <Body size="lg" color="secondary" align="center">
-                Är du intresserad av att jobba med oss, eller har du något annat spännande förslag? Tveka inte på att höra av dig. Vi är öppna för allt.
+                Are you interested in working with us, or do you have another exciting proposal? Don't hesitate to reach out. We're open to anything.
               </Body>
             </VStack>
 
@@ -121,13 +121,13 @@ export default function PartnerskapPage() {
               <VStack spacing="lg" align="stretch">
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Namn *
+                  Name *
                 </Label>
                 <Input
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Ditt namn"
+                  placeholder="Your name"
                   required
                   disabled={isSubmitting}
                 />
@@ -135,13 +135,13 @@ export default function PartnerskapPage() {
 
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  E-post *
+                  Email *
                 </Label>
                 <Input
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="din@email.com"
+                  placeholder="your@email.com"
                   required
                   disabled={isSubmitting}
                 />
@@ -149,25 +149,25 @@ export default function PartnerskapPage() {
 
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Företag / organisation
+                  Company / Organization
                 </Label>
                 <Input
                   type="text"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                  placeholder="Ditt företag eller organisation"
+                  placeholder="Your company or organization"
                   disabled={isSubmitting}
                 />
               </VStack>
 
               <VStack spacing="xs" align="stretch">
                 <Label size="sm" weight="medium">
-                  Berätta kort vad du tänker dig *
+                  Tell us briefly what you have in mind *
                 </Label>
                 <Textarea
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="T.ex. samarbete, samprojekt, idé du vill utforska..."
+                  placeholder="E.g. collaboration, joint project, idea you want to explore..."
                   rows={6}
                   required
                   disabled={isSubmitting}
@@ -190,7 +190,7 @@ export default function PartnerskapPage() {
                 loading={isSubmitting}
                 disabled={isSubmitting}
               >
-                Skicka förfrågan
+                Send inquiry
               </Button>
             </VStack>
           </form>

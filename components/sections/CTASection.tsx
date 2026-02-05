@@ -25,7 +25,7 @@ export function CTASection() {
           {/* Header */}
           <FadeIn direction="up" duration={700}>
             <Display size='md' align="center">
-              Vill du vara med från början?
+              Want to be part of it from the start?
             </Display>
           </FadeIn>
 
@@ -37,7 +37,7 @@ export function CTASection() {
               href="https://app.blimpify-im.com/waitlist"
               target="_blank"
             >
-              Få tillgång
+              Get Access
             </Button>
           </FadeIn>
         </VStack>
