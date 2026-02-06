@@ -77,7 +77,7 @@ export function Footer() {
             </Display>
           </VStack>
           <Body size="sm" align="center" style={{ maxWidth: 420 }}>
-          Vi bygger inte bara hemsidor. Vi tar ansvar för dem.
+          We don&apos;t just build websites. We take responsibility for them.
           </Body>
             </VStack>
 
@@ -93,7 +93,7 @@ export function Footer() {
               color: 'var(--text-subtle)',          // or whatever your normal text color is
               textDecoration: 'none',
             }}>
-              © 2025 Blimpify AB Org.nr:{'\u00A0'}559519{'\u2011'}2377. All rights
+              © 2026 Blimpify AB Org.nr:{'\u00A0'}559519{'\u2011'}2377. All rights
               reserved.
             </Body>
 
