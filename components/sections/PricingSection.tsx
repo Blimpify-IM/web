@@ -140,7 +140,7 @@ export function PricingSection() {
                       variant="accent"
                       size="lg"
                       fullWidth
-                      href="https://app.blimpify-im.com/waitlist"
+                      href="https://app.blimpify-im.com/sv/signup"
                       target="_blank"
                       className="pricing-access-button"
                     >

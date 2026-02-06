@@ -34,7 +34,7 @@ export function CTASection() {
             <Button
               variant="accent"
               size="lg"
-              href="https://app.blimpify-im.com/waitlist"
+              href="https://app.blimpify-im.com/sv/signup"
               target="_blank"
             >
               Get Access

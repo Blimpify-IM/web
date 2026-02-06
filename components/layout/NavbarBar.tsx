@@ -191,7 +191,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             </Button>
             <Button
               variant="accent"
-              href="https://app.blimpify-im.com/sv/waitlist"
+              href="https://app.blimpify-im.com/sv/signup"
             >
               Get started
             </Button>
@@ -310,7 +310,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             >
               <Button
                 variant="accent"
-                href="https://app.blimpify-im.com/waitlist"
+                href="https://app.blimpify-im.com/sv/signup"
                 className="navbar-access-button"
                 style={{ width: '100%' }}
               >
