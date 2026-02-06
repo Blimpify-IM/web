@@ -27,11 +27,11 @@ export default function proxy(req: NextRequest) {
   response.headers.set(
     'Content-Security-Policy',
     "default-src 'self'; " +
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; " +
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.tiktok.com; " +
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " +
     "img-src 'self' data: https:; " +
     "font-src 'self' data: https://fonts.gstatic.com; " +
-    "connect-src 'self' https: https://www.google-analytics.com https://www.googletagmanager.com; " +
+    "connect-src 'self' https: https://www.google-analytics.com https://www.googletagmanager.com https://analytics.tiktok.com; " +
     "frame-ancestors 'none';"
   );
   
