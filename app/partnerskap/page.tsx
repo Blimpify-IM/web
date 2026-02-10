@@ -23,6 +23,8 @@ export default function PartnerskapPage() {
     company: '',
     message: '',
   });
+  // Honeypot field - if filled, it's a bot
+  const [honeypot, setHoneypot] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -30,6 +32,14 @@ export default function PartnerskapPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
+    // Honeypot check - silently reject if filled (it's a bot)
+    if (honeypot) {
+      // Fake success to not alert the bot
+      setSuccess(true);
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -173,6 +183,30 @@ export default function PartnerskapPage() {
                   disabled={isSubmitting}
                 />
               </VStack>
+
+              {/* Honeypot field - hidden from users, bots will fill it */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: 'absolute',
+                  left: '-9999px',
+                  opacity: 0,
+                  height: 0,
+                  overflow: 'hidden',
+                  pointerEvents: 'none',
+                }}
+              >
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
 
               {error && (
                 <AlertRoot variant="error" surface="subtle">
