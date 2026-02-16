@@ -60,6 +60,21 @@ export default async function RootLayout({
         {/* Inject design tokens as CSS variables */}
         <style id="design-css">{design.css}</style>
 
+        {/* Google Analytics (GA4) – laddas alltid, kräver inte cookie consent */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-LY6YMV89SC');
+            `,
+          }}
+        />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-LY6YMV89SC"
+        />
         {/* TikTok Pixel Code */}
         <script
           dangerouslySetInnerHTML={{
@@ -101,8 +116,8 @@ export default async function RootLayout({
       </head>
       <body suppressHydrationWarning>
         <ConsentProvider>
-          {/* GA4 laddas endast efter att användaren accepterat analyscookies (via cookie-bannern) */}
-          <MarketingPixels pixels={[{ platform: 'google', pixel_id: 'G-LY6YMV89SC' }]} />
+          {/* GA4 laddas redan i head (kräver inte consent). Övriga pixels (Meta, TikTok, Snap) kan läggas här om consent behövs. */}
+          <MarketingPixels pixels={[]} />
           <HashScrollHandler />
         <NavbarBar />
         <main>{children}</main>
