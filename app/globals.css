@@ -3,6 +3,13 @@
 /* Custom website-specific styles */
 :root {
   /* Any custom variables if needed */
+
+  /* Hero-sektion: styr bakgrundens färgtyrka och bildens ljusstyrka */
+  /* --hero-warm-opacity: 1;        Warm base (0–1), default 1 */
+  /* --hero-tint-opacity: 0.3;     Accent-overlay (0–1), default ~0.25 dark / ~0.35 light */
+  /* --hero-image-brightness: 1;   Dashboard-bild (0–2), 1 = normal */
+  /* --hero-image-contrast: 1.06;  Dashboard-bild skärpa (1 = normal, >1 tydligare) */
+  /* --hero-cloud-contrast: 1.05;  Moln-bakgrund tydlighet (1 = normal) */
 }
 
 * {

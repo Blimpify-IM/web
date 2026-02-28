@@ -22,34 +22,34 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'What does Blimpify do?',
+    question: 'Vad gör Blimpify?',
     answer:
-      'Blimpify helps businesses create and manage their website without having to worry about the details. You share your wishes and goals – we take responsibility for design, structure, and execution.',
+      'Blimpify hjälper företag att skapa och hantera sin webbplats utan att behöva oroa sig för detaljerna. Du delar dina önskemål och mål, vi tar ansvar för design, struktur och genomförande.',
   },
   {
-    question: 'Do I need to know design or technology?',
+    question: 'Behöver jag kunna design eller teknik?',
     answer:
-      'No. You only need to describe how you want your website to look and function. We handle all the technical and design aspects for you.',
+      'Nej. Du behöver bara beskriva hur du vill att webbplatsen ska se ut och fungera. Vi sköter alla tekniska och designmässiga delar åt dig.',
   },
   {
-    question: 'Can I make changes myself?',
+    question: 'Kan jag göra ändringar själv?',
     answer:
-      'Yes, you can adjust minor things like text, colors, and details yourself. For larger changes in structure or functionality, we help you.',
+      'Ja, du kan justera mindre saker som text, färger och detaljer själv. Vid större ändringar i struktur eller funktionalitet hjälper vi dig.',
   },
   {
-    question: 'When do I pay for the service?',
+    question: 'När betalar jag för tjänsten?',
     answer:
-      'It\'s free to create and submit your website. You only pay when you choose to publish the website and activate your membership.',
+      'Det är gratis att skapa och skicka in din webbplats. Du betalar först när du väljer att publicera webbplatsen och aktivera ditt medlemskap.',
   },
   {
-    question: 'How does the process work?',
+    question: 'Hur fungerar processen?',
     answer:
-      'You submit your choices and preferences, we create the website based on that and get back to you when it\'s ready for review. When you\'re satisfied, you can choose to publish.',
+      'Du skickar in dina val och önskemål, vi skapar webbplatsen utifrån det och återkommer när den är redo för granskning. När du är nöjd kan du välja att publicera.',
   },
   {
-    question: 'Is Blimpify suitable for all businesses?',
+    question: 'Passar Blimpify för alla företag?',
     answer:
-      'Blimpify is perfect for businesses that know design and development isn\'t their core competency and prefer to let specialists take responsibility for the whole picture. You provide direction and goals – we handle design, structure, and execution.',
+      'Blimpify passar perfekt för företag som vet att design och utveckling inte är kärnkompetens och hellre låter specialister ta ansvar för helheten. Du ger riktning och mål, vi sköter design, struktur och genomförande.',
   },
 ];
 
@@ -68,7 +68,7 @@ export function FAQSection() {
           <FadeIn direction="up" duration={700}>
             <VStack spacing="md">
               <Display size='md' align="center">
-                Frequently Asked Questions
+                Vanliga frågor
               </Display>
             </VStack>
           </FadeIn>

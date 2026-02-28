@@ -1,5 +1,6 @@
 'use client';
 import { HeroSection } from '@/components/sections/HeroSection';
+import { WebsiteShowcaseScrollSection } from '@/components/sections/WebsiteShowcaseScrollSection';
 import { SystemSection } from '@/components/sections/SystemSection';
 import { ScrollSection } from '@/components/sections/ScrollSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
@@ -16,6 +17,8 @@ export default function HomePage() {
       <StructuredData data={generateWebsiteSchema()} />
       
       <HeroSection />
+
+      <WebsiteShowcaseScrollSection />
 
       <Divider></Divider>
       <ScrollSection />

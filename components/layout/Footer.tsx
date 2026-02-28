@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Section,
@@ -9,61 +8,20 @@ import {
   VStack,
   HStack,
   Body,
-  H3,
   Logo,
   TextLink,
   Display,
 } from '@blimpify-im/ui';
 
 export function Footer() {
-  const [isDark, setIsDark] = useState(true);
-
-  // Detect theme from document
-  useEffect(() => {
-    const checkTheme = () => {
-      const theme = document.documentElement.getAttribute('data-theme');
-      setIsDark(theme === 'dark');
-    };
-
-    checkTheme();
-
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <Section
-      as="footer"
-      style={{
-        position: 'relative',
-        background: 'var(--surface-page)',
-      }}
-    >
-      {/* Cloud background with fade-in from top */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundImage: `url(/assets/${isDark ? 'cloudy-dark.png' : 'cloudy.png'})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'bottom center',
-          backgroundRepeat: 'no-repeat',
-          maskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%)',
-          zIndex: 0,
-        }}
-      />
-      <Container style={{ position: 'relative', zIndex: 1 }}>
+    <Section as="footer" style={{ position: 'relative' }}>
+      <Container>
         {/* ================= TOP FOOTER ================= */}
         <VStack spacing="md" align="center" style={{ marginBottom: 'var(--foundation-space-12)' }}>
           <VStack spacing="sm" align="center">
             <Logo
-              src="/assets/Blimpify AB logo.png"
+              src="https://cdn.blimpify-im.com/assets/logo/logo.png"
               alt="Blimpify"
               width={36}
               height={36}
@@ -77,7 +35,7 @@ export function Footer() {
             </Display>
           </VStack>
           <Body size="sm" align="center" style={{ maxWidth: 420 }}>
-          We don&apos;t just build websites. We take responsibility for them.
+            Vi bygger inte bara webbplatser. Vi tar ansvar för dem.
           </Body>
             </VStack>
 
@@ -93,14 +51,13 @@ export function Footer() {
               color: 'var(--text-subtle)',          // or whatever your normal text color is
               textDecoration: 'none',
             }}>
-              © 2026 Blimpify AB Org.nr:{'\u00A0'}559519{'\u2011'}2377. All rights
-              reserved.
+              © 2026 Blimpify AB Org.nr:{'\u00A0'}559519{'\u2011'}2377. Alla rättigheter förbehållna.
             </Body>
 
             <HStack spacing="md">
-              <FooterLink href="/partnerskap">Partnership</FooterLink>
-              <FooterLink href="/terms">Terms</FooterLink>
-              <FooterLink href="/privacy">Privacy</FooterLink>
+              <FooterLink href="/partnerskap">Partnerskap</FooterLink>
+              <FooterLink href="/terms">Villkor</FooterLink>
+              <FooterLink href="/privacy">Integritet</FooterLink>
               <FooterLink href="/cookies">Cookies</FooterLink>
             </HStack>
           </HStack>

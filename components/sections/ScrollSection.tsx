@@ -29,36 +29,26 @@ interface ScrollItem {
 
 const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
   {
-    title: 'Set the direction',
-    description:
-      'Create an account and submit your choices and preferences. No technical decisions.',
-    imageLight: '/assets/order.png',
-    imageDark: '/assets/order-dark.png',
-    imageAlt: 'Set the direction',
+    title: 'Skapa konto',
+    description: 'Du börjar med att skapa ett konto hos Blimpify.',
+    imageLight: 'https://cdn.blimpify-im.com/assets/images/sign-up.png',
+    imageDark: 'https://cdn.blimpify-im.com/assets/images/sign-up-dark.png',
+    imageAlt: 'Skapa konto',
   },
   {
-    title: 'We create your website',
-    description:
-      'We create the website based on your choices and make sure everything fits together.',
-    imageLight: '/assets/default.png',
-    imageDark: '/assets/default-dark.png',
-    imageAlt: 'We create your website',
+    title: 'Starta själv eller med oss',
+    description: 'Anpassa en av våra mallar eller ge oss riktningen så bygger vi.',
+    imageLight: 'https://cdn.blimpify-im.com/assets/images/get-strated.png',
+    imageDark: 'https://cdn.blimpify-im.com/assets/images/get-strated-dark.png',
+    imageAlt: 'Sätt riktningen',
   },
   {
-    title: 'Review and adjust',
+    title: 'Redigera och följ utvecklingen',
     description:
-      'You review and adjust until it feels right.',
-    imageLight: '/assets/cms.png',
-    imageDark: '/assets/cms-dark.png',
-    imageAlt: 'Review and adjust',
-  },
-  {
-    title: 'Publish and move forward',
-    description:
-      'When you\'re satisfied, the website is published. After that, Blimpify takes responsibility for keeping it working over time.',
-    imageLight: '/assets/hemsida.png',
-    imageDark: '/assets/hemsida-dark.png',
-    imageAlt: 'Publish and move forward',
+      'Uppdatera innehåll, följ statistik och ha dialog med oss. Allt samlat hos Blimpify.',
+    imageLight: 'https://cdn.blimpify-im.com/assets/images/maintain-1.png',
+    imageDark: 'https://cdn.blimpify-im.com/assets/images/maintain-dark-1.png',
+    imageAlt: 'Redigera och väx',
   },
 ];
 
@@ -94,8 +84,17 @@ export function ScrollSection() {
     [scrollItems]
   );
 
-  const { activeIndex, animationValues, scrollToIndex } =
-    useScrollAnimation(imageRefs);
+  const { activeIndex, animationValues, scrollToIndex } = useScrollAnimation(
+    imageRefs,
+    {
+      smoothFactor: 0.052,
+      animationStart: 0.18,
+      animationEnd: 0.68,
+      translateRange: 100,
+      translateYRange: 36,
+      scaleMin: 0.91,
+    }
+  );
 
   return (
     <Section
@@ -106,62 +105,38 @@ export function ScrollSection() {
         position: 'relative',
       }}
     >
-      {/* Background with fade to white */}
-      <Box
-        style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 0,
-        }}
-      >
-        <Box
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url(${isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy.png'})`,
-            backgroundSize: 'cover',
-
-            backgroundPosition: 'right center',
-            backgroundRepeat: 'no-repeat',
-            opacity: isDark ? 0.5 : 0.75 ,
-          }}
-        />
-        <Box
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: `linear-gradient(to bottom, ${isDark ? 'var(--surface-page)' : 'var(--surface-page)'} 0%, transparent 5%, transparent 95%, ${isDark ? 'var(--surface-page)' : 'var(--surface-page)'} 100%)`,
-          }}
-        />
-      </Box>
-      <Container style={{ position: 'relative', zIndex: 1 }}>
-        <H1
-          weight="bold"
-          className="scroll-section-mobile-title"
-          style={{
-            margin: 0,
-            marginBottom: 'var(--space-lg)',
-          }}
-        >
-          Our process
-        </H1>
+      <Container className="scroll-section-container" style={{ position: 'relative', zIndex: 1 }}>
+        <Box className="scroll-section-mobile-title" style={{ margin: 0, marginBottom: 'var(--foundation-space-6)' }}>
+          <Display weight="bold">Hur fungerar det?</Display>
+        </Box>
         <div
           className="scroll-section-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: '280px 1fr',
-            gap: 'var(--space-xl)',
+            gridTemplateColumns: 'minmax(380px, 520px) 1fr',
+            gap: 'var(--foundation-space-10)',
             alignItems: 'start',
           }}
         >
-          <aside
+          <Box
+            className="scroll-section-card"
             style={{
               position: 'sticky',
-              top: 'calc(50vh - 200px)',
+              top: 'var(--foundation-space-40)',
               alignSelf: 'flex-start',
+              borderRadius: 'var(--radius-lg, 1rem)',
+              padding: 'var(--foundation-space-6)',
+              background: 'var(--surface-page)',
+              border: '1px solid var(--border-default)',
+              boxShadow: 'none',
+            }}
+          >
+          <aside
+            className="scroll-section-sidebar"
+            style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: 'var(--space-xl)',
+              gap: 'var(--foundation-space-6)',
               overflow: 'visible',
             }}
           >
@@ -170,16 +145,9 @@ export function ScrollSection() {
               align="stretch"
               className="scroll-section-header"
             >
-              <H1
-                weight="bold"
-                className="scroll-section-header-title"
-                style={{
-                  margin: 0,
-                  padding: 'var(--foundation-space-4)',
-                }}
-              >
-               Our process
-              </H1>
+              <Box className="scroll-section-header-title" style={{ margin: 0, padding: 'var(--foundation-space-4)' }}>
+                <Display weight="bold">Hur fungerar det?</Display>
+              </Box>
             </VStack>
 
             <Accordion
@@ -202,15 +170,18 @@ export function ScrollSection() {
                   title={item.title}
                   className={activeIndex === index ? 'accordion-active' : ''}
                 >
-                  <Body size="sm" color="secondary">
-                    {item.description}
-                  </Body>
+                  {item.description ? (
+                    <Body size="sm" color="secondary">
+                      {item.description}
+                    </Body>
+                  ) : null}
                 </AccordionItem>
               ))}
             </Accordion>
           </aside>
+          </Box>
 
-          <VStack spacing="3xl" style={{ overflow: 'visible', flex: '1' }}>
+          <VStack spacing="3xl" className="scroll-section-content" style={{ overflow: 'visible', flex: '1' }}>
             {scrollItems.map((item, index) => {
               const animValues = animationValues[index] || {
                 opacity: 0.1,
@@ -232,10 +203,12 @@ export function ScrollSection() {
                     align="start"
                     className="scroll-section-mobile-text"
                   >
-                    <H3>{item.title}</H3>
-                    <Body size="md" color="secondary">
-                      {item.description}
-                    </Body>
+                    <H2 weight="bold">{item.title}</H2>
+                    {item.description ? (
+                      <Body size="sm" color="secondary">
+                        {item.description}
+                      </Body>
+                    ) : null}
                   </VStack>
 
                   <Box
@@ -249,6 +222,7 @@ export function ScrollSection() {
                       translateX={animValues.translateX}
                       translateY={animValues.translateY}
                       scale={animValues.scale}
+                      transitionDuration="160ms"
                     >
                       <OverflowContainer direction="right" spillAmount={220}>
                         <Box
@@ -300,6 +274,29 @@ export function ScrollSection() {
       </Container>
 
       <style jsx global>{`
+        /* Längre ut mot kanten – mindre sidpadding */
+        .scroll-section-container {
+          padding-left: var(--foundation-space-6) !important;
+          padding-right: var(--foundation-space-2) !important;
+          max-width: 100% !important;
+        }
+        @media (min-width: 1200px) {
+          .scroll-section-container {
+            padding-left: var(--foundation-space-8) !important;
+            padding-right: var(--foundation-space-3) !important;
+          }
+        }
+
+        /* Bildkolumnen – mindre än sidebaren visuellt så de hänger ihop */
+        .scroll-section-content {
+          max-width: 540px;
+        }
+        @media (min-width: 1400px) {
+          .scroll-section-content {
+            max-width: 600px;
+          }
+        }
+
         @media (max-width: 1024px) {
           .scroll-section-grid {
             grid-template-columns: 1fr !important;
@@ -308,10 +305,14 @@ export function ScrollSection() {
 
           .scroll-section-header {
             display: block !important;
-            margin-bottom: var(--space-lg) !important;
+            margin-bottom: var(--foundation-space-6) !important;
           }
 
           .scroll-section-grid aside {
+            display: none !important;
+          }
+
+          .scroll-section-card {
             display: none !important;
           }
 
@@ -319,27 +320,27 @@ export function ScrollSection() {
             display: flex !important;
           }
 
-          .scroll-section-header-title {
-            font-size: 2.1rem !important;
+          .scroll-section-header-title,
+          .scroll-section-header-title * {
+            font-size: 1.5rem !important;
             line-height: 1.2 !important;
             font-weight: 700 !important;
-            padding: 0 !important;
-            margin-bottom: 0 !important;
             letter-spacing: -0.02em !important;
           }
 
-          .scroll-section-mobile-text h3 {
-            font-size: 1.5rem !important;
-            font-weight: 800 !important;
-            line-height: 1.4 !important;
+          .scroll-section-header-title {
+            padding: 0 !important;
+            margin-bottom: 0 !important;
+          }
+
+          .scroll-section-mobile-text h2 {
+            font-size: 1.25rem !important;
+            font-weight: 700 !important;
+            line-height: 1.35 !important;
           }
         }
 
         @media (max-width: 1024px) {
-          .scroll-section-mobile-title {
-            display: none !important;
-          }
-          
           .scroll-section-header-title {
             display: none !important;
           }
@@ -355,6 +356,51 @@ export function ScrollSection() {
           }
         }
         
+        /* Kortet endast bakom sidebaren, inte bakom bilderna */
+        .scroll-section-card {
+          padding: var(--foundation-space-6);
+        }
+        @media (min-width: 768px) {
+          .scroll-section-card {
+            padding: var(--foundation-space-8);
+          }
+        }
+        @media (min-width: 1200px) {
+          .scroll-section-card {
+            padding: var(--foundation-space-10);
+          }
+        }
+
+        /* Sidofältet – inuti kortet, ingen egen bakgrund så kortet syns */
+        .scroll-section-sidebar {
+          background: transparent;
+          border-radius: 0;
+          padding: 0;
+          border: none;
+          box-shadow: none;
+        }
+
+        .scroll-section-sidebar .scroll-section-header-title,
+        .scroll-section-sidebar .scroll-section-header-title * {
+          font-size: clamp(1.35rem, 3.5vw, 1.75rem) !important;
+          line-height: 1.2 !important;
+          font-weight: 700 !important;
+          letter-spacing: -0.02em !important;
+        }
+
+        .scroll-section-sidebar .accordion-item__title-wrapper,
+        .scroll-section-sidebar .accordion-item__title-wrapper * {
+          font-size: clamp(1.0625rem, 2.2vw, 1.25rem) !important;
+          font-weight: 600 !important;
+          line-height: 1.35 !important;
+        }
+
+        .scroll-section-sidebar .accordion-item__content,
+        .scroll-section-sidebar .accordion-item__content * {
+          font-size: clamp(0.9375rem, 1.8vw, 1.0625rem) !important;
+          line-height: 1.5 !important;
+        }
+
         /* Force specific radius on scroll section images - slightly more than hero image */
         .scroll-section-image-container,
         .scroll-section-image-inner,

@@ -70,21 +70,21 @@ interface DocCategory {
 
 const systemBlocks: SystemBlock[] = [
   {
-    title: 'A cohesive system',
+    title: 'Ett och samma system',
     description:
-      'Your website is built in Blimpify\'s system, which allows us to take full responsibility for design, structure, and overall quality over time.',
+      'Vi har byggt upp ett tydligt arbetssätt där struktur och design hänger ihop. Det gör att varje hemsida vi skapar är genomtänkt från grunden och kan utvecklas över tid.',
     showEditor: true,
   },
   {
-    title: 'Design that lasts over time',
+    title: 'Design med riktning',
     description:
-      'A dedicated design and UI system means your website can evolve without losing its expression or needing to be rebuilt.',
+      'Allt vi gör följer tydliga principer som vi har utvecklat över tid. Det gör att designen inte bara ser bra ut utan också fungerar och håller ihop när innehållet växer.',
     showDocumentation: true,
   },
   {
-    title: 'Stable operations that we own',
+    title: 'Teknik som inte märks',
     description:
-      'We are responsible for operations, performance, and security with proven infrastructure so your website is fast and stable.',
+      'En hemsida ska kännas enkel. Med all teknik som finns idag är det lätt att det blir tvärtom. Därför sätter vi upp allt på ett stabilt och tydligt sätt så att du slipper tänka på drift, säkerhet och prestanda.',
     showStats: true,
   },
 ];
@@ -834,16 +834,17 @@ export function SystemSection() {
     return () => observer.disconnect();
   }, []);
 
-  // Determine background image for each block based on theme
-  const getBackgroundImage = (index: number) => {
-    // First two blocks use section images, third uses cloudy
+  const CDN_IMAGES = 'https://cdn.blimpify-im.com/assets/images';
+
+  // Bakgrundsbilder från CDN; tredje kortet har ingen bakgrund (endast visuella element)
+  const getBackgroundImage = (index: number): string | null => {
     if (index === 0) {
-      return isDark ? '/assets/section-1-dark.png' : '/assets/section-1.png';
-    } else if (index === 1) {
-      return isDark ? '/assets/section-2-dark.png' : '/assets/section-2.png';
-    } else {
-      return isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy.png';
+      return isDark ? `${CDN_IMAGES}/design-system-dark.png` : `${CDN_IMAGES}/design-system.png`;
     }
+    if (index === 1) {
+      return isDark ? `${CDN_IMAGES}/system-design-dark.png` : `${CDN_IMAGES}/system-design.png`;
+    }
+    return null; // tredje kortet: ingen bakgrundsbild
   };
 
   return (
@@ -859,7 +860,7 @@ export function SystemSection() {
           <FadeIn>
           <VStack spacing="md" align="center" className="system-section-header" style={{ marginBottom: 'var(--foundation-space-16)' }}>
             <Display size="md" align="center">
-              What makes Blimpify different
+              Vad som gör Blimpify annorlunda
             </Display>
           </VStack>
           </FadeIn>
@@ -916,22 +917,25 @@ export function SystemSection() {
                         overflow: 'hidden',
                         boxShadow: 'var(--shadow-strong)',
                         border: `1px solid ${isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'}`,
+                        ...(block.showStats && { backgroundColor: isDark ? '#000000' : '#ffffff' }),
                       }}
                     >
-                      {/* Background Image */}
-                      <Image
-                        src={getBackgroundImage(index)}
-                        alt="Background"
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
-                        style={{
-                          objectFit: 'cover',
-                          filter: `hue-rotate(${getHueRotate(accentColor)})`,
-                        }}
-                        priority={index === 0}
-                        loading={index === 0 ? 'eager' : 'lazy'}
-                      />
-                      
+                      {/* Background Image – inte på tredje kortet */}
+                      {getBackgroundImage(index) && (
+                        <Image
+                          src={getBackgroundImage(index)!}
+                          alt=""
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 450px"
+                          style={{
+                            objectFit: 'cover',
+                            filter: `hue-rotate(${getHueRotate(accentColor)})`,
+                          }}
+                          priority={index === 0}
+                          loading={index === 0 ? 'eager' : 'lazy'}
+                        />
+                      )}
+
                       {/* Content Overlay - Only for third block (Stats) */}
                       {block.showStats && (
                         <Box

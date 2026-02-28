@@ -18,9 +18,9 @@ export default function PrivacyPage() {
         <VStack spacing="3xl" align="stretch">
           {/* Header */}
           <VStack spacing="md" align="center">
-            <H1 align="center">Privacy Policy</H1>
+            <H1 align="center">Integritetspolicy</H1>
             <Body size="md" color="secondary" align="center">
-              Last updated: 2025-10-24
+              Senast uppdaterad: 2025-10-24
             </Body>
           </VStack>
 
@@ -29,38 +29,38 @@ export default function PrivacyPage() {
             {/* Introduction */}
             <VStack spacing="md" align="stretch">
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                This privacy policy describes how <strong>Blimpify AB</strong> (&quot;we&quot;, &quot;us&quot; or &quot;Blimpify&quot;) collects, uses, stores and protects personal data. The policy applies to you when you visit our websites (<a href="http://blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify-im.com</a>, <a href="http://blimpify.co" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify.co</a>), our customer dashboard (<a href="http://app.blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>app.blimpify-im.com</a>), or otherwise interact with our services.
+                Denna integritetspolicy beskriver hur <strong>Blimpify AB</strong> (&quot;vi&quot;, &quot;oss&quot; eller &quot;Blimpify&quot;) samlar in, använder, lagrar och skyddar personuppgifter. Policyn gäller dig när du besöker våra webbplatser (<a href="http://blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify-im.com</a>, <a href="http://blimpify.co" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify.co</a>), vår kunddashboard (<a href="http://app.blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>app.blimpify-im.com</a>) eller på annat sätt använder våra tjänster.
               </Body>
             </VStack>
 
             {/* 1. Personal Data We Collect */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">1. Personal Data We Collect</H3>
+              <H3 weight="semibold">1. Personuppgifter vi samlar in</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                We collect personal data to deliver our services, improve the user experience and fulfil our legal obligations.
+                Vi samlar in personuppgifter för att leverera våra tjänster, förbättra användarupplevelsen och uppfylla våra rättsliga förpliktelser.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                When you use our services, we may collect:
+                När du använder våra tjänster kan vi samla in:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Contact details:</strong> name, email address, company name, phone number
+                    • <strong>Kontaktuppgifter:</strong> namn, e-postadress, företagsnamn, telefonnummer
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Account and project data:</strong> information you provide in Project Builder (e.g. design choices, features, content, colours)
+                    • <strong>Konto- och projektdata:</strong> information du anger i Project Builder (t.ex. designval, funktioner, innehåll, färger)
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Payment information:</strong> handled by our third-party provider <strong>Stripe</strong> — we never store full card details
+                    • <strong>Betalningsinformation:</strong> hanteras av vår underleverantör <strong>Stripe</strong>, vi lagrar aldrig fullständiga kortuppgifter
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Login data:</strong> username, password (hashed), session and authentication data. If you use optional Google sign-in, we receive your name and email from Google.
+                    • <strong>Inloggningsdata:</strong> användarnamn, lösenord (hashat), session och autentiseringsdata. Om du använder valfri inloggning med Google får vi ditt namn och din e-post från Google.
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Technical data:</strong> IP address, browser, device type, interactions with our pages
+                    • <strong>Teknisk data:</strong> IP-adress, webbläsare, enhetstyp, interaktioner med våra sidor
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Usage behaviour:</strong> purchase and usage history in the dashboard (<a href="http://app.blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>app.blimpify-im.com</a>)
+                    • <strong>Användningsbeteende:</strong> köp- och användningshistorik i dashboarden (<a href="http://app.blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>app.blimpify-im.com</a>)
                   </Body>
                 </VStack>
               </Box>
@@ -68,45 +68,45 @@ export default function PrivacyPage() {
 
             {/* 2. Why We Process Personal Data */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">2. Why We Process Personal Data</H3>
+              <H3 weight="semibold">2. Varför vi behandlar personuppgifter</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                We process your data to:
+                Vi behandlar dina uppgifter för att:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Create and manage your account
+                    • skapa och hantera ditt konto
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Build, deliver and maintain your website
+                    • bygga, leverera och underhålla din webbplats
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Handle orders, subscriptions and invoices
+                    • hantera beställningar, abonnemang och fakturor
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Provide customer support and revisions
+                    • ge kundsupport och genomföra ändringar
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Send important notices (e.g. payment confirmations, updates)
+                    • skicka viktiga meddelanden (t.ex. betalningsbekräftelser, uppdateringar)
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Improve and develop our services
+                    • förbättra och utveckla våra tjänster
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Fulfil legal obligations (e.g. accounting requirements)
+                    • uppfylla rättsliga förpliktelser (t.ex. bokföringskrav)
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Processing is based on <strong>contract</strong>, <strong>legal obligation</strong> or our <strong>legitimate interest</strong> in delivering and improving the service.
+                Behandlingen grundar sig på <strong>avtal</strong>, <strong>rättslig förpliktelse</strong> eller vårt <strong>berättigade intresse</strong> av att leverera och förbättra tjänsten.
               </Body>
             </VStack>
 
             {/* 3. Third-Party Providers */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">3. Third-Party Providers</H3>
+              <H3 weight="semibold">3. Underleverantörer</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                We use trusted providers for the operation and administration of our services:
+                Vi använder pålitliga leverantörer för drift och administration av våra tjänster:
               </Body>
               <Box
                 style={{
@@ -132,7 +132,7 @@ export default function PrivacyPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Service</Body>
+                        <Body size="sm" weight="semibold">Tjänst</Body>
                       </th>
                       <th
                         style={{
@@ -142,7 +142,7 @@ export default function PrivacyPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Purpose</Body>
+                        <Body size="sm" weight="semibold">Syfte</Body>
                       </th>
                       <th
                         style={{
@@ -152,7 +152,7 @@ export default function PrivacyPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Provider</Body>
+                        <Body size="sm" weight="semibold">Leverantör</Body>
                       </th>
                     </tr>
                   </thead>
@@ -164,7 +164,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Payments</Body>
+                        <Body size="sm">Betalningar</Body>
                       </td>
                       <td
                         style={{
@@ -172,7 +172,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Card payments & subscriptions</Body>
+                        <Body size="sm">Kortbetalningar och abonnemang</Body>
                       </td>
                       <td
                         style={{
@@ -190,7 +190,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Hosting & operations</Body>
+                        <Body size="sm">Hosting och drift</Body>
                       </td>
                       <td
                         style={{
@@ -198,7 +198,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Web hosting, servers and CDN</Body>
+                        <Body size="sm">Webbhosting, servrar och CDN</Body>
                       </td>
                       <td
                         style={{
@@ -216,7 +216,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Email</Body>
+                        <Body size="sm">E-post</Body>
                       </td>
                       <td
                         style={{
@@ -224,7 +224,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Sending confirmations and notices</Body>
+                        <Body size="sm">Skicka bekräftelser och meddelanden</Body>
                       </td>
                       <td
                         style={{
@@ -242,7 +242,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Sign-in (optional)</Body>
+                        <Body size="sm">Inloggning (valfritt)</Body>
                       </td>
                       <td
                         style={{
@@ -250,7 +250,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Optional Google sign-in to create or access your account</Body>
+                        <Body size="sm">Valfri inloggning med Google för att skapa eller nå ditt konto</Body>
                       </td>
                       <td
                         style={{
@@ -268,7 +268,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Booking (optional)</Body>
+                        <Body size="sm">Bokning (valfritt)</Body>
                       </td>
                       <td
                         style={{
@@ -276,7 +276,7 @@ export default function PrivacyPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Optional Calendly link for booking on customer websites</Body>
+                        <Body size="sm">Valfri Calendly-länk för bokning på kundens webbplatser</Body>
                       </td>
                       <td
                         style={{
@@ -291,63 +291,63 @@ export default function PrivacyPage() {
                 </table>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7, marginTop: 'var(--foundation-space-4)' }}>
-                These providers meet the requirements of the EU General Data Protection Regulation (GDPR) and act as <strong>data processors</strong> or <strong>independent controllers</strong> under their own privacy policies.
+                Dessa leverantörer uppfyller kraven i EU:s dataskyddsförordning (GDPR) och agerar som <strong>personuppgiftsbiträdande</strong> eller <strong>oberoende personuppgiftsansvariga</strong> enligt sina egna integritetspolicyer.
               </Body>
             </VStack>
 
             {/* 4. Storage and Security */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">4. Storage and Security</H3>
+              <H3 weight="semibold">4. Lagring och säkerhet</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                • We store personal data for as long as you are a customer or as long as required to fulfil contracts and legal obligations.
+                • Vi lagrar personuppgifter så länge du är kund eller så länge det krävs för att uppfylla avtal och rättsliga förpliktelser.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                • When the subscription ends, the account is retained for up to <strong>12 months</strong> for possible reactivation and receipt management.
+                • När abonnemanget avslutas behålls kontot i upp till <strong>12 månader</strong> för eventuell reaktivering och kvittohantering.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                • After that period, data is deleted or anonymised, <strong>with the exception of invoices and payment records</strong> which are retained for <strong>7 years</strong> in accordance with accounting law.
+                • Efter den perioden raderas eller anonymiseras data, <strong>med undantag för fakturor och betalningsunderlag</strong> som behålls i <strong>7 år</strong> enligt bokföringslagen.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                • The purpose of retaining the account after termination is to allow the customer to access receipts and payment history via the dashboard.
+                • Syftet med att behålla kontot efter avslut är att låta kunden nå kvitton och betalningshistorik via dashboarden.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                • Upon deletion request, all personal data is removed except that which we are legally required to retain.
+                • Vid begäran om radering tas alla personuppgifter bort utom det vi är juridiskt skyldiga att behålla.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                • Passwords are always stored hashed, and we use technical and organisational security measures to prevent unauthorised access, loss or manipulation.
+                • Lösenord lagras alltid hashat, och vi använder tekniska och organisatoriska säkerhetsåtgärder för att förhindra obehörig åtkomst, förlust eller manipulation.
               </Body>
             </VStack>
 
             {/* 5. Your Rights Under GDPR */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">5. Your Rights Under GDPR</H3>
+              <H3 weight="semibold">5. Dina rättigheter enligt GDPR</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                You have the right to:
+                Du har rätt att:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Request <strong>access</strong> (see what data we hold)
+                    • begära <strong>åtkomst</strong> (se vilka uppgifter vi har)
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Request <strong>correction</strong> of inaccurate data
+                    • begära <strong>rättelse</strong> av felaktiga uppgifter
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Request <strong>erasure</strong> of data (&quot;right to be forgotten&quot;)
+                    • begära <strong>radering</strong> av uppgifter (&quot;rätten att bli glömd&quot;)
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Restrict</strong> or <strong>object</strong> to certain processing
+                    • <strong>begränsa</strong> eller <strong>invända</strong> mot viss behandling
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Request <strong>data portability</strong> (receive data in a machine-readable format)
+                    • begära <strong>dataportabilitet</strong> (få uppgifterna i maskinläsbart format)
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Requests can be submitted by email to <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>.
+                Begäran kan skickas via e-post till <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                We respond within <strong>30 days</strong>.
+                Vi svarar inom <strong>30 dagar</strong>.
               </Body>
             </VStack>
 
@@ -355,57 +355,57 @@ export default function PrivacyPage() {
             <VStack spacing="md" align="stretch">
               <H3 weight="semibold">6. Cookies</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                We use cookies on our websites to:
+                Vi använder cookies på våra webbplatser för att:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Keep you logged in
+                    • hålla dig inloggad
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Save settings
+                    • spara inställningar
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Improve performance and user experience
+                    • förbättra prestanda och användarupplevelse
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                You can decline cookies via your browser, but some features may then stop working as intended.
+                Du kan avvisa cookies via din webbläsare, men vissa funktioner kan då sluta fungera som tänkt.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                For more information, see our <Link href="/cookies" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}><strong>Cookie Policy</strong></Link>.
+                För mer information, se vår <Link href="/cookies" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}><strong>cookiepolicy</strong></Link>.
               </Body>
             </VStack>
 
             {/* 7. Changes to the Policy */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">7. Changes to the Policy</H3>
+              <H3 weight="semibold">7. Ändringar av policyn</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                We may update this policy as needed.
+                Vi kan uppdatera denna policy vid behov.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Material changes will be communicated via email or in the dashboard.
+                Väsentliga ändringar meddelas via e-post eller i dashboarden.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                The latest version is always available on this page.
+                Senaste versionen finns alltid på denna sida.
               </Body>
             </VStack>
 
             {/* 8. Contact Details */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">8. Contact Details</H3>
+              <H3 weight="semibold">8. Kontaktuppgifter</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                <strong>Data controller:</strong>
+                <strong>Personuppgiftsansvarig:</strong>
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 Blimpify AB
                 <br />
-                Tallåsvägen 84, 186 51 Vallentuna, Sweden
+                Tallåsvägen 84, 186 51 Vallentuna, Sverige
                 <br />
                 Org.nr: 559519-2377
                 <br />
-                Email: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
+                E-post: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
               </Body>
             </VStack>
           </VStack>

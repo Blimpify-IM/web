@@ -55,14 +55,3 @@ export function MarketingPixels() {
     </>
   );
 }
-
-// Type declarations for TypeScript
-declare global {
-  interface Window {
-    fbq?: (action: string, eventName: string, data?: object) => void;
-    ttq?: {
-      track: (event: string, data?: object) => void;
-      page: () => void;
-    };
-  }
-}

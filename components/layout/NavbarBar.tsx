@@ -89,10 +89,10 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
 
   const menuItems = [
     { href: '/#scroll-section', label: 'Process', hash: 'scroll-section' },
-    { href: '/#system-section', label: 'Services', hash: 'system-section' },
-    { href: '/#testimonials', label: 'Testimonials', hash: 'testimonials' },
-    { href: '/#pricing', label: 'Pricing', hash: 'pricing' },
-    { href: '/#faq', label: 'FAQ', hash: 'faq' },
+    { href: '/#system-section', label: 'Tjänster', hash: 'system-section' },
+    { href: '/#testimonials', label: 'Omdömen', hash: 'testimonials' },
+    { href: '/#pricing', label: 'Priser', hash: 'pricing' },
+    { href: '/#faq', label: 'Vanliga frågor', hash: 'faq' },
   ];
 
   const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
@@ -138,7 +138,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
         }}
       >
         <Logo
-          src="/assets/Blimpify AB logo.png"
+          src="https://cdn.blimpify-im.com/assets/logo/logo.png"
           alt="Blimpify"
           width={36}
           height={36}
@@ -187,19 +187,19 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
               href="https://app.blimpify-im.com/sv/login"
               className="navbar-login-button"
             >
-              Log in
+              Logga in
             </Button>
             <Button
               variant="accent"
               href="https://app.blimpify-im.com/sv/signup"
             >
-              Get started
+              Kom igång
             </Button>
             <IconButton
               variant="secondary"
               size="md"
               onClick={toggleTheme}
-              aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label={isDark ? 'Byt till ljusläge' : 'Byt till mörkläge'}
               icon={
                 <Icon size="md" color="button-ghost">
                   {isDark ? <SunIcon /> : <MoonIcon />}
@@ -215,7 +215,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             variant="ghost"
             size="md"
             onClick={toggleTheme}
-            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+            aria-label={isDark ? 'Byt till ljusläge' : 'Byt till mörkläge'}
             icon={
               <Icon size="md" color="button-ghost">
                 {isDark ? <SunIcon /> : <MoonIcon />}
@@ -226,7 +226,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
             variant="ghost"
             size="md"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? 'Stäng meny' : 'Öppna meny'}
             icon={mobileOpen ? <X /> : <Menu />}
           />
         </HStack>
@@ -297,7 +297,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
                 className="navbar-login-button"
                 style={{ width: '100%' }}
               >
-                Log in
+                Logga in
               </Button>
             </FadeIn>
 
@@ -314,7 +314,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
                 className="navbar-access-button"
                 style={{ width: '100%' }}
               >
-                Get Started
+                Kom igång
               </Button>
             </FadeIn>
           </VStack>

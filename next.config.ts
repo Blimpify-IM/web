@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'cdn.blimpify-im.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: '*.s3.eu-north-1.amazonaws.com',
         port: '',
         pathname: '/**',

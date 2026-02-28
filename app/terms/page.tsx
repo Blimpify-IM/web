@@ -18,9 +18,9 @@ export default function TermsPage() {
         <VStack spacing="3xl" align="stretch">
           {/* Header */}
           <VStack spacing="md" align="center">
-            <H1 align="center">Terms of Use</H1>
+            <H1 align="center">Användarvillkor</H1>
             <Body size="md" color="secondary" align="center">
-              Last updated: 2025-10-24
+              Senast uppdaterad: 2025-10-24
             </Body>
           </VStack>
 
@@ -29,194 +29,194 @@ export default function TermsPage() {
             {/* Introduction */}
             <VStack spacing="md" align="stretch">
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                These terms of use (&quot;the terms&quot;) apply to your use of Blimpify AB&apos;s services.
+                Dessa användarvillkor (&quot;villkoren&quot;) gäller för din användning av Blimpify AB:s tjänster.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                By using or purchasing services through <a href="http://blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify-im.com</a>, <a href="http://blimpify.co" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify.co</a> or <a href="http://app.blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>app.blimpify-im.com</a>, you accept these terms and enter into a binding agreement with Blimpify AB (&quot;we&quot;, &quot;us&quot;, &quot;Blimpify&quot;).
+                Genom att använda eller köpa tjänster via <a href="http://blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify-im.com</a>, <a href="http://blimpify.co" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify.co</a> eller <a href="http://app.blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>app.blimpify-im.com</a> godkänner du dessa villkor och ingår ett bindande avtal med Blimpify AB (&quot;vi&quot;, &quot;oss&quot;, &quot;Blimpify&quot;).
               </Body>
             </VStack>
 
             {/* 1. Company Information */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">1. Company Information</H3>
+              <H3 weight="semibold">1. Företagsinformation</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 <strong>Blimpify AB</strong>
                 <br />
-                Tallåsvägen 84, 186 51 Vallentuna, Sweden
+                Tallåsvägen 84, 186 51 Vallentuna, Sverige
                 <br />
                 Org.nr: 559519-2377
                 <br />
-                Email: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
+                E-post: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
               </Body>
             </VStack>
 
             {/* 2. Service Description */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">2. Service Description</H3>
+              <H3 weight="semibold">2. Tjänstebeskrivning</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Blimpify offers tailored digital solutions for businesses — including design, development, and operation of websites and web-based applications.
+                Blimpify erbjuder skräddarsydda digitala lösningar för företag, bland annat design, utveckling och drift av webbplatser och webbaserade applikationer.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Our platform, Project Builder, lets customers configure their website by choosing packages, design, structure, and features. It is free to place an order. All choices and the subscription price are displayed clearly when you launch your website and start your 7-day free trial.
+                Vår plattform, Project Builder, låter kunden konfigurera sin webbplats genom att välja paket, design, struktur och funktioner. Det är gratis att lägga en beställning. Alla val och abonnemangspriset visas tydligt när du lanserar din webbplats och startar din 7-dagars gratisperiod.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Blimpify may use third-party services (e.g. hosting, APIs, payment solutions). We are not responsible for service disruptions or limitations caused by these external providers.
+                Blimpify kan använda tjänster från tredje part (t.ex. hosting, API:er, betallösningar). Vi ansvarar inte för avbrott eller begränsningar orsakade av dessa externa leverantörer.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                The customer is responsible for ensuring that all content (e.g. texts, images, logos, policy texts) is correct, lawful, and free from copyright infringement.
+                Kunden ansvarar för att allt innehåll (t.ex. texter, bilder, logotyper, policytexter) är korrekt, lagligt och fri från upphovsrättsintrång.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Blimpify reserves the right to update, replace, or discontinue technical components of the service when this does not materially impair the customer&apos;s access or functionality.
+                Blimpify förbehåller sig rätten att uppdatera, ersätta eller avveckla tekniska komponenter i tjänsten när detta inte väsentligt försämrar kundens tillgång eller funktionalitet.
               </Body>
             </VStack>
 
             {/* 3. Payment and Subscription */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">3. Payment and Subscription</H3>
+              <H3 weight="semibold">3. Betalning och abonnemang</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                A monthly subscription is required to keep the website active; the price is shown when you launch your website and start your 7-day free trial.
+                Ett månadsabonnemang krävs för att webbplatsen ska vara aktiv. Priset visas när du lanserar din webbplats och startar din 7-dagars gratisperiod.
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • You start the subscription yourself when you launch. You get a 7-day free trial to test your website live.
+                    • Du startar abonnemanget själv när du lanserar. Du får 7 dagars gratisperiod för att testa din webbplats live.
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • After the trial, you are charged automatically and the subscription renews monthly via Stripe.
+                    • Efter gratisperioden debiteras du automatiskt och abonnemanget förnyas månadsvis via Stripe.
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • The customer may cancel their subscription at any time via the dashboard or by contacting support.
+                    • Kunden kan när som helst avsluta abonnemanget via dashboarden eller genom att kontakta support.
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Already paid periods are not refunded.
+                    • Redan betalda perioder återbetalas inte.
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • If payment is not received, Blimpify may pause or terminate the service until payment is received.
+                    • Om betalning uteblir kan Blimpify pausa eller avsluta tjänsten tills betalning erhålls.
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                For customers ordering tailored solutions outside Project Builder, special terms apply as set out in a separate quote or project agreement.
+                För kunder som beställer skräddarsydda lösningar utanför Project Builder gäller särskilda villkor enligt separat offert eller projektavtal.
               </Body>
             </VStack>
 
             {/* 4. Operation and Termination of Service */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">4. Operation and Termination of Service</H3>
+              <H3 weight="semibold">4. Drift och avslut av tjänst</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                The subscription grants the customer the right to use the Blimpify platform to operate their website.
+                Abonnemanget ger kunden rätt att använda Blimpify-plattformen för att driva sin webbplats.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Upon cancelled or unpaid subscription, the website will be taken offline.
+                Vid avslutat eller obetalt abonnemang tas webbplatsen offline.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                As the Blimpify platform is an integrated and proprietary service, the customer cannot purchase or export their website for external operation. The code is tailored for Blimpify&apos;s system and not intended for standalone installation.
+                Eftersom Blimpify-plattformen är en integrerad och proprietär tjänst kan kunden inte köpa eller exportera sin webbplats för extern drift. Koden är anpassad för Blimpify:s system och avsedd för drift inom tjänsten, inte fristående installation.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                The customer&apos;s account and data are retained for up to 12 months after termination. Thereafter, the information is permanently deleted unless reactivation occurs.
+                Kundens konto och data behålls i upp till 12 månader efter avslut. Därefter raderas informationen permanent om inte reaktivering sker.
               </Body>
             </VStack>
 
             {/* 5. Usage Rights and Intellectual Property */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">5. Usage Rights and Intellectual Property</H3>
+              <H3 weight="semibold">5. Användningsrätter och immateriella rättigheter</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                The customer retains ownership of all their own material uploaded or provided (e.g. texts, images, logos).
+                Kunden behåller äganderätten till allt eget material som laddats upp eller lämnats (t.ex. texter, bilder, logotyper).
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                All technology, code, templates, design components, dashboard, Project Builder, and other infrastructure belong to Blimpify AB.
+                All teknologi, kod, mallar, designkomponenter, dashboard, Project Builder och övrig infrastruktur tillhör Blimpify AB.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                The customer receives a non-exclusive license to use these parts for as long as the subscription is active.
+                Kunden får en icke-exklusiv licens att använda dessa delar så länge abonnemanget är aktivt.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Upon terminated subscription, the license ends automatically.
+                Vid avslutat abonnemang upphör licensen automatiskt.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Content (the customer&apos;s own texts, images, logos) may be requested in static form upon request.
+                Innehåll (kundens egna texter, bilder, logotyper) kan på begäran lämnas ut i statisk form.
               </Body>
             </VStack>
 
             {/* 6. Support and Changes */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">6. Support and Changes</H3>
+              <H3 weight="semibold">6. Support och ändringar</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Support is offered via the dashboard and email (<a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>).
+                Support erbjuds via dashboarden och e-post (<a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>).
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Blimpify responds to inquiries within 48 hours on business days.
+                Blimpify svarar på förfrågningar inom 48 timmar på vardagar.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Minor changes and adjustments may be made free of charge within the scope of the subscription.
+                Mindre ändringar och justeringar kan göras kostnadsfritt inom ramen för abonnemanget.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Substantial changes or new features may be billed separately according to the applicable price list.
+                Väsentliga ändringar eller nya funktioner kan faktureras separat enligt gällande prissättning.
               </Body>
             </VStack>
 
             {/* 7. Privacy and Personal Data */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">7. Privacy and Personal Data</H3>
+              <H3 weight="semibold">7. Integritet och personuppgifter</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Blimpify only collects basic contact details (e.g. name, company, email) to manage customer relationships.
+                Blimpify samlar endast grundläggande kontaktuppgifter (t.ex. namn, företag, e-post) för att hantera kundrelationer.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Payment details are handled by Stripe and are not stored by Blimpify.
+                Betalningsuppgifter hanteras av Stripe och lagras inte av Blimpify.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Processing of personal data is governed by our <Link href="/privacy" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>Privacy Policy</Link>.
+                Behandling av personuppgifter regleras i vår <Link href="/privacy" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>integritetspolicy</Link>.
               </Body>
             </VStack>
 
-            {/* 9. Limitation of Liability */}
+            {/* 8. Limitation of Liability */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">8. Limitation of Liability</H3>
+              <H3 weight="semibold">8. Ansvarsbegränsning</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Blimpify is not liable for:
+                Blimpify ansvarar inte för:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Service disruptions or technical failures,
+                    • tjänsteavbrott eller tekniska fel,
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Loss of data caused by the customer&apos;s actions or third parties,
+                    • dataförlust orsakad av kundens handlingar eller tredje part,
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Indirect damages such as lost profit or business interruption.
+                    • indirekta skador såsom utebliven vinst eller verksamhetsavbrott.
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Blimpify&apos;s total financial liability is in all circumstances limited to the total amount the customer has paid during the last 3 months.
+                Blimpify:s totala finansiella ansvar är i alla fall begränsat till det belopp kunden har betalat under de senaste 3 månaderna.
               </Body>
             </VStack>
 
-            {/* 10. Changes to Terms */}
+            {/* 9. Changes to Terms */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">9. Changes to Terms</H3>
+              <H3 weight="semibold">9. Ändringar av villkoren</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Blimpify AB may update these terms.
+                Blimpify AB kan uppdatera dessa villkor.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                New customers are subject to updated terms immediately.
+                Nya kunder omfattas av uppdaterade villkor omedelbart.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Existing customers are subject to the terms that applied at the time of ordering, unless otherwise agreed.
+                Befintliga kunder omfattas av de villkor som gällde vid beställningstillfället, om inte annat avtalats.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Changes are communicated via email or through a notice in the dashboard.
+                Ändringar meddelas via e-post eller genom information i dashboarden.
               </Body>
             </VStack>
 
-            {/* 11. Applicable Law and Disputes */}
+            {/* 10. Applicable Law and Disputes */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">10. Applicable Law and Disputes</H3>
+              <H3 weight="semibold">10. Tillämplig lag och tvister</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                These terms are governed by Swedish law.
+                Dessa villkor styrs av svensk lag.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Disputes that cannot be resolved through dialogue between the parties shall be decided by Swedish courts of general jurisdiction, with Stockholm District Court as the court of first instance.
+                Tvister som inte kan lösas genom dialog mellan parterna ska avgöras av svensk allmän domstol, med Stockholms tingsrätt som första instans.
               </Body>
             </VStack>
           </VStack>

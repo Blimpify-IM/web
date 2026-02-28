@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { useState } from 'react';
 import {
   Section,
   Container,
   VStack,
   HStack,
+  H1,
   H2,
   H3,
   Body,
@@ -17,31 +17,14 @@ import {
   Grid,
   Display,
   FadeIn,
+  SegmentedControl,
 } from '@blimpify-im/ui';
 
+const MONTHLY_PRICE = 290;
+const YEARLY_PRICE_PER_MONTH = 218; // 25% rabatt (290 * 0.75 ≈ 218)
 
 export function PricingSection() {
-  const [isDark, setIsDark] = useState(true); // Default to dark theme first
-
-  // Detect theme from document
-  useEffect(() => {
-    const checkTheme = () => {
-      const theme = document.documentElement.getAttribute('data-theme');
-      setIsDark(theme === 'dark');
-    };
-
-    // Check initial theme
-    checkTheme();
-
-    // Watch for theme changes
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('yearly');
 
   return (
     <Section
@@ -54,10 +37,21 @@ export function PricingSection() {
         <VStack spacing="3xl">
           {/* Header */}
           <FadeIn direction="up" duration={700}>
-            <VStack spacing="md" align="center">
+            <VStack spacing="lg" align="center">
               <Display size='md'>
-                How can we help your business?
+                Hur kan vi hjälpa ditt företag?
               </Display>
+              <VStack spacing="sm" align="center">
+                <Body size="sm" color="secondary">Standardmedlemskap</Body>
+                <SegmentedControl
+                  options={[
+                    { value: 'monthly', label: 'Månadspris' },
+                    { value: 'yearly', label: 'Årspris' },
+                  ]}
+                  value={billingPeriod}
+                  onChange={(value) => setBillingPeriod(value as 'monthly' | 'yearly')}
+                />
+              </VStack>
             </VStack>
           </FadeIn>
 
@@ -74,11 +68,7 @@ export function PricingSection() {
                   height: '100%',
                   display: 'flex',
                   flexDirection: 'column',
-                  backgroundImage: `url(${isDark ? '/assets/cloudy-dark.png' : '/assets/cloudy4.png'})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundColor: 'transparent',
+                  backgroundColor: 'var(--surface-raised)',
                 }}
               >
                 <CardContent>
@@ -86,53 +76,60 @@ export function PricingSection() {
                     {/* Plan Header */}
                     <VStack spacing="sm">
                       <H3 weight="bold">
-                        Blimpify membership (standard)
+                        Blimpify-medlemskap
                       </H3>
                       <Body size="sm">
-                        For businesses that want to focus on their business
+                        För företag som vill fokusera på verksamheten
                       </Body>
                     </VStack>
 
-                    {/* Price */}
+                    {/* Price – rabattraden har alltid samma plats så korten inte studsar */}
                     <VStack spacing="xs" className="pricing-price-block">
                       <HStack spacing="xs" align="baseline">
-                        <H2 weight="bold">
-                          $49
-                        </H2>
+                        <H1 weight="bold">
+                          {billingPeriod === 'monthly' ? MONTHLY_PRICE : YEARLY_PRICE_PER_MONTH} kr
+                        </H1>
                         <Body size="md" color="tertiary">
-                          /month
+                          /mån
                         </Body>
                       </HStack>
+                      <Body
+                        size="sm"
+                        color="secondary"
+                        style={{ minHeight: '1.25rem', visibility: billingPeriod === 'yearly' ? 'visible' : 'hidden' }}
+                      >
+                        {billingPeriod === 'yearly' ? '25% rabatt vid årsbetalning' : '\u00A0'}
+                      </Body>
                       <Body size="xs" color="tertiary" style={{ marginTop: '-0.25rem' }}>
-                        excl. VAT
+                        excl. moms
                       </Body>
                     </VStack>
 
                     {/* Features */}
                     <VStack spacing="sm" style={{ flex: 1 }} className="pricing-features">
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">A professional website, created based on your choices</Body>
+                        <Body size="sm">En professionell webbplats, skapad utifrån dina val</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Structure and foundation that works over time</Body>
+                        <Body size="sm">Struktur och grund som håller över tid</Body>
+                      </HStack>
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Möjlighet att justera text, färger och detaljer vid behov</Body>
+                      </HStack>
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
+                        <Body size="sm">onblimpify-domän, custom domänanslutning och publicering</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Ability to adjust text, colors, and details as needed</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Help with domain connection and publishing</Body>
+                        <Body size="sm">Översikt över hur din webbplats används</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Overview of how your website is being used</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Support when something doesn't feel right</Body>
+                        <Body size="sm">Support när något inte känns rätt</Body>
                       </HStack>
                     </VStack>
                     {/* CTA Button */}
@@ -144,7 +141,7 @@ export function PricingSection() {
                       target="_blank"
                       className="pricing-access-button"
                     >
-                      Get Access
+                      Kom igång
                     </Button>
 
 
@@ -153,7 +150,7 @@ export function PricingSection() {
               </Card>
             </FadeIn>
 
-            {/* Second Card - När behoven går bortom standard */}
+            {/* Second Card - Anpassat behov / Boka möte */}
             <FadeIn direction="up" duration={600} delay={350}>
               <Card
                 variant="outlined"
@@ -172,60 +169,56 @@ export function PricingSection() {
                     {/* Plan Header */}
                     <VStack spacing="sm">
                       <H3 weight="bold">
-                        When needs go beyond standard
+                        Anpassat behov
                       </H3>
                       <Body size="sm">
-                        Tailored solution for larger businesses
+                        Gillar ni vad vi gör och vill ha en mer komplicerad eller omfattande lösning? Boka ett möte.
                       </Body>
                     </VStack>
 
-                    {/* Price - samma struktur som vänster kort så layouten matchar */}
+                    {/* CTA-block – samma struktur som vänster kort så layouten matchar */}
                     <VStack spacing="xs" className="pricing-price-block">
-                      <HStack spacing="xs" align="baseline">
-                        <H2 weight="bold">
-                          Contact us
-                        </H2>
-                      </HStack>
-                      <Body size="xs" color="tertiary" style={{ marginTop: '-0.25rem' }}>
-                        as needed
-                      </Body>
+                      <H1 weight="bold">
+                        Prata med oss
+                      </H1>
                     </VStack>
 
                     {/* Features */}
                     <VStack spacing="sm" style={{ flex: 1 }} className="pricing-features">
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">A larger project with clear project management</Body>
+                        <Body size="sm">Ett större projekt med tydlig projektledning</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Solutions tailored to your business and workflows</Body>
+                        <Body size="sm">Lösningar anpassade till din verksamhet och arbetsflöden</Body>
+                      </HStack>
+                      <HStack spacing="sm" align="start" className="pricing-feature-row">
+                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
+                        <Body size="sm">Stöd för mer avancerad funktionalitet vid behov</Body>
                       </HStack>
                       <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Support for more advanced functionality when needed</Body>
+                        <Body size="sm">En dedikerad kontakt och långsiktigt samarbete</Body>
                       </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
+                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
                         <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">A dedicated contact and long-term collaboration</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Contracts and setup adapted to scope and requirements</Body>
+                        <Body size="sm">Avtal och upplägg anpassade till omfattning och behov</Body>
                       </HStack>
                     </VStack>
 
                     {/* CTA Button */}
-                    <Link href="/contact" style={{ textDecoration: 'none', width: '100%', display: 'block' }}>
-                      <Button
-                        variant="secondary"
-                        size="lg"
-                        fullWidth
-                        className="pricing-contact-button"
-                      >
-                        Contact us
-                      </Button>
-                    </Link>
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      fullWidth
+                      href="https://calendly.com/admin-blimpify/vv-digital-media"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="pricing-contact-button"
+                    >
+                      Boka möte
+                    </Button>
                   </VStack>
                 </CardContent>
               </Card>
@@ -267,16 +260,6 @@ export function PricingSection() {
           .pricing-feature-text {
             max-width: none;
           }
-        }
-
-        /* White text for standard plan in both light and dark mode - exclude button */
-        .pricing-card-with-bg h3:not(button h3),
-        .pricing-card-with-bg h2:not(button h2) {
-          color: #ffffff !important;
-        }
-
-        .pricing-card-with-bg p:not(button p):not(button *) {
-          color: rgba(255, 255, 255, 0.9) !important;
         }
       `}</style>
     </Section>

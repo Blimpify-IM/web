@@ -17,9 +17,9 @@ export default function CookiesPage() {
         <VStack spacing="3xl" align="stretch">
           {/* Header */}
           <VStack spacing="md" align="center">
-            <H1 align="center">Cookie Policy</H1>
+            <H1 align="center">Cookiepolicy</H1>
             <Body size="md" color="secondary" align="center">
-              Last updated: 2025-11-14
+              Senast uppdaterad: 2025-11-14
             </Body>
           </VStack>
 
@@ -28,64 +28,64 @@ export default function CookiesPage() {
             {/* Introduction */}
             <VStack spacing="md" align="stretch">
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                This cookie policy describes how <strong>Blimpify AB</strong> (&quot;we&quot;, &quot;us&quot;, &quot;Blimpify&quot;) uses cookies and similar technologies on our websites:
+                Denna cookiepolicy beskriver hur <strong>Blimpify AB</strong> (&quot;vi&quot;, &quot;oss&quot;, &quot;Blimpify&quot;) använder cookies och liknande tekniker på våra webbplatser:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <a href="http://blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify-im.com</a> (public website)
+                    • <a href="http://blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify-im.com</a> (offentlig webbplats)
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <a href="http://blimpify.co" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify.co</a> (public website)
+                    • <a href="http://blimpify.co" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>blimpify.co</a> (offentlig webbplats)
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <a href="http://app.blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>app.blimpify-im.com</a> (dashboard/signed-in service)
+                    • <a href="http://app.blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>app.blimpify-im.com</a> (dashboard/inloggad tjänst)
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                When you use our services, only the cookies necessary for the websites to function are set. Analytics cookies are only set if you actively consent to them via our cookie banner.
+                När du använder våra tjänster sätts endast de cookies som behövs för att webbplatserna ska fungera. Analyscookies sätts endast om du aktivt samtycker till dem via vår cookiebanner.
               </Body>
             </VStack>
 
             {/* 1. What are cookies? */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">1. What are cookies?</H3>
+              <H3 weight="semibold">1. Vad är cookies?</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Cookies are small text files stored on your device when you visit a website.
+                Cookies är små textfiler som lagras på din enhet när du besöker en webbplats.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Cookies are used to:
+                Cookies används för att:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Make the website work correctly
+                    • få webbplatsen att fungera korrekt
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Keep you logged in
+                    • hålla dig inloggad
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Remember your settings
+                    • komma ihåg dina inställningar
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • Improve performance and user experience
+                    • förbättra prestanda och användarupplevelse
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Some cookies are necessary for our service to work, while others are voluntary.
+                Vissa cookies är nödvändiga för att tjänsten ska fungera, andra är frivilliga.
               </Body>
             </VStack>
 
             {/* 2. Which cookies we use */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">2. Which cookies we use</H3>
+              <H3 weight="semibold">2. Vilka cookies vi använder</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                We primarily use <strong>necessary and functional cookies</strong>.
+                Vi använder främst <strong>nödvändiga och funktionella cookies</strong>.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                On some parts of the service we also use <strong>analytics cookies</strong>, which are only enabled if you give your consent.
+                På vissa delar av tjänsten använder vi också <strong>analyscookies</strong>, som endast aktiveras om du ger ditt samtycke.
               </Body>
               <Box
                 style={{
@@ -111,7 +111,7 @@ export default function CookiesPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Cookie type</Body>
+                        <Body size="sm" weight="semibold">Cookietyp</Body>
                       </th>
                       <th
                         style={{
@@ -121,7 +121,7 @@ export default function CookiesPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Purpose</Body>
+                        <Body size="sm" weight="semibold">Syfte</Body>
                       </th>
                       <th
                         style={{
@@ -131,7 +131,7 @@ export default function CookiesPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Example</Body>
+                        <Body size="sm" weight="semibold">Exempel</Body>
                       </th>
                       <th
                         style={{
@@ -141,7 +141,7 @@ export default function CookiesPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Consent required?</Body>
+                        <Body size="sm" weight="semibold">Samtycke krävs?</Body>
                       </th>
                     </tr>
                   </thead>
@@ -153,7 +153,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm" weight="semibold">Session cookies</Body>
+                        <Body size="sm" weight="semibold">Sessionscookies</Body>
                       </td>
                       <td
                         style={{
@@ -161,7 +161,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Keep you logged in and power core functionality</Body>
+                        <Body size="sm">Håller dig inloggad och driver kärnfunktionalitet</Body>
                       </td>
                       <td
                         style={{
@@ -177,7 +177,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">❌ No</Body>
+                        <Body size="sm">❌ Nej</Body>
                       </td>
                     </tr>
                     <tr>
@@ -187,7 +187,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm" weight="semibold">Settings cookies / local storage</Body>
+                        <Body size="sm" weight="semibold">Inställningscookies / local storage</Body>
                       </td>
                       <td
                         style={{
@@ -195,7 +195,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Save chosen colours, design and preferences in Builder</Body>
+                        <Body size="sm">Sparar valda färger, design och preferenser i Builder</Body>
                       </td>
                       <td
                         style={{
@@ -211,7 +211,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">❌ No</Body>
+                        <Body size="sm">❌ Nej</Body>
                       </td>
                     </tr>
                     <tr>
@@ -221,7 +221,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm" weight="semibold">Stripe cookies</Body>
+                        <Body size="sm" weight="semibold">Stripe-cookies</Body>
                       </td>
                       <td
                         style={{
@@ -229,7 +229,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Security, payment processing and fraud prevention</Body>
+                        <Body size="sm">Säkerhet, betalningshantering och bedrägeriförebyggande</Body>
                       </td>
                       <td
                         style={{
@@ -245,7 +245,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">❌ No</Body>
+                        <Body size="sm">❌ Nej</Body>
                       </td>
                     </tr>
                     <tr>
@@ -255,7 +255,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm" weight="semibold">Analytics cookies</Body>
+                        <Body size="sm" weight="semibold">Analyscookies</Body>
                       </td>
                       <td
                         style={{
@@ -263,7 +263,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Statistics on website usage (e.g. page views, funnels, load time)</Body>
+                        <Body size="sm">Statistik om webbplatsanvändning (t.ex. sidvisningar, funnels, laddningstid)</Body>
                       </td>
                       <td
                         style={{
@@ -279,22 +279,22 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">✅ Yes, only with consent</Body>
+                        <Body size="sm">✅ Ja, endast med samtycke</Body>
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7, marginTop: 'var(--foundation-space-4)' }}>
-                We do <strong>not</strong> use cookies for marketing, advertising or third-party tracking.
+                Vi använder <strong>inte</strong> cookies för marknadsföring, reklam eller spårning från tredje part.
               </Body>
             </VStack>
 
             {/* 3. Third-party cookies */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">3. Third-party cookies</H3>
+              <H3 weight="semibold">3. Cookies från tredje part</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Some cookies or similar technologies may be set by third-party providers we use:
+                Vissa cookies eller liknande tekniker kan sättas av underleverantörer vi använder:
               </Body>
               <Box
                 style={{
@@ -320,7 +320,7 @@ export default function CookiesPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Service</Body>
+                        <Body size="sm" weight="semibold">Tjänst</Body>
                       </th>
                       <th
                         style={{
@@ -330,7 +330,7 @@ export default function CookiesPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Purpose</Body>
+                        <Body size="sm" weight="semibold">Syfte</Body>
                       </th>
                       <th
                         style={{
@@ -340,7 +340,7 @@ export default function CookiesPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Provider</Body>
+                        <Body size="sm" weight="semibold">Leverantör</Body>
                       </th>
                       <th
                         style={{
@@ -350,7 +350,7 @@ export default function CookiesPage() {
                           fontWeight: 600,
                         }}
                       >
-                        <Body size="sm" weight="semibold">Privacy Policy</Body>
+                        <Body size="sm" weight="semibold">Integritetspolicy</Body>
                       </th>
                     </tr>
                   </thead>
@@ -362,7 +362,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Payments</Body>
+                        <Body size="sm">Betalningar</Body>
                       </td>
                       <td
                         style={{
@@ -370,7 +370,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Payment processing and fraud prevention</Body>
+                        <Body size="sm">Betalningshantering och bedrägeriförebyggande</Body>
                       </td>
                       <td
                         style={{
@@ -400,7 +400,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Analytics</Body>
+                        <Body size="sm">Analys</Body>
                       </td>
                       <td
                         style={{
@@ -408,7 +408,7 @@ export default function CookiesPage() {
                           border: '1px solid var(--border-default)',
                         }}
                       >
-                        <Body size="sm">Performance, error monitoring and usage statistics</Body>
+                        <Body size="sm">Prestanda, felövervakning och användningsstatistik</Body>
                       </td>
                       <td
                         style={{
@@ -435,80 +435,80 @@ export default function CookiesPage() {
                 </table>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7, marginTop: 'var(--foundation-space-4)' }}>
-                These technologies are only used for the purposes described in this policy.
+                Dessa tekniker används endast i de syften som beskrivs i denna policy.
               </Body>
             </VStack>
 
             {/* 4. Consent and cookie settings */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">4. Consent and cookie settings</H3>
+              <H3 weight="semibold">4. Samtycke och cookieinställningar</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                On your first visit to our public website, a cookie banner is displayed where you can choose:
+                Vid ditt första besök på vår offentliga webbplats visas en cookiebanner där du kan välja:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Accept all cookies</strong> (incl. analytics cookies)
+                    • <strong>Acceptera alla cookies</strong> (inkl. analyscookies)
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • <strong>Essential cookies only</strong>
+                    • <strong>Endast nödvändiga cookies</strong>
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                If you choose &quot;Essential cookies only&quot;, no analytics tools are loaded.
+                Om du väljer &quot;Endast nödvändiga cookies&quot; laddas inga analysverktyg.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                You can at any time:
+                Du kan när som helst:
               </Body>
               <Box style={{ paddingLeft: 'var(--foundation-space-4)' }}>
                 <VStack spacing="xs" align="stretch">
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • change or withdraw your consent via <strong>Cookie settings</strong> (if available on the page), or
+                    • ändra eller återkalla ditt samtycke via <strong>Cookieinställningar</strong> (om tillgängligt på sidan), eller
                   </Body>
                   <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                    • block cookies directly in your browser.
+                    • blockera cookies direkt i din webbläsare.
                   </Body>
                 </VStack>
               </Box>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Note that if you block essential cookies, some features — such as login or payments — may stop working correctly.
+                Observera att om du blockerar nödvändiga cookies kan vissa funktioner, till exempel inloggning eller betalning, sluta fungera korrekt.
               </Body>
             </VStack>
 
             {/* 5. Changes to cookie policy */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">5. Changes to cookie policy</H3>
+              <H3 weight="semibold">5. Ändringar av cookiepolicyn</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                We may update this cookie policy as needed, for example if we add new features or change how we use cookies.
+                Vi kan uppdatera denna cookiepolicy vid behov, till exempel om vi lägger till nya funktioner eller ändrar hur vi använder cookies.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                The latest version is always available on this page.
+                Senaste versionen finns alltid på denna sida.
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Material changes will be communicated via email or in the dashboard.
+                Väsentliga ändringar meddelas via e-post eller i dashboarden.
               </Body>
             </VStack>
 
             {/* 6. Contact */}
             <VStack spacing="md" align="stretch">
-              <H3 weight="semibold">6. Contact</H3>
+              <H3 weight="semibold">6. Kontakt</H3>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Do you have questions about cookies or how we process your personal data?
+                Har du frågor om cookies eller hur vi behandlar dina personuppgifter?
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
-                Contact us:
+                Kontakta oss:
               </Body>
               <Body size="md" color="primary" style={{ lineHeight: 1.7 }}>
                 <strong>Blimpify AB</strong>
                 <br />
                 Tallåsvägen 84
                 <br />
-                186 51 Vallentuna, Sweden
+                186 51 Vallentuna, Sverige
                 <br />
                 Org.nr: 559519-2377
                 <br />
-                Email: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
+                E-post: <a href="mailto:admin@blimpify-im.com" style={{ color: 'var(--text-link-color)', textDecoration: 'underline' }}>admin@blimpify-im.com</a>
               </Body>
             </VStack>
           </VStack>
