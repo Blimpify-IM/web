@@ -38,7 +38,7 @@ export function PricingSection() {
           {/* Header */}
           <FadeIn direction="up" duration={700}>
             <VStack spacing="lg" align="center">
-              <Display size='md'>
+              <Display size="md" align="center">
                 Hur kan vi hjälpa ditt företag?
               </Display>
               <VStack spacing="sm" align="center">

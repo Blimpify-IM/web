@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Section, Container, VStack, Display, Spacer, FadeIn, Body, Button } from '@blimpify-im/ui';
+import { Section, Container, VStack, Typography, Spacer, FadeIn, Body, Button } from '@blimpify-im/ui';
 
 export function HeroSection() {
   const [isDark, setIsDark] = useState(true);
@@ -104,8 +104,7 @@ export function HeroSection() {
         }}
       />
 
-      {/* Responsive top spacing - larger on mobile (2.5x), smaller on desktop (1.5x) */}
-      <Spacer mobile={1.5} desktop={1} />
+      <Spacer mobile={1} desktop={1} />
       
       {/* Hero Content */}
       <Container
@@ -121,15 +120,28 @@ export function HeroSection() {
         <VStack spacing="xl" align="center">
           <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
             <FadeIn direction="up" duration={800} delay={0} enableScrollTrigger={false}>
-              <Display
-                size='xl'
-                align="center"
+              <Typography
+                as="h1"
+                variant="display-lg"
                 color="accent"
+                align="center"
                 className="hero-display-responsive"
               >
-                Struktur. Design.<br />
-                <span className="hero-text-chill">Rätt från start.</span>
-              </Display>
+                Struktur. Design.
+                <br />
+                <span
+                  className="hero-chill-text"
+                  style={{
+                    display: 'inline-block',
+                    fontFamily: 'Lora, serif',
+                    fontWeight: 500,
+                    fontStyle: 'italic',
+                    transform: 'skewX(-8deg)',
+                  }}
+                >
+                  Rätt från start.
+                </span>
+              </Typography>
             </FadeIn>
             <FadeIn direction="up" duration={800} delay={200} enableScrollTrigger={false}>
               <Body
@@ -156,10 +168,8 @@ export function HeroSection() {
         </VStack>
       </Container>
 
-      {/* Responsive styles for hero text and clouds */}
+      {/* Responsive styles for hero text and clouds; chill-text: Lora via layout + Blimpify UI markup */}
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-        
         /* Cloud fade-in animations */
         @keyframes fadeInCloudsDark {
           from {
@@ -187,36 +197,19 @@ export function HeroSection() {
           animation: fadeInCloudsDark 1.2s ease-out forwards;
         }
         
-        .hero-text-chill {
-          color: var(--text-secondary);
-          font-family: 'Playfair Display', 'Libre Baskerville', 'Lora', serif;
-          font-style: italic;
-          font-weight: 500;
+        /* Hero chill-text: hårdkodad sned – italic + skew så det syns alltid */
+        .hero-chill-text {
+          font-style: italic !important;
+          transform: skewX(-8deg) !important;
+          display: inline-block !important;
         }
-        
         @media (max-width: 768px) {
-          .hero-display-responsive {
-            font-size: var(--font-display-md-size) !important;
-            line-height: var(--font-display-md-leading) !important;
-          }
-          
-          .hero-body-responsive {
-            font-size: var(--font-body-md-size) !important;
-            line-height: var(--font-body-md-leading) !important;
-          }
-          
           .hero-clouds {
             background-size: 150% auto !important;
             background-position: top center !important;
           }
         }
-        
         @media (max-width: 480px) {
-          .hero-display-responsive {
-            font-size: var(--font-display-sm-size) !important;
-            line-height: var(--font-display-sm-leading) !important;
-          }
-          
           .hero-clouds {
             background-size: 200% auto !important;
             background-position: top center !important;

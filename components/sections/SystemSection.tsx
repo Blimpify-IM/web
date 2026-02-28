@@ -1002,21 +1002,17 @@ export function SystemSection() {
 
         @media (max-width: 1024px) {
           .system-section-header {
-            align-items: flex-start !important;
-          }
-          
-          .system-blocks-container {
-            gap: var(--foundation-space-16) !important;
-          }
-          
-          .system-section-header {
-            align-items: flex-start !important;
+            align-items: center !important;
           }
           
           .system-section-header h1,
           .system-section-header h2,
           .system-section-header h3 {
-            text-align: left !important;
+            text-align: center !important;
+          }
+          
+          .system-blocks-container {
+            gap: var(--foundation-space-16) !important;
           }
           
           .system-block-layout {

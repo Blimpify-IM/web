@@ -158,11 +158,17 @@ export function TestimonialsSection() {
     return () => window.removeEventListener('resize', update);
   }, []);
 
+  const testimonialsForDisplay = useMemo(() => {
+    if (!isMobile) return testimonials;
+    const byLength = [...testimonials].sort((a, b) => b.content.length - a.content.length);
+    return byLength.slice(0, Math.max(0, testimonials.length - 5));
+  }, [isMobile]);
+
   const columns = useMemo(() => {
     const cols: Testimonial[][] = Array.from({ length: numCols }, () => []);
-    testimonials.forEach((t, i) => cols[i % numCols].push(t));
+    testimonialsForDisplay.forEach((t, i) => cols[i % numCols].push(t));
     return cols;
-  }, [numCols]);
+  }, [numCols, testimonialsForDisplay]);
 
   return (
     <Section
@@ -177,7 +183,7 @@ export function TestimonialsSection() {
         <VStack spacing="3xl">
           <FadeIn direction="up" duration={700}>
             <VStack spacing="md" align="center">
-              <Display size="md" align={isMobile ? 'left' : 'center'} className="testimonials-header">
+              <Display size="md" align="center" className="testimonials-header">
                 Så upplevs Blimpify
               </Display>
             </VStack>

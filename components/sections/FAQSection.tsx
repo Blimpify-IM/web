@@ -24,32 +24,32 @@ const faqs: FAQItem[] = [
   {
     question: 'Vad gör Blimpify?',
     answer:
-      'Blimpify hjälper företag att skapa och hantera sin webbplats utan att behöva oroa sig för detaljerna. Du delar dina önskemål och mål, vi tar ansvar för design, struktur och genomförande.',
+      'Blimpify hjälper företag att skapa och hantera sin webbplats utan att behöva oroa sig för detaljerna.',
   },
   {
     question: 'Behöver jag kunna design eller teknik?',
     answer:
-      'Nej. Du behöver bara beskriva hur du vill att webbplatsen ska se ut och fungera. Vi sköter alla tekniska och designmässiga delar åt dig.',
+      'Nej. Du behöver antingen välja en mall och anpassa den enkelt själv, eller beskriva för oss vad du vill ha – då löser vi det. Allt är uppsatt för enkelhet men med hög kvalitet. Du kan justera saker själv, inte bara små ändringar.',
   },
   {
     question: 'Kan jag göra ändringar själv?',
     answer:
-      'Ja, du kan justera mindre saker som text, färger och detaljer själv. Vid större ändringar i struktur eller funktionalitet hjälper vi dig.',
+      'Ja. Du kan både göra mindre justeringar själv och vid behov större ändringar – allt är uppsatt så att du har kontroll över det du vill ändra.',
   },
   {
     question: 'När betalar jag för tjänsten?',
     answer:
-      'Det är gratis att skapa och skicka in din webbplats. Du betalar först när du väljer att publicera webbplatsen och aktivera ditt medlemskap.',
+      'Det är gratis att starta, anpassa och använda tjänsten. För att lansera webbplatsen tillkommer månadskostnaden och medlemskapet.',
   },
   {
     question: 'Hur fungerar processen?',
     answer:
-      'Du skickar in dina val och önskemål, vi skapar webbplatsen utifrån det och återkommer när den är redo för granskning. När du är nöjd kan du välja att publicera.',
+      'Processen fungerar så att du antingen väljer en mall och anpassar den själv, eller beskriver för oss vad du vill ha – då fixar vi det.',
   },
   {
     question: 'Passar Blimpify för alla företag?',
     answer:
-      'Blimpify passar perfekt för företag som vet att design och utveckling inte är kärnkompetens och hellre låter specialister ta ansvar för helheten. Du ger riktning och mål, vi sköter design, struktur och genomförande.',
+      'Blimpify passar för alla företag som vill ha något som är uppsatt rätt från början, fungerar, ser bra ut och stödjer verksamheten.',
   },
 ];
 
@@ -82,7 +82,7 @@ export function FAQSection() {
               variant="borderless"
               gap="lg"
               showIndicator={true}
-              defaultExpandedKeys={['0']}
+              defaultExpandedKeys={[]}
             >
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} itemKey={String(index)} title={faq.question}>

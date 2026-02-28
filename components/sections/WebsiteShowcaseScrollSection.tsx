@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Section, Box } from '@blimpify-im/ui';
 import Image from 'next/image';
 
@@ -56,26 +56,23 @@ const RIGHT_ROW_START_OFFSET = 8;
 /** Rad 3: lite annan hastighet så det inte känns identiskt med rad 1 */
 const THIRD_ROW_SPEED = 0.85;
 
-function setTrackTransforms(
-  leftTrack: HTMLDivElement | null,
-  rightTrack: HTMLDivElement | null,
-  thirdTrack: HTMLDivElement | null
-) {
-  const scrollY = window.scrollY;
+function getTrackTransforms(scrollY: number) {
   const leftOffset = (scrollY * SCROLL_SPEED) % LOOP_PERCENT;
   const rightRaw = (scrollY * SCROLL_SPEED * RIGHT_ROW_SPEED) % LOOP_PERCENT;
   const rightOffset = rightRaw - RIGHT_ROW_START_OFFSET;
   const thirdOffset = (scrollY * SCROLL_SPEED * THIRD_ROW_SPEED) % LOOP_PERCENT;
-  if (leftTrack) leftTrack.style.transform = `translateX(-${leftOffset}%)`;
-  if (rightTrack) rightTrack.style.transform = `translateX(${rightOffset}%)`;
-  if (thirdTrack) thirdTrack.style.transform = `translateX(-${thirdOffset}%)`;
+  return {
+    left: `translateX(-${leftOffset}%)`,
+    right: `translateX(${rightOffset}%)`,
+    third: `translateX(-${thirdOffset}%)`,
+  };
 }
 
+const INITIAL_TRANSFORMS = getTrackTransforms(0);
+
 export function WebsiteShowcaseScrollSection() {
-  const leftTrackRef = useRef<HTMLDivElement>(null);
-  const rightTrackRef = useRef<HTMLDivElement>(null);
-  const thirdTrackRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [transforms, setTransforms] = useState(INITIAL_TRANSFORMS);
 
   useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
@@ -90,13 +87,13 @@ export function WebsiteShowcaseScrollSection() {
   const getImageSrcThird = (index: number) => SHOWCASE_IMAGES_THIRD[index % IMAGES_PER_ROW];
 
   useEffect(() => {
-    setTrackTransforms(leftTrackRef.current, rightTrackRef.current, thirdTrackRef.current);
+    setTransforms(getTrackTransforms(window.scrollY));
     let rafId: number | null = null;
     const handleScroll = () => {
       if (rafId !== null) return;
       rafId = requestAnimationFrame(() => {
         rafId = null;
-        setTrackTransforms(leftTrackRef.current, rightTrackRef.current, thirdTrackRef.current);
+        setTransforms(getTrackTransforms(window.scrollY));
       });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -112,36 +109,54 @@ export function WebsiteShowcaseScrollSection() {
       style={{
         position: 'relative',
         marginTop: '-26vh',
+        minHeight: 'calc(200px * 3 + 6rem)',
       }}
     >
       <style jsx global>{`
+        .website-showcase-row {
+          mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+          -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+          min-height: 228px;
+          max-height: 228px;
+          contain: layout style;
+        }
         .website-showcase-track {
           display: flex;
           align-items: stretch;
           width: fit-content;
+          min-height: 200px;
+          max-height: 200px;
           will-change: transform;
           backface-visibility: hidden;
         }
         .website-showcase-item {
           flex-shrink: 0;
           width: 360px;
+          min-width: 360px;
+          max-width: 360px;
           height: 200px;
+          min-height: 200px;
+          max-height: 200px;
           padding: 0 14px;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: transparent;
+          background: var(--surface-page, #f5f5f5);
+          overflow: hidden;
+          contain: layout style paint;
         }
-        .website-showcase-item img {
+        .website-showcase-item-inner {
+          position: relative;
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          border-radius: 6px;
+          overflow: hidden;
+          background: var(--surface-page, #f5f5f5);
+        }
+        .website-showcase-item-inner img {
+          object-fit: cover !important;
           border-radius: 6px;
           box-shadow: var(--shadow-soft, 0 2px 8px rgba(0,0,0,0.08));
-        }
-        .website-showcase-row {
-          mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
-          -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
         }
       `}</style>
 
@@ -156,25 +171,22 @@ export function WebsiteShowcaseScrollSection() {
         className="website-showcase-row"
       >
         <div
-          ref={leftTrackRef}
           className="website-showcase-track"
+          style={{ transform: transforms.left }}
         >
           {duplicatedScrollItemsLeft.map((item, index) => (
             <div key={`left-${item.id}-${index}`} className="website-showcase-item">
-              <Image
-                src={getImageSrcTop(index)}
-                alt={`Hemsida ${index + 1}`}
-                width={360}
-                height={200}
-                loading="eager"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: 6,
-                  boxShadow: 'var(--shadow-soft, 0 2px 8px rgba(0,0,0,0.08))',
-                }}
-              />
+              <div className="website-showcase-item-inner">
+                <Image
+                  src={getImageSrcTop(index)}
+                  alt={`Hemsida ${index + 1}`}
+                  fill
+                  sizes="360px"
+                  priority={index < 5}
+                  loading={index < 5 ? 'eager' : 'lazy'}
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -191,25 +203,21 @@ export function WebsiteShowcaseScrollSection() {
         className="website-showcase-row"
       >
         <div
-          ref={rightTrackRef}
           className="website-showcase-track"
+          style={{ transform: transforms.right }}
         >
           {duplicatedScrollItemsRight.map((item, index) => (
             <div key={`right-${item.id}-${index}`} className="website-showcase-item">
-              <Image
-                src={getImageSrcBottom(index)}
-                alt={`Hemsida ${index + 1}`}
-                width={360}
-                height={200}
-                loading="eager"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: 6,
-                  boxShadow: 'var(--shadow-soft, 0 2px 8px rgba(0,0,0,0.08))',
-                }}
-              />
+              <div className="website-showcase-item-inner">
+                <Image
+                  src={getImageSrcBottom(index)}
+                  alt={`Hemsida ${index + 1}`}
+                  fill
+                  sizes="360px"
+                  loading="lazy"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -225,25 +233,21 @@ export function WebsiteShowcaseScrollSection() {
         className="website-showcase-row"
       >
         <div
-          ref={thirdTrackRef}
           className="website-showcase-track"
+          style={{ transform: transforms.third }}
         >
           {duplicatedScrollItemsThird.map((item, index) => (
             <div key={`third-${item.id}-${index}`} className="website-showcase-item">
-              <Image
-                src={getImageSrcThird(index)}
-                alt={`Hemsida ${index + 1}`}
-                width={360}
-                height={200}
-                loading="eager"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  borderRadius: 6,
-                  boxShadow: 'var(--shadow-soft, 0 2px 8px rgba(0,0,0,0.08))',
-                }}
-              />
+              <div className="website-showcase-item-inner">
+                <Image
+                  src={getImageSrcThird(index)}
+                  alt={`Hemsida ${index + 1}`}
+                  fill
+                  sizes="360px"
+                  loading="lazy"
+                  style={{ objectFit: 'cover' }}
+                />
+              </div>
             </div>
           ))}
         </div>

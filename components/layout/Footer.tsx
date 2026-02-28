@@ -30,7 +30,7 @@ export function Footer() {
               radius="lg"
               href="/"
             />
-            <Display size='lg'>
+            <Display size="lg" align="center">
               blimpify
             </Display>
           </VStack>
