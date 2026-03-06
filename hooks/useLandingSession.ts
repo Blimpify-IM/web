@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 
-const API_BASE = typeof process !== 'undefined'
-  ? (process.env.NEXT_PUBLIC_API_URL || 'https://api.blimpify-im.com').replace(/\/$/, '')
-  : 'https://api.blimpify-im.com';
+// Same-origin proxy så att rätt cookie skickas (ingen partitionering mellan landning och app).
+const ME_URL = '/api/auth/me';
 
 export interface LandingSessionUser {
   id: number;
@@ -21,6 +20,7 @@ export interface UseLandingSessionResult {
 /**
  * Kollar om användaren har en giltig session (cookies med domain .blimpify-im.com).
  * Används på landningssidan för att visa "Dashboard" istället för "Logga in" när inloggad.
+ * Refetchar session vid fokus/visibility så att rätt användare visas efter inlogg i annan flik.
  */
 export function useLandingSession(): UseLandingSessionResult {
   const [user, setUser] = useState<LandingSessionUser | null>(null);
@@ -29,13 +29,13 @@ export function useLandingSession(): UseLandingSessionResult {
   useEffect(() => {
     let cancelled = false;
 
-    async function checkSession() {
+    async function checkSession(isInitial = false) {
       try {
-        const res = await fetch(`${API_BASE}/api/authentication/me`, {
+        const res = await fetch(`${ME_URL}?t=${Date.now()}`, {
           method: 'GET',
           credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
-          cache: 'no-store', // Session måste alltid vara färsk – undvik cachad gammal användare efter logout
+          cache: 'no-store',
         });
 
         if (cancelled) return;
@@ -49,19 +49,33 @@ export function useLandingSession(): UseLandingSessionResult {
               email: data.user.email ?? '',
               role: data.user.role ?? 'client',
             });
-            return;
+          } else {
+            setUser(null);
           }
+        } else {
+          setUser(null);
         }
-        setUser(null);
       } catch {
         if (!cancelled) setUser(null);
       } finally {
-        if (!cancelled) setLoading(false);
+        if (!cancelled && isInitial) setLoading(false);
       }
     }
 
-    checkSession();
-    return () => { cancelled = true; };
+    checkSession(true);
+
+    const onRefetch = () => checkSession(false);
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') onRefetch();
+    };
+    window.addEventListener('focus', onRefetch);
+    document.addEventListener('visibilitychange', onVisible);
+
+    return () => {
+      cancelled = true;
+      window.removeEventListener('focus', onRefetch);
+      document.removeEventListener('visibilitychange', onVisible);
+    };
   }, []);
 
   return { user, loading };
