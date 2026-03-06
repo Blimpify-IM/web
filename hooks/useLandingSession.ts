@@ -35,6 +35,7 @@ export function useLandingSession(): UseLandingSessionResult {
           method: 'GET',
           credentials: 'include',
           headers: { 'Content-Type': 'application/json' },
+          cache: 'no-store', // Session måste alltid vara färsk – undvik cachad gammal användare efter logout
         });
 
         if (cancelled) return;
