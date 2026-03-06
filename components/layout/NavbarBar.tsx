@@ -17,15 +17,27 @@ import {
 } from '@blimpify-im/ui';
 import { Menu, X } from 'lucide-react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { useLandingSession } from '@/hooks/useLandingSession';
 
 export interface NavbarBarProps {
   menuAlign?: 'left' | 'center' | 'right';
+}
+
+const APP_BASE = 'https://app.blimpify-im.com';
+
+function getDashboardUrl(role: string | undefined): string {
+  if (role === 'admin' || role === 'superadmin') {
+    return `${APP_BASE}/dashboard/admin`;
+  }
+  return `${APP_BASE}/dashboard/client/website`;
 }
 
 export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { user: sessionUser, loading: sessionLoading } = useLandingSession();
+  const dashboardUrl = sessionUser ? getDashboardUrl(sessionUser.role) : `${APP_BASE}/sv`;
 
   // 🔹 animation config (ONLY used in mobile drawer)
   const STAGGER = 60;
@@ -182,19 +194,27 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           </HStack>
 
           <HStack spacing="sm">
-            <Button
-              variant="ghost"
-              href="https://app.blimpify-im.com/sv/login"
-              className="navbar-login-button"
-            >
-              Logga in
-            </Button>
-            <Button
-              variant="accent"
-              href="https://app.blimpify-im.com/sv/signup"
-            >
-              Kom igång
-            </Button>
+            {!sessionLoading && sessionUser ? (
+              <Button variant="accent" href={dashboardUrl}>
+                Dashboard
+              </Button>
+            ) : (
+              <>
+                <Button
+                  variant="ghost"
+                  href={`${APP_BASE}/sv/login`}
+                  className="navbar-login-button"
+                >
+                  Logga in
+                </Button>
+                <Button
+                  variant="accent"
+                  href={`${APP_BASE}/sv/signup`}
+                >
+                  Kom igång
+                </Button>
+              </>
+            )}
             <IconButton
               variant="secondary"
               size="md"
@@ -284,39 +304,60 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           ))}
 
           <VStack spacing="sm" align="start" style={{ marginTop: 'var(--foundation-space-4)' }}>
-            <FadeIn
-              direction="down"
-              duration={DURATION}
-              delay={menuItems.length * STAGGER}
-              distance={DISTANCE}
-              enableScrollTrigger={false}
-            >
-              <Button
-                variant="secondary"
-                href="https://app.blimpify-im.com/sv/login"
-                className="navbar-login-button"
-                style={{ width: '100%' }}
+            {!sessionLoading && sessionUser ? (
+              <FadeIn
+                direction="down"
+                duration={DURATION}
+                delay={menuItems.length * STAGGER}
+                distance={DISTANCE}
+                enableScrollTrigger={false}
               >
-                Logga in
-              </Button>
-            </FadeIn>
+                <Button
+                  variant="accent"
+                  href={dashboardUrl}
+                  className="navbar-access-button"
+                  style={{ width: '100%' }}
+                >
+                  Dashboard
+                </Button>
+              </FadeIn>
+            ) : (
+              <>
+                <FadeIn
+                  direction="down"
+                  duration={DURATION}
+                  delay={menuItems.length * STAGGER}
+                  distance={DISTANCE}
+                  enableScrollTrigger={false}
+                >
+                  <Button
+                    variant="secondary"
+                    href={`${APP_BASE}/sv/login`}
+                    className="navbar-login-button"
+                    style={{ width: '100%' }}
+                  >
+                    Logga in
+                  </Button>
+                </FadeIn>
 
-            <FadeIn
-              direction="down"
-              duration={DURATION}
-              delay={(menuItems.length + 1) * STAGGER}
-              distance={DISTANCE}
-              enableScrollTrigger={false}
-            >
-              <Button
-                variant="accent"
-                href="https://app.blimpify-im.com/sv/signup"
-                className="navbar-access-button"
-                style={{ width: '100%' }}
-              >
-                Kom igång
-              </Button>
-            </FadeIn>
+                <FadeIn
+                  direction="down"
+                  duration={DURATION}
+                  delay={(menuItems.length + 1) * STAGGER}
+                  distance={DISTANCE}
+                  enableScrollTrigger={false}
+                >
+                  <Button
+                    variant="accent"
+                    href={`${APP_BASE}/sv/signup`}
+                    className="navbar-access-button"
+                    style={{ width: '100%' }}
+                  >
+                    Kom igång
+                  </Button>
+                </FadeIn>
+              </>
+            )}
           </VStack>
         </VStack>
       </Drawer>

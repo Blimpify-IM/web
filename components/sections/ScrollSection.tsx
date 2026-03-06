@@ -82,7 +82,7 @@ function ScrollSectionDesktop({ scrollItems }: { scrollItems: ScrollItem[] }) {
       <Container className="scroll-section-container" style={{ position: 'relative', zIndex: 1 }}>
         <Box className="scroll-section-mobile-title" style={{ margin: 0, marginBottom: 'var(--foundation-space-6)' }}>
           <Display size="md" weight="bold" align="center">Hur fungerar det?</Display>
-        </Box>
+      </Box>
         <div
           className="scroll-section-grid"
           style={{
@@ -145,9 +145,9 @@ function ScrollSectionDesktop({ scrollItems }: { scrollItems: ScrollItem[] }) {
                   className={activeIndex === index ? 'accordion-active' : ''}
                 >
                   {item.description ? (
-                    <Body size="sm" color="secondary">
-                      {item.description}
-                    </Body>
+                  <Body size="sm" color="secondary">
+                    {item.description}
+                  </Body>
                   ) : null}
                 </AccordionItem>
               ))}
@@ -171,8 +171,8 @@ function ScrollSectionDesktop({ scrollItems }: { scrollItems: ScrollItem[] }) {
                     <H2 weight="bold">{item.title}</H2>
                     {item.description ? (
                       <Body size="sm" color="secondary">
-                        {item.description}
-                      </Body>
+                      {item.description}
+                    </Body>
                     ) : null}
                   </VStack>
 
