@@ -14,6 +14,7 @@ import {
   Icon,
   FadeIn,
   Body,
+  SplitButton,
 } from '@blimpify-im/ui';
 import { Menu, X } from 'lucide-react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
@@ -24,12 +25,19 @@ export interface NavbarBarProps {
 }
 
 const APP_BASE = 'https://app.blimpify-im.com';
+const API_BASE = typeof process !== 'undefined'
+  ? (process.env.NEXT_PUBLIC_API_URL || 'https://api.blimpify-im.com').replace(/\/$/, '')
+  : 'https://api.blimpify-im.com';
 
 function getDashboardUrl(role: string | undefined): string {
   if (role === 'admin' || role === 'superadmin') {
-    return `${APP_BASE}/dashboard/admin`;
+    return `${APP_BASE}/admin`;
   }
-  return `${APP_BASE}/dashboard/client/website`;
+  return `${APP_BASE}/sites`;
+}
+
+function getDisplayName(user: { username?: string | null; email?: string }): string {
+  return user?.username?.trim() || user?.email || 'Konto';
 }
 
 export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
@@ -195,9 +203,37 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
 
           <HStack spacing="sm">
             {!sessionLoading && sessionUser ? (
-              <Button variant="accent" href={dashboardUrl}>
-                Dashboard
-              </Button>
+              <SplitButton
+                variant="accent"
+                size="md"
+                menuAlignment="bottom-end"
+                menuButtonLabel="Meny"
+                onClick={() => { window.location.href = dashboardUrl; }}
+                options={[
+                  {
+                    value: 'dashboard',
+                    label: 'Dashboard',
+                    onClick: () => { window.location.href = dashboardUrl; },
+                  },
+                  {
+                    value: 'logout',
+                    label: 'Logga ut',
+                    onClick: async () => {
+                      try {
+                        await fetch(`${API_BASE}/api/authentication/logout`, {
+                          method: 'POST',
+                          credentials: 'include',
+                          headers: { 'Content-Type': 'application/json' },
+                        });
+                      } finally {
+                        window.location.href = '/';
+                      }
+                    },
+                  },
+                ]}
+              >
+                {getDisplayName(sessionUser)}
+              </SplitButton>
             ) : (
               <>
                 <Button
@@ -305,22 +341,60 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
 
           <VStack spacing="sm" align="start" style={{ marginTop: 'var(--foundation-space-4)' }}>
             {!sessionLoading && sessionUser ? (
-              <FadeIn
-                direction="down"
-                duration={DURATION}
-                delay={menuItems.length * STAGGER}
-                distance={DISTANCE}
-                enableScrollTrigger={false}
-              >
-                <Button
-                  variant="accent"
-                  href={dashboardUrl}
-                  className="navbar-access-button"
-                  style={{ width: '100%' }}
+              <>
+                <FadeIn
+                  direction="down"
+                  duration={DURATION}
+                  delay={menuItems.length * STAGGER}
+                  distance={DISTANCE}
+                  enableScrollTrigger={false}
                 >
-                  Dashboard
-                </Button>
-              </FadeIn>
+                  <Body size="sm" color="secondary">{getDisplayName(sessionUser)}</Body>
+                </FadeIn>
+                <FadeIn
+                  direction="down"
+                  duration={DURATION}
+                  delay={menuItems.length * STAGGER}
+                  distance={DISTANCE}
+                  enableScrollTrigger={false}
+                >
+                  <Button
+                    variant="accent"
+                    href={dashboardUrl}
+                    className="navbar-access-button"
+                    style={{ width: '100%' }}
+                  >
+                    Dashboard
+                  </Button>
+                </FadeIn>
+                <FadeIn
+                  direction="down"
+                  duration={DURATION}
+                  delay={(menuItems.length + 1) * STAGGER}
+                  distance={DISTANCE}
+                  enableScrollTrigger={false}
+                >
+                  <Button
+                    variant="ghost"
+                    size="md"
+                    style={{ width: '100%' }}
+                    onClick={async () => {
+                      try {
+                        await fetch(`${API_BASE}/api/authentication/logout`, {
+                          method: 'POST',
+                          credentials: 'include',
+                          headers: { 'Content-Type': 'application/json' },
+                        });
+                      } finally {
+                        setMobileOpen(false);
+                        window.location.href = '/';
+                      }
+                    }}
+                  >
+                    Logga ut
+                  </Button>
+                </FadeIn>
+              </>
             ) : (
               <>
                 <FadeIn

@@ -42,5 +42,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date().toISOString().split('T')[0],
       priority: 0.6,
     },
+    {
+      url: `${baseUrl}/pricing`,
+      lastModified: new Date().toISOString().split('T')[0],
+      priority: 0.7,
+    },
   ];
 }
