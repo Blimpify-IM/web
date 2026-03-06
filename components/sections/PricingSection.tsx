@@ -7,42 +7,212 @@ import {
   VStack,
   HStack,
   H1,
-  H2,
   H3,
   Body,
   Button,
   Card,
   CardContent,
-  Tag,
   Grid,
   Display,
   FadeIn,
   SegmentedControl,
 } from '@blimpify-im/ui';
+import { getSignupUrl, getDashboardUrl } from '@/lib/dashboard-url';
+import { startProCheckout } from '@/lib/checkout';
+import { useLandingSession } from '@/hooks/useLandingSession';
 
-const MONTHLY_PRICE = 290;
-const YEARLY_PRICE_PER_MONTH = 218; // 25% rabatt (290 * 0.75 ≈ 218)
+const PRO_MONTHLY = 290;
+const PRO_YEARLY_PER_MONTH = 218;
+
+const FREE_FEATURES = [
+  'Full redigerare',
+  'Publicera webbplats',
+  'Blimpify-subdomän',
+];
+
+const PRO_FEATURES = [
+  'Allt i Free',
+  'Egen domän (custom domain)',
+];
+
+function PricingCardFree({
+  isLoggedIn,
+  dashboardUrl,
+}: {
+  isLoggedIn: boolean;
+  dashboardUrl: string;
+}) {
+  return (
+    <Card
+      variant="outlined"
+      padding="lg"
+      radius="lg"
+      style={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: 'var(--surface-raised)',
+      }}
+    >
+      <CardContent>
+        <VStack spacing="2xl" style={{ height: '100%' }}>
+          <VStack spacing="sm">
+            <H3 weight="bold">Free</H3>
+            <Body size="sm" color="secondary">
+              Kom igång direkt med allt du behöver för en publik webbplats.
+            </Body>
+          </VStack>
+
+          <VStack spacing="xs">
+            <H1 weight="bold">0 kr</H1>
+            <Body size="sm" color="tertiary">/månad</Body>
+            <Body size="xs" color="secondary">Ingen betalning krävs</Body>
+          </VStack>
+
+          <VStack spacing="sm" style={{ flex: 1 }}>
+            {FREE_FEATURES.map((text, i) => (
+              <HStack key={i} spacing="sm" align="start">
+                <span className="pricing-checkmark" aria-hidden>✓</span>
+                <Body size="sm">{text}</Body>
+              </HStack>
+            ))}
+          </VStack>
+
+          <Button
+            variant="secondary"
+            size="lg"
+            fullWidth
+            href={isLoggedIn ? dashboardUrl : getSignupUrl('free')}
+          >
+            Kom igång
+          </Button>
+        </VStack>
+      </CardContent>
+    </Card>
+  );
+}
+
+function PricingCardPro({
+  billingPeriod,
+  isLoggedIn,
+  onCheckoutStart,
+  checkoutLoading,
+}: {
+  billingPeriod: 'monthly' | 'yearly';
+  isLoggedIn: boolean;
+  onCheckoutStart: () => void;
+  checkoutLoading: boolean;
+}) {
+  const price = billingPeriod === 'monthly' ? PRO_MONTHLY : PRO_YEARLY_PER_MONTH;
+  const showYearlyDiscount = billingPeriod === 'yearly';
+
+  return (
+    <Card
+      variant="outlined"
+      padding="lg"
+      radius="lg"
+      style={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: 'var(--surface-raised)',
+        borderColor: 'var(--border-default)',
+      }}
+    >
+      <CardContent>
+        <VStack spacing="2xl" style={{ height: '100%' }}>
+          <VStack spacing="sm">
+            <H3 weight="bold">Pro</H3>
+            <Body size="sm" color="secondary">
+              Egen domän för ett mer professionellt intryck.
+            </Body>
+          </VStack>
+
+          <VStack spacing="xs">
+            <HStack spacing="xs" align="baseline">
+              <H1 weight="bold">{price} kr</H1>
+              <Body size="md" color="tertiary">/mån</Body>
+            </HStack>
+            <Body
+              size="sm"
+              color="secondary"
+              style={{ minHeight: '1.25rem', visibility: showYearlyDiscount ? 'visible' : 'hidden' }}
+            >
+              {showYearlyDiscount ? 'Rabatt vid årsbetalning' : '\u00A0'}
+            </Body>
+          </VStack>
+
+          <VStack spacing="sm" style={{ flex: 1 }}>
+            {PRO_FEATURES.map((text, i) => (
+              <HStack key={i} spacing="sm" align="start">
+                <span className="pricing-checkmark" aria-hidden>✓</span>
+                <Body size="sm">{text}</Body>
+              </HStack>
+            ))}
+          </VStack>
+
+          {isLoggedIn ? (
+            <Button
+              variant="accent"
+              size="lg"
+              fullWidth
+              loading={checkoutLoading}
+              disabled={checkoutLoading}
+              onClick={onCheckoutStart}
+            >
+              Kom igång
+            </Button>
+          ) : (
+            <Button
+              variant="accent"
+              size="lg"
+              fullWidth
+              href={getSignupUrl('pro', billingPeriod)}
+            >
+              Kom igång
+            </Button>
+          )}
+        </VStack>
+      </CardContent>
+    </Card>
+  );
+}
 
 export function PricingSection() {
   const [billingPeriod, setBillingPeriod] = useState<'monthly' | 'yearly'>('yearly');
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const { user: sessionUser } = useLandingSession();
+  const isLoggedIn = Boolean(sessionUser);
+  const dashboardUrl = sessionUser ? getDashboardUrl(sessionUser.role) : getSignupUrl('free');
+
+  const handleProCheckout = async () => {
+    setCheckoutLoading(true);
+    try {
+      const url = await startProCheckout(billingPeriod);
+      window.location.href = url;
+    } catch (err) {
+      setCheckoutLoading(false);
+      console.error('[PricingSection] Checkout failed:', err);
+      alert(err instanceof Error ? err.message : 'Kunde inte starta betalning. Försök igen eller gå till Inställningar i dashboarden.');
+    }
+  };
 
   return (
     <Section
       id="pricing"
-      style={{
-        background: 'var(--surface-page)',
-      }}
+      style={{ background: 'var(--surface-page)' }}
     >
       <Container>
         <VStack spacing="3xl">
-          {/* Header */}
           <FadeIn direction="up" duration={700}>
             <VStack spacing="lg" align="center">
               <Display size="md" align="center">
-                Hur kan vi hjälpa ditt företag?
+                Priser
               </Display>
               <VStack spacing="sm" align="center">
-                <Body size="sm" color="secondary">Standardmedlemskap</Body>
+                <Body size="sm" color="secondary">
+                  Enkel modell: Free ger full redigerare och publicering. Pro ger egen domän.
+                </Body>
                 <SegmentedControl
                   options={[
                     { value: 'monthly', label: 'Månadspris' },
@@ -55,211 +225,61 @@ export function PricingSection() {
             </VStack>
           </FadeIn>
 
-          {/* Pricing Cards */}
           <Grid columns={2} gap="xl" className="pricing-grid">
-            {/* First Card - Blimpify medlemskap */}
-            <FadeIn direction="up" duration={600} delay={200}>
-              <Card
-                variant="outlined"
-                padding="lg"
-                radius="lg"
-                style={{
-                  position: 'relative',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  backgroundColor: 'var(--surface-raised)',
-                }}
-              >
-                <CardContent>
-                  <VStack spacing="2xl" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
-                    {/* Plan Header */}
-                    <VStack spacing="sm">
-                      <H3 weight="bold">
-                        Blimpify-medlemskap
-                      </H3>
-                      <Body size="sm">
-                        För företag som vill fokusera på verksamheten
-                      </Body>
-                    </VStack>
-
-                    {/* Price – rabattraden har alltid samma plats så korten inte studsar */}
-                    <VStack spacing="xs" className="pricing-price-block">
-                      <HStack spacing="xs" align="baseline">
-                        <H1 weight="bold">
-                          {billingPeriod === 'monthly' ? MONTHLY_PRICE : YEARLY_PRICE_PER_MONTH} kr
-                        </H1>
-                        <Body size="md" color="tertiary">
-                          /mån
-                        </Body>
-                      </HStack>
-                      <Body
-                        size="sm"
-                        color="secondary"
-                        style={{ minHeight: '1.25rem', visibility: billingPeriod === 'yearly' ? 'visible' : 'hidden' }}
-                      >
-                        {billingPeriod === 'yearly' ? '25% rabatt vid årsbetalning' : '\u00A0'}
-                      </Body>
-                      <Body size="xs" color="tertiary" style={{ marginTop: '-0.25rem' }}>
-                        excl. moms
-                      </Body>
-                    </VStack>
-
-                    {/* Features */}
-                    <VStack spacing="sm" style={{ flex: 1 }} className="pricing-features">
-                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">En professionell webbplats, skapad utifrån dina val</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Struktur och grund som håller över tid</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Möjlighet att justera text, färger och detaljer vid behov</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">onblimpify-domän, custom domänanslutning och publicering</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Översikt över hur din webbplats används</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Support när något inte känns rätt</Body>
-                      </HStack>
-                    </VStack>
-                    {/* CTA Button */}
-                    <Button
-                      variant="accent"
-                      size="lg"
-                      fullWidth
-                      href="https://app.blimpify-im.com/sv/signup"
-                      target="_blank"
-                      className="pricing-access-button"
-                    >
-                      Kom igång
-                    </Button>
-
-
-                  </VStack>
-                </CardContent>
-              </Card>
+            <FadeIn direction="up" duration={600} delay={100}>
+              <PricingCardFree isLoggedIn={isLoggedIn} dashboardUrl={dashboardUrl} />
             </FadeIn>
-
-            {/* Second Card - Anpassat behov / Boka möte */}
-            <FadeIn direction="up" duration={600} delay={350}>
-              <Card
-                variant="outlined"
-                padding="lg"
-                radius="lg"
-                style={{
-                  position: 'relative',
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  backgroundColor: 'var(--surface-raised)',
-                }}
-              >
-                <CardContent>
-                  <VStack spacing="2xl" style={{ height: '100%', position: 'relative', zIndex: 1 }}>
-                    {/* Plan Header */}
-                    <VStack spacing="sm">
-                      <H3 weight="bold">
-                        Anpassat behov
-                      </H3>
-                      <Body size="sm">
-                        Gillar ni vad vi gör och vill ha en mer komplicerad eller omfattande lösning? Boka ett möte.
-                      </Body>
-                    </VStack>
-
-                    {/* CTA-block – samma struktur som vänster kort så layouten matchar */}
-                    <VStack spacing="xs" className="pricing-price-block">
-                      <H1 weight="bold">
-                        Prata med oss
-                      </H1>
-                    </VStack>
-
-                    {/* Features */}
-                    <VStack spacing="sm" style={{ flex: 1 }} className="pricing-features">
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Ett större projekt med tydlig projektledning</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Lösningar anpassade till din verksamhet och arbetsflöden</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Stöd för mer avancerad funktionalitet vid behov</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">En dedikerad kontakt och långsiktigt samarbete</Body>
-                      </HStack>
-                      <HStack spacing="sm" align="start" className="pricing-feature-row pricing-feature-mobile-hide">
-                        <span className="pricing-checkmark" style={{ flexShrink: 0 }}>✓</span>
-                        <Body size="sm">Avtal och upplägg anpassade till omfattning och behov</Body>
-                      </HStack>
-                    </VStack>
-
-                    {/* CTA Button */}
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      fullWidth
-                      href="https://calendly.com/admin-blimpify/vv-digital-media"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pricing-contact-button"
-                    >
-                      Boka möte
-                    </Button>
-                  </VStack>
-                </CardContent>
-              </Card>
+            <FadeIn direction="up" duration={600} delay={200}>
+              <PricingCardPro
+                billingPeriod={billingPeriod}
+                isLoggedIn={isLoggedIn}
+                onCheckoutStart={handleProCheckout}
+                checkoutLoading={checkoutLoading}
+              />
             </FadeIn>
           </Grid>
+
+          {/* Anpassat behov – samma som tidigare */}
+          <FadeIn direction="up" duration={600} delay={300}>
+            <Card
+              variant="outlined"
+              padding="lg"
+              radius="lg"
+              style={{
+                backgroundColor: 'var(--surface-raised)',
+              }}
+            >
+              <CardContent>
+                <VStack spacing="md" align="center">
+                  <VStack spacing="xs" align="center">
+                    <H3 weight="bold" align="center">Anpassat behov</H3>
+                    <Body size="sm" color="secondary" align="center">
+                      Vill ni ha en mer komplicerad eller omfattande lösning? Boka ett möte.
+                    </Body>
+                  </VStack>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    href="https://calendly.com/admin-blimpify/vv-digital-media"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Boka möte
+                  </Button>
+                </VStack>
+              </CardContent>
+            </Card>
+          </FadeIn>
         </VStack>
       </Container>
 
-      {/* Responsive Styles */}
       <style jsx global>{`
-        /* Checkmark colors based on theme */
-        [data-theme="light"] .pricing-checkmark {
-          color: #000000 !important;
-        }
-        
-        [data-theme="dark"] .pricing-checkmark {
-          color: #ffffff !important;
-        }
-
-        /* Samma maxbredd för feature-text i båda korten – jämn layout */
-        .pricing-feature-row {
-          align-items: flex-start;
-        }
-        .pricing-feature-text {
-          flex: 1;
-          min-width: 0;
-          max-width: 32ch;
-        }
-        
-        @media (max-width: 1024px) {
-          .pricing-grid {
-            grid-template-columns: 1fr !important;
-          }
-          
-          .pricing-feature-mobile-hide {
-            display: none !important;
-          }
-
-          .pricing-feature-text {
-            max-width: none;
-          }
+        [data-theme="light"] .pricing-checkmark { color: #000000 !important; }
+        [data-theme="dark"] .pricing-checkmark { color: #ffffff !important; }
+        .pricing-checkmark { flex-shrink: 0; }
+        .pricing-grid { align-items: stretch; }
+        @media (max-width: 768px) {
+          .pricing-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </Section>
