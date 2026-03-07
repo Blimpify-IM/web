@@ -36,8 +36,9 @@ function getDashboardUrl(role: string | undefined): string {
   return `${APP_BASE}/sites`;
 }
 
-function getDisplayName(user: { username?: string | null; email?: string }): string {
-  return user?.username?.trim() || user?.email || 'Konto';
+// Visar aldrig användarnamn/e-post i navbaren – session kan vara fel pga cookie/partitionering.
+function getDisplayName(_user: { username?: string | null; email?: string }): string {
+  return 'Dashboard';
 }
 
 export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
