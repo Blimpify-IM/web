@@ -39,7 +39,7 @@ function getDisplayName(_user: { username?: string | null; email?: string }): st
   return 'Dashboard';
 }
 
-export function NavbarBar({ menuAlign = 'left' }: NavbarBarProps) {
+export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { user: sessionUser, loading: sessionLoading } = useLandingSession();
@@ -114,53 +114,56 @@ export function NavbarBar({ menuAlign = 'left' }: NavbarBarProps) {
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
           gap: 'var(--foundation-space-8)',
           maxWidth: 'var(--width-navbar)',
           margin: '0 auto',
           padding: 'var(--space-navbar)',
         }}
       >
-        <Logo
-          src="https://cdn.blimpify-im.com/assets/logo/blimpify-transparent-logo.png"
-          alt="Blimpify"
-          width={50}
-          height={50}
-          border="none"
-          color="auto"
-          radius="lg"
-          href="/"
-        />
+        {/* Vänster: logo – tar lika plats som höger så mitten blir centrerad */}
+        <div className="navbar-bar__left">
+          <Logo
+            src="https://cdn.blimpify-im.com/assets/logo/blimpify-transparent-logo.png"
+            alt="Blimpify"
+            width={50}
+            height={50}
+            border="none"
+            color="auto"
+            radius="lg"
+            href="/"
+          />
+        </div>
 
-        {/* DESKTOP CONTENT */}
-        <div className="navbar-bar__content">
-          <div className={`navbar-bar__middle-wrap navbar-bar__middle-wrap--${menuAlign}`}>
-            <HStack spacing="lg" justify="center">
-              {menuItems.map((item, i) =>
-                item.hash ? (
-                <TextLink
-                  key={i}
-                  href={item.href}
-                  size="md"
-                  onClick={(e) => handleHashClick(e, item.hash)}
-                >
+        {/* Mitten: länkarna – ligger i absolut centrum oavsett logo/knappar */}
+        <div className={`navbar-bar__content navbar-bar__middle-wrap navbar-bar__middle-wrap--${menuAlign}`}>
+          <HStack spacing="lg" justify="center">
+            {menuItems.map((item, i) =>
+              item.hash ? (
+              <TextLink
+                key={i}
+                href={item.href}
+                size="md"
+                onClick={(e) => handleHashClick(e, item.hash)}
+              >
+                {item.label}
+              </TextLink>
+            ) : (
+              <Link
+                key={i}
+                href={item.href}
+                style={{ color: 'var(--text-link-color)', textDecoration: 'none' }}
+              >
+                <Body size="md" weight="medium" style={{ color: 'inherit' }}>
                   {item.label}
-                </TextLink>
-              ) : (
-                <Link
-                  key={i}
-                  href={item.href}
-                  style={{ color: 'var(--text-link-color)', textDecoration: 'none' }}
-                >
-                  <Body size="md" weight="medium" style={{ color: 'inherit' }}>
-                    {item.label}
-                  </Body>
-                </Link>
-                )
-              )}
-            </HStack>
-          </div>
+                </Body>
+              </Link>
+              )
+            )}
+          </HStack>
+        </div>
 
+        {/* Höger: knappar – tar lika plats som vänster */}
+        <div className="navbar-bar__right">
           <HStack spacing="sm">
             {!sessionLoading && sessionUser ? (
               <SplitButton
@@ -410,23 +413,30 @@ export function NavbarBar({ menuAlign = 'left' }: NavbarBarProps) {
           border-color: rgba(100, 90, 80, 0.6) !important;
         }
         
-        .navbar-bar__content {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+        /* Tre kolumner: vänster och höger lika breda → länkarna hamnar i absolut centrum */
+        .navbar-bar__left {
           flex: 1;
           min-width: 0;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
         }
-        /* Wrapper som fyller utrymmet mellan logo och knappar; justering styrs av menuAlign */
-        .navbar-bar__middle-wrap {
-          flex: 1;
-          min-width: 0;
+        .navbar-bar__content.navbar-bar__middle-wrap {
+          flex: 0 0 auto;
           display: flex;
           align-items: center;
+          min-width: 0;
         }
         .navbar-bar__middle-wrap--left { justify-content: flex-start; }
         .navbar-bar__middle-wrap--center { justify-content: center; }
         .navbar-bar__middle-wrap--right { justify-content: flex-end; }
+        .navbar-bar__right {
+          flex: 1;
+          min-width: 0;
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+        }
         @media (max-width: 1124px) {
           .navbar-bar__content {
             display: none !important;
