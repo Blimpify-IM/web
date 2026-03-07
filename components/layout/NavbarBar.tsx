@@ -11,13 +11,11 @@ import {
   IconButton,
   Logo,
   Drawer,
-  Icon,
   FadeIn,
   Body,
   SplitButton,
 } from '@blimpify-im/ui';
 import { Menu, X } from 'lucide-react';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 import { useLandingSession } from '@/hooks/useLandingSession';
 
 export interface NavbarBarProps {
@@ -41,9 +39,8 @@ function getDisplayName(_user: { username?: string | null; email?: string }): st
   return 'Dashboard';
 }
 
-export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
+export function NavbarBar({ menuAlign = 'left' }: NavbarBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { user: sessionUser, loading: sessionLoading } = useLandingSession();
   const dashboardUrl = sessionUser ? getDashboardUrl(sessionUser.role) : `${APP_BASE}/sv`;
@@ -52,40 +49,6 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
   const STAGGER = 60;
   const DURATION = 420;
   const DISTANCE = 20;
-
-  // Detect and handle theme
-  useEffect(() => {
-    const checkTheme = () => {
-      const theme = document.documentElement.getAttribute('data-theme');
-      setIsDark(theme === 'dark');
-    };
-
-    checkTheme();
-
-    const observer = new MutationObserver(checkTheme);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = isDark ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    document.documentElement.style.setProperty('--is-dark', newTheme === 'dark' ? '1' : '0');
-
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-
-    const currentConfig = JSON.parse(localStorage.getItem('blimpify-theme-config') || '{}');
-    localStorage.setItem(
-      'blimpify-theme-config',
-      JSON.stringify({ ...currentConfig, themeMode: newTheme })
-    );
-
-    window.dispatchEvent(new Event('theme-changed'));
-  };
 
   // Scroll glass effect
   useEffect(() => {
@@ -159,27 +122,22 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
         }}
       >
         <Logo
-          src="https://cdn.blimpify-im.com/assets/logo/logo.png"
+          src="https://cdn.blimpify-im.com/assets/logo/blimpify-transparent-logo.png"
           alt="Blimpify"
-          width={36}
-          height={36}
-          border="default"
+          width={50}
+          height={50}
+          border="none"
           color="auto"
           radius="lg"
-          text="blimpify"
-          textSize="lg"
-          textWeight="extrabold"
           href="/"
         />
 
-        {/* DESKTOP CONTENT – ORÖRD */}
+        {/* DESKTOP CONTENT */}
         <div className="navbar-bar__content">
-          <HStack
-            className={`navbar-bar__middle navbar-bar__middle--${menuAlign}`}
-            spacing="lg"
-          >
-            {menuItems.map((item, i) =>
-              item.hash ? (
+          <div className={`navbar-bar__middle-wrap navbar-bar__middle-wrap--${menuAlign}`}>
+            <HStack spacing="lg" justify="center">
+              {menuItems.map((item, i) =>
+                item.hash ? (
                 <TextLink
                   key={i}
                   href={item.href}
@@ -198,9 +156,10 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
                     {item.label}
                   </Body>
                 </Link>
-              )
-            )}
-          </HStack>
+                )
+              )}
+            </HStack>
+          </div>
 
           <HStack spacing="sm">
             {!sessionLoading && sessionUser ? (
@@ -252,33 +211,11 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
                 </Button>
               </>
             )}
-            <IconButton
-              variant="secondary"
-              size="md"
-              onClick={toggleTheme}
-              aria-label={isDark ? 'Byt till ljusläge' : 'Byt till mörkläge'}
-              icon={
-                <Icon size="md" color="button-ghost">
-                  {isDark ? <SunIcon /> : <MoonIcon />}
-                </Icon>
-              }
-            />
           </HStack>
         </div>
 
         {/* MOBILE ACTIONS */}
         <HStack spacing="sm" className="navbar-bar__mobile-actions" style={{ display: 'none' }}>
-          <IconButton
-            variant="ghost"
-            size="md"
-            onClick={toggleTheme}
-            aria-label={isDark ? 'Byt till ljusläge' : 'Byt till mörkläge'}
-            icon={
-              <Icon size="md" color="button-ghost">
-                {isDark ? <SunIcon /> : <MoonIcon />}
-              </Icon>
-            }
-          />
           <IconButton
             variant="ghost"
             size="md"
@@ -473,6 +410,23 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           border-color: rgba(100, 90, 80, 0.6) !important;
         }
         
+        .navbar-bar__content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          flex: 1;
+          min-width: 0;
+        }
+        /* Wrapper som fyller utrymmet mellan logo och knappar; justering styrs av menuAlign */
+        .navbar-bar__middle-wrap {
+          flex: 1;
+          min-width: 0;
+          display: flex;
+          align-items: center;
+        }
+        .navbar-bar__middle-wrap--left { justify-content: flex-start; }
+        .navbar-bar__middle-wrap--center { justify-content: center; }
+        .navbar-bar__middle-wrap--right { justify-content: flex-end; }
         @media (max-width: 1124px) {
           .navbar-bar__content {
             display: none !important;

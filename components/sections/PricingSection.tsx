@@ -28,6 +28,8 @@ const FREE_FEATURES = [
   'Full redigerare',
   'Publicera webbplats',
   'Blimpify-subdomän',
+  'Statistik',
+  'Support',
 ];
 
 const PRO_FEATURES = [
