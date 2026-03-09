@@ -36,11 +36,11 @@ const scrollItemsData: Omit<ScrollItem, 'imageSrc'>[] = [
     imageAlt: 'Skapa konto',
   },
   {
-    title: 'Starta själv eller med oss',
-    description: 'Anpassa en av våra mallar eller ge oss riktningen så bygger vi.',
+    title: 'Välj mall – struktur från start',
+    description: 'Du börjar från en genomtänkt struktur. Ändra färger, layout och innehåll tills det känns som ditt företag. Varje komponent har tydliga regler – designen är i princip omöjlig att förstöra.',
     imageLight: 'https://cdn.blimpify-im.com/assets/images/get-strated.png',
     imageDark: 'https://cdn.blimpify-im.com/assets/images/get-strated-dark.png',
-    imageAlt: 'Sätt riktningen',
+    imageAlt: 'Välj mall och anpassa',
   },
   {
     title: 'Redigera och följ utvecklingen',

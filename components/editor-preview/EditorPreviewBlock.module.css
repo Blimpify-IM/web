@@ -1,0 +1,54 @@
+/* Samma layout som dashboard-editorn (EditorShell): flex, main + höger sidebar. */
+
+.previewShell {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  gap: var(--foundation-space-3);
+  background-color: var(--surface-raised);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-default);
+}
+
+.canvas {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-raised);
+  overflow: hidden;
+  position: relative;
+}
+
+.canvasInner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-base);
+  overflow: auto;
+  min-height: 0;
+}
+
+/* Dark mode förhandsgranskning när Theme = Dark */
+.canvas[data-theme="dark"] .canvasInner {
+  background-color: var(--surface-page, #111);
+  color: var(--text-default, #e5e5e5);
+}
+.canvas[data-theme="dark"] .canvasBar {
+  background-color: var(--surface-raised, #1a1a1a);
+  border-bottom-color: var(--border-default, #333);
+}
+
+.canvasBar {
+  flex-shrink: 0;
+  padding: var(--foundation-space-2) var(--foundation-space-3);
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: var(--surface-ground);
+}
+
+/* Höger sidebar använder SideBar-komponenten (samma som i dashboarden). */

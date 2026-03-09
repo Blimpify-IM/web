@@ -61,7 +61,7 @@ function PricingCardFree({
           <VStack spacing="sm">
             <H3 weight="bold">Free</H3>
             <Body size="sm" color="secondary">
-              Kom igång direkt med allt du behöver för en publik webbplats.
+              Välj en mall och kom igång – full redigerare och publicering för en publik webbplats.
             </Body>
           </VStack>
 
@@ -212,8 +212,8 @@ export function PricingSection() {
                 Priser
               </Display>
               <VStack spacing="sm" align="center">
-                <Body size="sm" color="secondary">
-                  Enkel modell: Free ger full redigerare och publicering. Pro ger egen domän.
+                <Body size="sm" color="secondary" align="center">
+                  Kom igång genom att välja en mall – redigera och publicera direkt. Free ger full redigerare, Pro ger egen domän.
                 </Body>
                 <SegmentedControl
                   options={[
@@ -241,7 +241,7 @@ export function PricingSection() {
             </FadeIn>
           </Grid>
 
-          {/* Anpassat behov – samma som tidigare */}
+          {/* Anpassat behov – sekundärt; man börjar med mall */}
           <FadeIn direction="up" duration={600} delay={300}>
             <Card
               variant="outlined"
@@ -256,7 +256,7 @@ export function PricingSection() {
                   <VStack spacing="xs" align="center">
                     <H3 weight="bold" align="center">Anpassat behov</H3>
                     <Body size="sm" color="secondary" align="center">
-                      Vill ni ha en mer komplicerad eller omfattande lösning? Boka ett möte.
+                      Behöver ni mer än en mall – t.ex. skräddarsydd lösning eller större projekt? Boka ett möte så pratar vi.
                     </Body>
                   </VStack>
                   <Button

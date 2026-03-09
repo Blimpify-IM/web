@@ -12,7 +12,7 @@ import { MarketingPixels } from '@/components/analytics/MarketingPixels';
 export const metadata: Metadata = {
   ...generateMetadata({
     title: 'Blimpify',
-    description: 'Blimpify hjälper företag att få en professionell hemsida utan att behöva bygga eller designa själva. Du delar dina önskemål – vi tar hand om design, struktur och publicering.',
+    description: 'Blimpify hjälper företag att få en professionell hemsida. Välj en mall, redigera och publicera direkt – eller boka ett möte vid behov av skräddarsydd lösning.',
     keywords: [
       'hemsida företag',
       'webbdesign företag',

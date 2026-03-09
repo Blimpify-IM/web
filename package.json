@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@blimpify-im/ui": "^3.4.311",
+    "@blimpify-im/website-editor": "file:../packages/website-editor",
     "@heroicons/react": "^2.2.0",
     "lucide-react": "^0.525.0",
     "next": "^16.1.0",

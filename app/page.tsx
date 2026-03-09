@@ -6,7 +6,6 @@ import { ScrollSection } from '@/components/sections/ScrollSection';
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection';
 import { PricingSection } from '@/components/sections/PricingSection';
 import { FAQSection } from '@/components/sections/FAQSection';
-import { CTASection } from '@/components/sections/CTASection';
 import { Divider } from '@blimpify-im/ui';
 import { StructuredData, generateOrganizationSchema, generateWebsiteSchema } from '@/lib/seo';
 

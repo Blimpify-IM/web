@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
     // Inaktivera TypeScript strict checking under build
     ignoreBuildErrors: false,
   },
-  transpilePackages: ['@blimpify-im/ui'],
+  transpilePackages: ['@blimpify-im/ui', '@blimpify-im/website-editor'],
   webpack: (config: any) => {
     // Exkludera Node.js-only moduler från browser build
     config.resolve.fallback = {

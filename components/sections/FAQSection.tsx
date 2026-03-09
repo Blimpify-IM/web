@@ -22,34 +22,59 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'Vad gör Blimpify?',
+    question: 'Vad är Blimpify?',
     answer:
-      'Blimpify hjälper företag att skapa och hantera sin webbplats utan att behöva oroa sig för detaljerna.',
+      'Blimpify är ett verktyg där företag kan skapa och driva en professionell hemsida utan designkunskap.\n\nDu börjar från en färdig struktur och kan enkelt ändra innehåll, bilder, färger och layout tills sidan passar ditt företag.',
   },
   {
     question: 'Behöver jag kunna design eller teknik?',
     answer:
-      'Nej. Du behöver antingen välja en mall och anpassa den enkelt själv, eller beskriva för oss vad du vill ha – då löser vi det. Allt är uppsatt för enkelhet men med hög kvalitet. Du kan justera saker själv, inte bara små ändringar.',
+      'Nej.\n\nBlimpify är byggt för företagare, inte designers. Alla komponenter har tydliga regler så att designen alltid håller ihop. Det betyder att du kan ändra innehåll och layout utan att riskera att förstöra designen.',
   },
   {
-    question: 'Kan jag göra ändringar själv?',
+    question: 'Hur snabbt kan jag skapa en hemsida?',
     answer:
-      'Ja. Du kan både göra mindre justeringar själv och vid behov större ändringar – allt är uppsatt så att du har kontroll över det du vill ändra.',
+      'Det går väldigt snabbt att komma igång.\n\nNär du skapar ett konto får du direkt en färdig startstruktur med flera sektioner som du kan redigera. Du behöver bara ändra text och bilder för att göra sidan till din egen.',
   },
   {
-    question: 'När betalar jag för tjänsten?',
+    question: 'Hostas hemsidan av Blimpify?',
     answer:
-      'Det är gratis att starta, anpassa och använda tjänsten. För att lansera webbplatsen tillkommer månadskostnaden och medlemskapet.',
+      'Ja.\n\nVi hostar din hemsida och hanterar allt tekniskt bakom kulisserna. Du behöver inte tänka på hosting, servrar eller teknisk setup.',
   },
   {
-    question: 'Hur fungerar processen?',
+    question: 'Får jag en egen webbadress?',
     answer:
-      'Processen fungerar så att du antingen väljer en mall och anpassar den själv, eller beskriver för oss vad du vill ha – då fixar vi det.',
+      'Ja.\n\nNär du skapar ett konto får du automatiskt en webbadress på formen dittföretag.onblimpify.com. Den fungerar direkt och din sida kan publiceras direkt.',
   },
   {
-    question: 'Passar Blimpify för alla företag?',
+    question: 'Kan jag använda min egen domän?',
     answer:
-      'Blimpify passar för alla företag som vill ha något som är uppsatt rätt från början, fungerar, ser bra ut och stödjer verksamheten.',
+      'Ja.\n\nOm du redan har en domän kan du koppla den till din hemsida. Du kan också köpa en domän direkt genom Blimpify.',
+  },
+  {
+    question: 'Är Blimpify gratis?',
+    answer:
+      'Ja, du kan skapa och publicera en hemsida gratis på en .onblimpify.com-adress.\n\nBetalplaner används främst för funktioner som egen domän och framtida premiumfunktioner.',
+  },
+  {
+    question: 'Vad kan jag göra med Blimpify?',
+    answer:
+      'Med Blimpify kan du till exempel: skapa en företagshemsida, presentera dina tjänster, samla leads via kontaktformulär, visa kundreferenser och följa statistik för din hemsida.',
+  },
+  {
+    question: 'Kan jag ändra designen senare?',
+    answer:
+      'Ja.\n\nDu kan ändra layout, färger och innehåll när som helst. Alla sektioner är byggda för att fungera tillsammans så att sidan fortsätter se bra ut.',
+  },
+  {
+    question: 'För vem är Blimpify byggt?',
+    answer:
+      'Blimpify är främst byggt för småföretagare, konsulter, startups, frilansare och lokala företag. Alltså personer som vill ha en bra hemsida utan att behöva lägga tid på design eller teknik.',
+  },
+  {
+    question: 'Är Blimpify färdigt?',
+    answer:
+      'Blimpify är fortfarande under utveckling.\n\nVi jobbar kontinuerligt med att förbättra plattformen och uppskattar all feedback från användare.',
   },
 ];
 
@@ -86,9 +111,13 @@ export function FAQSection() {
             >
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} itemKey={String(index)} title={faq.question}>
-                  <Body size="md" style={{ lineHeight: 1.6 }}>
-                    {faq.answer}
-                  </Body>
+                  <VStack spacing="sm">
+                    {faq.answer.split(/\n\n+/).map((paragraph, i) => (
+                      <Body key={i} size="md">
+                        {paragraph.trim()}
+                      </Body>
+                    ))}
+                  </VStack>
                 </AccordionItem>
               ))}
             </Accordion>

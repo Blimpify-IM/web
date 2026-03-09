@@ -1,0 +1,33 @@
+/* Samma look som dashboard ContentTree add-section-sticky. */
+
+.editor-add-section-sticky {
+  position: sticky;
+  bottom: 0;
+  background: var(--surface-base);
+  padding: var(--foundation-space-2) 0 var(--foundation-space-1);
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+.editor-add-section-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--foundation-space-2);
+  width: 100%;
+  padding: var(--foundation-space-2) var(--foundation-space-3);
+  background: none;
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-family: var(--font-body-family);
+  font-size: var(--font-label-sm-size);
+  font-weight: var(--font-label-weight);
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.editor-add-section-btn:hover {
+  background: var(--surface-nav-item-hover);
+  border-color: var(--border-default);
+  color: var(--text-default);
+}
