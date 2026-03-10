@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Section, Box } from '@blimpify-im/ui';
 import Image from 'next/image';
 
@@ -62,9 +62,9 @@ function getTrackTransforms(scrollY: number) {
   const rightOffset = rightRaw - RIGHT_ROW_START_OFFSET;
   const thirdOffset = (scrollY * SCROLL_SPEED * THIRD_ROW_SPEED) % LOOP_PERCENT;
   return {
-    left: `translateX(-${leftOffset}%)`,
-    right: `translateX(${rightOffset}%)`,
-    third: `translateX(-${thirdOffset}%)`,
+    left: `translate3d(-${leftOffset}%, 0, 0)`,
+    right: `translate3d(${rightOffset}%, 0, 0)`,
+    third: `translate3d(-${thirdOffset}%, 0, 0)`,
   };
 }
 
@@ -72,7 +72,9 @@ const INITIAL_TRANSFORMS = getTrackTransforms(0);
 
 export function WebsiteShowcaseScrollSection() {
   const [isMobile, setIsMobile] = useState(false);
-  const [transforms, setTransforms] = useState(INITIAL_TRANSFORMS);
+  const leftTrackRef = useRef<HTMLDivElement>(null);
+  const rightTrackRef = useRef<HTMLDivElement>(null);
+  const thirdTrackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
@@ -86,14 +88,21 @@ export function WebsiteShowcaseScrollSection() {
   const getImageSrcBottom = (index: number) => (isMobile ? SHOWCASE_IMAGES_BOTTOM_MOBILE : SHOWCASE_IMAGES_BOTTOM)[index % IMAGES_PER_ROW];
   const getImageSrcThird = (index: number) => SHOWCASE_IMAGES_THIRD[index % IMAGES_PER_ROW];
 
+  // Uppdatera transform direkt på DOM (inga React-renders under scroll) = smidigare
   useEffect(() => {
-    setTransforms(getTrackTransforms(window.scrollY));
+    const updateTransforms = () => {
+      const { left, right, third } = getTrackTransforms(window.scrollY);
+      if (leftTrackRef.current) leftTrackRef.current.style.transform = left;
+      if (rightTrackRef.current) rightTrackRef.current.style.transform = right;
+      if (thirdTrackRef.current) thirdTrackRef.current.style.transform = third;
+    };
+    updateTransforms();
     let rafId: number | null = null;
     const handleScroll = () => {
       if (rafId !== null) return;
       rafId = requestAnimationFrame(() => {
         rafId = null;
-        setTransforms(getTrackTransforms(window.scrollY));
+        updateTransforms();
       });
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -171,8 +180,9 @@ export function WebsiteShowcaseScrollSection() {
         className="website-showcase-row"
       >
         <div
+          ref={leftTrackRef}
           className="website-showcase-track"
-          style={{ transform: transforms.left }}
+          style={{ transform: INITIAL_TRANSFORMS.left }}
         >
           {duplicatedScrollItemsLeft.map((item, index) => (
             <div key={`left-${item.id}-${index}`} className="website-showcase-item">
@@ -203,8 +213,9 @@ export function WebsiteShowcaseScrollSection() {
         className="website-showcase-row"
       >
         <div
+          ref={rightTrackRef}
           className="website-showcase-track"
-          style={{ transform: transforms.right }}
+          style={{ transform: INITIAL_TRANSFORMS.right }}
         >
           {duplicatedScrollItemsRight.map((item, index) => (
             <div key={`right-${item.id}-${index}`} className="website-showcase-item">
@@ -233,8 +244,9 @@ export function WebsiteShowcaseScrollSection() {
         className="website-showcase-row"
       >
         <div
+          ref={thirdTrackRef}
           className="website-showcase-track"
-          style={{ transform: transforms.third }}
+          style={{ transform: INITIAL_TRANSFORMS.third }}
         >
           {duplicatedScrollItemsThird.map((item, index) => (
             <div key={`third-${item.id}-${index}`} className="website-showcase-item">
