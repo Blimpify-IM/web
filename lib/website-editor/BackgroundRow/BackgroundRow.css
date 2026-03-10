@@ -14,7 +14,6 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: var(--control-height-md, 36px);
   min-height: 36px;
   border: 1px solid var(--border-input, var(--border-default));
   border-radius: var(--radius-input, var(--radius-md));
@@ -36,6 +35,7 @@
   align-items: center;
   gap: 8px;
   height: 100%;
+  min-height: 36px;
   padding: 0 8px;
   background: none;
   border: none;
@@ -45,7 +45,7 @@
 .bg-row__thumb {
   width: 22px;
   height: 22px;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-xs);
   overflow: hidden;
   border: 1px solid var(--border-subtle);
   background: var(--surface-subtle);
@@ -98,14 +98,12 @@
   position: fixed;
   z-index: 1100;
   width: 300px;
-  max-height: 85vh;
   background: var(--surface-page);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 .bg-popover__header {
   display: flex;
@@ -121,22 +119,7 @@
   flex-direction: column;
   gap: 12px;
   overflow-y: auto;
-  overflow-x: hidden;
   max-height: 80vh;
-  min-height: 0;
-}
-.bg-popover__file-input {
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-.bg-popover__empty-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
 }
 .bg-popover__empty-well {
   display: flex;
@@ -152,17 +135,9 @@
   cursor: pointer;
   color: var(--icon-tertiary);
 }
-.bg-popover__empty-actions .bg-popover__empty-well {
-  aspect-ratio: auto;
-  min-height: 64px;
-}
-.bg-popover__empty-well:hover:not(:disabled) {
+.bg-popover__empty-well:hover {
   border-color: var(--border-strong);
   background: var(--surface-raised);
-}
-.bg-popover__empty-well:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
 }
 .bg-popover__preview-well {
   position: relative;
@@ -221,41 +196,4 @@
 .bg-popover__range {
   width: 100%;
   accent-color: var(--foundation-accent-500, currentColor);
-}
-
-/* Inline-inställningar (ingen modal) – förhandsgranskningen syns live */
-.bg-row-inline {
-  margin-top: var(--foundation-space-2);
-  padding: var(--foundation-space-3);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-  background: var(--surface-subtle);
-  max-height: min(70vh, 400px);
-  overflow-y: auto;
-}
-.bg-row-inline__top {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--foundation-space-2);
-}
-.bg-row-inline__top:has(+ .bg-row-inline__main) {
-  padding-bottom: var(--foundation-space-3);
-  border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: var(--foundation-space-3);
-}
-.bg-row-inline__main {
-  min-height: 0;
-}
-.bg-row-inline__url-input {
-  width: 100%;
-  padding: 8px 12px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-default);
-  font: inherit;
-}
-.bg-row-inline__url-input:focus {
-  outline: none;
-  border-color: var(--border-accent);
-  box-shadow: 0 0 0 2px var(--surface-accent-muted);
 }

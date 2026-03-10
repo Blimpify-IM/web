@@ -1,5 +1,0 @@
-.component-editor{display:flex;flex-direction:column;height:100%;padding:0;background:var(--background-surface)}
-.component-editor__scrollable{flex:1;overflow-y:auto;overflow-x:hidden}
-.component-editor__content{flex:1;min-width:0;padding:0 var(--foundation-space-2);display:flex;flex-direction:column;gap:var(--foundation-space-3);overflow-y:auto}
-.component-editor__group{margin-bottom:24px;min-width:0}
-.component-editor__group-title{color:var(--text-subtle);font-size:11px;font-weight:var(--foundation-weight-semibold);margin-bottom:12px;text-transform:uppercase}

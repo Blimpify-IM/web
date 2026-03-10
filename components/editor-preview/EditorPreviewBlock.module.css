@@ -34,16 +34,6 @@
   min-height: 0;
 }
 
-/* Dark mode förhandsgranskning när Theme = Dark */
-.canvas[data-theme="dark"] .canvasInner {
-  background-color: var(--surface-page, #111);
-  color: var(--text-default, #e5e5e5);
-}
-.canvas[data-theme="dark"] .canvasBar {
-  background-color: var(--surface-raised, #1a1a1a);
-  border-bottom-color: var(--border-default, #333);
-}
-
 .canvasBar {
   flex-shrink: 0;
   padding: var(--foundation-space-2) var(--foundation-space-3);

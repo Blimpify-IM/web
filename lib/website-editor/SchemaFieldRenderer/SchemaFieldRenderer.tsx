@@ -2,7 +2,6 @@
  * SchemaFieldRenderer – schema-driven fältredigering.
  * Samma komponent som i im-dashboard; används av NavbarLayoutEditor och SectionLayoutEditor.
  * ActionBuilder är valfri (för navbar/hero behövs den inte).
- * Menu Alignment och Logo använder enbart ikoner (pilar / ikon-text-both) för att få plats.
  */
 import React, { useEffect } from 'react';
 import {
@@ -14,17 +13,8 @@ import {
   SegmentedControl,
   Switch,
   Slider,
-  Icon,
 } from '@blimpify-im/ui';
 import type { PropConfig } from '@blimpify-im/ui';
-import {
-  ArrowLeftIcon,
-  ArrowRightIcon,
-  MinusIcon,
-  PhotoIcon,
-  ViewColumnsIcon,
-  DocumentTextIcon,
-} from '@heroicons/react/24/outline';
 import './SchemaFieldRenderer.css';
 
 export interface SchemaFieldRendererProps {
@@ -170,63 +160,29 @@ export const SchemaFieldRenderer: React.FC<SchemaFieldRendererProps> = ({
             size="md"
           />
         );
-      case 'segmented': {
+      case 'segmented':
         if (!isEnumConfig) return null;
         const segmentedValues = (propConfig as { values?: readonly string[] }).values;
         const segmentedLabels = (propConfig as { valueLabels?: Record<string, string> }).valueLabels;
-        const isMenuAlign = propKey === 'menuAlign' || propKey === 'mobileMenuAlign';
-        const isLogoDisplay = propKey === 'logoDisplay' || propKey === 'mobileLogoDisplay';
-        const useIconOnly = isMenuAlign || isLogoDisplay;
-
-        let segmentedOptions: Array<{ value: string; label: string; icon?: React.ReactNode }> =
+        const segmentedOptions =
           segmentedValues?.map((val: string) => ({
             value: val,
             label: segmentedLabels?.[val] || val,
           })) || [];
-
-        if (useIconOnly) {
-          const iconSize = 'sm';
-          if (isMenuAlign) {
-            const menuIcons: Record<string, React.ReactNode> = {
-              left: <Icon size={iconSize}><ArrowLeftIcon /></Icon>,
-              center: <Icon size={iconSize}><MinusIcon /></Icon>,
-              right: <Icon size={iconSize}><ArrowRightIcon /></Icon>,
-            };
-            segmentedOptions = segmentedOptions.map((o) => ({
-              ...o,
-              icon: menuIcons[o.value],
-            }));
-          }
-          if (isLogoDisplay) {
-            const logoIcons: Record<string, React.ReactNode> = {
-              logo: <Icon size={iconSize}><PhotoIcon /></Icon>,
-              both: <Icon size={iconSize}><ViewColumnsIcon /></Icon>,
-              text: <Icon size={iconSize}><DocumentTextIcon /></Icon>,
-            };
-            segmentedOptions = segmentedOptions.map((o) => ({
-              ...o,
-              icon: logoIcons[o.value],
-            }));
-          }
-        }
-
         return (
           <SegmentedControl
             options={segmentedOptions}
-            value={((value as string) || (propConfig as { default?: string }).default || segmentedValues?.[0]) ?? ''}
+            value={(value as string) || (propConfig as { default?: string }).default || (segmentedValues?.[0] ?? '')}
             onChange={(newValue) => onChange(propKey, newValue)}
             size="sm"
             variant="default"
             fullWidth
-            iconOnly={useIconOnly}
-            aria-label={displayName || propKey}
           />
         );
-      }
       case 'toggle':
         return (
           <Switch
-            checked={value === true}
+            checked={(value as boolean) || false}
             onChange={(checked) => onChange(propKey, checked)}
             size="md"
           />

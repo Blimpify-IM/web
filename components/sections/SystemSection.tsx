@@ -569,6 +569,7 @@ function EditorPreview() {
           onChange={setActiveTab}
           fullWidth
           size="sm"
+          tooltipPlacement="bottom"
           className="editor-preview-tabs"
         />
 

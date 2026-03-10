@@ -29,7 +29,7 @@ const faqs: FAQItem[] = [
   {
     question: 'Behöver jag kunna design eller teknik?',
     answer:
-      'Nej.\n\nBlimpify är byggt för företagare, inte designers. Alla komponenter har tydliga regler så att designen alltid håller ihop. Det betyder att du kan ändra innehåll och layout utan att riskera att förstöra designen.',
+      'Nej.\n\nBlimpify är byggt för företagare, inte designers. Alla komponenter har tydliga regler så att designen alltid håller ihop.\n\nDet betyder att du kan ändra innehåll och layout utan att riskera att förstöra designen.',
   },
   {
     question: 'Hur snabbt kan jag skapa en hemsida?',
@@ -44,7 +44,7 @@ const faqs: FAQItem[] = [
   {
     question: 'Får jag en egen webbadress?',
     answer:
-      'Ja.\n\nNär du skapar ett konto får du automatiskt en webbadress på formen dittföretag.onblimpify.com. Den fungerar direkt och din sida kan publiceras direkt.',
+      'Ja.\n\nNär du skapar ett konto får du automatiskt en webbadress på formen:\n\ndittföretag.onblimpify.com\n\nDen fungerar direkt och din sida kan publiceras direkt.',
   },
   {
     question: 'Kan jag använda min egen domän?',
@@ -59,7 +59,7 @@ const faqs: FAQItem[] = [
   {
     question: 'Vad kan jag göra med Blimpify?',
     answer:
-      'Med Blimpify kan du till exempel: skapa en företagshemsida, presentera dina tjänster, samla leads via kontaktformulär, visa kundreferenser och följa statistik för din hemsida.',
+      'Med Blimpify kan du till exempel:\n\n• skapa en företagshemsida\n• presentera dina tjänster\n• visa kundreferenser\n• samla leads via kontaktformulär\n• följa statistik för din hemsida',
   },
   {
     question: 'Kan jag ändra designen senare?',
@@ -69,7 +69,7 @@ const faqs: FAQItem[] = [
   {
     question: 'För vem är Blimpify byggt?',
     answer:
-      'Blimpify är främst byggt för småföretagare, konsulter, startups, frilansare och lokala företag. Alltså personer som vill ha en bra hemsida utan att behöva lägga tid på design eller teknik.',
+      'Blimpify är främst byggt för:\n\n• småföretagare\n• konsulter\n• startups\n• frilansare\n• lokala företag\n\nAlltså personer som vill ha en bra hemsida utan att behöva lägga tid på design eller teknik.',
   },
   {
     question: 'Är Blimpify färdigt?',
@@ -111,13 +111,9 @@ export function FAQSection() {
             >
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} itemKey={String(index)} title={faq.question}>
-                  <VStack spacing="sm">
-                    {faq.answer.split(/\n\n+/).map((paragraph, i) => (
-                      <Body key={i} size="md">
-                        {paragraph.trim()}
-                      </Body>
-                    ))}
-                  </VStack>
+                  <Body size="md" style={{ lineHeight: 1.6, whiteSpace: 'pre-line' }}>
+                    {faq.answer}
+                  </Body>
                 </AccordionItem>
               ))}
             </Accordion>

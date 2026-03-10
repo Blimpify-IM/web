@@ -44,7 +44,7 @@ export function EditorPreview() {
             >
               <div
                 style={{
-                  maxWidth: 1600,
+                  maxWidth: 1280,
                   margin: '0 auto',
                   minWidth: 0,
                 }}

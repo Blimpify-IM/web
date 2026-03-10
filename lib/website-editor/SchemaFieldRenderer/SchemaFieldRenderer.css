@@ -1,8 +1,0 @@
-.schema-field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-.schema-field__label { display: block; margin-bottom: 4px; }
-.schema-field__control { width: 100%; overflow: hidden; }
-.schema-field--inline { flex-direction: row; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; }
-.schema-field--inline .schema-field__label { margin-bottom: 0; flex: 1; }
-.schema-field--inline .schema-field__control { flex: 1; min-width: 0; }
-.schema-field__input-wrapper { position: relative; width: 100%; }
-.schema-field__char-count { display: block; text-align: right; margin-top: 4px; }

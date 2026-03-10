@@ -18,7 +18,6 @@ export function HeroSectionEditor({
   onOpenMediaPicker,
   onUploadImage,
   resolveImageUrl,
-  inlineSettings = false,
 }: HeroSectionEditorProps) {
   const alignOptions = [
     { value: 'left', label: 'Left' },
@@ -110,9 +109,7 @@ export function HeroSectionEditor({
             }}
             onLayoutChange={(patch) => onLayoutChange(patch)}
             onOpenMediaPicker={onOpenMediaPicker}
-            onUploadImage={onUploadImage}
             resolveImageUrl={resolveImageUrl}
-            inlineSettings={inlineSettings}
           />
         </div>
       </div>

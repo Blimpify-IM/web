@@ -33,8 +33,6 @@ export interface SideBarProps {
   headerContent?: ReactNode;
   titleRowContent?: ReactNode;
   leadingAction?: ReactNode;
-  /** Optional action after the title (e.g. expand icon when editing a section) */
-  trailingAction?: ReactNode;
   expandTabContent?: ReactNode;
   position?: 'left' | 'right';
   defaultWidth?: number;
@@ -64,7 +62,6 @@ export const SideBar: React.FC<SideBarProps> = ({
   headerContent,
   titleRowContent,
   leadingAction,
-  trailingAction,
   position = 'left',
   defaultWidth = DEFAULT_WIDTH,
   minWidth = DEFAULT_MIN_WIDTH,
@@ -239,15 +236,6 @@ export const SideBar: React.FC<SideBarProps> = ({
     [position]
   );
 
-  const ExpandIcon = useMemo(
-    () => (
-      <Icon size="sm" color="secondary" weight="medium">
-        {position === 'left' ? <PanelLeftOpen /> : <PanelRightOpen />}
-      </Icon>
-    ),
-    [position]
-  );
-
   const isDraggingFromCollapsed = isResizing && wasCollapsedRef.current;
   const showSidebarContent = !isCollapsed || isDraggingFromCollapsed;
   const effectiveWidth = isDraggingFromCollapsed ? (dragWidth ?? 0) : displayWidth;
@@ -276,17 +264,6 @@ export const SideBar: React.FC<SideBarProps> = ({
       data-position={position}
       data-collapsed={isCollapsed && !isDraggingFromCollapsed}
     >
-      {collapsible && isCollapsed && !isDraggingFromCollapsed && (
-        <button
-          type="button"
-          className="sidebar__expand-tab"
-          onClick={toggleCollapsed}
-          aria-label="Öppna sidofält"
-          title="Öppna sidofält"
-        >
-          {ExpandIcon}
-        </button>
-      )}
       {showSidebarContent && (
         <VStack spacing="xs" className="sidebar__container">
           <VStack spacing="sm" className="sidebar__header">
@@ -294,7 +271,6 @@ export const SideBar: React.FC<SideBarProps> = ({
               {leadingAction}
               {titleRowContent}
               <H3 className="sidebar__title">{title}</H3>
-              {trailingAction}
               {collapsible && (
                 <IconButton
                   icon={CollapseIcon}

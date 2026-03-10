@@ -8,5 +8,3 @@ export { AddSectionButton } from './AddSectionButton';
 export { EmptyCanvasPlaceholder } from './EmptyCanvasPlaceholder';
 export { StructureCanvasPreview } from './StructureCanvasPreview';
 export { StructureFromStart } from './StructureFromStart';
-export { DesignPanelPreview } from './DesignPanelPreview';
-export type { DesignPanelValues, DesignPanelTab } from './DesignPanelPreview';

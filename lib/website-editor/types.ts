@@ -1,6 +1,7 @@
 /**
- * Minimal content shape för hero-editorn.
+ * Shared types for website-editor (Hero section etc.)
  */
+
 export interface HeroLayout {
   alignSectionHeader?: 'left' | 'center';
   secondColumn?: 'none' | 'action';
@@ -13,22 +14,17 @@ export interface HeroLayout {
   imageFadeStrength?: number;
 }
 
-export interface HeroContent {
+export interface HeroSectionEditorContent {
   headline?: string;
   subtext?: string;
-  ctaText?: string;
 }
 
 export interface HeroSectionEditorProps {
-  layout: HeroLayout;
-  content?: HeroContent;
+  layout: Partial<HeroLayout>;
+  content?: HeroSectionEditorContent | null;
   onLayoutChange: (layout: Partial<HeroLayout>) => void;
-  onContentChange?: (content: Partial<HeroContent>) => void;
+  onContentChange?: (content: Partial<HeroSectionEditorContent>) => void;
   onOpenMediaPicker?: (currentUrl: string) => void;
-  /** Ladda upp en fil; returnerar CDN-URL. Används t.ex. i webben för bakgrundsbild. */
-  onUploadImage?: (file: File) => Promise<string>;
+  onUploadImage?: (file: File) => void | Promise<void>;
   resolveImageUrl?: (url: string) => string;
-  /** Visa bakgrundsinställningar inline (ingen modal) så förhandsgranskningen syns live. */
-  inlineSettings?: boolean;
 }
-

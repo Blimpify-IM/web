@@ -378,11 +378,6 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
       </Drawer>
 
       <style jsx global>{`
-        /* Ingen blå focus-border på navbaren – matchar editorn */
-        .navbar-bar:focus,
-        .navbar-bar:focus-visible {
-          outline: none;
-        }
         .navbar-login-button {
           background-color: var(--surface-raised) !important;
           border: 1px solid var(--border-subtle) !important;

@@ -179,53 +179,6 @@
   transform: none;
 }
 
-/* Flytande flik för att öppna panelen när den är stängd */
-.sidebar__expand-tab {
-  position: absolute;
-  top: var(--foundation-space-4, 16px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  padding: 0;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-button);
-  background: var(--surface-base);
-  color: var(--icon-secondary);
-  cursor: pointer;
-  box-shadow: var(--shadow-default);
-  transition: background 0.15s ease, color 0.15s ease;
-  z-index: 20;
-  animation: sidebarExpandTabFadeIn 150ms ease-out;
-}
-
-.sidebar__expand-tab:hover {
-  background: var(--surface-hover);
-  color: var(--icon-default);
-}
-
-.sidebar--left .sidebar__expand-tab {
-  left: 0;
-  transform: translateX(-100%);
-  margin-left: var(--foundation-space-2);
-}
-
-.sidebar--right .sidebar__expand-tab {
-  right: 0;
-  transform: translateX(100%);
-  margin-right: var(--foundation-space-2);
-}
-
-@keyframes sidebarExpandTabFadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 @media (max-width: 768px) {
   .sidebar:not(.sidebar--collapsed) {
     width: min(var(--sidebar-width, 280px), 85vw);
