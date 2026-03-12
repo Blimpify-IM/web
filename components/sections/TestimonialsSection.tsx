@@ -34,9 +34,14 @@ const testimonials: Testimonial[] = [
     avatar: '/assets/dclogo.png',
   },
   {
-    name: 'Viktor',
-    role: 'Efter demo',
-    content: 'Bilden är en bra representation av hur jag vill att sidan ska se ut.',
+    name: 'Oliver',
+    role: 'Efter användning',
+    content: 'Tjena Simon, härlig lösning och gillar mallen!',
+  },
+  {
+    name: 'Gabriel',
+    role: 'Efter användning',
+    content: 'Det fungerade bra. Jag kom in direkt och kunde testa mallen utan problem. Allt kändes tydligt.',
   },
   {
     name: 'Kevin Jansson',
@@ -46,9 +51,10 @@ const testimonials: Testimonial[] = [
     avatar: '/assets/kjlogowhite.png',
   },
   {
-    name: 'Filip',
-    role: 'Efter demo',
-    content: 'Tack Simon! Snyggt jobbat!!',
+    name: 'Elliot',
+    role: 'Efter användning',
+    content:
+      'Det var en väldigt bra applikation och väldigt simpel att använda! Kommer absolut fortsätta med den här för den verkar väldigt simpel att använda.',
   },
   {
     name: 'Philip Flensburg',
@@ -58,19 +64,9 @@ const testimonials: Testimonial[] = [
     avatar: '/assets/mclogo.png',
   },
   {
-    name: 'Hai',
-    role: 'Efter demo',
-    content: 'Ouuff ouff oufff det ser vackert ut',
-  },
-  {
     name: 'Ryan',
     role: 'Efter demo',
     content: 'Oooooo väldigt najs ändå väldigt fin',
-  },
-  {
-    name: 'Edvin',
-    role: 'Efter demo',
-    content: 'Väldigt snyggt!',
   },
   {
     name: 'Filip Blank',
