@@ -14,6 +14,7 @@ import {
   FadeIn,
   Body,
   SplitButton,
+  Spinner,
 } from '@blimpify-im/ui';
 import { Menu, X } from 'lucide-react';
 import { useLandingSession } from '@/hooks/useLandingSession';
@@ -39,7 +40,7 @@ function getDisplayName(_user: { username?: string | null; email?: string }): st
   return 'Dashboard';
 }
 
-export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
+export function NavbarBar({ menuAlign = 'left' }: NavbarBarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { user: sessionUser, loading: sessionLoading } = useLandingSession();
@@ -92,6 +93,37 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
     window.location.href = `/#${hash}`;
   };
 
+  const desktopNav = (
+    <HStack
+      spacing="lg"
+      justify={menuAlign === 'center' ? 'center' : 'start'}
+      className="navbar-bar__desktop-nav"
+    >
+      {menuItems.map((item, i) =>
+        item.hash ? (
+          <TextLink
+            key={i}
+            href={item.href}
+            size="md"
+            onClick={(e) => handleHashClick(e, item.hash)}
+          >
+            {item.label}
+          </TextLink>
+        ) : (
+          <Link
+            key={i}
+            href={item.href}
+            style={{ color: 'var(--text-link-color)', textDecoration: 'none' }}
+          >
+            <Body size="md" weight="medium" style={{ color: 'inherit' }}>
+              {item.label}
+            </Body>
+          </Link>
+        ),
+      )}
+    </HStack>
+  );
+
   return (
     <nav
       className={`navbar-bar ${isScrolled ? 'navbar-bar--scrolled' : ''}`}
@@ -120,52 +152,64 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           padding: 'var(--space-navbar)',
         }}
       >
-        {/* Vänster: logo – tar lika plats som höger så mitten blir centrerad */}
-        <div className="navbar-bar__left">
-          <Logo
-            src="https://cdn.blimpify-im.com/assets/logo/blimpify-transparent-logo.png"
-            alt="Blimpify"
-            width={50}
-            height={50}
-            border="none"
-            color="auto"
-            radius="lg"
-            href="/"
-          />
-        </div>
+        {menuAlign === 'left' ? (
+          <>
+            <div className="navbar-bar__left-cluster">
+              <Logo
+                src="https://cdn.blimpify-im.com/assets/logo/blimpify-transparent-logo.png"
+                alt="Blimpify"
+                width={50}
+                height={50}
+                border="none"
+                color="auto"
+                radius="lg"
+                href="/"
+              />
+              {desktopNav}
+            </div>
+            <div className="navbar-bar__grow" aria-hidden />
+          </>
+        ) : (
+          <>
+            <div className="navbar-bar__left">
+              <Logo
+                src="https://cdn.blimpify-im.com/assets/logo/blimpify-transparent-logo.png"
+                alt="Blimpify"
+                width={50}
+                height={50}
+                border="none"
+                color="auto"
+                radius="lg"
+                href="/"
+              />
+            </div>
+            <div
+              className={`navbar-bar__content navbar-bar__middle-wrap navbar-bar__middle-wrap--${menuAlign}`}
+            >
+              {desktopNav}
+            </div>
+          </>
+        )}
 
-        {/* Mitten: länkarna – ligger i absolut centrum oavsett logo/knappar */}
-        <div className={`navbar-bar__content navbar-bar__middle-wrap navbar-bar__middle-wrap--${menuAlign}`}>
-          <HStack spacing="lg" justify="center">
-            {menuItems.map((item, i) =>
-              item.hash ? (
-              <TextLink
-                key={i}
-                href={item.href}
-                size="md"
-                onClick={(e) => handleHashClick(e, item.hash)}
-              >
-                {item.label}
-              </TextLink>
-            ) : (
-              <Link
-                key={i}
-                href={item.href}
-                style={{ color: 'var(--text-link-color)', textDecoration: 'none' }}
-              >
-                <Body size="md" weight="medium" style={{ color: 'inherit' }}>
-                  {item.label}
-                </Body>
-              </Link>
-              )
-            )}
-          </HStack>
-        </div>
-
-        {/* Höger: knappar – tar lika plats som vänster */}
+        {/* Höger: knappar */}
         <div className="navbar-bar__right">
-          <HStack spacing="sm">
-            {!sessionLoading && sessionUser ? (
+          <HStack spacing="sm" align="center">
+            {sessionLoading ? (
+              <div
+                className="navbar-session-placeholder"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  minHeight: 'var(--control-height-md)',
+                  minWidth: '5.5rem',
+                }}
+                aria-busy="true"
+                aria-live="polite"
+              >
+                <Spinner size="sm" variant="accent" aria-label="Laddar konto" />
+              </div>
+            ) : sessionUser ? (
               <SplitButton
                 variant="accent"
                 size="md"
@@ -281,7 +325,28 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           ))}
 
           <VStack spacing="sm" align="start" style={{ marginTop: 'var(--foundation-space-4)' }}>
-            {!sessionLoading && sessionUser ? (
+            {sessionLoading ? (
+              <FadeIn
+                direction="down"
+                duration={DURATION}
+                delay={menuItems.length * STAGGER}
+                distance={DISTANCE}
+                enableScrollTrigger={false}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    minHeight: 'var(--control-height-lg)',
+                  }}
+                  aria-busy="true"
+                >
+                  <Spinner size="md" variant="accent" aria-label="Laddar konto" />
+                </div>
+              </FadeIn>
+            ) : sessionUser ? (
               <>
                 <FadeIn
                   direction="down"
@@ -413,7 +478,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           border-color: rgba(100, 90, 80, 0.6) !important;
         }
         
-        /* Tre kolumner: vänster och höger lika breda → länkarna hamnar i absolut centrum */
+        /* Center-läge: två flex:1 → mitten centrerad */
         .navbar-bar__left {
           flex: 1;
           min-width: 0;
@@ -421,15 +486,33 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           align-items: center;
           justify-content: flex-start;
         }
+        .navbar-bar__left-cluster {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: var(--foundation-space-8);
+          flex-shrink: 0;
+          min-width: 0;
+        }
+        .navbar-bar__grow {
+          flex: 1;
+          min-width: 0;
+        }
         .navbar-bar__content.navbar-bar__middle-wrap {
           flex: 0 0 auto;
           display: flex;
           align-items: center;
           min-width: 0;
         }
-        .navbar-bar__middle-wrap--left { justify-content: flex-start; }
-        .navbar-bar__middle-wrap--center { justify-content: center; }
-        .navbar-bar__middle-wrap--right { justify-content: flex-end; }
+        .navbar-bar__middle-wrap--left {
+          justify-content: flex-start;
+        }
+        .navbar-bar__middle-wrap--center {
+          justify-content: center;
+        }
+        .navbar-bar__middle-wrap--right {
+          justify-content: flex-end;
+        }
         .navbar-bar__right {
           flex: 1;
           min-width: 0;
@@ -437,8 +520,15 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
           align-items: center;
           justify-content: flex-end;
         }
+        /* Vänsterläge: knappar utan dubbel flex-grow */
+        .navbar-bar:has(.navbar-bar__grow) .navbar-bar__right {
+          flex: 0 0 auto;
+        }
         @media (max-width: 1124px) {
           .navbar-bar__content {
+            display: none !important;
+          }
+          .navbar-bar__desktop-nav {
             display: none !important;
           }
           .navbar-bar__right {

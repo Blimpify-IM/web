@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Section, Container, VStack, Typography, Spacer, FadeIn, Body, Button } from '@blimpify-im/ui';
+import { Section, Container, VStack, Typography, FadeIn, Body } from '@blimpify-im/ui';
+import { HeroBusinessChatBox } from '@/components/sections/HeroBusinessChatBox';
 
 export function HeroSection() {
   const [isDark, setIsDark] = useState(true);
@@ -24,9 +25,11 @@ export function HeroSection() {
     <Section
       overflow="visible"
       overflowX="clip"
+      height="screen"
+      contentPosition="top"
+      applyNavbarVoid
       style={{
         position: 'relative',
-        minHeight: '100vh',
         // Default för bakgrundens tyrka (överstyrs av --hero-tint-opacity / --hero-warm-opacity)
         ['--hero-tint-opacity-default' as string]: isDark ? 0.25 : 0.35,
       }}
@@ -104,20 +107,21 @@ export function HeroSection() {
         }}
       />
 
-      <Spacer mobile={1} desktop={1} />
-      
-      {/* Hero Content */}
+      {/* Hero Content – toppjusterat under fixed navbar (applyNavbarVoid) */}
       <Container
         style={{
           position: 'relative',
           zIndex: 1,
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
+          justifyContent: 'flex-start',
+          width: '100%',
+          maxWidth: '100%',
+          paddingTop: 'var(--foundation-space-4, 1rem)',
+          paddingBottom: 'var(--foundation-space-8, 2rem)',
         }}
       >
-        <VStack spacing="xl" align="center">
+        <VStack spacing="xl" align="center" style={{ width: '100%', maxWidth: '100%' }}>
           <VStack spacing="lg" align="center" style={{ maxWidth: '850px' }}>
             <FadeIn direction="up" duration={800} delay={0} enableScrollTrigger={false}>
               <Typography
@@ -154,17 +158,29 @@ export function HeroSection() {
             </FadeIn>
           </VStack>
 
-          <FadeIn direction="up" duration={600} delay={400} enableScrollTrigger={false}>
-            <Button
-              variant="accent"
-              size="xl"
-              href="https://app.blimpify-im.com/sv/signup"
-              target="_blank"
-              className="hero-cta-button"
-            >
-              Kom igång
-            </Button>
-          </FadeIn>
+          {/* Full radbredd: VStack align=center krymper annars barn till rubrikens ~850px */}
+          <div
+            style={{
+              width: '100%',
+              alignSelf: 'stretch',
+              boxSizing: 'border-box',
+            }}
+          >
+            <FadeIn direction="up" duration={600} delay={400} enableScrollTrigger={false}>
+              <div
+                style={{
+                  width: '100%',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  paddingLeft: 'var(--foundation-space-4, 1rem)',
+                  paddingRight: 'var(--foundation-space-4, 1rem)',
+                  boxSizing: 'border-box',
+                }}
+              >
+                <HeroBusinessChatBox signupHref="https://app.blimpify-im.com/sv/signup" />
+              </div>
+            </FadeIn>
+          </div>
         </VStack>
       </Container>
 

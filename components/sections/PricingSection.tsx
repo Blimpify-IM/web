@@ -243,35 +243,35 @@ export function PricingSection() {
 
           {/* Anpassat behov – sekundärt; man börjar med mall */}
           <FadeIn direction="up" duration={600} delay={300}>
-            <Card
-              variant="outlined"
-              padding="lg"
-              radius="lg"
-              style={{
-                backgroundColor: 'var(--surface-raised)',
-              }}
-            >
-              <CardContent>
+              <Card
+                variant="outlined"
+                padding="lg"
+                radius="lg"
+                style={{
+                  backgroundColor: 'var(--surface-raised)',
+                }}
+              >
+                <CardContent>
                 <VStack spacing="md" align="center">
                   <VStack spacing="xs" align="center">
                     <H3 weight="bold" align="center">Anpassat behov</H3>
                     <Body size="sm" color="secondary" align="center">
                       Behöver ni mer än en mall – t.ex. skräddarsydd lösning eller större projekt? Boka ett möte så pratar vi.
-                    </Body>
+                      </Body>
+                    </VStack>
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      href="https://calendly.com/admin-blimpify/vv-digital-media"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Boka möte
+                    </Button>
                   </VStack>
-                  <Button
-                    variant="secondary"
-                    size="lg"
-                    href="https://calendly.com/admin-blimpify/vv-digital-media"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Boka möte
-                  </Button>
-                </VStack>
-              </CardContent>
-            </Card>
-          </FadeIn>
+                </CardContent>
+              </Card>
+            </FadeIn>
         </VStack>
       </Container>
 
