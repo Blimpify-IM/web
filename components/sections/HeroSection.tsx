@@ -209,12 +209,12 @@ export function HeroSection() {
                 className="hero-display-responsive"
               >
                 <span className="hero-text-desktop">
-                  Hemsida åt dig<br />
-                  <span className="hero-text-chill">inte av dig</span>
+                  Struktur. Design.<br />
+                  <span className="hero-text-chill">Rätt från start.</span>
                 </span>
                 <span className="hero-text-mobile">
-                  Hemsida åt dig<br />
-                  <span className="hero-text-chill">inte av dig</span>
+                  Struktur. Design.<br />
+                  <span className="hero-text-chill">Rätt från start.</span>
                 </span>
               </Display>
             </FadeIn>
@@ -224,7 +224,7 @@ export function HeroSection() {
                 align="center"
                 className="hero-body-responsive"
               >
-                Vi bygger inte bara hemsidor. Vi tar ansvar för dem.
+                Genomtänkta hemsidor redo att använda direkt.
               </Body>
             </FadeIn>
           </VStack>
