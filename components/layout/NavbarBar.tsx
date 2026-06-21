@@ -95,16 +95,29 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
     { href: '/#faq', label: 'FAQ', hash: 'faq' },
   ];
 
-  const handleHashClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+  const handleHashClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    hash: string,
+    closeDrawer = false
+  ) => {
+    e.preventDefault();
     const currentPath = window.location.pathname;
 
     if (currentPath === '/') {
-      e.preventDefault();
-      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // If the drawer is open, close it first so its preventScroll lock is
+      // released, then scroll once the close animation has had a frame to run.
+      if (closeDrawer) {
+        setMobileOpen(false);
+        setTimeout(() => {
+          document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 320);
+      } else {
+        document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
       return;
     }
 
-    e.preventDefault();
+    if (closeDrawer) setMobileOpen(false);
     window.location.href = `/#${hash}`;
   };
 
@@ -262,10 +275,7 @@ export function NavbarBar({ menuAlign = 'center' }: NavbarBarProps) {
                 <TextLink
                   href={item.href}
                   size="lg"
-                  onClick={(e) => {
-                    setMobileOpen(false);
-                    handleHashClick(e, item.hash);
-                  }}
+                  onClick={(e) => handleHashClick(e, item.hash, true)}
                 >
                   {item.label}
                 </TextLink>
